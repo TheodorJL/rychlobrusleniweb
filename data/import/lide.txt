@@ -2,25 +2,37 @@
 # Formát řádku: Jméno|orgán|funkce|dráha|klub|e-mail|telefon
 # Řádky s mřížkou se přeskočí, můžete je vložit i s nimi.
 #
-Valt|predsednictvo|||||
-Létal|predsednictvo|||||
-Kulma|predsednictvo|||||
-Krupka|predsednictvo|||||
-Novotná|predsednictvo|||||
-Jílek|kontrolni-komise|||||
-Cheml|kontrolni-komise|||||
-Macháček|kontrolni-komise|||||
-Pavel Haselberger|predsedove|předseda||BK ŽĎÁR|haselpa@seznam.cz|+420 737 114 584
-Oldřich Žďárek|predsedove|předseda||BK NÁCHOD|oldrich.zdarek@seznam.cz|+420 603 743 983
-Jiří Macháček|predsedove|předseda||BOJ ŽĎÁR|machy.3@seznam.cz|+420 605 841 653
-Ondřej Jílek|predsedove|předseda||BZK PRAHA|ondrej.jilek@gmail.com|+420 602 190 206
-Věra Břínková|predsedove|předseda||KOMETA BRNO|speed.skating@seznam.cz|+420 775 247 008
-Jarmil Hrůza|predsedove|předseda||KSB BENÁTKY|jarmil.hruza@gmail.com|+420 602 694 737
-Petr Novák|predsedove|předseda||KRS SVRATKA|skatepn@gmail.com|+420 731 540 253
-Zbyněk Svítil|predsedove|předseda||STC ŽĎÁR|zbynek.svitil@seznam.cz|+420 603 105 043
-Libuše Steklá|predsedove|předseda||KSB HODONÍN|libusa@stekla.cz|+420 739 491 764
-Roman Vodička ml.|predsedove|předseda||RK CHRUDIM|rkskutec@email.cz|+420 739 788 092
-Roman Vodička st.|predsedove|předseda||RK SKUTEČ|rkskutec@email.cz|+420 739 788 096
-Ludmila Krupková|predsedove|předseda||KSB MODŘANY|lida.krupkova@seznam.cz|+420 603 193 080
-Pavel Kulma|predsedove|předseda||SKR HLINSKO|kulma.pavel@gmail.com|+420 731 616 474
-Pavel Semeniuk|predsedove|předseda||ASK BLANSKO|pavel.semeniuk@seznam.cz|+420 602 513 709
+# Orgán: predsednictvo | kontrolni-komise | predsedove
+# Dráha: dlouha | kratka (jen u předsedů klubů)
+#
+# Rozdělení klubů podle dráhy odpovídá staré stránce /struktura/ —
+# nadpisy tam stály nad prvními dvěma a druhými dvěma sloupci mřížky.
+#
+# Jeden člověk může být ve dvou orgánech (Jílek, Macháček, Kulma).
+# Vložení se pozná podle jména i orgánu, takže se nepřepíšou navzájem.
+
+Marcela Valt|predsednictvo|předsedkyně|||marcela@speedskating.cz|+420 603 495 327
+Jan Létal|predsednictvo|místopředseda|||letal.jan@email.cz|+420 777 922 381
+Pavel Kulma|predsednictvo|místopředseda|||kulma.pavel@gmail.com|+420 731 616 474
+Matěj Krupka|predsednictvo|člen|||matej.krupka@gmail.com|+420 603 939 747
+Kateřina Novotná|predsednictvo|člen|||novotnaka84@gmail.com|+420 723 771 118
+
+Ondřej Jílek|kontrolni-komise|předseda|||ondrej.jilek@gmail.com|+420 602 190 206
+Michal Chmel|kontrolni-komise|člen|||mchmel26@gmail.com|+420 734 876 815
+Jiří Macháček|kontrolni-komise|člen|||machy.3@seznam.cz|+420 605 841 653
+
+Milan Sáblík|predsedove|předseda|dlouha|BK ŽĎÁR|haselpa@seznam.cz|+420 731 616 499
+Petr Novák|predsedove|předseda|dlouha|KRS SVRATKA|skatepn@gmail.com|+420 731 540 253
+Jiří Macháček|predsedove|předseda|dlouha|BOJ ŽĎÁR|machy.3@seznam.cz|+420 605 841 653
+Roman Vodička|predsedove|předseda|dlouha|RK SKUTEČ|rkskutec@email.cz|+420 739 788 092
+Roman Vodička ml.|predsedove|předseda|dlouha|RK CHRUDIM|rkskutec@email.cz|+420 739 788 093
+Věra Břínková|predsedove|předseda|dlouha|KOMETA BRNO|speed.skating@seznam.cz|+420 775 247 008
+Libuše Steklá|predsedove|předseda|dlouha|KSB HODONÍN|libusa@stekla.cz|+420 739 491 764
+Pavel Semeniuk|predsedove|předseda|dlouha|ASK BLANSKO|pavel.semeniuk@seznam.cz|+420 602 513 709
+Pavel Kulma|predsedove|předseda|dlouha|SKR HLINSKO|kulma.pavel@gmail.com|+420 731 616 474
+Ludmila Krupková|predsedove|předseda|dlouha|KSB MODŘANY|lida.krupkova@seznam.cz|+420 603 193 080
+
+Oldřich Žďárek|predsedove|předseda|kratka|BK NÁCHOD|oldrich.zdarek@seznam.cz|+420 603 743 983
+Zbyněk Svítil|predsedove|předseda|kratka|STC ŽĎÁR|svitilzbynek@seznam.cz|+420 603 105 043
+Jarmil Hrůza|predsedove|předseda|kratka|KSB BENÁTKY|jarmil.hruza@gmail.com|+420 602 694 737
+Ondřej Jílek|predsedove|předseda|kratka|BZK PRAHA|ondrej.jilek@gmail.com|+420 602 190 206

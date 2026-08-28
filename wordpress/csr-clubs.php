@@ -162,6 +162,18 @@ function csr_club_metabox_render( $post ) {
 			</div>
 		<?php endforeach; ?>
 
+		<div style="grid-column: 1 / -1">
+			<label for="csr-club-logo">Adresa loga</label>
+			<input type="text" id="csr-club-logo" name="csr_club_logo"
+				value="<?php echo esc_attr( get_post_meta( $post->ID, '_csr_club_logo', true ) ); ?>">
+			<p class="desc">
+				Použije se, jen když klub nemá <strong>náhledový obrázek</strong> — ten má vždycky přednost.
+				<?php if ( has_post_thumbnail( $post->ID ) ) : ?>
+					Tenhle klub náhledový obrázek má, takže se adresa neuplatní.
+				<?php endif; ?>
+			</p>
+		</div>
+
 		<?php if ( ! get_post_meta( $post->ID, '_csr_club_web', true ) ) : ?>
 			<p class="csr-cf__warn">
 				Bez adresy webu se u klubu tlačítko <strong>„Web klubu"</strong> nezobrazí.
@@ -186,6 +198,10 @@ function csr_club_save( $post_id ) {
 	}
 	if ( ! current_user_can( 'edit_post', $post_id ) ) {
 		return;
+	}
+
+	if ( isset( $_POST['csr_club_logo'] ) ) {
+		update_post_meta( $post_id, '_csr_club_logo', esc_url_raw( wp_unslash( $_POST['csr_club_logo'] ) ) );
 	}
 
 	foreach ( array_keys( csr_club_fields() ) as $key ) {

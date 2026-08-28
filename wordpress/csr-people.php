@@ -309,6 +309,84 @@ function csr_track_key( $text ) {
 }
 
 /**
+ * Iniciály ze jména — místo fotky. Nikdo z lidí ve svazu fotku nemá
+ * a dvaadvacet stejných siluet vedle sebe vypadá jako chyba.
+ *
+ * @param string $jmeno Celé jméno.
+ * @return string Jedno až dvě písmena.
+ */
+function csr_person_initials( $jmeno ) {
+	$slova = preg_split( '/\s+/u', trim( (string) $jmeno ), -1, PREG_SPLIT_NO_EMPTY );
+	if ( ! $slova ) {
+		return '';
+	}
+
+	$prijmeni = csr_person_surname( $jmeno );
+	$prvni    = $slova[0];
+	if ( $prijmeni === $prvni ) {
+		return csr_first_letter( $prvni );
+	}
+	return csr_first_letter( $prvni ) . csr_first_letter( $prijmeni );
+}
+
+/**
+ * První písmeno slova velkým, i s diakritikou.
+ *
+ * @param string $slovo Slovo.
+ * @return string
+ */
+function csr_first_letter( $slovo ) {
+	$slovo = (string) $slovo;
+	if ( '' === $slovo ) {
+		return '';
+	}
+	$znak = function_exists( 'mb_substr' ) ? mb_substr( $slovo, 0, 1, 'UTF-8' ) : substr( $slovo, 0, 1 );
+	return function_exists( 'mb_strtoupper' ) ? mb_strtoupper( $znak, 'UTF-8' ) : strtoupper( $znak );
+}
+
+/**
+ * Najde člověka podle jména v rámci jednoho orgánu.
+ *
+ * @param string $jmeno Jméno.
+ * @param string $body  Slug orgánu, prázdné = hledat všude.
+ * @return int ID záznamu, nebo 0.
+ */
+function csr_find_person( $jmeno, $body ) {
+	$args = array(
+		'post_type'      => 'csr_person',
+		'title'          => $jmeno,
+		'posts_per_page' => 1,
+		'post_status'    => 'any',
+		'fields'         => 'ids',
+	);
+	if ( $body ) {
+		$args['tax_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+			array(
+				'taxonomy' => 'csr_body',
+				'field'    => 'slug',
+				'terms'    => $body,
+			),
+		);
+	}
+	$nalezeni = get_posts( $args );
+	return $nalezeni ? (int) $nalezeni[0] : 0;
+}
+
+/**
+ * Příjmení ze jména — poslední slovo, zkratky jako „ml." se přeskočí.
+ *
+ * @param string $jmeno Celé jméno.
+ * @return string
+ */
+function csr_person_surname( $jmeno ) {
+	$slova = preg_split( '/\s+/u', trim( (string) $jmeno ), -1, PREG_SPLIT_NO_EMPTY );
+	while ( $slova && preg_match( '/^(ml|st|jr|sr)\.?$/iu', end( $slova ) ) ) {
+		array_pop( $slova );
+	}
+	return $slova ? (string) end( $slova ) : '';
+}
+
+/**
  * Vykreslí a zpracuje hromadný vklad.
  */
 function csr_people_import_render() {
@@ -329,37 +407,6 @@ function csr_people_import_render() {
 				continue;
 			}
 
-			$exists = get_posts(
-				array(
-					'post_type'      => 'csr_person',
-					'title'          => $person['name'],
-					'posts_per_page' => 1,
-					'post_status'    => 'any',
-					'fields'         => 'ids',
-				)
-			);
-			if ( $exists ) {
-				$skip[] = $person['name'];
-				continue;
-			}
-
-			$post_id = wp_insert_post(
-				array(
-					'post_type'   => 'csr_person',
-					'post_title'  => sanitize_text_field( $person['name'] ),
-					'post_status' => 'publish',
-				)
-			);
-			if ( is_wp_error( $post_id ) ) {
-				continue;
-			}
-
-			foreach ( array( 'role', 'club', 'email', 'phone' ) as $key ) {
-				$value = 'email' === $key ? sanitize_email( $person[ $key ] ) : sanitize_text_field( $person[ $key ] );
-				update_post_meta( $post_id, '_csr_person_' . $key, $value );
-			}
-			update_post_meta( $post_id, '_csr_person_track', csr_track_key( $person['track'] ) );
-
 			// Orgán se hledá podle názvu i podle zkratky.
 			$body = sanitize_title( $person['body'] );
 			if ( ! array_key_exists( $body, csr_bodies() ) ) {
@@ -370,10 +417,60 @@ function csr_people_import_render() {
 					}
 				}
 			}
-			if ( array_key_exists( $body, csr_bodies() ) ) {
+			$body = array_key_exists( $body, csr_bodies() ) ? $body : '';
+
+			/*
+			 * Hledáme v rámci orgánu, ne v celém seznamu: Ondřej Jílek je
+			 * v kontrolní komisi i předsedou BZK Praha a jsou to dva různé
+			 * záznamy s jinou funkcí.
+			 */
+			$post_id = csr_find_person( $person['name'], $body );
+
+			// Lidé zavedení dřív mají místo jména jen příjmení („Valt").
+			// Doplníme jim celé jméno, ať se nezaloží podruhé.
+			if ( ! $post_id ) {
+				$prijmeni = csr_person_surname( $person['name'] );
+				$post_id  = $prijmeni ? csr_find_person( $prijmeni, $body ) : 0;
+				if ( $post_id ) {
+					wp_update_post(
+						array(
+							'ID'         => $post_id,
+							'post_title' => sanitize_text_field( $person['name'] ),
+						)
+					);
+				}
+			}
+
+			if ( $post_id ) {
+				$skip[] = $person['name'];
+			} else {
+				$post_id = wp_insert_post(
+					array(
+						'post_type'   => 'csr_person',
+						'post_title'  => sanitize_text_field( $person['name'] ),
+						'post_status' => 'publish',
+					)
+				);
+				if ( is_wp_error( $post_id ) ) {
+					continue;
+				}
+				$done++;
+			}
+
+			// U existujícího člověka doplňujeme jen to, co má prázdné.
+			foreach ( array( 'role', 'club', 'email', 'phone' ) as $key ) {
+				$value = 'email' === $key ? sanitize_email( $person[ $key ] ) : sanitize_text_field( $person[ $key ] );
+				if ( '' !== $value && '' === (string) get_post_meta( $post_id, '_csr_person_' . $key, true ) ) {
+					update_post_meta( $post_id, '_csr_person_' . $key, $value );
+				}
+			}
+			$track = csr_track_key( $person['track'] );
+			if ( '' !== $track && '' === (string) get_post_meta( $post_id, '_csr_person_track', true ) ) {
+				update_post_meta( $post_id, '_csr_person_track', $track );
+			}
+			if ( $body ) {
 				wp_set_object_terms( $post_id, $body, 'csr_body' );
 			}
-			$done++;
 		}
 	}
 	?>
@@ -384,7 +481,7 @@ function csr_people_import_render() {
 			<div class="notice notice-success"><p>Vloženo záznamů: <strong><?php echo (int) $done; ?></strong>. Fotky doplňte u jednotlivých lidí jako náhledový obrázek.</p></div>
 		<?php endif; ?>
 		<?php if ( $skip ) : ?>
-			<div class="notice notice-warning"><p>Přeskočeno (jméno už existuje): <?php echo esc_html( implode( ', ', $skip ) ); ?></p></div>
+			<div class="notice notice-info"><p>Už existovali, doplnilo se jen to, co měli prázdné: <?php echo esc_html( implode( ', ', $skip ) ); ?></p></div>
 		<?php endif; ?>
 
 		<p>Jeden člověk na řádek, údaje oddělené svislítkem <code>|</code>:</p>
@@ -454,7 +551,7 @@ function csr_render_person( $person ) {
 	// ale zůstane pro odečítače a vyhledávače.
 	$hidden = csr_opt( 'csr_people_names_in_photo', 0 ) ? ' csr-person__text--sr' : '';
 	?>
-	<article class="csr-person csr-reveal">
+	<article class="csr-person csr-reveal<?php echo has_post_thumbnail( $person->ID ) ? '' : ' csr-person--bezfotky'; ?>">
 		<div class="csr-person__photo">
 			<?php if ( has_post_thumbnail( $person->ID ) ) : ?>
 				<?php
@@ -470,9 +567,7 @@ function csr_render_person( $person ) {
 				);
 				?>
 			<?php else : ?>
-				<span class="csr-person__silhouette" aria-hidden="true">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg>
-				</span>
+				<span class="csr-person__mono" aria-hidden="true"><?php echo esc_html( csr_person_initials( $person->post_title ) ); ?></span>
 			<?php endif; ?>
 		</div>
 

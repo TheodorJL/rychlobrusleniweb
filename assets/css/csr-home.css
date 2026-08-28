@@ -2437,6 +2437,10 @@ body { margin: 0; background: var(--csr-bg); }
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr));
   gap: clamp(1.1rem, 2vw, 1.75rem);
 }
+/* Vizitky bez fotky jsou širší než vysoké, potřebují víc místa na řádek. */
+.csr-people:has(.csr-person--bezfotky) {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18.5rem), 1fr));
+}
 
 /* Podnadpis dráhy uvnitř sekce předsedů. */
 .csr-people__sub {
@@ -2472,12 +2476,44 @@ body { margin: 0; background: var(--csr-bg); }
   object-fit: cover; object-position: center top;
   display: block;
 }
-.csr-person__silhouette {
+/* Fotku nemá nikdo, tak kartu drží monogram — každá pak má vlastní tvář
+   a nevznikne stěna dvaadvaceti stejných siluet. */
+.csr-person__mono {
   position: absolute; inset: 0;
   display: grid; place-items: center;
-  color: var(--csr-text-muted); opacity: .45;
+  font: 700 clamp(2.4rem, 7vw, 3.4rem)/1 var(--csr-font-display);
+  letter-spacing: .04em;
+  color: var(--csr-text-muted);
+  opacity: .34;
+  background:
+    radial-gradient(120% 90% at 50% 18%, color-mix(in srgb, var(--csr-accent) 12%, transparent) 0%, transparent 70%);
+  transition: opacity var(--csr-t) var(--csr-ease), color var(--csr-t) var(--csr-ease);
 }
-.csr-person__silhouette svg { width: 42%; height: auto; }
+.csr-person:hover .csr-person__mono { opacity: .5; color: var(--csr-accent-text); }
+
+/* Bez fotky nemá smysl držet portrétní výřez — z karty se stane vizitka:
+   kolečko s monogramem vlevo, údaje vedle. */
+.csr-person--bezfotky {
+  flex-direction: row; align-items: center;
+  gap: .95rem;
+  padding: 1rem 1.15rem;
+}
+.csr-person--bezfotky .csr-person__photo {
+  flex: 0 0 auto;
+  width: 3.15rem; height: 3.15rem;
+  aspect-ratio: auto;
+  border-radius: 50%;
+  border: 1px solid var(--csr-border);
+  background: var(--csr-surface-2);
+}
+.csr-person--bezfotky .csr-person__photo::after { content: none; }
+.csr-person--bezfotky .csr-person__mono {
+  font-size: 1.02rem; letter-spacing: .02em;
+  opacity: .78; background: none;
+}
+.csr-person--bezfotky:hover { transform: translateY(-3px); }
+.csr-person--bezfotky .csr-person__name { font-size: .98rem; }
+.csr-person--bezfotky .csr-person__contact { margin-top: .3rem; }
 
 .csr-person__name {
   margin: 0;
