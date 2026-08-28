@@ -1040,18 +1040,26 @@ body.csr-locked { overflow: hidden; }
   .csr-filters { border-radius: var(--csr-r); width: 100%; overflow-x: auto; flex-wrap: nowrap; }
 }
 
-/* Mřížka článků — první karta je velká */
+/* Mřížka článků — první karta je velká.
+
+   Sloupce jsou na velkých obrazovkách tři, ne čtyři. Velká karta zabírá
+   dvě pole na šířku i na výšku, takže při třech sloupcích vyjde šest
+   článků (výchozí počet) přesně: velká + dvě vedle ní + tři pod nimi.
+   Se čtyřmi sloupci zbyl šestý článek sám na dalším řádku a vedle něj
+   zela díra přes tři pole. */
 .csr-news {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
   gap: clamp(1.1rem, 1.8vw, 1.75rem);
 }
+/* Karta musí vyplnit svoje pole, jinak velké kartě chybí spodek
+   a pod ní zůstane prázdno. */
+.csr-news__item { display: flex; min-width: 0; }
+.csr-news__item > .csr-card { width: 100%; }
+
 @media (min-width: 900px) {
   .csr-news { grid-template-columns: repeat(3, 1fr); }
   .csr-news__item--lead { grid-column: span 2; grid-row: span 2; }
-}
-@media (min-width: 1300px) {
-  .csr-news { grid-template-columns: repeat(4, 1fr); }
 }
 
 /* Karta článku */
