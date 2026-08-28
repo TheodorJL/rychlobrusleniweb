@@ -330,6 +330,8 @@ function csr_feed_bulk_render() {
 		$poradi    = 0;
 		$fotek     = 0;
 		$doplnene  = 0;
+		// Umožní opravit už vložené zprávy, když se v souboru něco změnilo.
+		$prepsat   = ! empty( $_POST['csr_feed_overwrite'] );
 		$bez_fotky = 0;
 
 		foreach ( preg_split( '/\R/', $raw ) as $line ) {
@@ -394,15 +396,15 @@ function csr_feed_bulk_render() {
 				continue;
 			}
 
-			if ( $url && ! get_post_meta( $post_id, '_csr_link1_url', true ) ) {
+			if ( $url && ( $prepsat || ! get_post_meta( $post_id, '_csr_link1_url', true ) ) ) {
 				update_post_meta( $post_id, '_csr_link1_url', esc_url_raw( $url ) );
 				update_post_meta( $post_id, '_csr_link1_label', $label ? $label : 'Dokument naleznete zde' );
 			}
-			if ( $url2 && ! get_post_meta( $post_id, '_csr_link2_url', true ) ) {
+			if ( $url2 && ( $prepsat || ! get_post_meta( $post_id, '_csr_link2_url', true ) ) ) {
 				update_post_meta( $post_id, '_csr_link2_url', esc_url_raw( $url2 ) );
 				update_post_meta( $post_id, '_csr_link2_label', $label2 ? $label2 : 'Další odkaz' );
 			}
-			if ( $url3 && ! get_post_meta( $post_id, '_csr_link3_url', true ) ) {
+			if ( $url3 && ( $prepsat || ! get_post_meta( $post_id, '_csr_link3_url', true ) ) ) {
 				update_post_meta( $post_id, '_csr_link3_url', esc_url_raw( $url3 ) );
 				update_post_meta( $post_id, '_csr_link3_label', $label3 ? $label3 : 'Další odkaz' );
 			}
@@ -415,7 +417,7 @@ function csr_feed_bulk_render() {
 			update_post_meta( $post_id, '_csr_icon', array_key_exists( $ikona, $ikony ) ? $ikona : 'dokument' );
 
 			// Fotka se hledá v knihovně médií podle adresy, nic se nenahrává.
-			if ( $foto && ! has_post_thumbnail( $post_id ) ) {
+			if ( $foto && ( $prepsat || ! has_post_thumbnail( $post_id ) ) ) {
 				$foto_id = csr_attachment_from_url( $foto );
 				if ( $foto_id ) {
 					set_post_thumbnail( $post_id, $foto_id );
@@ -489,6 +491,14 @@ function csr_feed_bulk_render() {
 					</td>
 				</tr>
 			</table>
+			<p>
+				<label>
+					<input type="checkbox" name="csr_feed_overwrite" value="1">
+					<strong>Přepsat i to, co je vyplněné</strong>
+				</label><br>
+				<span class="description">Bez zaškrtnutí se u už vložených zpráv doplní jen prázdná pole.
+					Zaškrtněte, když opravujete data, která jste vložil dřív — třeba špatně přiřazené fotky.</span>
+			</p>
 			<?php submit_button( 'Přidat položky' ); ?>
 		</form>
 	</div>
