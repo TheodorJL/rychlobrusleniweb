@@ -74,7 +74,21 @@ jobs:
       - name: Sestavit šablonu
         run: bash .github/sestavit.sh
 
+      # Dokud nejsou v Settings → Secrets vyplněné FTP údaje, nasazení se
+      # přeskočí. Červený křížek u každého pushu by jen odnaučil chyb si
+      # všímat — a kontrola nad tím je ta, na které záleží.
+      - name: Jsou vyplněné přístupy?
+        id: pristupy
+        run: |
+          if [ -n "${{ secrets.FTP_SERVER }}" ]; then
+            echo "pripraveno=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "pripraveno=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::FTP přístupy zatím nejsou nastavené, nasazení se přeskakuje. Doplňte je v Settings → Secrets and variables → Actions (FTP_SERVER, FTP_USERNAME, FTP_PASSWORD). Šablonu si zatím stáhnete z Artifacts tohoto běhu."
+          fi
+
       - name: Nahrát přes FTPS
+        if: steps.pristupy.outputs.pripraveno == 'true'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server:   ${{ secrets.FTP_SERVER }}
@@ -94,3 +108,16 @@ jobs:
             **/.git*
             **/.git*/**
             **/.DS_Store
+
+      - name: Hotovo
+        if: steps.pristupy.outputs.pripraveno == 'true'
+        run: echo "::notice::Šablona nahrána do ${{ vars.FTP_PATH || '/www/wp-content/themes/csr-child/' }}"
+
+      # Kontrola prošla, takže i bez nasazení je z čeho instalovat ručně.
+      - name: Šablona ke stažení
+        if: steps.pristupy.outputs.pripraveno != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: csr-child-k-instalaci
+          path: build/csr-child
+          retention-days: 30
