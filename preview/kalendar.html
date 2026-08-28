@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kalendář závodů — návrh</title>
+<meta name="description" content="Návrh stránky s kalendářem závodů Českého svazu rychlobruslení.">
+<meta name="theme-color" content="#060e1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,600;1,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/csr-home.css">
+</head>
+<body>
+<div class="csr-page">
+
+<!-- Ukazatel průběhu čtení -->
+<div class="csr-progress" aria-hidden="true"></div>
+
+<a class="csr-sr-only" href="#obsah">Přeskočit na obsah</a>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     HLAVIČKA
+     ══════════════════════════════════════════════════════════════════ -->
+<header class="csr-header">
+  <div class="csr-header__inner">
+
+    <a class="csr-brand" href="/" aria-label="Český svaz rychlobruslení — úvodní stránka">
+      <span class="csr-brand__mark">
+        <img src="../assets/img/logo-mark.svg" alt="" width="42" height="42">
+      </span>
+      <span class="csr-brand__txt">
+        <span class="csr-brand__name">Český svaz</span>
+        <span class="csr-brand__sub">Rychlobruslení</span>
+      </span>
+    </a>
+
+    <nav class="csr-nav" aria-label="Hlavní navigace">
+      <ul class="csr-nav__list">
+        <li class="menu-item menu-item-has-children">
+          <a href="#">Novinky</a>
+          <ul class="sub-menu">
+            <li><a href="#">Sezóna 2025–2026</a></li>
+            <li><a href="#">Sezóna 2024–2025</a></li>
+            <li><a href="#">Sezóna 2023–2024</a></li>
+            <li><a href="#">Starší sezóny</a></li>
+          </ul>
+        </li>
+        <li class="menu-item"><a href="#">InfoFeed</a></li>
+        <li class="menu-item"><a href="#akce">Kalendář</a></li>
+        <li class="menu-item menu-item-has-children">
+          <a href="#">Výsledky</a>
+          <ul class="sub-menu">
+            <li><a href="#">České rekordy</a></li>
+            <li class="menu-item-has-children">
+              <a href="#">2025–2026</a>
+              <ul class="sub-menu">
+                <li><a href="#">Speed skating</a></li>
+                <li><a href="#">Short track</a></li>
+              </ul>
+            </li>
+            <li class="menu-item-has-children">
+              <a href="#">2024–2025</a>
+              <ul class="sub-menu">
+                <li><a href="#">Speed skating</a></li>
+                <li><a href="#">Short track</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item menu-item-has-children">
+          <a href="#">Reprezentace</a>
+          <ul class="sub-menu">
+            <li class="menu-item-has-children">
+              <a href="#">Speed skating</a>
+              <ul class="sub-menu">
+                <li><a href="#">Junioři</a></li>
+                <li><a href="#">Senioři</a></li>
+                <li><a href="#">Sledovaní</a></li>
+              </ul>
+            </li>
+            <li class="menu-item-has-children">
+              <a href="#">Short track</a>
+              <ul class="sub-menu">
+                <li><a href="#">Junioři</a></li>
+                <li><a href="#">Senioři</a></li>
+                <li><a href="#">Sledovaní</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item"><a href="#">Kluby</a></li>
+        <li class="menu-item menu-item-has-children">
+          <a href="#">Svaz</a>
+          <ul class="sub-menu">
+            <li><a href="#">Struktura svazu</a></li>
+            <li><a href="#">Dokumenty</a></li>
+            <li><a href="#">Pravidla a předpisy ISU</a></li>
+            <li><a href="#">Antidoping</a></li>
+            <li><a href="#">Archiv</a></li>
+            <li><a href="#">Kontakty</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="csr-header__actions">
+      <button class="csr-iconbtn" type="button" data-csr-open="search" aria-expanded="false" aria-label="Vyhledávání">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="csr-iconbtn" type="button" data-csr-toggle="theme" aria-label="Přepnout na tmavý režim">
+        <svg class="csr-iconbtn__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>
+        <svg class="csr-iconbtn__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.3A8.5 8.5 0 1 1 9.7 3.5a7 7 0 0 0 10.8 10.8Z"/></svg>
+      </button>
+      <button class="csr-iconbtn csr-burger" type="button" data-csr-open="drawer" aria-expanded="false" aria-label="Otevřít menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3.5 7h17M3.5 12h17M3.5 17h17"/></svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Mobilní menu -->
+<div class="csr-drawer" id="csr-drawer">
+  <div class="csr-drawer__top">
+    <a class="csr-brand" href="/">
+      <span class="csr-brand__mark"><img src="../assets/img/logo-mark.svg" alt="" width="42" height="42"></span>
+      <span class="csr-brand__txt">
+        <span class="csr-brand__name">Český svaz</span>
+        <span class="csr-brand__sub">Rychlobruslení</span>
+      </span>
+    </a>
+    <button class="csr-iconbtn" type="button" data-csr-close="drawer" aria-label="Zavřít menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="csr-drawer__body">
+    <ul class="csr-nav__list">
+      <li class="menu-item menu-item-has-children">
+        <a href="#" aria-expanded="false">Novinky</a>
+        <ul class="sub-menu">
+          <li><a href="#">Sezóna 2025–2026</a></li>
+          <li><a href="#">Sezóna 2024–2025</a></li>
+          <li><a href="#">Sezóna 2023–2024</a></li>
+          <li><a href="#">Starší sezóny</a></li>
+        </ul>
+      </li>
+      <li class="menu-item"><a href="#">InfoFeed</a></li>
+      <li class="menu-item"><a href="#akce">Kalendář</a></li>
+      <li class="menu-item menu-item-has-children">
+        <a href="#" aria-expanded="false">Výsledky</a>
+        <ul class="sub-menu">
+          <li><a href="#">České rekordy</a></li>
+          <li><a href="#">2025–2026 · Speed skating</a></li>
+          <li><a href="#">2025–2026 · Short track</a></li>
+          <li><a href="#">2024–2025 · Speed skating</a></li>
+          <li><a href="#">2024–2025 · Short track</a></li>
+        </ul>
+      </li>
+      <li class="menu-item menu-item-has-children">
+        <a href="#" aria-expanded="false">Reprezentace</a>
+        <ul class="sub-menu">
+          <li><a href="#">Speed skating · Junioři</a></li>
+          <li><a href="#">Speed skating · Senioři</a></li>
+          <li><a href="#">Short track · Junioři</a></li>
+          <li><a href="#">Short track · Senioři</a></li>
+        </ul>
+      </li>
+      <li class="menu-item"><a href="#">Kluby</a></li>
+      <li class="menu-item menu-item-has-children">
+        <a href="#" aria-expanded="false">Svaz</a>
+        <ul class="sub-menu">
+          <li><a href="#">Struktura svazu</a></li>
+          <li><a href="#">Dokumenty</a></li>
+          <li><a href="#">Pravidla a předpisy ISU</a></li>
+          <li><a href="#">Antidoping</a></li>
+          <li><a href="#">Archiv</a></li>
+          <li><a href="#">Kontakty</a></li>
+        </ul>
+      </li>
+      <li class="menu-item"><a href="#">Galerie</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Vyhledávání -->
+<div class="csr-search" role="dialog" aria-modal="true" aria-label="Vyhledávání">
+  <div class="csr-search__box">
+    <form class="csr-search__form" role="search" method="get" action="/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#6b7d93" stroke-width="2" stroke-linecap="round" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input class="csr-search__input" type="search" name="s" placeholder="Hledat závody, výsledky, dokumenty…" aria-label="Hledaný výraz">
+      <button class="csr-btn csr-btn--primary csr-btn--sm" type="submit">Hledat</button>
+    </form>
+    <p class="csr-search__hint">Tip: vyhledávání otevřete kdykoli klávesou <kbd>/</kbd> · zavřete <kbd>Esc</kbd></p>
+  </div>
+</div>
+
+<main id="obsah">
+
+<section class="csr-pagehead">
+  <div class="csr-pagehead__glow" aria-hidden="true"></div>
+  <div class="csr-container csr-pagehead__inner">
+    <nav class="csr-crumbs" aria-label="Drobečková navigace">
+      <a href="#">Úvod</a><span aria-hidden="true">/</span><span>Kalendář akcí</span>
+    </nav>
+    <h1 class="csr-pagehead__title">Kalendář akcí</h1>
+    <div class="csr-pagehead__meta">
+      <span class="csr-chip csr-chip--ss" data-csr-stav-chip>Proběhlé závody</span>
+      <span class="csr-chip csr-chip--solid" data-csr-pocet-chip>3 akce</span>
+    </div>
+    <p class="csr-pagehead__lead">Domácí i mezinárodní závody, soustředění a semináře. Termíny průběžně doplňujeme.</p>
+  </div>
+</section>
+
+<section class="csr-section">
+  <div class="csr-container">
+
+    <div class="csr-calbar csr-reveal">
+      <div class="csr-filters" role="group" aria-label="Přepnout výpis závodů">
+        <a class="csr-filter" href="#" data-csr-stav="budouci" aria-pressed="false">Nadcházející</a>
+        <a class="csr-filter" href="#" data-csr-stav="minule" aria-pressed="true">Proběhlé</a>
+      </div>
+      <a class="csr-btn csr-btn--ghost csr-btn--sm" href="#">
+        <svg class="csr-btn__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M8 11l4 4 4-4M4 19h16"/></svg>
+        Přidat do kalendáře
+      </a>
+    </div>
+
+    <!-- Prázdný stav — přesně to, co je na webu vidět dnes -->
+    <div data-csr-panel="budouci" hidden>
+      <div class="csr-cal__empty csr-reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18M9 15h6"/></svg>
+        <h2>Zatím tu nejsou žádné nadcházející závody</h2>
+        <p>Kalendář sezóny se připravuje. Mezitím si můžete projít
+          <a href="#" data-csr-stav="minule">proběhlé závody</a>.</p>
+      </div>
+    </div>
+
+    <div data-csr-panel="minule">
+      <div class="csr-cal__month csr-reveal"><h2>Březen 2026</h2></div>
+      <div class="csr-cal__list" data-csr-stagger="60">
+        <article class="csr-calevent csr-calevent--past csr-reveal">
+          <div class="csr-calevent__date">
+            <span class="csr-calevent__day">13–15</span>
+            <span class="csr-calevent__mon">Bře</span>
+          </div>
+          <div class="csr-calevent__thumb csr-thumb-ph csr-thumb-ph--2" aria-hidden="true"></div>
+          <div class="csr-calevent__body">
+            <h3 class="csr-calevent__title"><a href="#">ISU World Short Track Speed Skating Championships</a></h3>
+            <div class="csr-calevent__meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>13. 3. – 15. 3. 2026</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>Montréal /CAN</span>
+              <span class="csr-chip csr-chip--ss">ISU</span>
+            </div>
+          </div>
+          <span class="csr-calevent__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </article>
+        <article class="csr-calevent csr-calevent--past csr-reveal">
+          <div class="csr-calevent__date">
+            <span class="csr-calevent__day">5–8</span>
+            <span class="csr-calevent__mon">Bře</span>
+          </div>
+          <div class="csr-calevent__thumb csr-thumb-ph csr-thumb-ph--5" aria-hidden="true"></div>
+          <div class="csr-calevent__body">
+            <h3 class="csr-calevent__title"><a href="#">ISU World Speed Skating Allround &amp; Sprint Championships</a></h3>
+            <div class="csr-calevent__meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>5. 3. – 8. 3. 2026</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>Heerenveen /NED</span>
+              <span class="csr-chip csr-chip--ss">ISU</span>
+            </div>
+          </div>
+          <span class="csr-calevent__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </article>
+      </div>
+      <div class="csr-cal__month csr-reveal"><h2>Únor 2026</h2></div>
+      <div class="csr-cal__list" data-csr-stagger="60">
+        <article class="csr-calevent csr-calevent--past csr-reveal">
+          <div class="csr-calevent__date">
+            <span class="csr-calevent__day">27</span>
+            <span class="csr-calevent__mon">Úno</span>
+          </div>
+          <div class="csr-calevent__thumb csr-thumb-ph csr-thumb-ph--1" aria-hidden="true"></div>
+          <div class="csr-calevent__body">
+            <h3 class="csr-calevent__title"><a href="#">ISU World Junior Speed Skating Championships</a></h3>
+            <div class="csr-calevent__meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>27. 2. – 1. 3. 2026</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>Inzell /GER</span>
+              <span class="csr-chip csr-chip--ss">ISU</span>
+            </div>
+          </div>
+          <span class="csr-calevent__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </article>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<script>
+/* Jen pro náhled: přepínání mezi oběma stavy. V ostré verzi to řeší server. */
+(function () {
+  var chipStav = document.querySelector('[data-csr-stav-chip]');
+  var chipPocet = document.querySelector('[data-csr-pocet-chip]');
+  function prepni(stav) {
+    document.querySelectorAll('[data-csr-panel]').forEach(function (p) {
+      p.hidden = p.getAttribute('data-csr-panel') !== stav;
+    });
+    document.querySelectorAll('.csr-filter[data-csr-stav]').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-csr-stav') === stav));
+    });
+    chipStav.textContent = stav === 'minule' ? 'Proběhlé závody' : 'Nadcházející závody';
+    chipPocet.hidden = stav !== 'minule';
+  }
+  document.querySelectorAll('[data-csr-stav]').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      prepni(el.getAttribute('data-csr-stav'));
+    });
+  });
+})();
+</script>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PATIČKA
+     ══════════════════════════════════════════════════════════════════ -->
+<footer class="csr-footer">
+  <div class="csr-container">
+    <div class="csr-footer__grid">
+
+      <div>
+        <div class="csr-footer__brand">
+          <img src="../assets/img/logo-mark.svg" alt="" width="52" height="52">
+          <span class="csr-brand__txt">
+            <span class="csr-brand__name">Český svaz</span>
+            <span class="csr-brand__sub">Rychlobruslení</span>
+          </span>
+        </div>
+        <p class="csr-footer__about">
+          Oficiální web Českého svazu rychlobruslení — zastřešující organizace
+          pro speed skating a short track v České republice.
+        </p>
+        <div class="csr-footer__social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.55-1.5h1.65V4.6c-.3-.04-1.3-.13-2.45-.13-2.42 0-4.08 1.48-4.08 4.2v2.23H7.5V14h2.67v8h3.33Z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.75-1.76C18.28 5 12 5 12 5s-6.28 0-7.85.44A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.75 1.76C5.72 19 12 19 12 19s6.28 0 7.85-.44a2.5 2.5 0 0 0 1.75-1.76A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15.1V8.9l5.2 3.1-5.2 3.1Z"/></svg></a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Svaz</h3>
+        <ul>
+          <li><a href="#">Struktura svazu</a></li>
+          <li><a href="#">Dokumenty</a></li>
+          <li><a href="#">Pravidla a předpisy ISU</a></li>
+          <li><a href="#">Smlouvy</a></li>
+          <li><a href="#">Archiv</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Sport</h3>
+        <ul>
+          <li><a href="#">Kalendář závodů</a></li>
+          <li><a href="#">Výsledky</a></li>
+          <li><a href="#">České rekordy</a></li>
+          <li><a href="#">Reprezentace</a></li>
+          <li><a href="#">Antidoping</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Kontakt</h3>
+        <div class="csr-footer__contact">
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            <span>Zátopkova 100/2<br>169 00 Praha 6</span>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.6 6.8 8.4 6 8.4-6"/></svg>
+            <span><a href="#">info@speedskating.cz</a></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="csr-footer__bottom">
+      <span>© 2026 Český svaz rychlobruslení</span>
+      <nav aria-label="Právní informace">
+        <a href="#">Ochrana osobních údajů</a>
+        <a href="#">Cookies</a>
+        <a href="#">Mapa webu</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<button class="csr-top" type="button" aria-label="Zpět nahoru">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
+</div>
+<script src="../assets/js/csr-home.js"></script>
+</body>
+</html>

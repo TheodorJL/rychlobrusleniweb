@@ -1,0 +1,7 @@
+# Systémové
+.DS_Store
+Thumbs.db
+
+# Dočasné
+*.log
+*.tmp

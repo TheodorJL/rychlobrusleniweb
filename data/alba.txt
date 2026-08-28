@@ -1,0 +1,19 @@
+# Alba pro hromadné vložení — název | datum | místo | autor | rubrika | počet položek na webu
+Světový pohár juniorů|2026-02-21|Inzell (SRN)||zavody|43 fotek
+Mistrovství ČR na dlouhé dráze|2024-11-02|Erfurt (SRN)|Radovan Syrotiuk|zavody|49 fotek
+Kroužkofest|2024-09-01|Brno Futurum||nabory|12 fotek
+Mistrovství ČR na dlouhé dráze|2023-11-01|||zavody|15 fotek
+Kroužkofest|2023-09-03|Brno Futurum||nabory|9 fotek
+Den náborů|2023-09-09|Brno||nabory|5 fotek
+Short track v Čechách|2023-03-01|Benátky nad Jizerou||ostatni|1 video
+Mistrovství světa na dlouhé dráze|2023-03-02|Heerenveen||zavody|PRÁZDNÉ + 2 videa
+Světový pohár|2023-02-17|Tomaszow||zavody|PRÁZDNÉ
+Mistrovství světa juniorů|2023-02-01|Inzell||zavody|PRÁZDNÉ
+Světový pohár|2023-02-10|Tomaszow||zavody|PRÁZDNÉ
+Mistrovství Evropy v short tracku|2023-01-01|Gdaňsk||zavody|2 obrázky (pád K. Vaňkové)
+Mistrovství ČR juniorů na dlouhé dráze|2022-12-01|Tomaszow||zavody|PRÁZDNÉ (2 widgety)
+Světový pohár|2022-11-17|Stavanger||zavody|PRÁZDNÉ + 3 videa
+Olympijský festival|2022-02-01|Brno||ostatni|PRÁZDNÉ
+Světový pohár juniorů|2022-01-28|Innsbruck||zavody|PRÁZDNÉ + 1 video
+Mistrovství ČR na dlouhé dráze|2021-12-01|Tomaszow||zavody|PRÁZDNÉ
+Ostatní|||ostatni||PRÁZDNÉ

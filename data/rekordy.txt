@@ -1,0 +1,43 @@
+# České rekordy — stahují se samy, tenhle soubor je jen záznam stavu.
+#
+# Zdroj: https://speedskatingresults.com/api/json/country_records.php?country=CZE
+# WordPress si je bere jednou denně na pozadí a ukládá.
+# Stav a ruční stažení: Výsledky → České rekordy.
+#
+# Hodnoty níž jsou opsané ze stránky, kterou poslal správce 28. 8. 2026 —
+# slouží jen k porovnání, jestli se po nasazení vypíše totéž.
+
+# --- Muži (senioři) ---
+500 m	36,55	Erik Bouwman	Calgary (CAN)	2000-01-16
+1000 m	1.11,20	Prokop Stodola	Salt Lake City (USA)	2025-11-12
+1500 m	1.43,91	Metoděj Jílek	Salt Lake City (USA)	2025-11-15
+3000 m	3.32,52	Metoděj Jílek	Salt Lake City (USA)	2025-10-26
+5000 m	6.01,98	Metoděj Jílek	Inzell (GER)	2026-01-24
+10000 m	12.29,63	Metoděj Jílek	Heerenveen (NED)	2025-12-06
+
+# --- Ženy (seniorky) ---
+500 m	37,06	Karolina Erbanová	Calgary (CAN)	2017-02-25
+1000 m	1.13,53	Karolina Erbanová	Calgary (CAN)	2017-02-25
+1500 m	1.52,86	Nikola Zdráhalová	Calgary (CAN)	2025-11-22
+3000 m	3.52,02	Martina Sáblíková	Salt Lake City (USA)	2019-03-09
+5000 m	6.41,18	Martina Sáblíková	Salt Lake City (USA)	2020-02-15
+10000 m	13.48,33	Martina Sáblíková	Calgary (CAN)	2007-03-15
+
+# --- Junioři ---
+500 m	37,60	Metoděj Jílek	Inzell (GER)	2024-10-18
+1000 m	1.11,36	Metoděj Jílek	Inzell (GER)	2024-10-18
+1500 m	1.44,98	Metoděj Jílek	Calgary (CAN)	2025-01-24
+3000 m	3.38,80	Metoděj Jílek	Calgary (CAN)	2025-01-18
+5000 m	6.12,99	Metoděj Jílek	Beijing-National (CHN)	2024-11-30
+10000 m	12.37,81	Metoděj Jílek	Calgary (CAN)	2025-01-25
+
+# --- Juniorky ---
+500 m	38,11	Karolina Erbanová	Calgary (CAN)	2012-01-29
+1000 m	1.15,41	Karolina Erbanová	Calgary (CAN)	2012-01-29
+1500 m	1.55,80	Karolina Erbanová	Calgary (CAN)	2009-12-05
+3000 m	4.00,63	Martina Sáblíková	Calgary (CAN)	2006-03-22
+5000 m	6.50,45	Martina Sáblíková	Calgary (CAN)	2006-03-19
+10000 m	14.08,28	Martina Sáblíková	Calgary (CAN)	2006-03-23
+
+# Short track rekordy tenhle zdroj nevede. Pokud je svaz eviduje, přidají se
+# ručně jako tabulka se zaškrtnutým „Zobrazit na stránce Českých rekordů".

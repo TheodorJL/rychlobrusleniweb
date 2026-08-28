@@ -1,0 +1,12 @@
+# Údaje svazu — Vzhled → Přizpůsobit → Kontakty (a Patička pro adresu a e-mail)
+Adresa|Zátopkova 100/2\n169 00 Praha 6 – Břevnov
+E-mail|info@speedskating.cz
+IČO|45769451
+Číslo účtu|1727006504/0600
+
+# Lidé — doplňte do databáze Lidé ve svazu (jméno | funkce | e-mail | telefon)
+Marcela Valt|Předseda svazu||+420 602 495 327
+Jindřich Pařík|Generální sekretář|info@speedskating.cz|+420 730 132 001
+
+# Mezinárodní organizace
+International Skating Union (ISU)|https://www.isu.org

@@ -1,0 +1,36 @@
+# Výsledkové tabulky — Výsledky → Přidat tabulku
+#
+# Původní stránky měly výsledky jen jako PDF v rámu z docs.google.com.
+# Obsah těch dvou souborů odsud přečíst nejde, protože PDF nemám k dispozici:
+#   /wp-content/uploads/2026/06/Tabulka-bez-nazvu-List1-2.pdf  (Muži)
+#   /wp-content/uploads/2026/06/Tabulka-bez-nazvu-List1-1.pdf  (Ženy)
+# Otevřete je, označte tabulku, zkopírujte a vložte do pole „Tabulka".
+#
+# Tabulka se vkládá jako text — sloupce oddělené tabulátory (kopie z Excelu
+# nebo Google Tabulek), středníky nebo čárkami. První řádek jsou názvy sloupců.
+#
+# Příklad podoby, kterou šablona očekává:
+
+# --- Speed skating 2025–2026 · Muži ---
+Poř.	Jméno	Klub	500 m	1000 m	1500 m	Celkem
+1.	Metoděj Jílek	SK Sportovní	36,55	1.11,20	1.43,91	112,340
+2.	Prokop Stodola	BK Praha	37,10	1.11,36	1.45,02	113,180
+
+# --- Speed skating 2025–2026 · Ženy ---
+Poř.	Jméno	Klub	500 m	1000 m	1500 m	Celkem
+1.	Nikola Zdráhalová	SK Sportovní	38,02	1.15,10	1.52,86	118,900
+
+# Stránky, které tuhle šablonu použijí (v boxu „Výsledky — co se má vypsat"
+# se u každé vybere sezóna a disciplína):
+/speed-skating-2025-2026/	2025-2026	Speed skating
+/short-track-2025-2026/	2025-2026	Short track
+/speed-skating-2024-2025/	2024-2025	Speed skating
+/short-track-2024-2025/	2024-2025	Short track
+/speed-skating-2023-2024/	2023-2024	Speed skating
+/short-track-2023-2024/	2023-2024	Short track
+/speed-skating-2022-2023/	2022-2023	Speed skating
+/short-track-2022-2023/	2022-2023	Short track
+/speed-skating-1/	2021-2022	Speed skating
+/short-track-1/	2021-2022	Short track
+/speed-skating-1-1/	2020-2021	Speed skating
+/kratka-draha-1-1/	2020-2021	Short track

@@ -1,0 +1,30 @@
+# jméno | orgán | funkce | dráha | klub | e-mail | telefon
+# Příjmení vedení jsou přečtená z názvů obrázků (VALT.png, LETAL2.png…) — OVĚŘTE.
+# Funkce nikde na staré stránce nebyly, doplňte je.
+
+Valt|predsednictvo|||||
+Létal|predsednictvo|||||
+Kulma|predsednictvo|||||
+Krupka|predsednictvo|||||
+Novotná|predsednictvo|||||
+
+Jílek|kontrolni-komise|||||
+Cheml|kontrolni-komise|||||
+Macháček|kontrolni-komise|||||
+
+# Předsedové = kontaktní osoby z databáze klubů. Ověřte, že kontakt = předseda.
+# Sloupec „dráha" nechávám prázdný — ze staré stránky nešlo určit, který klub kam patří.
+Pavel Haselberger|predsedove|předseda||BK ŽĎÁR|haselpa@seznam.cz|+420 737 114 584
+Oldřich Žďárek|predsedove|předseda||BK NÁCHOD|oldrich.zdarek@seznam.cz|+420 603 743 983
+Jiří Macháček|predsedove|předseda||BOJ ŽĎÁR|machy.3@seznam.cz|+420 605 841 653
+Ondřej Jílek|predsedove|předseda||BZK PRAHA|ondrej.jilek@gmail.com|+420 602 190 206
+Věra Břínková|predsedove|předseda||KOMETA BRNO|speed.skating@seznam.cz|+420 775 247 008
+Jarmil Hrůza|predsedove|předseda||KSB BENÁTKY|jarmil.hruza@gmail.com|+420 602 694 737
+Petr Novák|predsedove|předseda||KRS SVRATKA|skatepn@gmail.com|+420 731 540 253
+Zbyněk Svítil|predsedove|předseda||STC ŽĎÁR|zbynek.svitil@seznam.cz|+420 603 105 043
+Libuše Steklá|predsedove|předseda||KSB HODONÍN|libusa@stekla.cz|+420 739 491 764
+Roman Vodička ml.|predsedove|předseda||RK CHRUDIM|rkskutec@email.cz|+420 739 788 092
+Roman Vodička st.|predsedove|předseda||RK SKUTEČ|rkskutec@email.cz|+420 739 788 096
+Ludmila Krupková|predsedove|předseda||KSB MODŘANY|lida.krupkova@seznam.cz|+420 603 193 080
+Pavel Kulma|predsedove|předseda||SKR HLINSKO|kulma.pavel@gmail.com|+420 731 616 474
+Pavel Semeniuk|predsedove|předseda||ASK BLANSKO|pavel.semeniuk@seznam.cz|+420 602 513 709
