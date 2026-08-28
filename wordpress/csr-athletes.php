@@ -740,13 +740,9 @@ function csr_roster_page_metabox_render( $post ) {
 	$template = get_post_meta( $post->ID, '_wp_page_template', true );
 	wp_nonce_field( 'csr_roster_page_save', 'csr_roster_page_nonce' );
 
-	if ( CSR_ROSTER_TEMPLATE !== $template ) {
-		echo '<p class="description">Vyberte nahoře šablonu <strong>„ČSR — Soupiska reprezentace"</strong> a stránku uložte. Pak se tu objeví výběr sezóny a týmu.</p>';
-		return;
-	}
-
 	$season  = (int) get_post_meta( $post->ID, '_csr_page_season', true );
 	$squad   = (int) get_post_meta( $post->ID, '_csr_page_squad', true );
+	$odhad   = $squad ? 0 : csr_roster_guess_squad( $post->ID );
 	$intro   = get_post_meta( $post->ID, '_csr_page_intro', true );
 	$seasons = get_terms( array( 'taxonomy' => CSR_TAX_SEASON, 'hide_empty' => false ) );
 	$squads  = get_terms( array( 'taxonomy' => CSR_TAX_SQUAD, 'hide_empty' => false ) );
@@ -765,7 +761,14 @@ function csr_roster_page_metabox_render( $post ) {
 	<p>
 		<label for="csr_page_squad"><strong>Tým</strong></label><br>
 		<select name="csr_page_squad" id="csr_page_squad" style="width:100%">
-			<option value="0">— všechny —</option>
+			<option value="0">
+				<?php
+				$nazev_odhadu = $odhad ? get_term( $odhad, CSR_TAX_SQUAD ) : null;
+				echo $nazev_odhadu && ! is_wp_error( $nazev_odhadu )
+					? esc_html( 'Podle názvu stránky — ' . $nazev_odhadu->name )
+					: '— všechny —';
+				?>
+			</option>
 			<?php foreach ( $squads as $term ) : ?>
 				<option value="<?php echo esc_attr( $term->term_id ); ?>" <?php selected( $squad, $term->term_id ); ?>>
 					<?php echo esc_html( $term->name ); ?>
@@ -777,11 +780,56 @@ function csr_roster_page_metabox_render( $post ) {
 		<label for="csr_page_intro"><strong>Popisek pod nadpisem</strong></label><br>
 		<textarea name="csr_page_intro" id="csr_page_intro" rows="3" style="width:100%"><?php echo esc_textarea( $intro ); ?></textarea>
 	</p>
-	<p class="description">
-		Kdo se vypíše, řídí kombinace sezóny a týmu. Lidi zadáváte
-		v <em>Reprezentanti</em>.
-	</p>
+	<?php if ( CSR_ROSTER_TEMPLATE !== $template ) : ?>
+		<p class="description">Uplatní se, až stránka dostane šablonu <strong>„ČSR — Soupiska reprezentace"</strong>.</p>
+	<?php else : ?>
+		<p class="description">
+			Kdo se vypíše, řídí kombinace sezóny a týmu. Tým se odvodí z názvu
+			stránky, <strong>sezónu je potřeba vybrat</strong> — v názvu není.
+			Lidi zadáváte v <em>Reprezentanti</em>.
+		</p>
+	<?php endif; ?>
 	<?php
+}
+
+/**
+ * Odhadne tým podle názvu stránky.
+ *
+ * Stránka „SS – .Senioři." patří týmu „SS – Senioři". Porovnávají se
+ * slova bez diakritiky a bez teček, jinak by se tyhle dva názvy minuly.
+ *
+ * @param int $page_id ID stránky.
+ * @return int ID termínu, nebo 0.
+ */
+function csr_roster_guess_squad( $page_id ) {
+	$slova = csr_roster_words( get_the_title( $page_id ) );
+	if ( ! $slova ) {
+		return 0;
+	}
+
+	$terms = get_terms( array( 'taxonomy' => CSR_TAX_SQUAD, 'hide_empty' => false ) );
+	if ( is_wp_error( $terms ) ) {
+		return 0;
+	}
+
+	foreach ( $terms as $term ) {
+		if ( csr_roster_words( $term->name ) === $slova ) {
+			return (int) $term->term_id;
+		}
+	}
+	return 0;
+}
+
+/**
+ * Rozloží název na porovnatelná slova.
+ *
+ * @param string $text Název.
+ * @return array
+ */
+function csr_roster_words( $text ) {
+	$slova = preg_split( '/[^a-z0-9]+/', csr_fold( $text ), -1, PREG_SPLIT_NO_EMPTY );
+	sort( $slova );
+	return $slova;
 }
 
 /**

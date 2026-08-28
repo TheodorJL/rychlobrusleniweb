@@ -16,6 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $csr_season_id = (int) get_post_meta( get_the_ID(), '_csr_page_season', true );
 $csr_squad_id  = (int) get_post_meta( get_the_ID(), '_csr_page_squad', true );
+
+// Není-li tým vybraný, odvodíme ho z názvu stránky („SS – .Senioři.").
+if ( ! $csr_squad_id ) {
+	$csr_squad_id = csr_roster_guess_squad( get_the_ID() );
+}
 $csr_intro     = get_post_meta( get_the_ID(), '_csr_page_intro', true );
 
 $csr_roster = csr_get_roster( $csr_season_id, $csr_squad_id );

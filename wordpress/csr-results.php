@@ -197,10 +197,51 @@ function csr_results_other_pages( $exclude ) {
  * @return array Klíče season, sport.
  */
 function csr_results_page_scope( $page_id ) {
+	$season = (string) get_post_meta( $page_id, '_csr_results_season', true );
+	$sport  = (string) get_post_meta( $page_id, '_csr_results_sport', true );
+
+	/*
+	 * Co není nastavené ručně, zkusíme odvodit z názvu stránky —
+	 * „Speed skating 2025-2026" si tak sama najde sezónu i disciplínu.
+	 * Hodnota „-" znamená, že správce vědomě zvolil „všechny".
+	 */
+	$odhad = ( '' === $season || '' === $sport ) ? csr_results_guess_scope( $page_id ) : array( '', '' );
+
 	return array(
-		'season' => (string) get_post_meta( $page_id, '_csr_results_season', true ),
-		'sport'  => (string) get_post_meta( $page_id, '_csr_results_sport', true ),
+		'season' => '-' === $season ? '' : ( '' !== $season ? $season : $odhad[0] ),
+		'sport'  => '-' === $sport ? '' : ( '' !== $sport ? $sport : $odhad[1] ),
 	);
+}
+
+/**
+ * Odhadne sezónu a disciplínu z názvu stránky.
+ *
+ * @param int $page_id ID stránky.
+ * @return array Dvojice slug sezóny a klíč disciplíny, prázdné když nic nesedí.
+ */
+function csr_results_guess_scope( $page_id ) {
+	$nazev  = csr_fold( get_the_title( $page_id ) );
+	$season = '';
+	$sport  = '';
+
+	if ( preg_match( '/(\d{4})\s*[-–—\/]\s*(\d{4})/u', $nazev, $shoda ) ) {
+		$hledany = $shoda[1] . '-' . $shoda[2];
+		$term    = get_term_by( 'slug', $hledany, CSR_TAX_SEASON );
+		if ( ! $term ) {
+			$term = get_term_by( 'name', $hledany, CSR_TAX_SEASON );
+		}
+		if ( $term && ! is_wp_error( $term ) ) {
+			$season = $term->slug;
+		}
+	}
+
+	if ( false !== strpos( $nazev, 'short track' ) || preg_match( '/(^|[^a-z])st([^a-z]|$)/u', $nazev ) ) {
+		$sport = 'st';
+	} elseif ( false !== strpos( $nazev, 'speed skating' ) || preg_match( '/(^|[^a-z])ss([^a-z]|$)/u', $nazev ) ) {
+		$sport = 'ss';
+	}
+
+	return array( $season, $sport );
 }
 
 /* -------------------------------------------------------------------------
@@ -829,17 +870,18 @@ add_action( 'add_meta_boxes', 'csr_results_page_metabox' );
 function csr_results_page_metabox_render( $post ) {
 	wp_nonce_field( 'csr_results_page_save', 'csr_results_page_nonce' );
 
-	if ( CSR_RESULTS_TEMPLATE !== get_post_meta( $post->ID, '_wp_page_template', true ) ) {
-		echo '<p class="description">Vyberte nahoře šablonu <strong>„ČSR — Výsledky"</strong> a stránku uložte. Pak se tu objeví výběr sezóny.</p>';
-		return;
-	}
-
 	$scope = csr_results_page_scope( $post->ID );
+	$odhad = csr_results_guess_scope( $post->ID );
 	$terms = get_terms( array( 'taxonomy' => CSR_TAX_SEASON, 'hide_empty' => false ) );
 
 	echo '<p><label for="csr_results_season"><strong>Sezóna</strong></label>';
 	echo '<select id="csr_results_season" name="csr_results_season" style="width:100%">';
-	echo '<option value=""' . selected( $scope['season'], '', false ) . '>Všechny sezóny</option>';
+	printf(
+		'<option value=""%s>%s</option>',
+		selected( get_post_meta( $post->ID, '_csr_results_season', true ), '', false ),
+		$odhad[0] ? esc_html( 'Podle názvu stránky — ' . $odhad[0] ) : 'Podle názvu stránky'
+	);
+	echo '<option value="-">Všechny sezóny</option>';
 	if ( ! is_wp_error( $terms ) ) {
 		foreach ( $terms as $term ) {
 			printf(
@@ -854,7 +896,13 @@ function csr_results_page_metabox_render( $post ) {
 
 	echo '<p><label for="csr_results_sport"><strong>Disciplína</strong></label>';
 	echo '<select id="csr_results_sport" name="csr_results_sport" style="width:100%">';
-	echo '<option value=""' . selected( $scope['sport'], '', false ) . '>Obě disciplíny</option>';
+	$sporty = csr_result_sports();
+	printf(
+		'<option value=""%s>%s</option>',
+		selected( get_post_meta( $post->ID, '_csr_results_sport', true ), '', false ),
+		$odhad[1] ? esc_html( 'Podle názvu stránky — ' . $sporty[ $odhad[1] ] ) : 'Podle názvu stránky'
+	);
+	echo '<option value="-">Obě disciplíny</option>';
 	foreach ( csr_result_sports() as $key => $label ) {
 		printf(
 			'<option value="%s"%s>%s</option>',
@@ -864,6 +912,10 @@ function csr_results_page_metabox_render( $post ) {
 		);
 	}
 	echo '</select></p>';
+	if ( CSR_RESULTS_TEMPLATE !== get_post_meta( $post->ID, '_wp_page_template', true ) ) {
+		echo '<p class="description">Uplatní se, až stránka dostane šablonu <strong>„ČSR — Výsledky"</strong>.</p>';
+		return;
+	}
 	echo '<p class="description">Jedna šablona takhle obslouží všech dvanáct stránek s výsledky — každá vypíše svou sezónu a disciplínu.</p>';
 }
 
@@ -882,12 +934,19 @@ function csr_results_page_save( $post_id ) {
 	if ( ! current_user_can( 'edit_post', $post_id ) ) {
 		return;
 	}
+	// „-" znamená vědomou volbu „všechny"; sanitizace by z něj udělala prázdno.
 	if ( isset( $_POST['csr_results_season'] ) ) {
-		update_post_meta( $post_id, '_csr_results_season', sanitize_title( wp_unslash( $_POST['csr_results_season'] ) ) );
+		$season = wp_unslash( $_POST['csr_results_season'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		update_post_meta( $post_id, '_csr_results_season', '-' === $season ? '-' : sanitize_title( $season ) );
 	}
 	if ( isset( $_POST['csr_results_sport'] ) ) {
-		$sport = sanitize_key( wp_unslash( $_POST['csr_results_sport'] ) );
-		update_post_meta( $post_id, '_csr_results_sport', array_key_exists( $sport, csr_result_sports() ) ? $sport : '' );
+		$sport = wp_unslash( $_POST['csr_results_sport'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		if ( '-' === $sport ) {
+			update_post_meta( $post_id, '_csr_results_sport', '-' );
+		} else {
+			$sport = sanitize_key( $sport );
+			update_post_meta( $post_id, '_csr_results_sport', array_key_exists( $sport, csr_result_sports() ) ? $sport : '' );
+		}
 	}
 }
 add_action( 'save_post_page', 'csr_results_page_save' );
