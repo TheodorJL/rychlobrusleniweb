@@ -557,3 +557,99 @@ function csr_render_club_card( $club ) {
 	</article>
 	<?php
 }
+
+/* -------------------------------------------------------------------------
+ * Doplnění log po aktualizaci šablony
+ *
+ * Adresy log přibyly do souboru s kluby později, takže kluby vložené dřív
+ * je nemají — a čekat, že někdo hromadné vložení spustí znovu, se ukázalo
+ * jako nespolehlivé. Tohle po aktualizaci šablony jednou projde už
+ * existující kluby a doplní jim jen to, co mají prázdné. Nic nezakládá
+ * a nic nepřepisuje.
+ * ---------------------------------------------------------------------- */
+
+/**
+ * Doplní chybějící loga klubů z připravených dat.
+ */
+function csr_clubs_autofill_logos() {
+	$verze = (string) wp_get_theme()->get( 'Version' );
+	if ( get_option( 'csr_clubs_logos_done' ) === $verze ) {
+		return;
+	}
+	// Zapisujeme hned, ať se to nezkouší dokola, i kdyby něco selhalo.
+	update_option( 'csr_clubs_logos_done', $verze, false );
+
+	$data = csr_import_seed( 'kluby' );
+	if ( '' === $data ) {
+		return;
+	}
+
+	$pocet_poli = count( csr_club_fields() );
+	$doplneno   = 0;
+
+	foreach ( explode( "\n", $data ) as $radek ) {
+		$radek = trim( $radek );
+		if ( '' === $radek || '#' === $radek[0] ) {
+			continue;
+		}
+
+		$casti = array_map( 'trim', explode( '|', $radek ) );
+		$nazev = array_shift( $casti );
+		$logo  = isset( $casti[ $pocet_poli ] ) ? $casti[ $pocet_poli ] : '';
+		if ( '' === $nazev || '' === $logo ) {
+			continue;
+		}
+
+		$kluby = get_posts(
+			array(
+				'post_type'      => 'csr_club',
+				'title'          => $nazev,
+				'post_status'    => 'any',
+				'posts_per_page' => 1,
+				'fields'         => 'ids',
+			)
+		);
+		if ( ! $kluby ) {
+			continue;
+		}
+
+		$post_id = (int) $kluby[0];
+		$zmena   = false;
+
+		if ( '' === (string) get_post_meta( $post_id, '_csr_club_logo', true ) ) {
+			update_post_meta( $post_id, '_csr_club_logo', esc_url_raw( $logo ) );
+			$zmena = true;
+		}
+		if ( ! has_post_thumbnail( $post_id ) ) {
+			$logo_id = csr_attachment_from_url( $logo );
+			if ( $logo_id ) {
+				set_post_thumbnail( $post_id, $logo_id );
+				$zmena = true;
+			}
+		}
+		if ( $zmena ) {
+			$doplneno++;
+		}
+	}
+
+	if ( $doplneno ) {
+		set_transient( 'csr_clubs_logos_notice', $doplneno, DAY_IN_SECONDS );
+	}
+}
+add_action( 'admin_init', 'csr_clubs_autofill_logos' );
+
+/**
+ * Řekne správci, že se loga doplnila sama.
+ */
+function csr_clubs_logos_notice() {
+	$pocet = get_transient( 'csr_clubs_logos_notice' );
+	if ( ! $pocet ) {
+		return;
+	}
+	delete_transient( 'csr_clubs_logos_notice' );
+	printf(
+		'<div class="notice notice-success is-dismissible"><p>U <strong>%d</strong> klubů se doplnilo logo z knihovny médií. Nic jiného se neměnilo.</p></div>',
+		(int) $pocet
+	);
+}
+add_action( 'admin_notices', 'csr_clubs_logos_notice' );

@@ -586,27 +586,37 @@ function csr_render_story_gallery( $obrazky ) {
  * jen se rozdělí — když si nejsme jistí, necháme odstavec být.
  * ---------------------------------------------------------------------- */
 
-/** Pořadí ve výsledku: číslo, tečka, a za ní mezera nebo rovnou velké písmeno. */
-const CSR_RESULT_RANK  = '/(?:^|[\s,.\x{2026}])\d{1,2}\.(?:\s|\p{Lu})/u';
+/*
+ * Pořadí ve výsledku: číslo, tečka, a za ní mezera nebo rovnou velké
+ * písmeno. Teček může být i víc — ve zdroji se běžně píše „2.. Wiklund"
+ * nebo „26.. Zdráhalová".
+ */
+const CSR_RESULT_RANK  = '/(?:^|[\s,.\x{2026}])\d{1,2}\.+(?:\s|\p{Lu})/u';
 /** Totéž jako místo, kde se řádek dělí na jednotlivá umístění. */
-const CSR_RESULT_SPLIT = '/(?<=[\s,.\x{2026}])(?=\d{1,2}\.(?:\s|\p{Lu}))/u';
+const CSR_RESULT_SPLIT = '/(?<=[\s,.\x{2026}])(?=\d{1,2}\.+(?:\s|\p{Lu}))/u';
 
 /**
  * Začíná řádek novou disciplínou?
  *
  * Word zalomil dlouhý řádek doprostřed, takže „Ženy 1500 metrů : 1. Beune"
- * a „1:53,783……10. Zdráhalová" jsou dva řádky, ale jeden výsledek. Nový
- * začíná jen tam, kde je před dvojtečkou popisek obsahující písmeno —
- * čas „1:53" tuhle podmínku nesplní.
+ * a „1:53,783……10. Zdráhalová" jsou dva řádky, ale jeden výsledek.
+ *
+ * Nová disciplína začíná jen tam, kde je před dvojtečkou popisek s písmenem
+ * a za ní aspoň dvě umístění. Samotné písmeno nestačí: pokračovací řádek
+ * „Sáblíková 7:07,08" má dvojtečku uvnitř času a jinak by se za začátek
+ * vydával taky.
  *
  * @param string $radek Čistý text řádku.
  * @return bool
  */
 function csr_result_starts( $radek ) {
-	if ( ! preg_match( '/^([^:]{1,60}):/u', $radek, $shoda ) ) {
+	if ( ! preg_match( '/^([^:]{1,60}):(.*)$/su', $radek, $shoda ) ) {
 		return false;
 	}
-	return (bool) preg_match( '/\p{L}/u', $shoda[1] );
+	if ( ! preg_match( '/\p{L}/u', $shoda[1] ) ) {
+		return false;
+	}
+	return preg_match_all( CSR_RESULT_RANK, $shoda[2] ) >= 2;
 }
 
 /**
