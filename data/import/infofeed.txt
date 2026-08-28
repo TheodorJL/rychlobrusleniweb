@@ -1,0 +1,89 @@
+# Vložte do: InfoFeed → Hromadné přidání
+# Formát řádku: Název|odkaz|popisek odkazu|druhý odkaz|popisek druhého
+# Řádky s mřížkou se přeskočí, můžete je vložit i s hlavičkou.
+# Nejnovější zpráva je nahoře; pořadí se zachová.
+#
+Příprava na novou sezonu vrcholí|https://tetify.eu/s/priprava|Dokument naleznete zde|http://speedskating.cz/wp-content/uploads/2026/08/60a4cc15-9fb0-492b-8d8c-a2e76a4e6cc6.mov|Video 1
+Výsledky ze soutěže Přeborník Vysočiny 1/2026|https://tetify.eu/s/prebornikvysociny|Dokument naleznete zde
+Výsledky z MČRJ, Erfurt 111/2025|https://tetify.eu/s/ER2025|Dokument naleznete zde
+SP v short tracku Gdaňsk a Dordrecht - postup Petry Vaňkové na ZOH 2026|https://jmp.sh/q6ZTcpcf|Dokument naleznete zde
+Světový pohár juniorů 2025-26, 1. a 2. závod|https://jmp.sh/IMh18scU|Dokument naleznete zde
+Dlouhá dráha - kvóty na ZOH 2026|https://jmp.sh/NyYwYlCY|Dokument naleznete zde
+Češi na SP v short tracku v Montrealu II.|https://jumpshare.com/UG9u9laT|Dokument naleznete zde
+Češi na SP v short tracku v Montrealu|https://jmp.sh/FIXIvFTc|Dokument naleznete zde
+Virtuální kongres: volební komise|https://jmp.sh/sD7F4Pve|Dokument naleznete zde
+Mistrovství ČR juniorů na dlouhé dráze - Erfurt, 22.-23.2.2025|https://jmp.sh/K11OhWhK|Článek naleznete zde|https://jmp.sh/WqMhmWOY|Soubor výsledků naleznete zde
+Češi úspěšně reprezentovali na soutěži EYOF 2025|https://jmp.sh/LhgvzXfD|Dokument naleznete zde
+Gratulace předsedy NSA Metoději Jílkovi|https://jmp.sh/FpuRp2oM|Dokument naleznete zde
+Světový pohár 2024-2025 v short tracku|https://jmp.sh/DP12oE5M|Článek naleznete zde
+Světový pohár juniorů na dlouhé dráze - Tomaszow, 30.11.-1.12., 7.-8.12.2024|https://jmp.sh/cN7jiyWX|Článek naleznete zde
+Mistrovství ČR na dlouhé dráze - Erfurt, 2.-3.11.2024|https://jmp.sh/BB38tlji|Článek naleznete zde|https://jmp.sh/oorsl5A5|Soubor výsledků naleznete zde
+Festival Kroužkofest se uskutečnil v Brně|https://jmp.sh/RekKIn16|Článek naleznete zde
+Češi jako pavouci !
+Trenérské práce třídy B|https://jmp.sh/N82tgpuK|Práce naleznete zde
+150 ? Nikoli ! Martina Sáblíková má již po této sezoně 222 medailí z velkých závodů|https://jmp.sh/03bdo5KB|Článek naleznete zde|https://jmp.sh/KD4TV1zQ|Soubor výsledků naleznete zde
+Výběrové řízení: Trenér juniorské reprezentace dlouhé dráhy
+Informace ČSR k výsledku šetření Policie ČR ve věci podezření ze spáchání přečinu podvod.|https://jmp.sh/Fh4NVM27|Informace naleznete zde
+MS juniorů Gdaňsk 22.-25.2.2024|https://jmp.sh/EC5kbpK2|Výsledky naleznete zde
+Předseda NSA posílá gratulaci Martině Sáblíkové k úspěchům na MS|https://jmp.sh/T8xob32N|Dopis naleznete zde
+Eva Blahová reprezentovala svaz na Youth Olympic Games 2024|https://jmp.sh/fBaq1iEW|Článek naleznete zde
+Reprezentace na dlouhé dráze je v plné přípravě v Salt Lake City|https://jmp.sh/PCYuf3k5|Článek naleznete zde|http://speedskating.cz/reprezentace-na-dlouhe-draze-je-v-plne-priprave-v-salt-lake-city/|Videa naleznete zde
+Mistrovství ČR 2023 na dlouhé dráze|https://docdro.id/AIJBTau|Výsledky naleznete zde
+Martina Sáblíková obdržela Cenu Věry Čáslavské|https://docdro.id/hS4FvDg|Článek naleznete zde
+Prezident ISU Jae Youl Kim byl zvolen za člena Mezinárodního olympijského výboru|https://docdro.id/HtRyevj|Článek naleznete zde
+Úspěšná reprezentace v inline závodech Evropského poháru|https://docdro.id/meN4fvS|Článek naleznete zde
+Mimořádný výkon Metoděje Jílka na ME v kolečkovém rychlobruslení|https://docdro.id/rXkxRDP|Článek naleznete zde
+Martina vítězí v závodě L'Etape du tour de France|http://speedskating.cz/martina-vitezi-v-zavode-letape-du-tour-de-france/|Článek naleznete zde
+Příprava na sezonu úspěšně probíhá|http://speedskating.cz/priprava-na-sezonu-uspesne-probiha/|Článek naleznete zde
+Sprint cup 2023|https://www.rychlobrusleni.cz/|zde
+Pozvánka na kurz Sportovci v právu|https://www.ftvs-vzdelavani.cz/sportovci-v-pravu/|Podrobnější informace naleznete zde
+Kalendář závodů ISU 2023-2027|https://docdro.id/eTBPeOj|Dokument naleznete zde
+Kalendář závodů ISU 2023-2027|https://docdro.id/eTBPeOj|Dokument naleznete zde
+Odměny pro reprezentanty za umístění na vrcholných soutěžích|https://docdro.id/OSQRrCq|Dokument naleznete zde
+Vedení ČSR poděkovalo Martině za skvělou reprezentaci|https://docdro.id/xjiqoJi|Dokument naleznete zde
+Kurz v oblasti kompenzace pohybového systému u dětí|https://docdro.id/EUkvOMB|Dokument naleznete zde
+Short track – junioři na závěr sezony uspěli na ISU Junior Challenge|https://docdro.id/itPonxK|Dokument naleznete zde
+Pozvánka na Valnou hromadu ČSR|https://docdro.id/EQDu1pb|Dokument naleznete zde
+Seminář ISU - přihlášky prostřednictvím ČSR|https://docdro.id/UQmB4wa|Dokument naleznete zde
+Radek Fajkus obsadil 12. místo na Světovém poháru v Dordrechtu|https://docdro.id/fBUE5bs|Článek naleznete zde
+VOŠ ČUS - trenérské kurzy|https://docdro.id/Qsg3hEF|Zprávu naleznete zde
+Short track – mladí reprezentanti se zúčastnili soutěží EYOF a MSJ|https://docdro.id/TZ2iLsH|Zprávu naleznete zde
+Shorttrackaři Vaňková a Fajkus obsadili 2. místo na Mistrovství Německa|https://docdro.id/HvWLD7l|Článek naleznete zde
+Vyjádření Předsednictva ČSR k článku uvedeném na portálu Seznam Zprávy dne 29.12.2022|https://docdro.id/IqfTBVc|Vyjádření naleznete zde
+MČR juniorů na dlouhé dráze 2022, Tomaszow - startovní listiny a výsledky|https://docdro.id/awonWaD|Protokol naleznete zde
+Článek o Jiřím Kynclovi z facebookové skupiny "Speedskating, the good old days"|https://imgur.com/a/QczMn4N|Článek naleznete zde
+Rozdělení prostředků na talentovanou mládež 2022 - dlouhá dráha|https://docdro.id/XKfJGb2|Oficiální dokument naleznete zde
+Seznam mezinárodních závodů na dlouhé a krátké dráze v sezoně 2022-23|https://docdro.id/DenX9FQ|Seznamy naleznete zde
+Mistrovské soutěže ISU - kvalifikační procesy, kvóty a vstupní procedury|https://docdro.id/PZmUC2H|Oficiální dokument naleznete zde
+Od 17.10. je možné žádat o dotaci v rámci programu Můj klub 2023|https://docdro.id/OcfLh6N|Dokument naleznete zde
+MVH ČSR se bude konat 3.11.202|https://docdro.id/fxWj1Iz|Pozvánku naleznete zde
+ISU uspořádá 4. prosince 2022 první Světový den bruslení|https://docdro.id/iJw2xQ7|Oficiální dokument naleznete zde
+Předpisy a technická pravidla dlouhá dráha 2022|https://docdro.id/i5QljHG|Dokument naleznete zde
+Příprava na sezonu vrcholí|https://docdro.id/9flOFCi|Dokument naleznete zde
+Předpisy a technická pravidla short track 2022|https://docdro.id/Hwi4nhb|Oficiální dokument naleznete zde
+Světové poháry juniorů dlouhá dráha 2022-23|https://docdro.id/nI6Buzm|Oficiální dokument naleznete zde
+Světové poháry dlouhá dráha 2022-23 - update|https://docdro.id/FjeixsF|Oficiální dokument naleznete zde
+Světové poháry dlouhá dráha 2022-23|https://docdro.id/rNEqrlD|Oficiální dokument naleznete zde
+Dopis ředitele ADV - novelizovaná Směrnice od 1.9.2022|https://docdro.id/KaANT7D|Dopis naleznete zde
+Startovní čísla - Short track 2022/23|https://docdro.id/J5TqvE4|Oficiální dokument naleznete zde
+Úmrtí čestného prezidenta ISU Ottavia Cinquanty|https://docdro.id/IwJ5pVQ|Oficiální vyjádření naleznete zde
+Novým prezidentem ISU zvolen Jae Youl Kim z Korey|https://docdro.id/qHvVmfV|Článek naleznete zde
+ISU - vyjádření k účasti ruských a běloruských delegátů na kongresu|https://docdro.id/17JNBLE|Oficiální PDF ke stažení zde
+Rozvojový program ISU - camp Inzell|https://docdro.id/mgFz9Qy|Oficiální PDF ke stažení zde
+Kampaň ADV ČR|https://docdro.id/CjUTrv6|PDF ke stažení zde
+Závody s mass startem|https://docdro.id/vmmOSUI|Organizace a bezpečnost závodů s mass startem
+Olympijská solidarita|https://imgur.com/a/Gxh8Vhg|Nabídka krátkodobého studia|https://imgur.com/a/YyvBgGO|Nabídka technických kurzů
+ISU - Oficiální vyjádření ke krizi na Ukrajině|https://imgur.com/a/jj7QTWR|Oficiální PDF ke stažení zde
+Umřel bývalý reprezentant Jiří Kyncl
+Nominace na ZOH Peking 2022 - ČSR má tři olympioniky|https://docdro.id/IG4i0C6|Oficiální PDF ke stažení zde
+Vyjádření předsednictva ČSR k článku uvedeném na portálu Seznam Zprávy dne 13.12.2021|https://docdro.id/rGY7IJf|Oficiální PDF ke stažení zde
+Kalendář ISU 2021-2022|https://docdro.id/jmPE2EQ|Oficiální PDF ke stažení zde
+Kvalifikační systémy na ZOH 2022|https://docdro.id/mbs4eKT|Oficiální PDF ke stažení zde|https://docdro.id/zSYOyd2|Oficiální PDF ke stažení zde
+Reprezentace v plné přípravě|https://docdro.id/Sb86uQ9|Oficiální PDF ke stažení zde
+Informace z Valné hromady|https://docdro.id/wIVk2wA|Oficiální PDF ke stažení zde
+VH ČSR se bude konat 26.5.2021|https://docdro.id/Ekkh4yX|Oficiální PDF ke stažení zde
+Cestování profesionálních sportovců a členů doprovodu|https://docdro.id/4ZND2X4|Oficiální PDF ke stažení zde
+Pořadatelé ZOH 2022 zveřejnili piktogramy sportovních odvětví
+ISU slaví mezinárodní den sportu|https://docdro.id/zcsXWzl|Oficiální PDF ke stažení zde
+Kongres ISU v Thajsku zrušen|https://docdro.id/MzMB7Ir|Oficiální PDF ke stažení zde
+ISU - Rozvojový program juniorů 2021|https://docdro.id/iLsFIMa|Oficiální PDF ke stažení zde

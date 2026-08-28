@@ -939,6 +939,7 @@ s mřížkou na začátku se přeskočí, takže je můžete vložit i s hlavič
 | `kluby.txt` | Kluby → Hromadné přidání | 14 |
 | `lide.txt` | Lidé ve svazu → Hromadné přidání | 22 |
 | `dokumenty.txt` | Dokumenty → Hromadné přidání | 23 |
+| `infofeed.txt` | InfoFeed → Hromadné přidání | 84 |
 | `vysledky-tabulky.txt` | Výsledky → Hromadné přidání | 2 |
 | `alba.txt` | *jen soupis*, alba se zakládají ručně | 18 |
 
@@ -951,6 +952,10 @@ s mřížkou na začátku se přeskočí, takže je můžete vložit i s hlavič
 * **Reprezentanti** — hromadné vložení je v *Reprezentanti → Hromadné
   přidání*, formát `Jméno | rok narození | klub | role`. Soupisky ze starého
   webu jsem nedostal, tenhle soubor proto v balíčku není.
+* **InfoFeed** — 84 zpráv ze starého webu i s odkazy. Sedm jich má dva
+  odkazy (článek a k němu výsledkovou listinu), formát je proto
+  `Název|odkaz|popisek|druhý odkaz|popisek druhého`. Čtyři zprávy odkaz
+  neměly, vloží se jen s názvem.
 * **Fotky** — vložit hromadně nejdou, vybírají se z knihovny médií.
   `alba.txt` je jen soupis toho, co na starém webu bylo.
 

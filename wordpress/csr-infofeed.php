@@ -301,8 +301,11 @@ function csr_feed_bulk_render() {
 				continue;
 			}
 			// URL může obsahovat zalomení řádku z kopírování — odstraníme bílé znaky.
-			$url   = isset( $parts[1] ) ? preg_replace( '/\s+/', '', $parts[1] ) : '';
-			$label = isset( $parts[2] ) ? trim( $parts[2] ) : '';
+			$url    = isset( $parts[1] ) ? preg_replace( '/\s+/', '', $parts[1] ) : '';
+			$label  = isset( $parts[2] ) ? trim( $parts[2] ) : '';
+			// Část zpráv má dva odkazy (článek a k němu výsledkovou listinu).
+			$url2   = isset( $parts[3] ) ? preg_replace( '/\s+/', '', $parts[3] ) : '';
+			$label2 = isset( $parts[4] ) ? trim( $parts[4] ) : '';
 
 			$post_id = wp_insert_post(
 				array(
@@ -317,6 +320,10 @@ function csr_feed_bulk_render() {
 
 			update_post_meta( $post_id, '_csr_link1_url', esc_url_raw( $url ) );
 			update_post_meta( $post_id, '_csr_link1_label', $label ? $label : 'Dokument naleznete zde' );
+			if ( $url2 ) {
+				update_post_meta( $post_id, '_csr_link2_url', esc_url_raw( $url2 ) );
+				update_post_meta( $post_id, '_csr_link2_label', $label2 ? $label2 : 'Další odkaz' );
+			}
 			update_post_meta( $post_id, '_csr_icon', 'dokument' );
 
 			if ( $source ) {
@@ -362,7 +369,7 @@ function csr_feed_bulk_render() {
 					<th scope="row"><label for="csr_items">Položky</label></th>
 					<td>
 						<textarea name="csr_items" id="csr_items" rows="14" class="large-text code"
-							placeholder="Výsledky ze soutěže Přeborník Vysočiny | https://… | Dokument naleznete zde&#10;Dlouhá dráha – kvóty na ZOH 2026 | https://…"></textarea>
+							placeholder="Výsledky ze soutěže Přeborník Vysočiny | https://… | Dokument naleznete zde&#10;MČR juniorů | https://… | Článek naleznete zde | https://… | Soubor výsledků&#10;Dlouhá dráha – kvóty na ZOH 2026 | https://…"></textarea>
 					</td>
 				</tr>
 			</table>
