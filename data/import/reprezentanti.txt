@@ -1,0 +1,280 @@
+# Vložte do: Reprezentanti → Hromadné přidání
+# Formát: Jméno|rok narození|klub|role|sezóna|tým
+# Sezóna a tým jsou na každém řádku, takže se vloží všech 26 soupisek
+# najednou — výběr nad polem nechte na „nezařazovat“.
+# Řádky s mřížkou se přeskočí.
+#
+# --- 2026-2027 · SS – Junioři ---
+Sára Hlušková|2007|BK Náchod||2026-2027|SS – Junioři
+Barbora Sáblíková|2010|BK Žďár||2026-2027|SS – Junioři
+Filip Jílek|2010|BZK Praha||2026-2027|SS – Junioři
+Adéla Krejčová|2008|KRS Svratka||2026-2027|SS – Junioři
+Tobiáš Krupka|2009|SKR Hlinsko||2026-2027|SS – Junioři
+Marta Papoušková|2009|KRS Svratka||2026-2027|SS – Junioři
+Marek Kurš|2007|KRS Svratka||2026-2027|SS – Junioři
+Veronika Dykastová|2008|KSBM Praha||2026-2027|SS – Junioři
+Jáchym Podlipský|2008|KSBM Praha||2026-2027|SS – Junioři
+Jiří Macháček|||trener|2026-2027|SS – Junioři
+Pavel Kulma|||trener|2026-2027|SS – Junioři
+
+# --- 2026-2027 · SS – Senioři ---
+Kateřina Kainová|2003|KSBM Praha||2026-2027|SS – Senioři
+Nikola Zdráhalová|1996|KRS Svratka||2026-2027|SS – Senioři
+Metoděj Jílek|2006|BZK Praha||2026-2027|SS – Senioři
+Zuzana Kuršová|2003|KRS Svratka||2026-2027|SS – Senioři
+Jesika Forstová|2006|KRS Svratka||2026-2027|SS – Senioři
+Monika Prachárová|2007|BZK Praha||2026-2027|SS – Senioři
+Lucie Korvasová|2003|SKR Hlinsko||2026-2027|SS – Senioři
+Kateřina Macháčková|2004|KRS Svratka||2026-2027|SS – Senioři
+Prokop Stodola|2002|KSBM Praha||2026-2027|SS – Senioři
+Jakub Kočí|2004|KRS Svratka||2026-2027|SS – Senioři
+Tadeáš Procházka|2001|SKR Hlinsko||2026-2027|SS – Senioři
+Jakub Kovařík|2006|BZK Praha||2026-2027|SS – Senioři
+Martina Sáblíková|||trener|2026-2027|SS – Senioři
+Kalon Dobbin|||trener|2026-2027|SS – Senioři
+Petr Novák|||trener|2026-2027|SS – Senioři
+Jiří Tvrdík|||trener|2026-2027|SS – Senioři
+
+# --- 2026-2027 · ST – Junioři ---
+Filip Jílek|2010|BZK Praha||2026-2027|ST – Junioři
+David Hradský|2010|KSB Benátky||2026-2027|ST – Junioři
+Samuel Oliver Šulc|2008|KSB Benátky||2026-2027|ST – Junioři
+Jan Muchka|2008|KSB Benátky||2026-2027|ST – Junioři
+Anna Pňovská|2008|KSB Benátky||2026-2027|ST – Junioři
+Václav Kamenský|2008|KSB Benátky||2026-2027|ST – Junioři
+Laura Nevřelová|2011|KSB Benátky||2026-2027|ST – Junioři
+František Muchka|2010|KSB Benátky||2026-2027|ST – Junioři
+Jindřich Pařík|||trener|2026-2027|ST – Junioři
+Kateřina Novotná|||trener|2026-2027|ST – Junioři
+Jarmil Hrůza|||trener|2026-2027|ST – Junioři
+
+# --- 2026-2027 · ST – Senioři ---
+Radek Fajkus|2001|KSB Benátky||2026-2027|ST – Senioři
+Petra Vaňková|1999|BZK Praha||2026-2027|ST – Senioři
+Zdeněk Sejpal|2001|KSB Benátky||2026-2027|ST – Senioři
+Barbora Gáková|2006|BZK Praha||2026-2027|ST – Senioři
+Michaela Poplová|2006|BZK Praha||2026-2027|ST – Senioři
+Matěj Popl|2006|BZK Praha||2026-2027|ST – Senioři
+Marek Procházka|2006|BZK Praha||2026-2027|ST – Senioři
+Jarmil Hrůza|||trener|2026-2027|ST – Senioři
+Kateřina Novotná|||trener|2026-2027|ST – Senioři
+Jindřich Pařík|||trener|2026-2027|ST – Senioři
+
+# --- 2025-2026 · SS – Junioři ---
+Sára Hlušková|2007|BK Náchod||2025-2026|SS – Junioři
+Monika Prachárová|2007|BZK Praha||2025-2026|SS – Junioři
+Filip Jílek|2010|BZK Praha||2025-2026|SS – Junioři
+Adéla Krejčová|2008|KRS Svratka||2025-2026|SS – Junioři
+Barbora Sáblíková|2010|BK Žďár||2025-2026|SS – Junioři
+Marta Papoušková|2009|KRS Svratka||2025-2026|SS – Junioři
+Johana Prachárová|2007|BZK Praha||2025-2026|SS – Junioři
+Veronika Dykastová|2008|KSBM Praha||2025-2026|SS – Junioři
+Jáchym Podlipský|2008|KSBM Praha||2025-2026|SS – Junioři
+Marek Kurš|2007|KRS Svratka||2025-2026|SS – Junioři
+Pavel Kulma|||trener|2025-2026|SS – Junioři
+
+# --- 2025-2026 · SS – Senioři ---
+Martina Sáblíková|1987|KRS Svratka||2025-2026|SS – Senioři
+Nikola Zdráhalová|1996|KRS Svratka||2025-2026|SS – Senioři
+Metoděj Jílek|2006|BZK Praha||2025-2026|SS – Senioři
+Zuzana Kuršová|2003|KRS Svratka||2025-2026|SS – Senioři
+Nikol Nepokojová|2003|SKR Hlinsko||2025-2026|SS – Senioři
+Kateřina Kainová|2003|KSBM Praha||2025-2026|SS – Senioři
+Lucie Korvasová|2003|SKR Hlinsko||2025-2026|SS – Senioři
+Kateřina Macháčková|2004|KRS Svratka||2025-2026|SS – Senioři
+Prokop Stodola|2002|KSBM Praha||2025-2026|SS – Senioři
+Jakub Kočí|2004|KRS Svratka||2025-2026|SS – Senioři
+Jesika Forstová|2006|KRS Svratka||2025-2026|SS – Senioři
+
+# --- 2025-2026 · SS – Sledovaní ---
+Tomáš Bohumský|2002|KSBM Praha||2025-2026|SS – Sledovaní
+Tadeáš Procházka|2001|SKR Hlinsko||2025-2026|SS – Sledovaní
+
+# --- 2025-2026 · ST – Junioři ---
+Eva Bláhová|2008|STC Žďár||2025-2026|ST – Junioři
+Marek Procházka|2006|BZK Praha||2025-2026|ST – Junioři
+Samuel Oliver Šulc|2008|KSB Benátky||2025-2026|ST – Junioři
+Jan Muchka|2008|KSB Benátky||2025-2026|ST – Junioři
+Anna Pňovská|2008|KSB Benátky||2025-2026|ST – Junioři
+Václav Kamenský|2008|KSB Benátky||2025-2026|ST – Junioři
+Filip Jílek|2010|BZK Praha||2025-2026|ST – Junioři
+Monika Kotrchová|2008|STC Žďár||2025-2026|ST – Junioři
+Jindřich Pařík|||trener|2025-2026|ST – Junioři
+Kateřina Novotná|||trener|2025-2026|ST – Junioři
+
+# --- 2025-2026 · ST – Senioři ---
+Radek Fajkus|2001|KSB Benátky||2025-2026|ST – Senioři
+Petra Vaňková|1999|BZK Praha||2025-2026|ST – Senioři
+Zdeněk Sejpal|2001|KSB Benátky||2025-2026|ST – Senioři
+Barbora Gáková|2006|BZK Praha||2025-2026|ST – Senioři
+Michaela Poplová|2006|BZK Praha||2025-2026|ST – Senioři
+Matěj Popl|2006|BZK Praha||2025-2026|ST – Senioři
+Jarmil Hrůza|||trener|2025-2026|ST – Senioři
+Kateřina Novotná|||trener|2025-2026|ST – Senioři
+
+# --- 2025-2026 · ST – Sledovaní ---
+Tadeáš Kraj|2008|KSB Benátky||2025-2026|ST – Sledovaní
+David Hradský|2010|KSB Benátky||2025-2026|ST – Sledovaní
+Laura Nevřelová|2011|KSB Benátky||2025-2026|ST – Sledovaní
+Julie Pňovská|2011|KSB Benátky||2025-2026|ST – Sledovaní
+Matěj Kalamár|2012|KSB Benátky||2025-2026|ST – Sledovaní
+
+# --- 2024-2025 · SS – Junioři ---
+Sára Hlušková|2007|BK Náchod||2024-2025|SS – Junioři
+Monika Prachárová|2007|BZK Praha||2024-2025|SS – Junioři
+Monika Macháčková|2006|KRS Svratka||2024-2025|SS – Junioři
+Jesika Forstová|2006|KRS Svratka||2024-2025|SS – Junioři
+Stella Horká|2006|KSB Hodonín||2024-2025|SS – Junioři
+Metoděj Jílek|2006|BZK Praha||2024-2025|SS – Junioři
+Pavel Kulma|||trener|2024-2025|SS – Junioři
+
+# --- 2024-2025 · SS – Senioři ---
+Martina Sáblíková|1987|KRS Svratka||2024-2025|SS – Senioři
+Nikola Zdráhalová|1996|KRS Svratka||2024-2025|SS – Senioři
+Veronika Antošová|2000|KRS Svratka||2024-2025|SS – Senioři
+Zuzana Kuršová|2003|KRS Svratka||2024-2025|SS – Senioři
+Nikol Nepokojová|2003|SKR Hlinsko||2024-2025|SS – Senioři
+Kateřina Kainová|2003|KSBM Praha||2024-2025|SS – Senioři
+Lucie Korvasová|2003|SKR Hlinsko||2024-2025|SS – Senioři
+Kateřina Macháčková|2004|KRS Svratka||2024-2025|SS – Senioři
+Adéla Petrusová|2003|SKR Hlinsko||2024-2025|SS – Senioři
+Tomáš Bohumský|2002|KSBM Praha||2024-2025|SS – Senioři
+Jakub Kočí|2004|KRS Svratka||2024-2025|SS – Senioři
+Tadeáš Procházka|2001|SKR Hlinsko||2024-2025|SS – Senioři
+Prokop Stodola|2002|KSBM Praha||2024-2025|SS – Senioři
+
+# --- 2024-2025 · ST – Junioři ---
+Barbora Gáková|2006|STC Žďár||2024-2025|ST – Junioři
+Marek Procházka|2006|BZK Praha||2024-2025|ST – Junioři
+Samuel Oliver Šulc|2008|KSB Benátky||2024-2025|ST – Junioři
+Michaela Poplová|2006|BZK Praha||2024-2025|ST – Junioři
+Matěj Popl|2006|BZK Praha||2024-2025|ST – Junioři
+Eva Bláhová|2008|STC Žďár||2024-2025|ST – Junioři
+Jan Muchka|2008|KSB Benátky||2024-2025|ST – Junioři
+Anna Pňovská|2008|KSB Benátky||2024-2025|ST – Junioři
+Václav Kamenský|2008|KSB Benátky||2024-2025|ST – Junioři
+Monika Kotrchová|2008|STC Žďár||2024-2025|ST – Junioři
+Jindřich Pařík|||trener|2024-2025|ST – Junioři
+
+# --- 2024-2025 · ST – Senioři ---
+Radek Fajkus|2001|KSB Benátky||2024-2025|ST – Senioři
+Petra Vaňková|1999|BZK Praha||2024-2025|ST – Senioři
+Zdeněk Sejpal|2001|KSB Benátky||2024-2025|ST – Senioři
+Jarmil Hrůza|||trener|2024-2025|ST – Senioři
+
+# --- 2023-2024 · SS – Junioři ---
+Kateřina Macháčková|2004|KRS Svratka||2023-2024|SS – Junioři
+Stella Horká|2006|KSB Hodonín||2023-2024|SS – Junioři
+Metoděj Jílek|2006|BZK Praha||2023-2024|SS – Junioři
+Pavel Kulma|||trener|2023-2024|SS – Junioři
+
+# --- 2023-2024 · SS – Senioři ---
+Martina Sáblíková|1987|KRS Svratka||2023-2024|SS – Senioři
+Nikola Zdráhalová|1996|KRS Svratka||2023-2024|SS – Senioři
+Veronika Antošová|2000|KRS Svratka||2023-2024|SS – Senioři
+Zuzana Kuršová|2003|KRS Svratka||2023-2024|SS – Senioři
+Nikol Nepokojová|2003|SKR Hlinsko||2023-2024|SS – Senioři
+Kateřina Kainová|2003|KSBM Praha||2023-2024|SS – Senioři
+Lucie Korvasová|2003|SKR Hlinsko||2023-2024|SS – Senioři
+Prokop Stodola|2002|KSBM Praha||2023-2024|SS – Senioři
+Adéla Petrusová|2003|SKR Hlinsko||2023-2024|SS – Senioři
+Tomáš Bohumský|2002|KSBM Praha||2023-2024|SS – Senioři
+Jakub Kočí|2004|KRS Svratka||2023-2024|SS – Senioři
+Tadeáš Procházka|2001|SKR Hlinsko||2023-2024|SS – Senioři
+
+# --- 2023-2024 · ST – Junioři ---
+Barbora Gáková|2006|STC Žďár||2023-2024|ST – Junioři
+Marek Procházka|2006|BZK Praha||2023-2024|ST – Junioři
+Samuel Šulc|2008|KSB Benátky||2023-2024|ST – Junioři
+Michaela Poplová|2006|BZK Praha||2023-2024|ST – Junioři
+Matěj Popl|2006|BZK Praha||2023-2024|ST – Junioři
+Eva Bláhová|2008|STC Žďár||2023-2024|ST – Junioři
+Jan Muchka|2008|KSB Benátky||2023-2024|ST – Junioři
+Anna Pňovská|2008|KSB Benátky||2023-2024|ST – Junioři
+Václav Kamenský|2008|KSB Benátky||2023-2024|ST – Junioři
+Monika Kotrchová|2008|STC Žďár||2023-2024|ST – Junioři
+Filip Jílek|2010|BZK Praha||2023-2024|ST – Junioři
+Marta Papoušková|2009|STC Žďár||2023-2024|ST – Junioři
+Jindřich Pařík|||trener|2023-2024|ST – Junioři
+
+# --- 2023-2024 · ST – Senioři ---
+Radek Fajkus|2001|KSB Benátky||2023-2024|ST – Senioři
+Petra Vaňková|1999|BZK Praha||2023-2024|ST – Senioři
+Zdeněk Sejpal|2001|KSB Benátky||2023-2024|ST – Senioři
+Jarmil Hrůza|||trener|2023-2024|ST – Senioři
+
+# --- 2022-2023 · SS – Junioři ---
+Matěj Semeniuk|2003|Kometa Brno||2022-2023|SS – Junioři
+Lukáš Steklý|2003|KSB Hodonín||2022-2023|SS – Junioři
+Adéla Petrusová|2003|SKR Hlinsko||2022-2023|SS – Junioři
+Jakub Kočí|2004|KRS Svratka||2022-2023|SS – Junioři
+Stella Horká|2006|KSB Hodonín||2022-2023|SS – Junioři
+Metoděj Jílek|2006|BZK Praha||2022-2023|SS – Junioři
+Pavel Kulma|||trener|2022-2023|SS – Junioři
+
+# --- 2022-2023 · SS – Senioři ---
+Martina Sáblíková|1987|KRS Svratka||2022-2023|SS – Senioři
+Nikola Zdráhalová|1996|KRS Svratka||2022-2023|SS – Senioři
+Veronika Antošová|2000|KRS Svratka||2022-2023|SS – Senioři
+Zuzana Kuršová|2003|KRS Svratka||2022-2023|SS – Senioři
+Nikol Nepokojová|2003|SKR Hlinsko||2022-2023|SS – Senioři
+Kateřina Kainová|2003|KSBM Praha||2022-2023|SS – Senioři
+Lucie Korvasová|2003|SKR Hlinsko||2022-2023|SS – Senioři
+Prokop Stodola|2002|KSBM Praha||2022-2023|SS – Senioři
+
+# --- 2022-2023 · ST – Junioři ---
+Barbora Gáková|2006|STC Žďár||2022-2023|ST – Junioři
+Klára Strnadová|2005|STC Žďár||2022-2023|ST – Junioři
+Karolína Bílková|2004|STC Žďár||2022-2023|ST – Junioři
+Michaela Poplová|2006|BZK Praha||2022-2023|ST – Junioři
+Matěj Popl|2006|BZK Praha||2022-2023|ST – Junioři
+Carine Manychová|2004|BK Náchod||2022-2023|ST – Junioři
+Zbyněk Svítil|||trener|2022-2023|ST – Junioři
+Jindřich Pařík|||trener|2022-2023|ST – Junioři
+
+# --- 2022-2023 · ST – Senioři ---
+Michaela Hrůzová|1998|KSB Benátky||2022-2023|ST – Senioři
+Petra Vaňková|1999|BZK Praha||2022-2023|ST – Senioři
+Zdeněk Sejpal|2001|KSB Benátky||2022-2023|ST – Senioři
+Radek Fajkus|2001|KSB Benátky||2022-2023|ST – Senioři
+Jarmil Hrůza|||trener|2022-2023|ST – Senioři
+
+# --- 2021-2022 · SS – Junioři ---
+Kateřina Macháčková|2004|KRS Svratka||2021-2022|SS – Junioři
+Nikol Nepokojová|2003|SKR Hlinsko||2021-2022|SS – Junioři
+Adéla Petrusová|2003|SKR Hlinsko||2021-2022|SS – Junioři
+Prokop Stodola|2002|KSBM Praha||2021-2022|SS – Junioři
+Zuzana Kuršová|2003|KSB Hodonín||2021-2022|SS – Junioři
+Jakub Kočí|2004|KRS Svratka||2021-2022|SS – Junioři
+Matěj Semeniuk|2003|Kometa Brno||2021-2022|SS – Junioři
+Lukáš Steklý|2003|KSB Hodonín||2021-2022|SS – Junioři
+Pavel Kulma|||trener|2021-2022|SS – Junioři
+
+# --- 2021-2022 · SS – Senioři ---
+Martina Sáblíková|1987|KRS Svratka||2021-2022|SS – Senioři
+Nikola Zdráhalová|1996|KRS Svratka||2021-2022|SS – Senioři
+Veronika Antošová|2000|KRS Svratka||2021-2022|SS – Senioři
+Sebastien Briešťanský|1998|KRS Svratka||2021-2022|SS – Senioři
+Petr Novák|||trener|2021-2022|SS – Senioři
+
+# --- 2021-2022 · ST – Junioři ---
+Barbora Gáková|2006|STC Žďár||2021-2022|ST – Junioři
+Klára Strnadová|2005|STC Žďár||2021-2022|ST – Junioři
+Karolína Bílková|2004|STC Žďár||2021-2022|ST – Junioři
+Kristýna Kudláčková|2005|STC Žďár||2021-2022|ST – Junioři
+Eliška Kudláčková|2007|STC Žďár||2021-2022|ST – Junioři
+Magdalena Hromasová|2005|BZK Praha||2021-2022|ST – Junioři
+Michaela Poplová|2006|BZK Praha||2021-2022|ST – Junioři
+Matěj Popl|2006|BZK Praha||2021-2022|ST – Junioři
+Carine Manychová|2004|BK Náchod||2021-2022|ST – Junioři
+Zbyněk Svítil|||trener|2021-2022|ST – Junioři
+Jindřich Pařík|||trener|2021-2022|ST – Junioři
+
+# --- 2021-2022 · ST – Senioři ---
+Michaela Hrůzová|1998|KSB Benátky||2021-2022|ST – Senioři
+Tereza Pfeiferová|2001|BZK Praha||2021-2022|ST – Senioři
+Dominika Simandlová|2002|KSB Benátky||2021-2022|ST – Senioři
+Petra Vaňková|1999|BZK Praha||2021-2022|ST – Senioři
+Zdeněk Sejpal|2001|KSB Benátky||2021-2022|ST – Senioři
+Radek Fajkus|2001|KSB Benátky||2021-2022|ST – Senioři
+Jarmil Hrůza|||trener|2021-2022|ST – Senioři

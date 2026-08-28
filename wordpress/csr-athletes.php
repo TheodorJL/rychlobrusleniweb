@@ -339,6 +339,34 @@ function csr_bulk_add_menu() {
 add_action( 'admin_menu', 'csr_bulk_add_menu' );
 
 /**
+ * Najde termín podle názvu, a když neexistuje, založí ho.
+ *
+ * Sezóny i týmy jsou hierarchické taxonomie — u těch wp_set_object_terms()
+ * název sám nezaloží a tiše by se nepřiřadilo nic.
+ *
+ * @param string $taxonomy Taxonomie.
+ * @param string $name     Název termínu.
+ * @return int ID termínu, nebo 0.
+ */
+function csr_term_id_by_name( $taxonomy, $name ) {
+	$name = trim( (string) $name );
+	if ( '' === $name || ! taxonomy_exists( $taxonomy ) ) {
+		return 0;
+	}
+
+	$term = get_term_by( 'name', $name, $taxonomy );
+	if ( ! $term ) {
+		$term = get_term_by( 'slug', sanitize_title( $name ), $taxonomy );
+	}
+	if ( $term && ! is_wp_error( $term ) ) {
+		return (int) $term->term_id;
+	}
+
+	$new = wp_insert_term( $name, $taxonomy );
+	return ( ! is_wp_error( $new ) && isset( $new['term_id'] ) ) ? (int) $new['term_id'] : 0;
+}
+
+/**
  * Rozebere jeden řádek soupisky na jméno, ročník, klub a roli.
  * Formát: Jméno | rok | klub | role
  *
@@ -363,6 +391,10 @@ function csr_parse_roster_line( $line ) {
 	$year = isset( $parts[1] ) ? absint( $parts[1] ) : 0;
 	$club = isset( $parts[2] ) ? trim( $parts[2] ) : '';
 	$role = isset( $parts[3] ) ? sanitize_key( $parts[3] ) : '';
+	// Sezóna a tým na řádku mají přednost před výběrem nad polem. Díky tomu
+	// jde vložit i několik soupisek najednou, ne jednu po druhé.
+	$season_name = isset( $parts[4] ) ? trim( $parts[4] ) : '';
+	$squad_name  = isset( $parts[5] ) ? trim( $parts[5] ) : '';
 
 	// Roli poznáme i ze slova, ne jen z klíče.
 	if ( ! array_key_exists( $role, csr_athlete_roles() ) ) {
@@ -382,10 +414,12 @@ function csr_parse_roster_line( $line ) {
 	}
 
 	return array(
-		'name' => $name,
-		'year' => $year,
-		'club' => $club,
-		'role' => $role,
+		'name'   => $name,
+		'year'   => $year,
+		'club'   => $club,
+		'role'   => $role,
+		'season' => $season_name,
+		'squad'  => $squad_name,
 	);
 }
 
@@ -446,11 +480,17 @@ function csr_bulk_add_render() {
 				$done[] = $row['name'];
 			}
 
-			if ( $season ) {
-				wp_set_object_terms( $post_id, array( $season ), CSR_TAX_SEASON, true );
+			// Sezóna a tým z řádku mají přednost před výběrem nad polem.
+			$radek_season = ! empty( $row['season'] ) ? csr_term_id_by_name( CSR_TAX_SEASON, $row['season'] ) : 0;
+			$radek_squad  = ! empty( $row['squad'] ) ? csr_term_id_by_name( CSR_TAX_SQUAD, $row['squad'] ) : 0;
+			$pouzit_season = $radek_season ? $radek_season : $season;
+			$pouzit_squad  = $radek_squad ? $radek_squad : $squad;
+
+			if ( $pouzit_season ) {
+				wp_set_object_terms( $post_id, array( $pouzit_season ), CSR_TAX_SEASON, true );
 			}
-			if ( $squad ) {
-				wp_set_object_terms( $post_id, array( $squad ), CSR_TAX_SQUAD, true );
+			if ( $pouzit_squad ) {
+				wp_set_object_terms( $post_id, array( $pouzit_squad ), CSR_TAX_SQUAD, true );
 			}
 			$order++;
 		}
@@ -518,7 +558,7 @@ function csr_bulk_add_render() {
 					<th scope="row"><label for="csr_roster">Soupiska</label></th>
 					<td>
 						<textarea name="csr_roster" id="csr_roster" rows="14" class="large-text code"
-							placeholder="Sára Hlušková | 2007 | BK Náchod&#10;Barbora Sáblíková | 2010 | BK Žďár&#10;Filip Jílek | 2010 | BZK Praha&#10;Jiří Macháček | | | trenér"></textarea>
+							placeholder="Sára Hlušková | 2007 | BK Náchod&#10;Jiří Macháček | | | trenér&#10;&#10;Sezónu a tým lze uvést i na řádku a vložit tak víc soupisek najednou:&#10;Sára Hlušková | 2007 | BK Náchod | | 2026-2027 | SS – Junioři"></textarea>
 					</td>
 				</tr>
 			</table>
