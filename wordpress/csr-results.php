@@ -974,6 +974,34 @@ add_action( 'admin_menu', 'csr_results_import_page' );
  * Formulář hromadného přidání.
  */
 /**
+ * Smaže všechny výsledkové tabulky.
+ *
+ * Slouží k opravě, když se tabulky přiřadily špatně. Tenhle typ obsahu
+ * zakládá jen hromadné vložení, takže se nemaže nic, co by se nedalo
+ * znovu vložit. Maže se natvrdo, aby smazané záznamy nepřekážely
+ * při novém vkládání.
+ *
+ * @return int Počet smazaných tabulek.
+ */
+function csr_results_smazat_vse() {
+	$vsechny = get_posts(
+		array(
+			'post_type'      => 'csr_result',
+			'post_status'    => 'any',
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+		)
+	);
+	$smazano = 0;
+	foreach ( $vsechny as $id ) {
+		if ( wp_delete_post( (int) $id, true ) ) {
+			$smazano++;
+		}
+	}
+	return $smazano;
+}
+
+/**
  * Rozebere vložený text na tabulky.
  *
  * Zvládne dvě podoby:
@@ -1050,18 +1078,29 @@ function csr_results_import_run( $text, $sezona = '', $sport = '' ) {
 	foreach ( csr_results_parse_bulk( $text, $sezona, $sport ) as $t ) {
 		$poradi += 10;
 
-		$existuje = get_posts(
-			array(
-				'post_type'      => 'csr_result',
-				'title'          => $t['nazev'],
-				'post_status'    => 'any',
-				'posts_per_page' => 1,
-				'fields'         => 'ids',
-				'tax_query'      => $t['sezona'] ? array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
-					array( 'taxonomy' => CSR_TAX_SEASON, 'field' => 'slug', 'terms' => $t['sezona'] ),
-				) : array(),
-			)
+		/*
+		 * Do klíče patří i disciplína. „Ženy 500 m" v jedné sezóně existuje
+		 * na krátké i na dlouhé dráze a bez toho by druhá v pořadí sáhla
+		 * po té první a nechala v ní cizí výsledky.
+		 */
+		$args = array(
+			'post_type'      => 'csr_result',
+			'title'          => $t['nazev'],
+			'post_status'    => 'any',
+			'posts_per_page' => 1,
+			'fields'         => 'ids',
 		);
+		if ( $t['sezona'] ) {
+			$args['tax_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+				array( 'taxonomy' => CSR_TAX_SEASON, 'field' => 'slug', 'terms' => $t['sezona'] ),
+			);
+		}
+		if ( $t['sport'] ) {
+			$args['meta_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+				array( 'key' => '_csr_result_sport', 'value' => $t['sport'] ),
+			);
+		}
+		$existuje = get_posts( $args );
 
 		if ( $existuje ) {
 			$id = (int) $existuje[0];
@@ -1103,7 +1142,8 @@ function csr_results_import_render() {
 		wp_die( 'Na tohle nemáte oprávnění.' );
 	}
 
-	$done = 0;
+	$done    = 0;
+	$smazano = 0;
 	if ( isset( $_POST['csr_results_import_nonce'] ) && wp_verify_nonce( sanitize_key( $_POST['csr_results_import_nonce'] ), 'csr_results_import' ) ) {
 		csr_seed_seasons();
 
@@ -1113,6 +1153,11 @@ function csr_results_import_render() {
 		// kterými jsou oddělené sloupce tabulek.
 		$titles = isset( $_POST['csr_import_titles'] ) ? csr_sanitize_table( wp_unslash( $_POST['csr_import_titles'] ) ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 
+		$smazano = 0;
+		if ( ! empty( $_POST['csr_import_reset'] ) ) {
+			$smazano = csr_results_smazat_vse();
+		}
+
 		$done = csr_results_import_run( $titles, $season, $sport );
 	}
 
@@ -1121,6 +1166,9 @@ function csr_results_import_render() {
 	<div class="wrap">
 		<h1>Hromadné přidání výsledkových tabulek</h1>
 
+		<?php if ( $smazano ) : ?>
+			<div class="notice notice-warning"><p>Smazáno <strong><?php echo (int) $smazano; ?></strong> starých tabulek.</p></div>
+		<?php endif; ?>
 		<?php if ( $done ) : ?>
 			<div class="notice notice-success"><p>Zpracováno <strong><?php echo (int) $done; ?></strong> tabulek.</p></div>
 		<?php endif; ?>
@@ -1171,6 +1219,16 @@ function csr_results_import_render() {
 					</td>
 				</tr>
 			</table>
+			<p>
+				<label>
+					<input type="checkbox" name="csr_import_reset" value="1">
+					<strong>Nejdřív smazat všechny výsledkové tabulky</strong>
+				</label><br>
+				<span class="description">
+					Smaže <em>všechny</em> tabulky a vloží je znovu podle pole níž. Použijte,
+					když se tabulky přiřadily ke špatné disciplíně. Jiný obsah se nemaže.
+				</span>
+			</p>
 			<?php submit_button( 'Vložit tabulky' ); ?>
 		</form>
 	</div>
