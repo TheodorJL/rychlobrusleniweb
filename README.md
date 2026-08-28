@@ -991,6 +991,36 @@ Vložení **zakládá nové záznamy, nemaže staré**. Když ho spustíte dvakr
 budete mít všechno dvakrát (u dokumentů se shoda podle názvu přeskočí,
 u klubů a lidí ne).
 
+## Čísla na úvodní stránce
+
+Původně tam byly hodnoty napsané natvrdo v nastavení — a tedy vymyšlené
+autorem šablony. Návštěvník ale nemá jak poznat, že „480 aktivních
+závodníků" je odhad.
+
+Čísla se proto **počítají z obsahu webu**. V *Přizpůsobit → Čísla pod
+úvodním blokem* se u každého vybírá zdroj:
+
+| Zdroj | Co spočítá |
+| --- | --- |
+| Počet klubů | zveřejněné kluby |
+| Počet reprezentantů | zveřejnění reprezentanti |
+| Počet krajů s klubem | kraje, kde je aspoň jeden klub |
+| Počet dokumentů | dokumenty v databázi |
+| Počet fotoalb / fotek | alba a fotky v nich |
+| Počet článků | zveřejněné články |
+| Počet českých rekordů | ze stažených dat rekordů |
+
+Když vyjde nula, číslo se **nezobrazí** — lepší údaj vynechat než tvrdit
+„0 klubů".
+
+Vlastní hodnotu lze napsat pořád, ale jen tam, kde ji máte čím doložit.
+
+### Co zůstalo prázdné
+
+Medaile, účast na olympiádách a stáří sportu v Česku se z webu spočítat
+nedají. Ve výchozím stavu jsou proto **vypnuté a prázdné**. Až budete mít
+skutečné počty z evidence svazu, zapnete je v *Přizpůsobit → Sekce úspěchů*.
+
 ## Výkon a přístupnost
 
 - **Žádná externí knihovna** — vlastní CSS a JS, dohromady ~24 kB.

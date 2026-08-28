@@ -53,6 +53,9 @@ require_once __DIR__ . '/csr-records.php';
 // Náborová stránka.
 require_once __DIR__ . '/csr-landing.php';
 
+// Čísla na úvodní stránce.
+require_once __DIR__ . '/csr-stats.php';
+
 const CSR_HOME_TEMPLATE   = 'page-csr-home.php';
 const CSR_ROSTER_TEMPLATE = 'page-csr-roster.php';
 const CSR_EVENTS_TEMPLATE = 'page-csr-events.php';

@@ -144,11 +144,13 @@ if ( csr_page_locked() ) {
 			<div class="csr-hero__stats">
 				<?php for ( $i = 1; $i <= 4; $i++ ) : ?>
 					<?php
-					$csr_label = csr_opt( "csr_stat{$i}_label" );
-					if ( ! $csr_label ) {
+					// Hodnota se počítá z obsahu webu. Když se spočítat nedá,
+					// číslo se vynechá — radši méně údajů než vymyšlený.
+					$csr_value = csr_stat_value( $i );
+					$csr_label = csr_stat_label( $i );
+					if ( null === $csr_value || ! $csr_label ) {
 						continue;
 					}
-					$csr_value = (int) csr_opt( "csr_stat{$i}_value" );
 					?>
 					<div class="csr-hero__stat">
 						<b><span data-csr-count="<?php echo esc_attr( $csr_value ); ?>"<?php echo csr_opt( "csr_stat{$i}_nogroup" ) ? ' data-csr-nogroup' : ''; ?>><?php echo esc_html( $csr_value ); ?></span><?php echo esc_html( csr_opt( "csr_stat{$i}_suffix" ) ); ?></b>
@@ -379,11 +381,13 @@ if ( $csr_ticker ) :
 				<div class="csr-counters csr-reveal csr-reveal--right">
 					<?php for ( $i = 1; $i <= 4; $i++ ) : ?>
 						<?php
-						$csr_label = csr_opt( "csr_counter{$i}_label" );
-						if ( ! $csr_label ) {
+						// Stejně jako čísla nahoře: hodnota se počítá z obsahu
+						// webu, a co spočítat nejde, se vynechá.
+						$csr_value  = csr_stat_value( $i, 'counter' );
+						$csr_label  = csr_stat_label( $i, 'counter' );
+						if ( null === $csr_value || ! $csr_label ) {
 							continue;
 						}
-						$csr_value  = (int) csr_opt( "csr_counter{$i}_value" );
 						$csr_suffix = csr_opt( "csr_counter{$i}_suffix" );
 						?>
 						<div class="csr-counter<?php echo csr_opt( "csr_counter{$i}_gold" ) ? ' csr-counter--gold' : ''; ?>">

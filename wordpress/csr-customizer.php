@@ -168,16 +168,27 @@ function csr_settings_registry() {
 			'csr_stat',
 			4,
 			array(
-				'value'   => array( 'type' => 'number', 'label' => '%d. číslo — hodnota', 'desc' => 'Číslo se na stránce animovaně napočítá.', 'min' => 0, 'max' => 100000 ),
+				'source'  => array(
+					'type'    => 'select',
+					'label'   => '%d. číslo — odkud brát',
+					'desc'    => 'Spočítá se z obsahu webu. Vlastní hodnotu pište jen tehdy, když ji máte čím doložit — návštěvník nepozná, že je to odhad.',
+					'choices' => csr_stat_source_choices(),
+				),
+				'value'   => array( 'type' => 'number', 'label' => '%d. číslo — vlastní hodnota', 'desc' => 'Platí jen při volbě „Vlastní hodnota". Prázdné nebo nula číslo skryje.', 'min' => 0, 'max' => 100000 ),
 				'suffix'  => array( 'type' => 'text', 'label' => '%d. číslo — přípona', 'desc' => 'Např. „+" nebo „×".' ),
 				'label'   => array( 'type' => 'text', 'label' => '%d. číslo — popisek' ),
 				'nogroup' => array( 'type' => 'checkbox', 'label' => '%d. číslo — nedělit tisíce', 'desc' => 'Zapněte u letopočtů, ať se nezobrazí „1 993".' ),
 			),
 			array(
-				1 => array( 'value' => 24,   'label' => 'Registrovaných klubů' ),
-				2 => array( 'value' => 480,  'label' => 'Aktivních závodníků', 'suffix' => '+' ),
-				3 => array( 'value' => 2,    'label' => 'Disciplíny · SS & ST' ),
-				4 => array( 'value' => 1993, 'label' => 'Rok založení svazu', 'nogroup' => true ),
+				/*
+				 * Výchozí hodnoty se počítají z obsahu webu. Dřív tu byla
+				 * čísla napsaná natvrdo — a tedy vymyšlená; návštěvník
+				 * nemá jak poznat, že „480 závodníků" je odhad.
+				 */
+				1 => array( 'source' => 'kluby' ),
+				2 => array( 'source' => 'zavodnici' ),
+				3 => array( 'source' => 'alba' ),
+				4 => array( 'source' => 'dokumenty' ),
 			)
 		),
 	);
@@ -255,28 +266,44 @@ function csr_settings_registry() {
 				'csr_achieve_title'        => array( 'type' => 'text', 'label' => 'Nadpis', 'default' => 'Česká' ),
 				'csr_achieve_title_accent' => array( 'type' => 'text', 'label' => 'Nadpis — zvýrazněné slovo', 'default' => 'rychlobruslařská' ),
 				'csr_achieve_title_rest'   => array( 'type' => 'text', 'label' => 'Nadpis — zbytek', 'default' => 'historie' ),
-				'csr_achieve_lead'         => array( 'type' => 'textarea', 'label' => 'Text', 'default' => 'Od prvních závodů na zamrzlých řekách po olympijské medaile. Kompletní přehled výsledků, rekordů a medailových umístění najdete v archivu svazu.' ),
+				'csr_achieve_lead'         => array( 'type' => 'textarea', 'label' => 'Text', 'default' => 'Přehled platných českých rekordů na dlouhé dráze.', 'desc' => 'Původní text tu popisoval historii, kterou si šablona vymyslela. Napište sem, co o svazu platí.' ),
 				'csr_achieve_btn_label'    => array( 'type' => 'text', 'label' => 'Tlačítko — text', 'default' => 'Přehled medailí a rekordů' ),
 				'csr_achieve_btn_url'      => array( 'type' => 'url',  'label' => 'Tlačítko — odkaz', 'default' => '/ceske-rekordy/' ),
-				'csr_medals_show'          => array( 'type' => 'checkbox', 'label' => 'Zobrazit medailové pruhy', 'default' => true ),
-				'csr_medal_gold'           => array( 'type' => 'number', 'label' => 'Počet zlatých',   'default' => 12, 'min' => 0, 'max' => 9999 ),
-				'csr_medal_silver'         => array( 'type' => 'number', 'label' => 'Počet stříbrných', 'default' => 9,  'min' => 0, 'max' => 9999 ),
-				'csr_medal_bronze'         => array( 'type' => 'number', 'label' => 'Počet bronzových', 'default' => 7,  'min' => 0, 'max' => 9999 ),
+				/*
+				 * Medaile ani počítadla níž se z ničeho na webu spočítat
+				 * nedají. Ve výchozím stavu jsou proto vypnuté a prázdné —
+				 * dokud je někdo nevyplní podle skutečné evidence svazu,
+				 * je lepší je neukazovat než uvést číslo, které si vymyslel
+				 * autor šablony.
+				 */
+				'csr_medals_show'          => array( 'type' => 'checkbox', 'label' => 'Zobrazit medailové pruhy', 'desc' => 'Zapněte, až budete mít skutečné počty.', 'default' => false ),
+				'csr_medal_gold'           => array( 'type' => 'number', 'label' => 'Počet zlatých',   'default' => 0, 'min' => 0, 'max' => 9999 ),
+				'csr_medal_silver'         => array( 'type' => 'number', 'label' => 'Počet stříbrných', 'default' => 0, 'min' => 0, 'max' => 9999 ),
+				'csr_medal_bronze'         => array( 'type' => 'number', 'label' => 'Počet bronzových', 'default' => 0, 'min' => 0, 'max' => 9999 ),
 			),
 			csr_repeat_fields(
 				'csr_counter',
 				4,
 				array(
-					'value'  => array( 'type' => 'number', 'label' => '%d. počítadlo — hodnota', 'min' => 0, 'max' => 100000 ),
+					'source' => array(
+						'type'    => 'select',
+						'label'   => '%d. počítadlo — odkud brát',
+						'desc'    => 'Spočítá se z obsahu webu. Vlastní hodnotu pište jen tehdy, když ji máte čím doložit.',
+						'choices' => csr_stat_source_choices(),
+					),
+					'value'  => array( 'type' => 'number', 'label' => '%d. počítadlo — vlastní hodnota', 'min' => 0, 'max' => 100000 ),
 					'suffix' => array( 'type' => 'text', 'label' => '%d. počítadlo — přípona' ),
 					'label'  => array( 'type' => 'text', 'label' => '%d. počítadlo — popisek' ),
 					'gold'   => array( 'type' => 'checkbox', 'label' => '%d. počítadlo — zlatě', 'desc' => 'Zvýrazní číslo zlatou barvou.' ),
 				),
 				array(
-					1 => array( 'value' => 28,  'label' => 'Medailí z ZOH, MS a ME', 'gold' => true ),
-					2 => array( 'value' => 9,   'label' => 'Účast na zimních olympiádách', 'suffix' => '×' ),
-					3 => array( 'value' => 34,  'label' => 'Platných českých rekordů' ),
-					4 => array( 'value' => 130, 'label' => 'Let rychlobruslení v Česku', 'suffix' => '+' ),
+					// Rekordy se počítají ze stažených dat. Zbylá tři počítadla
+					// jsou prázdná — medaile, účasti na olympiádách ani stáří
+					// sportu se z obsahu webu spočítat nedají.
+					1 => array( 'source' => 'rekordy', 'gold' => true ),
+					2 => array(),
+					3 => array(),
+					4 => array(),
 				)
 			)
 		),
