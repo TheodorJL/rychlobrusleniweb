@@ -111,17 +111,7 @@ get_template_part( 'template-parts/csr-header' );
 
 		<?php
 		// Volný obsah stránky (poznámky, kritéria…) se vypíše pod soupiskou.
-		while ( have_posts() ) :
-			the_post();
-			$csr_body = get_the_content();
-			if ( trim( wp_strip_all_tags( $csr_body ) ) ) :
-				?>
-				<div class="csr-prose csr-reveal">
-					<?php the_content(); ?>
-				</div>
-				<?php
-			endif;
-		endwhile;
+		csr_page_prose( get_the_ID() );
 		?>
 
 	</div>

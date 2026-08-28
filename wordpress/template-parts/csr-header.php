@@ -17,7 +17,7 @@ $csr_show_text   = $csr_logo_is_fallback || csr_opt( 'csr_brand_show_text' );
 $csr_brand_class = 'csr-brand' . ( $csr_logo_invert ? ' csr-brand--invert' : '' );
 
 ?><!doctype html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> data-csr-theme="dark">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -57,10 +57,6 @@ $csr_brand_class = 'csr-brand' . ( $csr_logo_invert ? ' csr-brand--invert' : '' 
 		<div class="csr-header__actions">
 			<button class="csr-iconbtn" type="button" data-csr-open="search" aria-expanded="false" aria-label="Vyhledávání">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-			</button>
-			<button class="csr-iconbtn" type="button" data-csr-toggle="theme" aria-label="Přepnout na tmavý režim">
-				<svg class="csr-iconbtn__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>
-				<svg class="csr-iconbtn__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.3A8.5 8.5 0 1 1 9.7 3.5a7 7 0 0 0 10.8 10.8Z"/></svg>
 			</button>
 			<button class="csr-iconbtn csr-burger" type="button" data-csr-open="drawer" aria-expanded="false" aria-label="Otevřít menu">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3.5 7h17M3.5 12h17M3.5 17h17"/></svg>

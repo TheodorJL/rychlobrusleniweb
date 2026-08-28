@@ -1460,7 +1460,7 @@ body.csr-locked { overflow: hidden; }
 
 body { margin: 0; background: var(--csr-bg); }
 
-.csr-brand__logo {
+.csr-page .csr-brand__logo {
   height: var(--csr-logo-h, 40px);
   width: auto;
   max-width: min(240px, 42vw);
@@ -1470,10 +1470,10 @@ body { margin: 0; background: var(--csr-bg); }
 
 .csr-brand--invert .csr-brand__logo { filter: brightness(0) invert(1); }
 
-.csr-footer__brand .csr-brand__logo { height: calc(var(--csr-logo-h, 40px) * 1.15); }
+.csr-page .csr-footer__brand .csr-brand__logo { height: calc(var(--csr-logo-h, 40px) * 1.15); }
 
 @media (max-width: 480px) {
-  .csr-brand__logo { height: calc(var(--csr-logo-h, 40px) * .85); max-width: 46vw; }
+  .csr-page .csr-brand__logo { height: calc(var(--csr-logo-h, 40px) * .85); max-width: 46vw; }
 }
 
 .csr-partners__item a { display: grid; place-items: center; height: 100%; }
@@ -2798,6 +2798,18 @@ body.csr-lb-open { overflow: hidden; }
   outline-offset: 3px; border-radius: 3px;
 }
 
+.csr-prose__note {
+  margin: 2rem 0 0;
+  padding: .85rem 1.1rem;
+  font-size: var(--csr-fs-xs); color: var(--csr-text-muted);
+  background: var(--csr-surface-2);
+  border: 1px dashed var(--csr-border-strong);
+  border-radius: var(--csr-r);
+}
+
+.csr-nav__list > li.csr-flip > .sub-menu { left: auto; right: 0; }
+.csr-nav .sub-menu li.csr-flip > .sub-menu { left: auto; right: calc(100% + .35rem); }
+
 </style>
 
 <div class="csr-page">
@@ -2895,10 +2907,6 @@ body.csr-lb-open { overflow: hidden; }
     <div class="csr-header__actions">
       <button class="csr-iconbtn" type="button" data-csr-open="search" aria-expanded="false" aria-label="Vyhled&#225;v&#225;n&#237;">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      </button>
-      <button class="csr-iconbtn" type="button" data-csr-toggle="theme" aria-label="P&#345;epnout na tmav&#253; re&#382;im">
-        <svg class="csr-iconbtn__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>
-        <svg class="csr-iconbtn__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.3A8.5 8.5 0 1 1 9.7 3.5a7 7 0 0 0 10.8 10.8Z"/></svg>
       </button>
       <button class="csr-iconbtn csr-burger" type="button" data-csr-open="drawer" aria-expanded="false" aria-label="Otev&#345;&#237;t menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3.5 7h17M3.5 12h17M3.5 17h17"/></svg>
@@ -3385,24 +3393,12 @@ body.csr-lb-open { overflow: hidden; }
   /* ----------------------------------------------------------------------
      5. P\u0159ep\u00edna\u010d sv\u011btl\u00fd / tmav\u00fd re\u017eim
      ---------------------------------------------------------------------- */
+  /* Web b\u011b\u017e\u00ed jen v tmav\u00e9m re\u017eimu \u2014 p\u0159ep\u00edna\u010d ani ukl\u00e1d\u00e1n\u00ed volby tu proto
+     nejsou. Motiv nastavuje atribut data-csr-theme="dark" p\u0159\u00edmo v \u0161ablon\u011b.
+     Kdyby si n\u011bkdo d\u0159\u00edv ulo\u017eil sv\u011btl\u00fd re\u017eim, tenhle z\u00e1znam ho u\u017e neovlivn\u00ed;
+     pro po\u0159\u00e1dek ho zahod\u00edme. */
   function initTheme() {
-    var btn = $('[data-csr-toggle="theme"]');
-    var root = document.documentElement;
-    var KEY = 'csr-theme';
-
-    var stored = null;
-    try { stored = window.localStorage.getItem(KEY); } catch (err) { /* priv\u00e1tn\u00ed re\u017eim */ }
-    if (stored === 'dark' || stored === 'light') root.setAttribute('data-csr-theme', stored);
-
-    if (!btn) return;
-    btn.addEventListener('click', function () {
-      var isDark = root.getAttribute('data-csr-theme') === 'dark' ||
-        (!root.hasAttribute('data-csr-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      var next = isDark ? 'light' : 'dark';
-      root.setAttribute('data-csr-theme', next);
-      btn.setAttribute('aria-label', next === 'dark' ? 'P\u0159epnout na sv\u011btl\u00fd re\u017eim' : 'P\u0159epnout na tmav\u00fd re\u017eim');
-      try { window.localStorage.setItem(KEY, next); } catch (err) { /* ignorovat */ }
-    });
+    try { window.localStorage.removeItem('csr-theme'); } catch (err) { /* priv\u00e1tn\u00ed re\u017eim */ }
   }
 
   /* ----------------------------------------------------------------------
@@ -4007,6 +4003,35 @@ body.csr-lb-open { overflow: hidden; }
     });
   }
 
+  /* ---- Podnab\u00eddky, kter\u00e9 by vylezly z obrazovky ----
+     Menu svazu je \u010dty\u0159\u00farov\u0148ov\u00e9 a ka\u017ed\u00e1 dal\u0161\u00ed \u00farove\u0148 se otev\u00edr\u00e1 vedle t\u00e9
+     p\u0159edchoz\u00ed. U polo\u017eky uprost\u0159ed li\u0161ty \u010dtvrt\u00e1 \u00farove\u0148 p\u0159ete\u010de vpravo ven.
+     Statick\u00e9 pravidlo v CSS \u0159e\u0161\u00ed jen posledn\u00ed polo\u017eky li\u0161ty, co\u017e nesta\u010d\u00ed \u2014
+     tady se ka\u017ed\u00e1 podnab\u00eddka p\u0159ed otev\u0159en\u00edm zm\u011b\u0159\u00ed a p\u0159\u00edpadn\u011b p\u0159eklop\u00ed.
+
+     M\u011b\u0159it jde i skrytou podnab\u00eddku: visibility: hidden zachov\u00e1v\u00e1 rozvr\u017een\u00ed. */
+  function initNavEdges() {
+    var nav = $('.csr-nav');
+    if (!nav) return;
+
+    $$('li', nav).forEach(function (li) {
+      var sub = li.querySelector('ul');
+      if (!sub || sub.parentElement !== li) return;
+
+      function zmer() {
+        li.classList.remove('csr-flip');
+        var r = sub.getBoundingClientRect();
+        // 8 px rezerva, a\u0165 se podnab\u00eddka nelep\u00ed na okraj okna.
+        if (r.right > window.innerWidth - 8) {
+          li.classList.add('csr-flip');
+        }
+      }
+
+      li.addEventListener('pointerenter', zmer);
+      li.addEventListener('focusin', zmer);
+    });
+  }
+
   function boot() {
 
 
@@ -4043,6 +4068,7 @@ body.csr-lb-open { overflow: hidden; }
       empty: '[data-csr-recempty]'
     });
     initTables();
+    initNavEdges();
     initLightbox();
     initAlbums();
     initParallax();

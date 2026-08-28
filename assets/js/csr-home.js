@@ -185,24 +185,12 @@
   /* ----------------------------------------------------------------------
      5. Přepínač světlý / tmavý režim
      ---------------------------------------------------------------------- */
+  /* Web běží jen v tmavém režimu — přepínač ani ukládání volby tu proto
+     nejsou. Motiv nastavuje atribut data-csr-theme="dark" přímo v šabloně.
+     Kdyby si někdo dřív uložil světlý režim, tenhle záznam ho už neovlivní;
+     pro pořádek ho zahodíme. */
   function initTheme() {
-    var btn = $('[data-csr-toggle="theme"]');
-    var root = document.documentElement;
-    var KEY = 'csr-theme';
-
-    var stored = null;
-    try { stored = window.localStorage.getItem(KEY); } catch (err) { /* privátní režim */ }
-    if (stored === 'dark' || stored === 'light') root.setAttribute('data-csr-theme', stored);
-
-    if (!btn) return;
-    btn.addEventListener('click', function () {
-      var isDark = root.getAttribute('data-csr-theme') === 'dark' ||
-        (!root.hasAttribute('data-csr-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      var next = isDark ? 'light' : 'dark';
-      root.setAttribute('data-csr-theme', next);
-      btn.setAttribute('aria-label', next === 'dark' ? 'Přepnout na světlý režim' : 'Přepnout na tmavý režim');
-      try { window.localStorage.setItem(KEY, next); } catch (err) { /* ignorovat */ }
-    });
+    try { window.localStorage.removeItem('csr-theme'); } catch (err) { /* privátní režim */ }
   }
 
   /* ----------------------------------------------------------------------

@@ -255,11 +255,7 @@ if ( $csr_has_tec ) {
 		// Volný text napsaný do editoru stránky se vypíše pod kalendářem.
 		while ( have_posts() ) :
 			the_post();
-			if ( trim( wp_strip_all_tags( get_the_content() ) ) ) :
-				?>
-				<div class="csr-prose csr-reveal"><?php the_content(); ?></div>
-				<?php
-			endif;
+			csr_page_prose( get_the_ID() );
 		endwhile;
 		?>
 

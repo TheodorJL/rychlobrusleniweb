@@ -186,13 +186,11 @@ for ( $csr_i = 1; $csr_i <= 4; $csr_i++ ) {
 	</section>
 <?php endif; ?>
 
-<?php if ( trim( wp_strip_all_tags( get_the_content() ) ) ) : ?>
-	<section class="csr-section csr-section--tight">
-		<div class="csr-container">
-			<div class="csr-article__body"><?php the_content(); ?></div>
-		</div>
-	</section>
-<?php endif; ?>
+<section class="csr-section csr-section--tight">
+	<div class="csr-container">
+		<?php csr_page_prose( get_the_ID() ); ?>
+	</div>
+</section>
 
 </main>
 
