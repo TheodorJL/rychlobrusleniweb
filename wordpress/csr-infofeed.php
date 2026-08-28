@@ -532,7 +532,7 @@ function csr_render_feed_item( $item ) {
 	$sources = get_the_terms( $item->ID, CSR_TAX_SOURCE );
 	$badge   = ( $sources && ! is_wp_error( $sources ) ) ? $sources[0]->name : '';
 	$slugs   = ( $sources && ! is_wp_error( $sources ) ) ? implode( ' ', wp_list_pluck( $sources, 'slug' ) ) : '';
-	$thumb   = get_the_post_thumbnail( $item->ID, 'medium_large', array( 'loading' => 'lazy', 'alt' => '' ) );
+	$thumb   = csr_thumb_html( $item->ID, 'medium_large', array( 'alt' => '' ) );
 	$text    = trim( wp_strip_all_tags( $item->post_content ) );
 
 	$links = array();

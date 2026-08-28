@@ -551,21 +551,11 @@ function csr_render_person( $person ) {
 	// ale zůstane pro odečítače a vyhledávače.
 	$hidden = csr_opt( 'csr_people_names_in_photo', 0 ) ? ' csr-person__text--sr' : '';
 	?>
-	<article class="csr-person csr-reveal<?php echo has_post_thumbnail( $person->ID ) ? '' : ' csr-person--bezfotky'; ?>">
+	<?php $foto = csr_thumb_html( $person->ID, 'medium_large', array( 'alt' => '' ) ); ?>
+	<article class="csr-person csr-reveal<?php echo '' !== $foto ? '' : ' csr-person--bezfotky'; ?>">
 		<div class="csr-person__photo">
-			<?php if ( has_post_thumbnail( $person->ID ) ) : ?>
-				<?php
-				echo get_the_post_thumbnail(
-					$person->ID,
-					'medium_large',
-					array(
-						// Jméno je hned vedle v textu, popis by ho jen zopakoval.
-						'alt'      => '',
-						'loading'  => 'lazy',
-						'decoding' => 'async',
-					)
-				);
-				?>
+			<?php if ( '' !== $foto ) : ?>
+				<?php echo $foto; // phpcs:ignore WordPress.Security.EscapeOutput — sestaveno v csr_thumb_html() ?>
 			<?php else : ?>
 				<span class="csr-person__mono" aria-hidden="true"><?php echo esc_html( csr_person_initials( $person->post_title ) ); ?></span>
 			<?php endif; ?>

@@ -874,11 +874,7 @@ function csr_render_person_card( $person, $small = false ) {
 	$club  = get_post_meta( $person->ID, '_csr_club', true );
 	$role  = get_post_meta( $person->ID, '_csr_role', true );
 	$roles = csr_athlete_roles();
-	$photo = get_the_post_thumbnail(
-		$person->ID,
-		'medium_large',
-		array( 'loading' => 'lazy', 'decoding' => 'async', 'alt' => '' )
-	);
+	$photo = csr_thumb_html( $person->ID, 'medium_large', array( 'alt' => '' ) );
 	?>
 	<article class="csr-person<?php echo $small ? ' csr-person--small' : ''; ?> csr-reveal">
 		<div class="csr-person__photo">

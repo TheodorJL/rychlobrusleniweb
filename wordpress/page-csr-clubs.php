@@ -106,9 +106,9 @@ asort( $csr_regions );
 			</div>
 			<p class="csr-news__empty" data-csr-empty hidden>Tomuhle hledání neodpovídá žádný klub.</p>
 
-			<?php if ( ! empty( $GLOBALS['csr_club_logo_nouzove'] ) && current_user_can( 'edit_posts' ) ) : ?>
+			<?php if ( csr_nouzovych_obrazku() && current_user_can( 'edit_posts' ) ) : ?>
 				<p class="csr-docs__admin">
-					Vidíte jen vy jako správce: u <strong><?php echo (int) $GLOBALS['csr_club_logo_nouzove']; ?></strong>
+					Vidíte jen vy jako správce: u <strong><?php echo (int) csr_nouzovych_obrazku(); ?></strong>
 					klubů musel web logo poskládat náhradní cestou — WordPress ho z náhledového obrázku
 					nevydal, i když příloha existuje. Na zobrazení to nemá vliv, jen to tady zůstává vidět.
 				</p>

@@ -734,3 +734,78 @@ function csr_import_seed_note( $jmeno ) {
 		. (int) $radku . '</strong> ' . ( 1 === $radku ? 'položka' : ( $radku < 5 ? 'položky' : 'položek' ) )
 		. '. Stačí kliknout na tlačítko pod ním. Vložení jde pustit i opakovaně, jen doplní, co chybí.</p></div>';
 }
+
+/**
+ * Značka náhledového obrázku, která se nespolehne na jednu cestu.
+ *
+ * Na ostrém webu se ukázalo, že get_the_post_thumbnail() umí vrátit
+ * prázdno i tehdy, když příloha existuje, soubor je dostupný a velikosti
+ * jsou vygenerované — karta pak zůstala prázdná. Zkoušíme proto postupně
+ * všechno, co má šanci vyjít, a teprve pak se vzdáme.
+ *
+ * @param int    $post_id   Příspěvek s náhledovým obrázkem.
+ * @param string $velikost  Velikost obrázku.
+ * @param array  $atributy  Atributy značky (alt, loading, class…).
+ * @param string $nahradni  Adresa, když příloha nikam nevede.
+ * @return string HTML značky, nebo prázdný řetězec.
+ */
+function csr_thumb_html( $post_id, $velikost = 'medium', $atributy = array(), $nahradni = '' ) {
+	$atributy = wp_parse_args( $atributy, array( 'alt' => '', 'loading' => 'lazy', 'decoding' => 'async' ) );
+
+	$thumb = (int) get_post_thumbnail_id( $post_id );
+	if ( $thumb ) {
+		$html = wp_get_attachment_image( $thumb, $velikost, false, $atributy );
+		if ( '' !== (string) $html ) {
+			return $html;
+		}
+
+		$src = wp_get_attachment_image_url( $thumb, $velikost );
+		if ( ! $src ) {
+			$src = wp_get_attachment_url( $thumb );
+		}
+		if ( $src ) {
+			csr_pocitej_nouzovy_obrazek();
+			return csr_img_tag( $src, $atributy );
+		}
+	}
+
+	if ( $nahradni ) {
+		return csr_img_tag( $nahradni, $atributy );
+	}
+
+	return '';
+}
+
+/**
+ * Poskládá značku obrázku z adresy a atributů.
+ *
+ * @param string $src      Adresa obrázku.
+ * @param array  $atributy Atributy.
+ * @return string
+ */
+function csr_img_tag( $src, $atributy ) {
+	$out = '<img src="' . esc_url( $src ) . '"';
+	foreach ( $atributy as $jmeno => $hodnota ) {
+		if ( '' === $hodnota && 'alt' !== $jmeno ) {
+			continue;
+		}
+		$out .= ' ' . esc_attr( $jmeno ) . '="' . esc_attr( $hodnota ) . '"';
+	}
+	return $out . '>';
+}
+
+/**
+ * Připočte obrázek, který musel vzniknout náhradní cestou.
+ */
+function csr_pocitej_nouzovy_obrazek() {
+	$GLOBALS['csr_nouzovych_obrazku'] = ( isset( $GLOBALS['csr_nouzovych_obrazku'] ) ? $GLOBALS['csr_nouzovych_obrazku'] : 0 ) + 1;
+}
+
+/**
+ * Kolik obrázků na téhle stránce vzniklo náhradní cestou.
+ *
+ * @return int
+ */
+function csr_nouzovych_obrazku() {
+	return isset( $GLOBALS['csr_nouzovych_obrazku'] ) ? (int) $GLOBALS['csr_nouzovych_obrazku'] : 0;
+}

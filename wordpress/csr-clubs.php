@@ -483,44 +483,12 @@ function csr_get_clubs() {
  * @return string HTML značky, nebo prázdný řetězec.
  */
 function csr_club_logo_html( $club ) {
-	$alt   = 'Logo ' . $club->post_title;
-	$atributy = array(
-		'alt'      => $alt,
-		'loading'  => 'lazy',
-		'decoding' => 'async',
+	return csr_thumb_html(
+		$club->ID,
+		'medium',
+		array( 'alt' => 'Logo ' . $club->post_title ),
+		(string) get_post_meta( $club->ID, '_csr_club_logo', true )
 	);
-
-	$thumb = (int) get_post_thumbnail_id( $club->ID );
-	if ( $thumb ) {
-		$html = wp_get_attachment_image( $thumb, 'medium', false, $atributy );
-		if ( '' !== (string) $html ) {
-			return $html;
-		}
-
-		$src = wp_get_attachment_image_url( $thumb, 'medium' );
-		if ( ! $src ) {
-			$src = wp_get_attachment_url( $thumb );
-		}
-		if ( $src ) {
-			$GLOBALS['csr_club_logo_nouzove'] = ( isset( $GLOBALS['csr_club_logo_nouzove'] ) ? $GLOBALS['csr_club_logo_nouzove'] : 0 ) + 1;
-			return sprintf(
-				'<img src="%s" alt="%s" loading="lazy" decoding="async">',
-				esc_url( $src ),
-				esc_attr( $alt )
-			);
-		}
-	}
-
-	$adresa = (string) get_post_meta( $club->ID, '_csr_club_logo', true );
-	if ( $adresa ) {
-		return sprintf(
-			'<img src="%s" alt="%s" loading="lazy" decoding="async">',
-			esc_url( $adresa ),
-			esc_attr( $alt )
-		);
-	}
-
-	return '';
 }
 
 /**
