@@ -1,0 +1,96 @@
+# Kontrola a nasazení šablony na speedskating.cz
+#
+# Na každý push se soubory zkontrolují. Z větve main se navíc nahrají na web.
+# Kontrola běží vždycky první — když PHP obsahuje překlep, nasazení se
+# nespustí a web zůstane, jak byl. To je tu hlavní pojistka: rozbitý PHP
+# soubor jinak shodí celý web do bílé stránky.
+
+name: Kontrola a nasazení
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:      # umožní spustit ručně z karty Actions
+
+concurrency:
+  group: nasazeni-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+
+  # ────────────────────────────────────────────────────────────────
+  kontrola:
+    name: Kontrola souborů
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Nachystat PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: none
+          coverage: none
+
+      - name: Syntaxe PHP
+        run: |
+          chyby=0
+          while IFS= read -r -d '' f; do
+            if ! php -l "$f" > /dev/null 2>&1; then
+              echo "::error file=$f::$(php -l "$f" 2>&1 | head -1)"
+              chyby=$((chyby+1))
+            fi
+          done < <(find wordpress theme -name '*.php' -print0)
+          echo "Zkontrolováno: $(find wordpress theme -name '*.php' | wc -l) souborů PHP"
+          [ "$chyby" -eq 0 ] || { echo "::error::Chybných souborů: $chyby"; exit 1; }
+
+      - name: Syntaxe JavaScriptu
+        run: node --check assets/js/csr-home.js
+
+      - name: Struktura balíčku
+        run: python3 .github/kontrola.py
+
+      - name: Sestavit šablonu
+        run: bash .github/sestavit.sh
+
+      - name: Uložit šablonu ke stažení
+        uses: actions/upload-artifact@v4
+        with:
+          name: csr-child
+          path: build/csr-child
+          retention-days: 30
+
+  # ────────────────────────────────────────────────────────────────
+  nasazeni:
+    name: Nahrát na web
+    needs: kontrola
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment: produkce      # umožní vyžádat schválení v Settings → Environments
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sestavit šablonu
+        run: bash .github/sestavit.sh
+
+      - name: Nahrát přes FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server:   ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Když hosting FTPS neumí, změňte na "ftp". Pozor: obyčejné FTP
+          # posílá heslo v čitelné podobě. Má-li hosting SSH, je lepší
+          # tenhle krok nahradit rsyncem přes SSH.
+          protocol: ftps
+          port: ${{ vars.FTP_PORT || 21 }}
+          local-dir: ./build/csr-child/
+          server-dir: ${{ vars.FTP_PATH || '/www/wp-content/themes/csr-child/' }}
+          # Nic na serveru nemažeme nad rámec toho, co balíček obsahuje.
+          dangerous-clean-slate: false
+          log-level: minimal
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.DS_Store

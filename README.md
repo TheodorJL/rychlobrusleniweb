@@ -793,6 +793,107 @@ Oproti původní verzi navíc:
 Short track rekordy tenhle zdroj nevede. Když je svaz eviduje, přidají se
 ručně jako tabulka se zaškrtnutým *Zobrazit na stránce Českých rekordů*.
 
+## Nasazení z GitHubu
+
+Web zatím **nemá potomkovskou šablonu** — běží přímo na GeneratePressu.
+Balíček se instaluje jako potomkovská šablona, aby se při aktualizaci
+GeneratePressu nic nepřepsalo.
+
+### Co je v repozitáři kde
+
+| Složka | K čemu |
+| --- | --- |
+| `theme/` | hlavička šablony (`style.css`) a `functions.php` |
+| `wordpress/` | moduly a šablony stránek |
+| `assets/` | CSS, JavaScript, logo |
+| `preview/` | náhledy — na web se nenahrávají |
+| `data/` | obsah k přenesení — na web se nenahrává |
+
+Ve WordPressu musí PHP soubory ležet v kořeni šablony vedle sebe, protože
+se na sebe odkazují přes `__DIR__`. Poskládá je skript `.github/sestavit.sh`
+do `build/csr-child/`.
+
+### První instalace (jednou ručně)
+
+1. **Udělejte zálohu webu i databáze.**
+2. Na GitHubu otevřete **Actions → poslední běh → Artifacts → `csr-child`**
+   a stáhněte ZIP. (Vznikne při každém pushi.)
+3. *Vzhled → Šablony → Přidat novou → Nahrát šablonu* → vybrat ZIP.
+4. **Aktivovat.**
+
+Šablona si při aktivaci sama převezme z GeneratePressu přiřazení menu,
+logo i Doplňkové CSS — bez toho by web na první pohled vypadal rozbitě.
+
+5. U každé stránky pak v *Atributech stránky* vyberte odpovídající šablonu
+   (*ČSR — Výsledky*, *ČSR — Kontakty*, …). Dokud ji nevyberete, stránka
+   se chová přesně jako dosud.
+
+### Automatické nasazení
+
+Po nastavení se každý push do větve `main` sám nahraje na web.
+
+V repozitáři na GitHubu → **Settings → Secrets and variables → Actions**:
+
+**Secrets** (New repository secret):
+
+| Název | Hodnota |
+| --- | --- |
+| `FTP_SERVER` | adresa FTP serveru hostingu, např. `ftp.speedskating.cz` |
+| `FTP_USERNAME` | přihlašovací jméno k FTP |
+| `FTP_PASSWORD` | heslo k FTP |
+
+**Variables** (karta Variables), obojí nepovinné:
+
+| Název | Výchozí | Kdy změnit |
+| --- | --- | --- |
+| `FTP_PATH` | `/www/wp-content/themes/csr-child/` | když hosting používá jinou cestu — `/public_html/`, `/web/`, `/httpdocs/` |
+| `FTP_PORT` | `21` | výjimečně |
+
+**Cestu si ověřte** — připojte se jednou FTP klientem a podívejte se, kde
+leží `wp-content`. Špatná cesta nahraje šablonu vedle a nic se nestane.
+
+Hosting bez FTPS: v `.github/workflows/nasazeni.yml` změňte `protocol: ftps`
+na `ftp`. Obyčejné FTP posílá heslo v čitelné podobě — pokud má hosting SSH,
+je lepší ten krok nahradit rsyncem.
+
+### Pojistka proti bílé stránce
+
+Před nahráním proběhne kontrola a **při chybě se nasazení nespustí**:
+
+* `php -l` na každém PHP souboru — překlep tam neprojde;
+* `node --check` na JavaScriptu;
+* `.github/kontrola.py` hlídá věci, které PHP samo nenajde — volání
+  neexistující funkce, dvakrát definovanou funkci, dvojí registraci
+  typu obsahu nebo taxonomie, chybějící ověření `nonce`, klíč čtený
+  z Customizeru, který se nikde neregistruje.
+
+Ta dvojí registrace tam není náhodou: taxonomie sezón se používá
+v reprezentaci i ve výsledcích a druhá registrace téhož názvu by tu první
+tiše přepsala.
+
+Chcete-li navíc potvrzovat každé nasazení ručně, v *Settings → Environments*
+založte prostředí `produkce` a zapněte u něj **Required reviewers**.
+
+### Práce dál
+
+Pracujte ve větvi, ne rovnou v `main`:
+
+```bash
+git switch -c uprava-vysledku
+# … úpravy …
+git commit -am "Popis změny"
+git push -u origin uprava-vysledku
+```
+
+Kontrola proběhne i na větvi, ale nasadí se až po sloučení do `main`.
+
+### Návrat zpět
+
+* **Jedna stránka** — v *Atributech stránky* přepnout šablonu na *Výchozí*.
+* **Celý web** — *Vzhled → Šablony* → aktivovat zpět GeneratePress.
+
+Elementorový obsah zůstává ve všech případech uložený.
+
 ## Výkon a přístupnost
 
 - **Žádná externí knihovna** — vlastní CSS a JS, dohromady ~24 kB.
