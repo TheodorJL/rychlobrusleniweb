@@ -13,6 +13,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_template_part( 'template-parts/csr-header' );
 
+// Zamčenou stránku nevypisujeme — obsah bereme z databáze, ne z těla
+// stránky, takže by ochrana heslem jinak neplatila.
+if ( csr_page_locked() ) {
+	csr_render_password_form();
+	get_template_part( 'template-parts/csr-footer' );
+	return;
+}
+
 $csr_all = array();
 foreach ( array_keys( csr_bodies() ) as $csr_slug ) {
 	$csr_all[ $csr_slug ] = csr_get_people( $csr_slug );

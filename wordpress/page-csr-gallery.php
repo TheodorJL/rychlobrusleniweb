@@ -14,6 +14,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_template_part( 'template-parts/csr-header' );
 
+// Zamčenou stránku nevypisujeme — obsah bereme z databáze, ne z těla
+// stránky, takže by ochrana heslem jinak neplatila.
+if ( csr_page_locked() ) {
+	csr_render_password_form();
+	get_template_part( 'template-parts/csr-footer' );
+	return;
+}
+
 $csr_only   = get_post_meta( get_the_ID(), '_csr_gallery_type', true );
 $csr_alba   = csr_get_albums( (string) $csr_only );
 $csr_rubriky = array();

@@ -327,7 +327,9 @@ function csr_feed_bulk_render() {
 
 		$raw    = isset( $_POST['csr_items'] ) ? sanitize_textarea_field( wp_unslash( $_POST['csr_items'] ) ) : '';
 		$source = isset( $_POST['csr_source_id'] ) ? absint( $_POST['csr_source_id'] ) : 0;
-		$poradi = 0;
+		$poradi    = 0;
+		$fotek     = 0;
+		$bez_fotky = 0;
 
 		foreach ( preg_split( '/\R/', $raw ) as $line ) {
 			$line = trim( $line );
@@ -351,6 +353,8 @@ function csr_feed_bulk_render() {
 			$label3 = isset( $parts[6] ) ? trim( $parts[6] ) : '';
 			// Nepovinné datum ve tvaru RRRR-MM-DD nebo D. M. RRRR.
 			$datum  = isset( $parts[7] ) ? csr_parse_feed_date( $parts[7] ) : '';
+			$ikona  = isset( $parts[8] ) ? sanitize_key( $parts[8] ) : '';
+			$foto   = isset( $parts[9] ) ? trim( $parts[9] ) : '';
 
 			// menu_order drží pořadí ze vstupu. Bez něj by se všechny zprávy
 			// vložily se stejným časem a seřadily by se náhodně.
@@ -383,7 +387,20 @@ function csr_feed_bulk_render() {
 				// Datum neznáme — ať se u zprávy nevypisuje den importu.
 				update_post_meta( $post_id, '_csr_feed_nodate', 1 );
 			}
-			update_post_meta( $post_id, '_csr_icon', 'dokument' );
+			// Ikona z řádku, jinak výchozí dokument.
+			$ikony = csr_icon_choices();
+			update_post_meta( $post_id, '_csr_icon', array_key_exists( $ikona, $ikony ) ? $ikona : 'dokument' );
+
+			// Fotka se hledá v knihovně médií podle adresy, nic se nenahrává.
+			if ( $foto ) {
+				$foto_id = csr_attachment_from_url( $foto );
+				if ( $foto_id ) {
+					set_post_thumbnail( $post_id, $foto_id );
+					$fotek++;
+				} else {
+					$bez_fotky++;
+				}
+			}
 
 			if ( $source ) {
 				wp_set_object_terms( $post_id, array( $source ), CSR_TAX_SOURCE, true );
@@ -401,10 +418,27 @@ function csr_feed_bulk_render() {
 			<div class="notice notice-success"><p>
 				Přidáno <strong><?php echo count( $added ); ?></strong> položek.
 			</p></div>
+
+		<?php if ( $fotek ) : ?>
+			<div class="notice notice-success"><p>
+				Přiřazeno fotek z knihovny médií: <strong><?php echo (int) $fotek; ?></strong>.
+			</p></div>
+		<?php endif; ?>
+
+		<?php if ( $bez_fotky ) : ?>
+			<div class="notice notice-warning"><p>
+				U <strong><?php echo (int) $bez_fotky; ?></strong>
+				<?php echo 1 === $bez_fotky ? 'zprávy se fotka' : 'zpráv se fotka'; ?>
+				v knihovně médií nenašla — doplňte ji u nich ručně jako <em>Náhledový obrázek</em>.
+			</p></div>
+		<?php endif; ?>
 		<?php endif; ?>
 
 		<p>Každá položka na vlastní řádek ve formátu:</p>
-		<p><code>Nadpis | odkaz | text odkazu</code></p>
+		<p><code>Nadpis | odkaz | text odkazu | 2. odkaz | text | 3. odkaz | text | datum | ikona | adresa fotky</code></p>
+		<p class="description">Stačí vyplnit sloupce, které zpráva má.
+			Fotka se nenahrává — hledá se v knihovně médií podle adresy.
+			Ikony: <?php echo esc_html( implode( ', ', array_keys( csr_icon_choices() ) ) ); ?>.</p>
 		<p class="description">
 			Text odkazu je nepovinný — bez něj se použije „Dokument naleznete zde".
 			Fotku a druhý odkaz doplníte u položky dodatečně.

@@ -1,18 +1,23 @@
 # Vložte do: Kluby → Hromadné přidání
-# Formát řádku: Zkratka|Úplný název|IČO|Kontaktní osoba|Telefon|E-mail|Ulice|PSČ|Obec|Web
-# Řádky s mřížkou se přeskočí, můžete je vložit i s nimi.
+# Formát: Zkratka|Úplný název|IČO|Kontakt|Telefon|E-mail|Ulice|PSČ|Obec|Web|logo
 #
-BK ŽĎÁR|Bruslařský klub Žďár nad Sázavou|60574712|Pavel Haselberger|+420 737 114 584|haselpa@seznam.cz|Jungmanova 10|591 01|Žďár nad Sázavou|http://www.rychlobrusleni-zdar.cz
-BK NÁCHOD|BK Náchod, z.s.|27032311|Oldřich Žďárek|+420 603 743 983|oldrich.zdarek@seznam.cz|Příčná 2027|547 01|Náchod|https://www.bknachod.cz
-BOJ ŽĎÁR|Bruslařský oddíl juniorů Žďár nad Sázavou, z.s.|22768076|Jiří Macháček|+420 605 841 653|machy.3@seznam.cz|Jungmanova 1495/8|591 01|Žďár nad Sázavou|http://www.rychlobruslenizdar.cz
-BZK PRAHA|Bruslařský závodní klub Slavia Praha, spolek|61389871|Ondřej Jílek|+420 602 190 206|ondrej.jilek@gmail.com|Zátopkova 100/2|169 00|Praha – Břevnov|https://www.skslaviapraha-spolek.cz/clanky/oddily/rychlobrusleni/
-KOMETA BRNO|Sportovní Klub policie KOMETA BRNO z.s.|41604164|Věra Břínková|+420 775 247 008|speed.skating@seznam.cz|Bauerova 321/5|603 00|Brno|https://skpkometabrno.cz
-KSB BENÁTKY|Klub sportovního bruslení Benátky nad Jizerou, z.s.|68380658|Jarmil Hrůza|+420 602 694 737|jarmil.hruza@gmail.com|Mělnická 30|294 71|Benátky nad Jizerou|https://www.rychlobrusleni.cz/
-KRS SVRATKA|Klub rychlobruslařských sportů, z.s.|48135551|Petr Novák|+420 731 540 253|skatepn@gmail.com||592 02|Svratka|
-STC ŽĎÁR|TJ Žďár nad Sázavou z.s.|00547492|Zbyněk Svítil|+420 603 105 043|zbynek.svitil@seznam.cz|Jungmanova 8/1495|591 01|Žďár nad Sázavou|
-KSB HODONÍN|Klub sportovního bruslení Hodonín, z.s.|03910938|Libuše Steklá|+420 739 491 764|libusa@stekla.cz|Příční 4|695 01|Hodonín|https://ksbhodonin.cz
-RK CHRUDIM|RK CHRUDIM z.s.|22607013|Roman Vodička ml.|+420 739 788 092|rkskutec@email.cz|Horní Bradlo 59|539 03|Chrudim|
-RK SKUTEČ|RK SKUTEČ z.s.|08131881|Roman Vodička st.|+420 739 788 096|rkskutec@email.cz|Horní Bradlo 59|539 03|Skuteč|
-KSB MODŘANY|Klub sportovního bruslení Modřany Praha, z.s.|68379471|Ludmila Krupková|+420 603 193 080|lida.krupkova@seznam.cz|Na Havránce 1509/10|143 00|Praha 4|https://ksbm.cz
-SKR HLINSKO|SK Rychlobruslení Hlinsko z.s.|04552288|Pavel Kulma|+420 731 616 474|kulma.pavel@gmail.com||539 01|Hlinsko|
-ASK BLANSKO|TJ Asociace sportovních klubů Blansko, z.s.|43420567|Pavel Semeniuk|+420 602 513 709|pavel.semeniuk@seznam.cz|Mlýnská 1297/19|678 01|Blansko|http://askblansko.cz/krasobrusleni/
+# Logo se nenahrává — hledá se v knihovně médií podle adresy.
+# Kraj se dopočítá z PSČ.
+#
+# Tři kluby měly na starém webu stejný zástupný obrázek, ne vlastní logo
+# (RK CHRUDIM, SKR HLINSKO, ASK BLANSKO) — u nich je sloupec prázdný.
+#
+BK ŽĎÁR|Bruslařský klub Žďár nad Sázavou|60574712|Pavel Haselberger|+420 737 114 584|haselpa@seznam.cz|Jungmanova 10|591 01|Žďár nad Sázavou|http://www.rychlobrusleni-zdar.cz|http://speedskating.cz/wp-content/uploads/2021/03/3D6BC681-EE5D-4AA6-95AF-141ED1A9A593_4_5005_c.jpeg
+BK NÁCHOD|BK Náchod, z.s.|27032311|Oldřich Žďárek|+420 603 743 983|oldrich.zdarek@seznam.cz|Příčná 2027|547 01|Náchod|https://www.bknachod.cz|http://speedskating.cz/wp-content/uploads/2021/03/AE102A6F-6AB1-4E60-894F-E79C5AC81034.jpeg
+BOJ ŽĎÁR|Bruslařský oddíl juniorů Žďár nad Sázavou, z.s.|22768076|Jiří Macháček|+420 605 841 653|machy.3@seznam.cz|Jungmanova 1495/8|591 01|Žďár nad Sázavou|http://www.rychlobruslenizdar.cz|http://speedskating.cz/wp-content/uploads/2021/03/E4E52AA8-081C-48EC-AFBC-8D36CBBA4F8A_4_5005_c.jpeg
+BZK PRAHA|Bruslařský závodní klub Slavia Praha, spolek|61389871|Ondřej Jílek|+420 602 190 206|ondrej.jilek@gmail.com|Zátopkova 100/2|169 00|Praha – Břevnov|https://www.skslaviapraha-spolek.cz/clanky/oddily/rychlobrusleni/|http://speedskating.cz/wp-content/uploads/2021/03/20201122_101645-scaled.jpg
+KOMETA BRNO|Sportovní Klub policie KOMETA BRNO z.s.|41604164|Věra Břínková|+420 775 247 008|speed.skating@seznam.cz|Bauerova 321/5|603 00|Brno|https://skpkometabrno.cz|http://speedskating.cz/wp-content/uploads/2021/03/E4F18486-DE9A-4104-9056-A25F677185D5.jpeg
+KSB BENÁTKY|Klub sportovního bruslení Benátky nad Jizerou, z.s.|68380658|Jarmil Hrůza|+420 602 694 737|jarmil.hruza@gmail.com|Mělnická 30|294 71|Benátky nad Jizerou|https://www.rychlobrusleni.cz/|http://speedskating.cz/wp-content/uploads/2021/03/0D06979C-9977-49F2-ABAD-EC22EEE9601B.jpeg
+KRS SVRATKA|Klub rychlobruslařských sportů, z.s.|48135551|Petr Novák|+420 731 540 253|skatepn@gmail.com||592 02|Svratka||http://speedskating.cz/wp-content/uploads/2021/03/13486537-DEBB-4C87-ABDC-3F351D975AAD_4_5005_c.jpeg
+STC ŽĎÁR|TJ Žďár nad Sázavou z.s.|00547492|Zbyněk Svítil|+420 603 105 043|zbynek.svitil@seznam.cz|Jungmanova 8/1495|591 01|Žďár nad Sázavou||http://speedskating.cz/wp-content/uploads/2021/03/F287DE16-E379-4104-B411-33BBB7C83D68.jpeg
+KSB HODONÍN|Klub sportovního bruslení Hodonín, z.s.|03910938|Libuše Steklá|+420 739 491 764|libusa@stekla.cz|Příční 4|695 01|Hodonín|https://ksbhodonin.cz|http://speedskating.cz/wp-content/uploads/2021/03/FA7D6885-72B6-436B-95EC-6419589331EC.jpeg
+RK CHRUDIM|RK CHRUDIM z.s.|22607013|Roman Vodička ml.|+420 739 788 092|rkskutec@email.cz|Horní Bradlo 59|539 03|Chrudim||
+RK SKUTEČ|RK SKUTEČ z.s.|08131881|Roman Vodička st.|+420 739 788 096|rkskutec@email.cz|Horní Bradlo 59|539 03|Skuteč||http://speedskating.cz/wp-content/uploads/2021/03/F5A72EAF-42E4-4F47-B9F0-A0B5B6230DC0.jpeg
+KSB MODŘANY|Klub sportovního bruslení Modřany Praha, z.s.|68379471|Ludmila Krupková|+420 603 193 080|lida.krupkova@seznam.cz|Na Havránce 1509/10|143 00|Praha 4|https://ksbm.cz|http://speedskating.cz/wp-content/uploads/2022/01/5C825C14-2ECA-46DA-AE8E-DEF6DA922D34.jpeg
+SKR HLINSKO|SK Rychlobruslení Hlinsko z.s.|04552288|Pavel Kulma|+420 731 616 474|kulma.pavel@gmail.com||539 01|Hlinsko||
+ASK BLANSKO|TJ Asociace sportovních klubů Blansko, z.s.|43420567|Pavel Semeniuk|+420 602 513 709|pavel.semeniuk@seznam.cz|Mlýnská 1297/19|678 01|Blansko|http://askblansko.cz/krasobrusleni/|

@@ -82,6 +82,37 @@ const CSR_LANDING_TEMPLATE = 'page-csr-landing.php';
  * @return string Číslo i s tvarem.
  */
 /**
+ * Je stránka zamčená heslem?
+ *
+ * Šablony vypisují obsah z databáze (dokumenty, výsledky, alba…), ne
+ * z těla stránky. Kdyby se na heslo neptaly, vypsaly by ho i tomu, kdo
+ * heslo nezadal — ochrana by tím byla k ničemu.
+ *
+ * @return bool
+ */
+function csr_page_locked() {
+	return post_password_required();
+}
+
+/**
+ * Vykreslí formulář pro zadání hesla místo obsahu.
+ */
+function csr_render_password_form() {
+	?>
+	<section class="csr-section">
+		<div class="csr-container">
+			<div class="csr-cal__empty csr-reveal csr-locked">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+				<h2>Obsah je chráněný heslem</h2>
+				<p>Tahle stránka je jen pro ty, kdo znají heslo.</p>
+				<?php echo get_the_password_form(); // phpcs:ignore WordPress.Security.EscapeOutput — výstup WordPressu ?>
+			</div>
+		</div>
+	</section>
+	<?php
+}
+
+/**
  * Je stránka postavená v Elementoru?
  *
  * @param int $post_id ID stránky.

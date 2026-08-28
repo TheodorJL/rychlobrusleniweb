@@ -15,6 +15,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_template_part( 'template-parts/csr-header' );
 
+// Zamčenou stránku nevypisujeme — obsah bereme z databáze, ne z těla
+// stránky, takže by ochrana heslem jinak neplatila.
+if ( csr_page_locked() ) {
+	csr_render_password_form();
+	get_template_part( 'template-parts/csr-footer' );
+	return;
+}
+
 $csr_scope   = csr_results_page_scope( get_the_ID() );
 $csr_tables  = csr_get_results( $csr_scope['season'], $csr_scope['sport'] );
 $csr_sports  = csr_result_sports();

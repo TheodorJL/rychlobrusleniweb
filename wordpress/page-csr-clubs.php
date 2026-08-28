@@ -14,6 +14,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_template_part( 'template-parts/csr-header' );
 
+// Zamčenou stránku nevypisujeme — obsah bereme z databáze, ne z těla
+// stránky, takže by ochrana heslem jinak neplatila.
+if ( csr_page_locked() ) {
+	csr_render_password_form();
+	get_template_part( 'template-parts/csr-footer' );
+	return;
+}
+
 $csr_clubs = csr_get_clubs();
 
 // Filtry stavíme jen z krajů, ve kterých opravdu nějaký klub je.

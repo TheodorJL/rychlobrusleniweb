@@ -16,6 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_template_part( 'template-parts/csr-header' );
 
+// Zamčenou stránku nevypisujeme — obsah bereme z databáze, ne z těla
+// stránky, takže by ochrana heslem jinak neplatila.
+if ( csr_page_locked() ) {
+	csr_render_password_form();
+	get_template_part( 'template-parts/csr-footer' );
+	return;
+}
+
 $csr_lead  = get_post_meta( get_the_ID(), '_csr_landing_lead', true );
 $csr_badge = get_post_meta( get_the_ID(), '_csr_landing_badge', true );
 

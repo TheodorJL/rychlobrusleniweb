@@ -308,6 +308,7 @@ add_action( 'admin_menu', 'csr_club_import_page' );
  */
 function csr_club_import_render() {
 	$hotovo = 0;
+	$log    = 0;
 
 	if ( isset( $_POST['csr_club_import_nonce'] )
 		&& wp_verify_nonce( sanitize_key( $_POST['csr_club_import_nonce'] ), 'csr_club_import' )
@@ -337,9 +338,20 @@ function csr_club_import_render() {
 				continue;
 			}
 
+			$pocet_poli = count( csr_club_fields() );
 			foreach ( array_keys( csr_club_fields() ) as $i => $key ) {
 				if ( isset( $casti[ $i ] ) ) {
 					update_post_meta( $post_id, '_csr_club_' . $key, sanitize_text_field( $casti[ $i ] ) );
+				}
+			}
+
+			// Za posledním polem může být adresa loga. Nenahrává se —
+			// hledá se v knihovně médií, obrázky ze starého webu tam už jsou.
+			if ( ! empty( $casti[ $pocet_poli ] ) ) {
+				$logo_id = csr_attachment_from_url( $casti[ $pocet_poli ] );
+				if ( $logo_id ) {
+					set_post_thumbnail( $post_id, $logo_id );
+					$log++;
 				}
 			}
 			$kraj = csr_region_from_zip( get_post_meta( $post_id, '_csr_club_zip', true ) );
@@ -354,6 +366,11 @@ function csr_club_import_render() {
 		<h1>Hromadné vložení klubů</h1>
 		<?php if ( $hotovo ) : ?>
 			<div class="notice notice-success"><p>Vloženo <strong><?php echo (int) $hotovo; ?></strong> klubů.</p></div>
+			<?php if ( $log ) : ?>
+				<div class="notice notice-success"><p>
+					Přiřazeno log z knihovny médií: <strong><?php echo (int) $log; ?></strong>.
+				</p></div>
+			<?php endif; ?>
 		<?php endif; ?>
 		<p>Jeden klub na řádek, hodnoty oddělte svislítkem <code>|</code> v tomto pořadí:</p>
 		<p><code>Zkratka | <?php echo esc_html( implode( ' | ', wp_list_pluck( csr_club_fields(), 'label' ) ) ); ?></code></p>

@@ -14,6 +14,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_template_part( 'template-parts/csr-header' );
 
+// Zamčenou stránku nevypisujeme — obsah bereme z databáze, ne z těla
+// stránky, takže by ochrana heslem jinak neplatila.
+if ( csr_page_locked() ) {
+	csr_render_password_form();
+	get_template_part( 'template-parts/csr-footer' );
+	return;
+}
+
 // phpcs:ignore WordPress.Security.NonceVerification.Recommended — jen stránkování výpisu
 $csr_paged = isset( $_GET['strana'] ) ? max( 1, absint( $_GET['strana'] ) ) : 1;
 

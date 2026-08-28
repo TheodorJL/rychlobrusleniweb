@@ -13,6 +13,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_template_part( 'template-parts/csr-header' );
 
+// Zamčenou stránku nevypisujeme — obsah bereme z databáze, ne z těla
+// stránky, takže by ochrana heslem jinak neplatila.
+if ( csr_page_locked() ) {
+	csr_render_password_form();
+	get_template_part( 'template-parts/csr-footer' );
+	return;
+}
+
 // Stránka může být omezená na jednu rubriku (Pravidla ISU, Smlouvy, Archiv…).
 $csr_only = csr_docs_page_type( get_the_ID() );
 $csr_docs = csr_get_documents( $csr_only );
