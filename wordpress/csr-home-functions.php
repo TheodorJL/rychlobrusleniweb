@@ -78,6 +78,48 @@ const CSR_RECORDS_TEMPLATE = 'page-csr-records.php';
  * @return string Číslo i s tvarem.
  */
 /**
+ * Je stránka postavená v Elementoru?
+ *
+ * @param int $post_id ID stránky.
+ * @return bool
+ */
+function csr_built_with_elementor( $post_id ) {
+	return 'builder' === get_post_meta( $post_id, '_elementor_edit_mode', true );
+}
+
+/**
+ * Vypíše volný text stránky pod obsahem šablony.
+ *
+ * Elementor se věší na filtr the_content a vrací celou stránku, jak ji
+ * sestavil. Kdybychom ho na elementorové stránce zavolali, vykreslila by
+ * se pod novým vzhledem znovu celá stará stránka. Proto se u těch stránek
+ * volný text přeskakuje — starý obsah zůstává uložený, jen se nezobrazuje.
+ *
+ * @param int $post_id ID stránky.
+ */
+function csr_page_prose( $post_id ) {
+	if ( csr_built_with_elementor( $post_id ) ) {
+		if ( current_user_can( 'edit_posts' ) ) {
+			echo '<p class="csr-prose__note">Vidíte jen vy jako správce: '
+				. 'obsah téhle stránky je uložený v Elementoru a nová šablona ho '
+				. 'nezobrazuje. Nic se nesmazalo — po přepnutí šablony zpět na '
+				. '<em>Výchozí</em> se objeví jako dřív.</p>';
+		}
+		return;
+	}
+
+	$content = get_post_field( 'post_content', $post_id );
+	if ( ! trim( wp_strip_all_tags( $content ) ) ) {
+		return;
+	}
+	?>
+	<div class="csr-prose csr-reveal">
+		<?php echo apply_filters( 'the_content', $content ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+	</div>
+	<?php
+}
+
+/**
  * Odkaz na telefon. Plus na začátku necháváme — bez něj se číslo
  * ze zahraničí nemusí vytočit.
  *

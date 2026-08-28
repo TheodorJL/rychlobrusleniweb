@@ -156,13 +156,7 @@ foreach ( $csr_query->posts as $csr_p ) {
 
 		<?php
 		// Volný text napsaný do editoru stránky se vypíše pod výpisem.
-		if ( trim( wp_strip_all_tags( get_post_field( 'post_content', $csr_page_id ) ) ) ) :
-			?>
-			<div class="csr-prose csr-reveal">
-				<?php echo apply_filters( 'the_content', get_post_field( 'post_content', $csr_page_id ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-			</div>
-			<?php
-		endif;
+		csr_page_prose( $csr_page_id );
 		?>
 
 	</div>

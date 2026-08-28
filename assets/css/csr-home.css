@@ -3029,3 +3029,13 @@ body.csr-lb-open { overflow: hidden; }
   outline: 2px solid var(--csr-accent);
   outline-offset: 3px; border-radius: 3px;
 }
+
+/* Poznámka pro správce u stránky, jejíž starý obsah je v Elementoru. */
+.csr-prose__note {
+  margin: 2rem 0 0;
+  padding: .85rem 1.1rem;
+  font-size: var(--csr-fs-xs); color: var(--csr-text-muted);
+  background: var(--csr-surface-2);
+  border: 1px dashed var(--csr-border-strong);
+  border-radius: var(--csr-r);
+}

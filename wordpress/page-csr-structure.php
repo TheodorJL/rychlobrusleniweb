@@ -140,19 +140,8 @@ $csr_total = array_sum( array_map( 'count', $csr_all ) );
 <?php endif; ?>
 
 <?php
-// Volný text z editoru stránky.
-if ( trim( wp_strip_all_tags( get_post_field( 'post_content', get_the_ID() ) ) ) ) :
-	?>
-	<section class="csr-section csr-section--tight">
-		<div class="csr-container">
-			<div class="csr-prose csr-reveal">
-				<?php echo apply_filters( 'the_content', get_post_field( 'post_content', get_the_ID() ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-			</div>
-		</div>
-	</section>
-	<?php
-endif;
-?>
+		csr_page_prose( get_the_ID() );
+		?>
 
 </main>
 

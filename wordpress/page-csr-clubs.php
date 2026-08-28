@@ -112,14 +112,7 @@ asort( $csr_regions );
 		<?php endif; ?>
 
 		<?php
-		// Volný text z editoru stránky se vypíše pod kluby.
-		if ( trim( wp_strip_all_tags( get_post_field( 'post_content', get_the_ID() ) ) ) ) :
-			?>
-			<div class="csr-prose csr-reveal">
-				<?php echo apply_filters( 'the_content', get_post_field( 'post_content', get_the_ID() ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-			</div>
-			<?php
-		endif;
+		csr_page_prose( get_the_ID() );
 		?>
 
 	</div>
