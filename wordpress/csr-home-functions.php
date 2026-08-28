@@ -76,6 +76,7 @@ const CSR_RECORDS_TEMPLATE = 'page-csr-records.php';
 const CSR_LANDING_TEMPLATE = 'page-csr-landing.php';
 const CSR_SEARCH_TEMPLATE  = 'search.php';
 const CSR_EVENT_TEMPLATE   = 'single-csr-event.php';
+const CSR_STORY_TEMPLATE   = 'page-csr-story.php';
 
 /**
  * Všechny šablony z tohoto balíčku. Podle nich se rozhoduje, kdy načíst styly.
@@ -226,6 +227,7 @@ function csr_templates() {
 		CSR_RESULTS_TEMPLATE,
 		CSR_RECORDS_TEMPLATE,
 		CSR_LANDING_TEMPLATE,
+		CSR_STORY_TEMPLATE,
 	);
 }
 

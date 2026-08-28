@@ -432,11 +432,6 @@ function csr_settings_registry() {
 				'desc'    => 'Text nakopírovaný z Wordu nebo PDF spojí zpět do odstavců. Obsah v databázi zůstává beze změny.',
 				'default' => 1,
 			),
-			'csr_article_author' => array(
-				'type'    => 'checkbox',
-				'label'   => 'Zobrazit autora',
-				'default' => 1,
-			),
 			'csr_article_share' => array(
 				'type'    => 'checkbox',
 				'label'   => 'Zobrazit tlačítka pro sdílení',

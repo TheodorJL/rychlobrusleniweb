@@ -2174,7 +2174,7 @@ body { margin: 0; background: var(--csr-bg); }
 
 .csr-prose--article { margin-top: 0; font-size: inherit; line-height: 1.75; }
 .csr-prose--article p { margin: 0 0 1.15em; }
-.csr-prose--article > p:first-of-type {
+.csr-prose--lead > p:first-of-type {
   font-size: 1.16rem;
   color: var(--csr-text);
 }
@@ -3302,3 +3302,115 @@ body.csr-lb-open { overflow: hidden; }
 
 /* Alba na úvodní stránce — stejná karta jako v galerii, jen menší mřížka. */
 .csr-albums--home { margin-top: 0; }
+
+/* ══════════════════════════════════════════════════════════════════
+   35. ČLÁNEK A STRÁNKA S TEXTEM: FOTKY, VÝSLEDKY, VLOŽENÝ OBSAH
+   Text se čte v úzkém sloupci, fotky se z něj smějí vylomit.
+   Vylomení je udělané okraji, ne transformem — ten si bere .csr-reveal
+   na animaci a přepsal by ho.
+   ══════════════════════════════════════════════════════════════ */
+
+.csr-story__embed { margin: clamp(2.2rem, 4.5vw, 3.4rem) 0; }
+.csr-story__embed :is(iframe, video) {
+  display: block; width: 100%; height: auto;
+  aspect-ratio: 16 / 9;
+  border: 0; border-radius: var(--csr-r);
+}
+
+/* ---- Skupiny fotek ---- */
+
+.csr-artgal { margin: clamp(2.2rem, 4.5vw, 3.4rem) 0; padding: 0; }
+
+.csr-artgal__item {
+  display: block; width: 100%; padding: 0;
+  border: 1px solid var(--csr-border);
+  border-radius: var(--csr-r);
+  background: var(--csr-surface-2);
+  overflow: hidden; cursor: zoom-in;
+  transition: border-color .3s var(--csr-ease), box-shadow .3s var(--csr-ease);
+}
+.csr-artgal__item img { display: block; width: 100%; height: auto; }
+.csr-artgal__item:hover,
+.csr-artgal__item:focus-visible {
+  border-color: var(--csr-border-strong);
+  box-shadow: var(--csr-shadow);
+}
+
+.csr-artgal figcaption {
+  margin-top: .85rem;
+  font-size: .9rem; line-height: 1.5;
+  color: var(--csr-text-muted); text-align: center;
+}
+
+/* Jediná fotka si drží vlastní poměr stran, ve skupině se ořezává. */
+.csr-artgal--solo .csr-artgal__item img { aspect-ratio: var(--csr-ratio, 16 / 9); object-fit: cover; }
+.csr-artgal--navysku { max-width: 24em; margin-inline: auto; }
+
+.csr-artgal--rada,
+.csr-artgal--mrizka { display: grid; gap: .8rem; }
+.csr-artgal--rada   { grid-template-columns: repeat(auto-fit,  minmax(min(100%, 15rem), 1fr)); }
+.csr-artgal--mrizka { grid-template-columns: repeat(auto-fill, minmax(min(100%, 12rem), 1fr)); }
+.csr-artgal--rada   .csr-artgal__item img,
+.csr-artgal--mrizka .csr-artgal__item img { aspect-ratio: 4 / 3; object-fit: cover; }
+
+/* Od šířky, kde na to je místo, fotky přesáhnou sloupec s textem. */
+@media (min-width: 62em) {
+  .csr-artgal--rada,
+  .csr-artgal--mrizka {
+    width: min(54em, calc(100vw - 2 * var(--csr-gutter)));
+    margin-left: calc(50% - min(27em, (100vw - 2 * var(--csr-gutter)) / 2));
+  }
+  .csr-artgal--solo:not(.csr-artgal--navysku) {
+    width: min(42em, calc(100vw - 2 * var(--csr-gutter)));
+    margin-left: calc(50% - min(21em, (100vw - 2 * var(--csr-gutter)) / 2));
+  }
+}
+
+/* ---- Výsledky ze závodu ---- */
+
+.csr-artres {
+  margin: clamp(2.2rem, 4.5vw, 3.4rem) 0;
+  padding: clamp(1.2rem, 3vw, 1.9rem);
+  border: 1px solid var(--csr-border);
+  border-radius: var(--csr-r-lg);
+  background: var(--csr-surface-2);
+}
+.csr-artres__title {
+  margin: 0 0 1.1rem;
+  font-family: var(--csr-font-display);
+  font-size: 1.15rem; letter-spacing: .01em;
+  color: var(--csr-text);
+}
+.csr-artres__row + .csr-artres__row {
+  margin-top: 1rem; padding-top: 1rem;
+  border-top: 1px solid var(--csr-border);
+}
+.csr-artres__disc {
+  margin: 0 0 .5rem;
+  font-size: .78rem; font-weight: 700;
+  letter-spacing: .09em; text-transform: uppercase;
+  color: var(--csr-text-muted);
+}
+.csr-artres__list {
+  display: grid; gap: .35rem;
+  margin: 0; padding: 0; list-style: none;
+  font-variant-numeric: tabular-nums;
+}
+.csr-artres__list > li {
+  display: grid; grid-template-columns: 2rem 1fr;
+  gap: .6rem; align-items: baseline;
+  font-size: .97rem; line-height: 1.45;
+}
+.csr-artres__rank {
+  grid-column: 1;
+  font-weight: 700; text-align: right;
+  color: var(--csr-text-muted);
+}
+/* Stupně vítězů si zaslouží víc než pořadové číslo. */
+.csr-artres__list > li:nth-child(1) .csr-artres__rank { color: var(--csr-gold); }
+.csr-artres__list > li:nth-child(-n+3) .csr-artres__who { color: var(--csr-text); font-weight: 600; }
+.csr-artres__who { grid-column: 2; color: var(--csr-text-soft); }
+
+@media (min-width: 40em) {
+  .csr-artres__list { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 1.6rem; }
+}

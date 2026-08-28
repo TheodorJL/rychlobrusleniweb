@@ -68,12 +68,6 @@ while ( have_posts() ) :
 					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg>
 					<?php echo esc_html( csr_reading_time( $csr_id ) ); ?> min čtení
 				</span>
-				<?php if ( csr_opt( 'csr_article_author', 1 ) ) : ?>
-					<span>
-						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>
-						<?php the_author(); ?>
-					</span>
-				<?php endif; ?>
 			</div>
 		</div>
 	</header>
@@ -106,9 +100,16 @@ while ( have_posts() ) :
 					</figure>
 				<?php endif; ?>
 
-				<div class="csr-prose csr-prose--article csr-reveal">
-					<?php the_content(); ?>
-				</div>
+				<?php
+				/*
+				 * Obsah si necháme vykreslit the_content() do bufferu — Elementor
+				 * si na něj věší svoje vykreslování — a teprve pak si z něj
+				 * vybereme text a fotky a poskládáme je po svém.
+				 */
+				ob_start();
+				the_content();
+				csr_render_story( ob_get_clean(), $csr_thumb );
+				?>
 
 				<?php
 				wp_link_pages(

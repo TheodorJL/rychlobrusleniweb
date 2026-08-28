@@ -509,11 +509,14 @@
      i ten Elementorův. Tenhle je jediný a nepotřebuje jQuery.
      ═══════════════════════════════════════════════════════════════ */
   function initLightbox() {
-    var gallery = document.querySelector('[data-csr-gallery]');
-    if (!gallery) { return; }
+    // Na stránce může být galerií víc (článek s několika skupinami fotek).
+    // Každá se prohlíží zvlášť, ať se listování nepřelije do cizí sady.
+    var skupiny = $$('[data-csr-gallery]')
+      .map(function (g) { return $$('[data-csr-shot]', g); })
+      .filter(function (sada) { return sada.length; });
+    if (!skupiny.length) { return; }
 
-    var shots = $$('[data-csr-shot]', gallery);
-    if (!shots.length) { return; }
+    var shots = skupiny[0];
 
     var box, img, caption, counter, prevBtn, nextBtn, closeBtn;
     var index = 0;
@@ -566,8 +569,9 @@
       counter.textContent = (index + 1) + ' / ' + shots.length;
     }
 
-    function open(i) {
+    function open(sada, i) {
       if (!box) { build(); }
+      shots = sada;
       lastFocus = document.activeElement;
       show(i);
       box.hidden = false;
@@ -583,8 +587,10 @@
 
     function go(step) { show(index + step); }
 
-    shots.forEach(function (btn, i) {
-      btn.addEventListener('click', function () { open(i); });
+    skupiny.forEach(function (sada) {
+      sada.forEach(function (btn, i) {
+        btn.addEventListener('click', function () { open(sada, i); });
+      });
     });
 
     document.addEventListener('keydown', function (e) {
