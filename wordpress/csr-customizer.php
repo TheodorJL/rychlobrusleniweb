@@ -157,6 +157,12 @@ function csr_settings_registry() {
 			'csr_hero_btn2_label' => array( 'type' => 'text', 'label' => '2. tlačítko — text',  'default' => 'Kalendář závodů' ),
 			'csr_hero_btn2_url'   => array( 'type' => 'url',  'label' => '2. tlačítko — odkaz', 'default' => '/akce/' ),
 			'csr_hero_show_stats' => array( 'type' => 'checkbox', 'label' => 'Zobrazit čísla pod úvodním blokem', 'default' => true ),
+			'csr_hero_rink'       => array(
+				'type'    => 'checkbox',
+				'label'   => 'Animovaný ovál vpravo v úvodním bloku',
+				'desc'    => 'Trojrozměrná čtyřistametrová dráha se světelnými stopami. Jen na širokých displejích; kdo má v systému vypnuté animace, uvidí statické pozadí.',
+				'default' => true,
+			),
 		),
 	);
 

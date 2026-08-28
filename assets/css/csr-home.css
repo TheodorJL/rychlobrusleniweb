@@ -740,6 +740,33 @@ body.csr-locked { overflow: hidden; }
 }
 /* Stopy bruslí */
 .csr-hero__trails { position: absolute; inset: 0; z-index: -2; opacity: .5; mix-blend-mode: screen; pointer-events: none; }
+
+/* Trojrozměrný ovál vpravo. Leží nad ztmavením, ale pod textem — ten je
+   v .csr-hero__inner, které se kreslí až za zápornými vrstvami. */
+.csr-hero__rink {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: min(56%, 880px);
+  /* Plátno je nahrazený prvek: bez zadané výšky by si i s „inset" vzalo
+     poměr stran svého rastru a zabralo jen kus sekce. */
+  height: 100%;
+  z-index: -1;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.6s var(--csr-ease-out);
+  /* Okraje rozpustíme, ať plátno nekončí hranou. */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 26%, #000 86%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0%, #000 26%, #000 86%, transparent 100%);
+}
+.csr-hero__rink.is-live { opacity: .9; }
+
+@media (max-width: 1099px) {
+  .csr-hero__rink { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .csr-hero__rink { display: none; }
+}
 .csr-hero__trails path {
   fill: none; stroke: url(#csrTrailGrad); stroke-linecap: round;
   stroke-dasharray: 1400; stroke-dashoffset: 1400;

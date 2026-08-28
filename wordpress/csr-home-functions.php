@@ -319,6 +319,12 @@ function csr_home_enqueue_assets() {
 
 	wp_enqueue_style( 'csr-home', "$base/css/csr-home.css", array(), $css_ver );
 	wp_enqueue_script( 'csr-home', "$base/js/csr-home.js", array(), $js_ver, true );
+
+	// Ovál v hero sekci patří jen na úvodní stránku a jen když je zapnutý.
+	if ( csr_is_home_template() && csr_opt( 'csr_hero_rink' ) ) {
+		$rink_ver = file_exists( "$dir/js/csr-rink.js" ) ? filemtime( "$dir/js/csr-rink.js" ) : CSR_HOME_VERSION;
+		wp_enqueue_script( 'csr-rink', "$base/js/csr-rink.js", array(), $rink_ver, true );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'csr_home_enqueue_assets', 20 );
 

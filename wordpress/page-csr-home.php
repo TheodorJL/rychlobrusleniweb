@@ -110,6 +110,10 @@ if ( csr_page_locked() ) {
 
 	<div class="csr-hero__scrim" aria-hidden="true"></div>
 
+	<?php if ( csr_opt( 'csr_hero_rink' ) ) : ?>
+		<canvas class="csr-hero__rink" data-csr-rink aria-hidden="true"></canvas>
+	<?php endif; ?>
+
 	<div class="csr-hero__inner">
 		<div class="csr-hero__content">
 			<?php if ( csr_opt( 'csr_hero_show_badge' ) ) : ?>
