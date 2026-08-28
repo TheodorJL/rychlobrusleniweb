@@ -347,7 +347,9 @@ add_action( 'admin_menu', 'csr_bulk_add_menu' );
  */
 function csr_parse_roster_line( $line ) {
 	$line = trim( $line );
-	if ( '' === $line ) {
+	// Prázdný řádek a poznámka za mřížkou se přeskočí — datové soubory
+	// v balíčku jsou komentované a nikoho nemá napadnout je čistit ručně.
+	if ( '' === $line || 0 === strpos( $line, '#' ) ) {
 		return null;
 	}
 

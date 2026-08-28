@@ -928,6 +928,38 @@ Kontrola proběhne i na větvi. Nová verze se vydá až po sloučení do `main`
 
 Elementorový obsah zůstává ve všech případech uložený.
 
+## Hromadné vložení obsahu
+
+Připravené soubory jsou ve složce `data/import/`. Otevřete soubor, označte
+všechno (`Ctrl+A`), zkopírujte a vložte do příslušné obrazovky. Řádky
+s mřížkou na začátku se přeskočí, takže je můžete vložit i s hlavičkou.
+
+| Soubor | Kam vložit | Řádků |
+| --- | --- | --- |
+| `kluby.txt` | Kluby → Hromadné přidání | 14 |
+| `lide.txt` | Lidé ve svazu → Hromadné přidání | 22 |
+| `dokumenty.txt` | Dokumenty → Hromadné přidání | 23 |
+| `vysledky-tabulky.txt` | Výsledky → Hromadné přidání | 2 |
+| `alba.txt` | *jen soupis*, alba se zakládají ručně | 18 |
+
+### Co se vloží samo a co ne
+
+* **Kluby** — z PSČ se dopočítá kraj. Kde chybí web, se u klubu tlačítko
+  *Web klubu* nezobrazí; doplňte ho ručně.
+* **Dokumenty** — vloží se název a odkaz. Rubriku vyberete u každého
+  dokumentu zvlášť, jinak se vypíšou všechny pohromadě.
+* **Reprezentanti** — hromadné vložení je v *Reprezentanti → Hromadné
+  přidání*, formát `Jméno | rok narození | klub | role`. Soupisky ze starého
+  webu jsem nedostal, tenhle soubor proto v balíčku není.
+* **Fotky** — vložit hromadně nejdou, vybírají se z knihovny médií.
+  `alba.txt` je jen soupis toho, co na starém webu bylo.
+
+### Než to vložíte
+
+Vložení **zakládá nové záznamy, nemaže staré**. Když ho spustíte dvakrát,
+budete mít všechno dvakrát (u dokumentů se shoda podle názvu přeskočí,
+u klubů a lidí ne).
+
 ## Výkon a přístupnost
 
 - **Žádná externí knihovna** — vlastní CSS a JS, dohromady ~24 kB.

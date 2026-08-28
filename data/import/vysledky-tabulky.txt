@@ -1,0 +1,6 @@
+# Vložte do: Výsledky → Hromadné přidání
+# Formát řádku: jeden název tabulky na řádek; sezónu a disciplínu vyberete nad polem
+# Řádky s mřížkou se přeskočí, můžete je vložit i s nimi.
+#
+Muži
+Ženy

@@ -268,6 +268,11 @@ add_action( 'admin_menu', 'csr_people_import_page' );
  * @return array|null
  */
 function csr_parse_person_line( $line ) {
+	$line = trim( $line );
+	// Poznámka za mřížkou není člověk.
+	if ( '' === $line || 0 === strpos( $line, '#' ) ) {
+		return null;
+	}
 	$parts = array_map( 'trim', explode( '|', $line ) );
 	if ( '' === $parts[0] ) {
 		return null;

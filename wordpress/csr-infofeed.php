@@ -290,7 +290,8 @@ function csr_feed_bulk_render() {
 
 		foreach ( preg_split( '/\R/', $raw ) as $line ) {
 			$line = trim( $line );
-			if ( '' === $line ) {
+			// Poznámka za mřížkou se přeskočí.
+			if ( '' === $line || 0 === strpos( $line, '#' ) ) {
 				continue;
 			}
 

@@ -1,3 +1,7 @@
+# Vložte do: Kluby → Hromadné přidání
+# Formát řádku: Zkratka|Úplný název|IČO|Kontaktní osoba|Telefon|E-mail|Ulice|PSČ|Obec|Web
+# Řádky s mřížkou se přeskočí, můžete je vložit i s nimi.
+#
 BK ŽĎÁR|Bruslařský klub Žďár nad Sázavou|60574712|Pavel Haselberger|+420 737 114 584|haselpa@seznam.cz|Jungmanova 10|591 01|Žďár nad Sázavou|http://www.rychlobrusleni-zdar.cz
 BK NÁCHOD|BK Náchod, z.s.|27032311|Oldřich Žďárek|+420 603 743 983|oldrich.zdarek@seznam.cz|Příčná 2027|547 01|Náchod|https://www.bknachod.cz
 BOJ ŽĎÁR|Bruslařský oddíl juniorů Žďár nad Sázavou, z.s.|22768076|Jiří Macháček|+420 605 841 653|machy.3@seznam.cz|Jungmanova 1495/8|591 01|Žďár nad Sázavou|http://www.rychlobruslenizdar.cz
