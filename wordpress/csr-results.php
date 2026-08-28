@@ -81,6 +81,7 @@ function csr_result_sports() {
  */
 function csr_result_seasons() {
 	return array(
+		'2026-2027' => '2026–2027',
 		'2025-2026' => '2025–2026',
 		'2024-2025' => '2024–2025',
 		'2023-2024' => '2023–2024',
@@ -1030,10 +1031,11 @@ function csr_results_parse_bulk( $text, $sezona = '', $sport = '' ) {
 			}
 			$casti = array_map( 'trim', explode( '|', substr( $orez, 3 ) ) );
 			$akt   = array(
-				'sezona' => isset( $casti[0] ) ? sanitize_title( $casti[0] ) : $sezona,
-				'sport'  => isset( $casti[1] ) ? sanitize_key( $casti[1] ) : $sport,
-				'nazev'  => isset( $casti[2] ) ? $casti[2] : '',
-				'data'   => array(),
+				'sezona'   => isset( $casti[0] ) ? sanitize_title( $casti[0] ) : $sezona,
+				'sport'    => isset( $casti[1] ) ? sanitize_key( $casti[1] ) : $sport,
+				'nazev'    => isset( $casti[2] ) ? $casti[2] : '',
+				'poznamka' => isset( $casti[3] ) ? $casti[3] : '',
+				'data'     => array(),
 			);
 			continue;
 		}
@@ -1048,7 +1050,7 @@ function csr_results_parse_bulk( $text, $sezona = '', $sport = '' ) {
 
 		// Starší podoba: jeden název na řádek, bez dat.
 		if ( '' !== $orez ) {
-			$tabulky[] = array( 'sezona' => $sezona, 'sport' => $sport, 'nazev' => $orez, 'data' => array() );
+			$tabulky[] = array( 'sezona' => $sezona, 'sport' => $sport, 'nazev' => $orez, 'poznamka' => '', 'data' => array() );
 		}
 	}
 	if ( $akt ) {
@@ -1120,6 +1122,9 @@ function csr_results_import_run( $text, $sezona = '', $sport = '' ) {
 
 		if ( $t['data'] && '' === (string) get_post_meta( $id, '_csr_result_data', true ) ) {
 			update_post_meta( $id, '_csr_result_data', csr_sanitize_table( implode( "\n", $t['data'] ) ) );
+		}
+		if ( '' !== $t['poznamka'] && '' === (string) get_post_meta( $id, '_csr_result_note', true ) ) {
+			update_post_meta( $id, '_csr_result_note', sanitize_text_field( $t['poznamka'] ) );
 		}
 		if ( $t['sport'] && array_key_exists( $t['sport'], csr_result_sports() ) ) {
 			update_post_meta( $id, '_csr_result_sport', $t['sport'] );
@@ -1212,8 +1217,9 @@ function csr_results_import_render() {
 						<textarea name="csr_import_titles" id="csr_import_titles" rows="16" class="large-text code" placeholder="Muži&#10;Ženy"><?php echo esc_textarea( csr_import_seed( 'vysledky-tabulky' ) ); ?></textarea>
 						<p class="description">
 							Buď jeden název tabulky na řádek — pak se použije sezóna a disciplína vybraná nahoře —
-							nebo rovnou celé tabulky: řádek <code>=== sezóna | disciplína | název</code>
-							zakládá novou a pod ním jsou data oddělená tabulátory.
+							nebo rovnou celé tabulky: řádek <code>=== sezóna | disciplína | název | poznámka</code>
+							zakládá novou a pod ním jsou data oddělená tabulátory. Poznámka je nepovinná
+							a vypíše se pod tabulkou.
 							Vložení jde pustit znovu, tabulka stejného názvu se nezaloží podruhé.
 						</p>
 					</td>

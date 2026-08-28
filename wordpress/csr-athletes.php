@@ -743,6 +743,7 @@ function csr_roster_page_metabox_render( $post ) {
 	$season  = (int) get_post_meta( $post->ID, '_csr_page_season', true );
 	$squad   = (int) get_post_meta( $post->ID, '_csr_page_squad', true );
 	$odhad   = $squad ? 0 : csr_roster_guess_squad( $post->ID );
+	$odhad_s = $season ? 0 : csr_roster_guess_season( $post->ID );
 	$intro   = get_post_meta( $post->ID, '_csr_page_intro', true );
 	$seasons = get_terms( array( 'taxonomy' => CSR_TAX_SEASON, 'hide_empty' => false ) );
 	$squads  = get_terms( array( 'taxonomy' => CSR_TAX_SQUAD, 'hide_empty' => false ) );
@@ -750,7 +751,14 @@ function csr_roster_page_metabox_render( $post ) {
 	<p>
 		<label for="csr_page_season"><strong>Sezóna</strong></label><br>
 		<select name="csr_page_season" id="csr_page_season" style="width:100%">
-			<option value="0">— všechny —</option>
+			<option value="0">
+				<?php
+				$termin_s = $odhad_s ? get_term( $odhad_s, CSR_TAX_SEASON ) : null;
+				echo $termin_s && ! is_wp_error( $termin_s )
+					? esc_html( 'Podle menu — ' . $termin_s->name )
+					: '— všechny —';
+				?>
+			</option>
 			<?php foreach ( $seasons as $term ) : ?>
 				<option value="<?php echo esc_attr( $term->term_id ); ?>" <?php selected( $season, $term->term_id ); ?>>
 					<?php echo esc_html( $term->name ); ?>
@@ -785,7 +793,8 @@ function csr_roster_page_metabox_render( $post ) {
 	<?php else : ?>
 		<p class="description">
 			Kdo se vypíše, řídí kombinace sezóny a týmu. Tým se odvodí z názvu
-			stránky, <strong>sezónu je potřeba vybrat</strong> — v názvu není.
+			stránky a sezóna z toho, pod kterou položkou menu stránka visí
+			(„Sezóna 2025-2026"). Vybrat je potřeba jen tam, kde to nesedí.
 			Lidi zadáváte v <em>Reprezentanti</em>.
 		</p>
 	<?php endif; ?>
@@ -901,4 +910,63 @@ function csr_render_person_card( $person, $small = false ) {
 		</div>
 	</article>
 	<?php
+}
+
+/**
+ * Odhadne sezónu podle toho, kde stránka visí v menu.
+ *
+ * Pro každou sezónu je vlastní stránka, ale jmenují se stejně —
+ * „SS – Junioři" je jich šest. V názvu sezóna není, zato v menu ano:
+ * stránky visí pod položkou „Sezóna 2025-2026". Odtud ji vezmeme.
+ *
+ * @param int $page_id ID stránky.
+ * @return int ID termínu sezóny, nebo 0.
+ */
+function csr_roster_guess_season( $page_id ) {
+    $menus = wp_get_nav_menus();
+    if ( is_wp_error( $menus ) || ! $menus ) {
+        return 0;
+    }
+
+    foreach ( $menus as $menu ) {
+        $polozky = wp_get_nav_menu_items( $menu->term_id );
+        if ( ! $polozky ) {
+            continue;
+        }
+
+        $podle_id = array();
+        foreach ( $polozky as $polozka ) {
+            $podle_id[ (int) $polozka->ID ] = $polozka;
+        }
+
+        foreach ( $polozky as $polozka ) {
+            if ( (int) $polozka->object_id !== (int) $page_id ) {
+                continue;
+            }
+
+            $rodic = isset( $podle_id[ (int) $polozka->menu_item_parent ] ) ? $podle_id[ (int) $polozka->menu_item_parent ] : null;
+            while ( $rodic ) {
+                if ( preg_match( '#(20\d{2})\s*[-–—/]\s*(20\d{2})#u', $rodic->title, $shoda ) ) {
+                    return csr_season_term_id( $shoda[1] . '-' . $shoda[2] );
+                }
+                $rodic = isset( $podle_id[ (int) $rodic->menu_item_parent ] ) ? $podle_id[ (int) $rodic->menu_item_parent ] : null;
+            }
+        }
+    }
+
+    return 0;
+}
+
+/**
+ * Najde sezónu podle zápisu „2025-2026".
+ *
+ * @param string $zapis Sezóna.
+ * @return int ID termínu, nebo 0.
+ */
+function csr_season_term_id( $zapis ) {
+    $term = get_term_by( 'slug', $zapis, CSR_TAX_SEASON );
+    if ( ! $term ) {
+        $term = get_term_by( 'name', $zapis, CSR_TAX_SEASON );
+    }
+    return $term && ! is_wp_error( $term ) ? (int) $term->term_id : 0;
 }

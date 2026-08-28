@@ -21,6 +21,10 @@ $csr_squad_id  = (int) get_post_meta( get_the_ID(), '_csr_page_squad', true );
 if ( ! $csr_squad_id ) {
 	$csr_squad_id = csr_roster_guess_squad( get_the_ID() );
 }
+// A sezónu z místa, kde stránka visí v menu („Sezóna 2025-2026").
+if ( ! $csr_season_id ) {
+	$csr_season_id = csr_roster_guess_season( get_the_ID() );
+}
 $csr_intro     = get_post_meta( get_the_ID(), '_csr_page_intro', true );
 
 $csr_roster = csr_get_roster( $csr_season_id, $csr_squad_id );

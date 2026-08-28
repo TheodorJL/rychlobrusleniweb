@@ -1,18 +1,19 @@
 # Vložte do: Výsledkové tabulky → Hromadné přidání
 # Vytaženo z PDF žebříčků, které byly na starých stránkách vložené přes Google Viewer.
 #
-# Formát: řádek „=== sezóna | disciplína | název" zakládá novou tabulku,
+# Formát: řádek „=== sezóna | disciplína | název | poznámka" zakládá novou
+# tabulku (poznámka je nepovinná a vypíše se pod tabulkou),
 # další řádky jsou její obsah oddělený tabulátory. Prázdný řádek nevadí.
 # Disciplína: ss = speed skating (dlouhá dráha), st = short track.
 #
 # Data jsou přepsaná ze zdroje beze změny, jen datum je převedené
 # z amerického zápisu (1/16/2000) na český (16. 1. 2000).
 #
-=== 2021-2022 | st | Muži 111 m
+=== 2021-2022 | st | Muži 111 m | Žebříček 2021/2022, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Moroz Nicolas	JF	KSB Benátky	21.824	Benátky	2. 10. 2021
 
-=== 2021-2022 | st | Muži 222 m
+=== 2021-2022 | st | Muži 222 m | Žebříček 2021/2022, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Muchka František	JE	KSB Benátky	25.96	Celje	12. 12. 2021
 2.	Hradský David	JE	KSB Benátky	26.115	Benátky	3. 10. 2021
@@ -21,7 +22,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 5.	Kamenský Václav	JD	KSB Benátky	28.826		
 6.	Kotrch Matěj	JE	STC Zďár	29.579		
 
-=== 2021-2022 | st | Muži 333 m
+=== 2021-2022 | st | Muži 333 m | Žebříček 2021/2022, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Šulc Samuel	JD	KSB Benátky	33.39	Spišská N.Ves	29. 8. 2021
 2.	Kamenský Václav	JD	KSB Benátky	34.87	Spišská N.Ves	29. 8. 2021
@@ -31,7 +32,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 6.	Muchka  František	JE	KSB Benátky	38.151	Szeged	13. 3. 2022
 7.	Moroz Nicolas	JF	KSB Benátky	63.207	Benátky	2. 10. 2021
 
-=== 2021-2022 | st | Muži 500 m
+=== 2021-2022 | st | Muži 500 m | Žebříček 2021/2022, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Fajkus Radek	S	KSB Benátky	41.345	Montreal	9. 4. 2022
 2.	Sejpal Zdeněk	S	KSB Benátky	42.5	Montreal	9. 4. 2022
@@ -46,7 +47,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 12.	Moroz Nikolas	JF	KSB Benátky	85.383	Budapest	4. 12. 2021
 13.	Prokop Michal	S	KSB Benátky	45.807		
 
-=== 2021-2022 | st | Muži 777 m
+=== 2021-2022 | st | Muži 777 m | Žebříček 2021/2022, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Šulc Samuel	JD	KSB Benátky	1:13.345	Budapest	20. 2. 2022
 2.	Kamenský Václav	JD	KSB Benátky	1:16.840	Szeged	13. 3. 2022
@@ -57,7 +58,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 7.	Koubek Václav	JD	BZK Praha	1:36.336	Benátky	3. 10. 2021
 8.	Popl Matěj	JB	BZK Praha	1:17.206		
 
-=== 2021-2022 | st | Muži 1000 m
+=== 2021-2022 | st | Muži 1000 m | Žebříček 2021/2022, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Fajkus Radek	S	KSB Benátky	1:26.696	Budapest	9. 1. 2022
 2.	Sejpal Zdeněk	S	KSB Benátky	1:27.669	Montreal	9. 4. 2022
@@ -69,7 +70,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 8.	KraJ Tadeáš	JC	KSB Benátky	1:53.411	Celje	12. 12. 2021
 9.	Prokop Michal	S	KSB Benátky	1:32.492		
 
-=== 2021-2022 | st | Muži 1500 m
+=== 2021-2022 | st | Muži 1500 m | Žebříček 2021/2022, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Fajkus Radek	S	KSB Benátky	2:17.496	Montreal	9. 4. 2022	2:15.503
 2.	Sejpal Zdeněk	S	KSB Benátky	2:21.708	Peking	21. 10. 2021	2:18.687
@@ -77,7 +78,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 4.	Kraj Tadeáš	JC	KSB Benátky	2:49.488	Spišská N.Ves	3. 9. 2021
 5.	Prokop Michal	S	BZK Praha	2:25.046		
 
-=== 2021-2022 | st | Ženy 111 m
+=== 2021-2022 | st | Ženy 111 m | Žebříček 2021/2022, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Nevřelová Laura	JE	KSB Benátky	26.706	Benátky	2. 10. 2021
 2.	Pňovská Julie	JE	KSB Benátky	26.854	Benátky	2. 10. 2021
@@ -88,7 +89,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 7.	Papoušková Marta	JD	STC Žďár	25.795		
 8.	Kotrchová Monika	JD	STC Žďár	26.358		
 
-=== 2021-2022 | st | Ženy 222 m
+=== 2021-2022 | st | Ženy 222 m | Žebříček 2021/2022, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Papoušková Marta	JD	STC Žďár	36.051	Spišská N.Ves	29. 8. 2021
 2.	Blahová Eva	JC	STC Žďár	36.223	Spišská N.Ves	29. 8. 2021
@@ -100,7 +101,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 8.	Morozová Mia	JF	KSB Benátky	41.345	Szeged	13. 3. 2022
 9.	Zbořilová Barbora	JF	KSB Benátky	42.668	Budapest	4. 12. 2021
 
-=== 2021-2022 | st | Ženy 500 m
+=== 2021-2022 | st | Ženy 500 m | Žebříček 2021/2022, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 17.	Simandlová Dominika	JA	KSB Benátky	1:54,57	Spišská N.Ves	29. 8. 2021	1:37,778
 18.	Kunstmullerová Nina	JC	STC Žďár	1:58.631	Celje	10. 4. 2022
@@ -109,7 +110,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 2.	Zbořilová Barbora	JF	KSB Benátky	16.692	Benátky	2. 10. 2021
 3.	Papoušková Marta	JE	STC Žďár	15.158		
 
-=== 2021-2022 | st | Ženy 666 m
+=== 2021-2022 | st | Ženy 666 m | Žebříček 2021/2022, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 3.	Papoušková Marta	JD	STC Žďár	1:22.214	Benátky	3. 10. 2021
 4.	Blahová Eva	JD	STC Žďár	1:25.282	Spišská N.Ves	5. 9. 2021	1:24.038
@@ -128,13 +129,13 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 6.	Nevřelová Laura	JE	KSB Benátky	18.392		
 7.	Mišechová Tereza	JF	KSB Benátky	19.982		
 
-=== 2021-2022 | st | Ženy 777 m
+=== 2021-2022 | st | Ženy 777 m | Žebříček 2021/2022, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Vaňková Petra	S	BZK Praha	44.213	Peking	22. 10. 2021
 2.	Hrůzová Michaela	S	KSB Benátky	45.025	Montreal	9. 4. 2022	44.938
 3.	Pfeiferová Tereza	S	BZK Praha	45.692	Spišská N.Ves	4. 9. 2021	44.371
 
-=== 2021-2022 | st | Ženy 1000 m
+=== 2021-2022 | st | Ženy 1000 m | Žebříček 2021/2022, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 6.	Blahová Eva	JC	STC Žďár	2:41.348	Budapest	9. 1. 2022
 7.	Bílková Karolina	JB	STC Žďár	2:44.916	Benátky	1. 10. 2021	2:42.771
@@ -154,12 +155,12 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 3.	Pfeiferová Tereza	S	BZK Praha	2:28.971	Dordrecht	26. 11. 2021	2:27.649
 4.	Gáková Barbora	JB	STC Žďár	2:29.575	Spišská N.Ves	12. 2. 2022
 
-=== 2021-2022 | st | Ženy 1500 m
+=== 2021-2022 | st | Ženy 1500 m | Žebříček 2021/2022, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Pňovská Anna	JD	KSB Benátky	1:17.503	Budapest	4. 12. 2021
 2.	Kotrchová Monika	JD	STC Žďár	1:20.291	Szeged	13. 3. 2022
 
-=== 2021-2022 | st | Ženy 3000 m
+=== 2021-2022 | st | Ženy 3000 m | Žebříček 2021/2022, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 4.	Gáková Barbora	JB	STC Žďár	48.287	Voukatti	22. 3. 2022
 5.	Simandlová Diminika	JA	KSB Benátky	48.630	Spišská N.Ves	29. 8. 2021	47.210
@@ -184,11 +185,11 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 24.	Morozová Mia	JF	KSB Benátky	62.884	Szeged	13. 3. 2022
 25.	Chládková Anna	JE	KSB Benátky	73.552	Benátky	1. 10. 2021
 
-=== 2022-2023 | st | Muži 111 m
+=== 2022-2023 | st | Muži 111 m | Žebříček 2022/2023, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Moroz Nicolas	JE	KSB Benátky	18.447	Budapest	22. 1. 2023
 
-=== 2022-2023 | st | Muži 222 m
+=== 2022-2023 | st | Muži 222 m | Žebříček 2022/2023, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Moroz Nicolas	JE	KSB Benátky	32.867	Budapest	10. 12. 2022
 2.	Muchka František	JD	KSB Benátky	25.96		
@@ -197,7 +198,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 5.	Kamenský Václav	JC	KSB Benátky	28.826		
 6.	Kotrch Matěj	JD	STC Zďár	29.579		
 
-=== 2022-2023 | st | Muži 333 m
+=== 2022-2023 | st | Muži 333 m | Žebříček 2022/2023, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Jílek Filip	JD	BZK Praha	32.789	Dresden	20. 11. 2022
 2.	Muchka  František	JD	KSB Benátky	34.092	Dresden	20. 11. 2022	38.151
@@ -208,7 +209,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 7.	Muchka Jan	JC	KSB Benátky	36.53		
 9.	Kraj Tadeáš	JC	KSB Benátky	38.01		
 
-=== 2022-2023 | st | Muži 500 m
+=== 2022-2023 | st | Muži 500 m | Žebříček 2022/2023, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Fajkus Radek	S	KSB Benátky	41.007	Dresden	4. 2. 2023
 2.	Sejpal Zdeněk	S	KSB Benátky	42.881	Dresden	20. 11. 2022	42.5
@@ -223,7 +224,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 11.	Hradský David	JD	KSB Benátky	50.136	Budapest	21. 1. 2023
 12.	Moroz Nikolas	JF	KSB Benátky	63.541	Budapest	10. 12. 2022
 
-=== 2022-2023 | st | Muži 777 m
+=== 2022-2023 | st | Muži 777 m | Žebříček 2022/2023, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Šulc Samuel	JC	KSB Benátky	1:11.933	Dresden	19. 11. 2022
 2.	Jílek Filip	JD	BZK Praha	1:14.332	Budapest	11. 12. 2022
@@ -233,7 +234,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 6.	Hradský David	JD	KSB Benátky	1:20.197	Bergamo	18. 2. 2023
 7.	Kraj Tadeáš	JC	KSB Benátky	1:21.705	Rostock	5. 3. 2023
 
-=== 2022-2023 | st | Muži 1000 m
+=== 2022-2023 | st | Muži 1000 m | Žebříček 2022/2023, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Fajkus Radek	S	KSB Benátky	1:25.660	Dresden	16. 10. 2022
 2.	Sejpal Zdeněk	S	KSB Benátky	1:27.688	Dordrecht	11. 2. 2023	1:27.669
@@ -247,7 +248,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 10.	KraJ Tadeáš	JC	KSB Benátky	1:46.880	Rostock	5. 3. 2023
 11.	Hradský David	JD	KSB Benátky	1:48.863	Budapest	21. 1. 2023
 
-=== 2022-2023 | st | Muži 1500 m
+=== 2022-2023 | st | Muži 1500 m | Žebříček 2022/2023, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Fajkus Radek	S	KSB Benátky	2:14.599	Almaty	9. 12. 2022
 2.	Sejpal Zdeněk	S	KSB Benátky	2:14.973	Dresden	16. 10. 2022
@@ -258,14 +259,14 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 7.	Muchka Jan	JC	KSB Benátky	2:32.680	Dresden	16. 10. 2022
 8.	Kraj Tadeáš	JC	KSB Benátky	2:49.488		
 
-=== 2022-2023 | st | Ženy 111 m
+=== 2022-2023 | st | Ženy 111 m | Žebříček 2022/2023, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 6.	Zbořilová Barbora	JE	KSB Benátky	28.53	Dresden	19. 11. 2022
 7.	Nevřelová Laura	JD	KSB Benátky	26.706		
 8.	Papoušková Marta	JD	STC Žďár	25.795		
 10.	Kotrchová Monika	JC	STC Žďár	26.358		
 
-=== 2022-2023 | st | Ženy 222 m
+=== 2022-2023 | st | Ženy 222 m | Žebříček 2022/2023, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Nevřelová Laura	JD	KSB Benátky	34.972	Dresden	19. 11. 2022
 2.	Kratochvílová Pavla	JC	KSB Benátky	35.151	Dresden	20. 11. 2022
@@ -278,7 +279,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 9.	Papoušková Marta	JD	STC Žďár	36.051		
 11.	Kotrchová Monika	JC	STC Žďár	36.6		
 
-=== 2022-2023 | st | Ženy 500 m
+=== 2022-2023 | st | Ženy 500 m | Žebříček 2022/2023, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 16.	Malíková Jana	S	BK Náchod	1:53.846	Oberstdorf	6. 8. 2022	1:47.919
 17.	Sejpalová Šárka	JD	KSB Benátky	1:54.758	Budapest	17. 9. 2022
@@ -298,7 +299,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 4.	Sejpalová Šárka	JD	KSB Benátky	27.104	Dresden	19. 11. 2022
 5.	Morozová Mia	JE	KSB Benátky	27.871	Dresden	19. 11. 2022
 
-=== 2022-2023 | st | Ženy 666 m
+=== 2022-2023 | st | Ženy 666 m | Žebříček 2022/2023, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Pňovská Anna	JC	KSB Benátky	1:13.755	Dresden	19. 11. 2022
 2.	Gáková Barbora	STC Žďár	1:14.845	Rostock	3/5/2023	
@@ -313,7 +314,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 11.	Zbořilová Barbora	JD	KSB Benátky	1:39.187	Budapest	22. 1. 2023
 12.	Kristová denisa	JD	STC Žďár	1:49.194	Budapest	10. 12. 2022
 
-=== 2022-2023 | st | Ženy 777 m
+=== 2022-2023 | st | Ženy 777 m | Žebříček 2022/2023, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Kuncířová M. Sejpalová M.	juniorky	4:20,089	Innsbruck	1/27/2017	
 1.	Pfeiferová T. Kunciřová M.	seniorky	4:13,879	Dresden	2/1/2019	
@@ -326,7 +327,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 4.	Sejpalová Šárka	JD	KSB Benátky	17.678		
 5.	Nevřelová Laura	JD	KSB Benátky	18.392		
 
-=== 2022-2023 | st | Ženy 1000 m
+=== 2022-2023 | st | Ženy 1000 m | Žebříček 2022/2023, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Gáková Barbora	JB	STC Žďár	2:31.083	Bialystok	19. 11. 2022	2:29.575
 2.	Vaňková Petra	S	BZK Praha	2:31.833	Dresden	25. 9. 2022	2:22.888
@@ -348,7 +349,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 19.	Bílková Karolina	JA	STC Žďár	2:42.771		
 20.	Papoušková Marta	JD	STC Žďár	2:45.955		
 
-=== 2022-2023 | st | Ženy 1500 m
+=== 2022-2023 | st | Ženy 1500 m | Žebříček 2022/2023, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Vaňková Petra	S	BZK Praha	44.247	Dresden	20. 11. 2022	44.213
 2.	Pňovská Anna	JC	KSB Benátky	47.6	Rostock	5. 3. 2023
@@ -367,7 +368,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 15.	Šimková Tereza	JC	BZK Praha	52.54	Dresden	19. 11. 2022
 16.	Pňovská  Julie	JE	KSB Benátky	52.651	Dresden	16. 10. 2022
 
-=== 2022-2023 | st | Ženy 3000 m
+=== 2022-2023 | st | Ženy 3000 m | Žebříček 2022/2023, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 17.	Kudláčková Eliška	JB	STC Žďár	52.68	Budapest	9. 12. 2022	49.712
 18.	Strnadová Klára	JA	STC Žďár	53.203	Spišská N.Ves	2. 8. 2022	49.561
@@ -382,25 +383,25 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 27.	Hrůzová Michaela	S	KSB Benátky	44.938		
 28.	Kudláčková Kristýna	JA	STC Žďár	51,245		
 
-=== 2023-2024 | st | Muži 111 m
+=== 2023-2024 | st | Muži 111 m | Žebříček 2023/2024, poř. č. 11
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Trnka Vojtěch	JF	KSB Benátky	18.665	Benátky	6. 10. 2023
 2.	Švarc Ota	JF	KSB Benátky	19.114	Benátky	6. 10. 2023
 3.	Kovanič Anton	JF	KSB Benátky	22.384	Benátky	6. 10. 2023
 
-=== 2023-2024 | st | Muži 222 m
+=== 2023-2024 | st | Muži 222 m | Žebříček 2023/2024, poř. č. 11
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Trnka Vojtěch	JF	KSB Benátky	34.907	Benátky	7. 10. 2023
 2.	Švarc Ota	JF	KSB Benátky	35.594	Benátky	7. 10. 2023
 3.	Kovanič Anton	JF	KSB Benátky	41.437	Benátky	7. 10. 2023
 
-=== 2023-2024 | st | Muži 333 m
+=== 2023-2024 | st | Muži 333 m | Žebříček 2023/2024, poř. č. 11
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Trnka Vojtěch	JF	KSB Benátky	54.521	Benátky	6. 10. 2023
 2.	Švarc Ota	JF	KSB Benátky	55.154	Benátky	6. 10. 2023
 3.	Kovanič Anton	JF	KSB Benátky	71.304	Benátky	6. 10. 2023
 
-=== 2023-2024 | st | Muži 500 m
+=== 2023-2024 | st | Muži 500 m | Žebříček 2023/2024, poř. č. 11
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Fajkus Radek	S	KSB Benátky	41.111	Peking	10. 12. 2023	41.007
 2.	Procházka Marek	B2	BZK Praha	43.063	Budapest	6. 1. 2024
@@ -417,7 +418,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 13.	Šír Jakub	D1	STC Žďár	71.346	Prešov	26. 11. 2023
 14.	Švarc Ota	F1	KSB Benátky	71.674	Budapest	10. 12. 2023
 
-=== 2023-2024 | st | Muži 777 m
+=== 2023-2024 | st | Muži 777 m | Žebříček 2023/2024, poř. č. 11
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Šulc Samuel Oliver	C2	KSB Benátky	1:11.948	Rostock	22. 10. 2023
 2.	Kamenský Václav	C2	KSB Benátky	1:12.528	Rostock	22. 10. 2023
@@ -429,7 +430,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 8.	Koťátko Michal	D2	KSB Benátky	1:28.925	Budapest	28. 10. 2023
 9.	Šír Jakub	D1	STC Žďár	1:53.653	Prešov	26. 11. 2023
 
-=== 2023-2024 | st | Muži 1000 m
+=== 2023-2024 | st | Muži 1000 m | Žebříček 2023/2024, poř. č. 11
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Fajkus Radek	S	KSB Benátky	1:25.181	Dresden	11. 2. 2024
 2.	Sejpal Zdeněk	S	KSB Benátky	1:25.765	Dresden	11. 2. 2024
@@ -445,7 +446,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 12.	Koťátko Michal	D2	KSB Benátky	2:04.788	Benátky	6. 10. 2023
 13.	Šir Jakub	D1	STC Žďár	2:28.728	Prešov	26. 11. 2023
 
-=== 2023-2024 | st | Muži 1500 m
+=== 2023-2024 | st | Muži 1500 m | Žebříček 2023/2024, poř. č. 11
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Sejpal Zdeněk	S	KSB Benátky	2:17.527	Peking	9. 12. 2023	2:14.973
 2.	Procházka Marek	B2	BZK Praha	2:19.587	Dresden	23. 9. 2023
@@ -458,14 +459,14 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 9.	Kraj Tadeáš	B1	KSB Benátky	2:34.319	Budapest	9. 12. 2023
 10.	Hradský David	D2	KSB Benátky	2:36.582	Dresden	20. 1. 2024
 
-=== 2023-2024 | st | Ženy 111 m
+=== 2023-2024 | st | Ženy 111 m | Žebříček 2023/2024, poř. č. 11
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Zbořilová Barbora	E2	KSB Benátky	27.157	Benátky	7. 10. 2023
 2.	Kovačičová Lucia	JE	KSB Benátky	29.403	Benátky	7. 10. 2023
 3.	Dobřenská Adéla	JF	KSB Benátky	30.233	Budapest	9. 12. 2023
 4.	Zedníková Beata	JE	KSB Benátky	31.229	Benátky	7. 10. 2023
 
-=== 2023-2024 | st | Ženy 222 m
+=== 2023-2024 | st | Ženy 222 m | Žebříček 2023/2024, poř. č. 11
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Sejpalová Šárka	D2	KSB Benátky	36.645	Dresden	20. 1. 2024
 2.	Zbořilová Barbora	E2	KSB Benátky	38.295	Budapest	9. 12. 2023
@@ -473,13 +474,13 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 4.	Zedníková Beata	JE	KSB Benátky	42.016	Jaszbereny	21. 1. 2024
 5.	Dobřenská Adéla	JF	KSB Benátky	45.555	Budapest	9. 12. 2023
 
-=== 2023-2024 | st | Ženy 500 m
+=== 2023-2024 | st | Ženy 500 m | Žebříček 2023/2024, poř. č. 11
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Nevřelová Laura	D2	KSB Benátky	1:16.167	Bormio	12. 11. 2023
 2.	Pňovská Anna	C2	KSB Benátky	1:16.831	Rostock	22. 10. 2023	1:13.755
 3.	Šimková Tereza	B1	KSB Benátky	1:18.639	Dresden	21. 1. 2024
 
-=== 2023-2024 | st | Ženy 666 m
+=== 2023-2024 | st | Ženy 666 m | Žebříček 2023/2024, poř. č. 11
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 4.	Pňovská Julie	D1	KSB Benátky	1:19.368	Bormio	12. 11. 2023
 5.	Kratochvílová Pavla	C2	KSB Benátky	1:21.878	Rostock	22. 10. 2023
@@ -497,7 +498,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 2.	Novotná K. Kuncířová M.	seniorky	4:17,292	Dresden	2/5/2016	
 3.	Pfeiferova T.Vaňková P.	seniorky	4:18,357	Dresden	2/8/2020	
 
-=== 2023-2024 | st | Ženy 1000 m
+=== 2023-2024 | st | Ženy 1000 m | Žebříček 2023/2024, poř. č. 11
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 2.	Poplová Michaela	A1	BZK Praha	46.452	Leeuwarden	3. 12. 2024
 3.	Pňovská Anna	C2	KSB Benátky	47.141	Oberstdorf	19. 11. 2023
@@ -524,7 +525,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 24.	Prachárová Johana	B2	BZK Praha	Budapest	12/9/2022	51.31
 25.	Morozová Mia	E2	KSB Benátky	Budapest	1/22/2023	58.938
 
-=== 2023-2024 | st | Ženy 1500 m
+=== 2023-2024 | st | Ženy 1500 m | Žebříček 2023/2024, poř. č. 11
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 8.	Nevřelová Laura	D2	KSB Benátky	1:42.833	Bormio	12. 11. 2023
 9.	Kotrchová Monika	C2	STC Žďár	1:42.975	Benátky	8. 10. 2023
@@ -543,7 +544,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 22.	Morozová Mia	E2	KSB Benátky	Dresden	10/16/2022	2:13.383
 1.	Dobřenská Adéla	JF	KSB Benátky	18.914	Benátky	7. 10. 2023
 
-=== 2023-2024 | st | Ženy 3000 m
+=== 2023-2024 | st | Ženy 3000 m | Žebříček 2023/2024, poř. č. 11
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Vaňková Petra	S	BZK Praha	2:23.568	Montreal	27. 10. 2023	2:22.888
 2.	Gáková Barbora	A1	BZK Praha	2:28.763	Spišská N.Ves	1. 9. 2023
@@ -562,12 +563,12 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 15.	Prachárová Monika	B2	BZK Praha	Budapest	12/10/2022	2:42.170
 16.	Prachárová Johana	B2	BZK Praha	Budapest	12/9/2022	2:47.630
 
-=== 2024-2025 | st | Ženy 111 m
+=== 2024-2025 | st | Ženy 111 m | Žebříček 2024/2025, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 14.	Šulová Daniela	F1	STC Žďár	43.575	Benátky	12. 1. 2025
 15.	Švarcová Anna	F1	KSB Benátky	44.937	Benátky	30. 11. 2024
 
-=== 2024-2025 | st | Ženy 222 m
+=== 2024-2025 | st | Ženy 222 m | Žebříček 2024/2025, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 16.	Šulová Daniela	F1	STC Žďár	66.311	Benátky	12. 1. 2025
 17.	Košová Jana	F2	STC Žďár	72.633	Benátky	12. 1. 2025
@@ -587,7 +588,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 13.	Štástná Zuzana	E1	KSB Benátky	53.649	Benátky	30. 11. 2024
 14.	Benešová Matylda	G	KSB Benátky	61.078	Benátky	30. 11. 2024
 
-=== 2024-2025 | st | Ženy 500 m
+=== 2024-2025 | st | Ženy 500 m | Žebříček 2024/2025, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Poplová Michaela	A2	BZK Praha	1:14.537	Dresden	9. 2. 2025
 2.	Blahová Eva	B2	STC Žďár	1:15.016	Dresden	9. 2. 2025
@@ -600,7 +601,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 9.	Zedníková  Beata	E2	KSB Benátky	1:26.422	Szeged	1. 3. 2025
 10.	Brázdilová Eliška	C1	KSB Benátky	1:27.431	Benátky	30. 11. 2024
 
-=== 2024-2025 | st | Ženy 666 m
+=== 2024-2025 | st | Ženy 666 m | Žebříček 2024/2025, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 11.	Kovaničová Lucia	D1	KSB Benátky	1:30.376	Benátky	12. 1. 2025	1:28.824
 12.	Štěpánová Emma	E2	KSB Benátky	1:39.932	Budapest	8. 12. 2024
@@ -617,7 +618,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 5.	Šulová Daniela	F1	STC Žďár	23.322	Benátky	12. 1. 2025
 6.	Švarcová Anna	F1	KSB Benátky	23.763	Benátky	12. 1. 2025
 
-=== 2024-2025 | st | Ženy 1000 m
+=== 2024-2025 | st | Ženy 1000 m | Žebříček 2024/2025, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 7.	Blahová Eva	B2	STC Žďár	47.765	Dresden	9. 2. 2025
 8.	Pňovská  Julie	D1	KSB Benátky	49.107	Bormio	22. 11. 2024
@@ -641,7 +642,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 26.	Benešová Matylda	G	KSB Benátky	90.071	Benátky	30. 11. 2024
 27.	Švarcová Ema	G	KSB Benátky	109.594	Benátky	30. 11. 2024
 
-=== 2024-2025 | st | Ženy 1500 m
+=== 2024-2025 | st | Ženy 1500 m | Žebříček 2024/2025, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 6.	Nevřelová Laura	C1	KSB Benátky	1:40.343	Dresden	5. 10. 2024
 7.	Blahová Eva	B2	STC Žďár	1:40.941	Dresden	22. 9. 2024	1:38.424
@@ -670,7 +671,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 12.	Junová Aneta	F1	STC Žďár	42.746	Benátky	12. 1. 2025
 13.	Košová Jana	F2	STC Žďár	43.546	Benátky	12. 1. 2025
 
-=== 2024-2025 | st | Ženy 3000 m
+=== 2024-2025 | st | Ženy 3000 m | Žebříček 2024/2025, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Vaňková Petra	S	BZK Praha	2:22.920	Peking	14. 3. 2025	2:22.888
 2.	Gáková Barbora	A2	BZK Praha	2:23.798	Calgary	28. 2. 2025
@@ -686,12 +687,12 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 12.	Sejpalová Šárka	C1	KSB Benátky	2:53.360	Szeged	28. 2. 2025
 13.	Brázdilová Eliška	C1	KSB Benátky	2:58.579	Szeged	28. 2. 2026
 
-=== 2024-2025 | st | Muži 111 m
+=== 2024-2025 | st | Muži 111 m | Žebříček 2024/2025, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Trnka Miroslav	F1	KSB Benátky	21.191	Benátky	12. 1. 2025
 2.	Švarc Jakub	G	KSB Benátky	27.009	Benátky	30. 11. 2024
 
-=== 2024-2025 | st | Muži 222 m
+=== 2024-2025 | st | Muži 222 m | Žebříček 2024/2025, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Fuhrmann Daniel	D1	BZK Praha	28.073	Benátky	30. 11. 2024
 2.	Martinec Oliver	D1	KSB Benátky	28.2	Benátky	30. 11. 2024
@@ -707,7 +708,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 12.	Trnka Miroslav	G	KSB Benátky	41.498	Benátky	12. 1. 2025
 13.	Švarc Jakub	G	KSB Benátky	53.316	Benátky	30. 11. 2024
 
-=== 2024-2025 | st | Muži 333 m
+=== 2024-2025 | st | Muži 333 m | Žebříček 2024/2025, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Kalamar Matěj	JD	KSB Benátky	34.483	Dresden	9. 2. 2025
 2.	Koťátko Michal	D2	KSB Benátky	35.791	Benátky	30. 11. 2024
@@ -726,7 +727,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 15.	Syrotiuk David	F1	KSB Benátky	56.088	Benátky	12. 1. 2025
 16.	Trnka Miroslav	G	KSB Benátky	62.398	Benátky	12. 1. 2025
 
-=== 2024-2025 | st | Muži 500 m
+=== 2024-2025 | st | Muži 500 m | Žebříček 2024/2025, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Popl Matěj	A2	BZK Praha	41.887	Calgary	1. 3. 2025
 2.	Fajkus Radek	S	KSB Benátky	41.902	Dresden	19. 1. 2025	41.007
@@ -757,7 +758,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 28.	Altan Ochir Buyandari	E1	BK Náchod	78.373	Benátky	12. 1. 2025
 29.	Syrotiuk David	F1	KSB Benátky	88.601	Benátky	12. 1. 2025
 
-=== 2024-2025 | st | Muži 777 m
+=== 2024-2025 | st | Muži 777 m | Žebříček 2024/2025, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Popl Matěj	A2	BZK Praha	1:07.851	Dresden	9. 2. 2025
 2.	Jílek Filip	C2	BZK Praha	1:10.540	Rostock	13. 10. 2024
@@ -771,7 +772,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 10.	Souček Viktor	C1	BK Náchod	1:31.622	Benátky	12. 1. 2025
 11.	Kraml Matyáš	C1	BK Náchod	1:31.734	Benátky	12. 1. 2025
 
-=== 2024-2025 | st | Muži 1000 m
+=== 2024-2025 | st | Muži 1000 m | Žebříček 2024/2025, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Fajkus Radek	S	KSB Benátky	1:24.942	Dresden	19. 1. 2025
 2.	Sejpal Zdeněk	S	KSB Benátky	1:25.189	Peking	15. 3. 2025
@@ -789,7 +790,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 14.	Kalamar Matěj	D2	KSB Benátky	1:45.519	Dresden	9. 2. 2025
 15.	Koťátko Michal	D2	KSB Benátky	1:50.827	Dresden	9. 2. 2025
 
-=== 2024-2025 | st | Muži 1500 m
+=== 2024-2025 | st | Muži 1500 m | Žebříček 2024/2025, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Fajkus Radek	S	KSB Benátky	2:13.757	Bormio	5. 10. 2024
 2.	Sejpal Zdeněk	S	KSB Benátky	2:15.222	Milano	15. 2. 2025	2:14.973
@@ -806,7 +807,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 13.	Smorodskiy Maksim	D2	UKR	2:43.103	Benátky	30. 11. 2024
 14.	Koťátko Michal	D2	KSB Benátky	2:53.193	Szeged	28. 2. 2025
 
-=== 2025-2026 | st | Ženy 111 m
+=== 2025-2026 | st | Ženy 111 m | Žebříček 2025/2026, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Dobřenská Adéla	F2	KSB Benátky	14,827	Trnava	13. 12. 2025
 2.	Koudelková Anna	F2	KSB Benátky	16,717	Benátky	2. 11. 2025
@@ -830,7 +831,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Kuncířová M. Sejpalová M.	juniorky	4:20,089	Innsbruck	1/27/2017	
 2.	Kuncířová M. Sejpalová M.	juniorky	4:24,931	Shanghai	12/11/2015	
 
-=== 2025-2026 | st | Ženy 222 m
+=== 2025-2026 | st | Ženy 222 m | Žebříček 2025/2026, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Dobřenská Adéla	F2	KSB Benátky	26,109	Budapest	6. 12. 2025
 2.	Koudelková Kateřina	F1	KSB Benátky	27,717	Benátky	8. 3. 2026
@@ -850,7 +851,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 16.	Štěpánová Ema	F1	KSB Benátky	Benátky	1/12/2025	28,46
 17.	Košová Jana	E1	STC Žďár	Benátky	1/12/2025	43,546
 
-=== 2025-2026 | st | Ženy 333 m
+=== 2025-2026 | st | Ženy 333 m | Žebříček 2025/2026, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Sejpalová Šárka	C2	KSB Benátky	34,904	Dresden	24. 1. 2026
 2.	Kovaničová Lucia	D2	KSB Benátky	34,982	Dresden	8. 11. 2025
@@ -878,7 +879,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 24.	Košová Jana	E1	STC Žďár	Benátky	1/12/2025	72,633
 25.	Švarcová Anna	F2	KSB Benátky	Benátky	1/12/2025	79,019
 
-=== 2025-2026 | st | Ženy 500 m
+=== 2025-2026 | st | Ženy 500 m | Žebříček 2025/2026, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Vaňková Petra	S	BZK Praha	44,258	Montreal	18. 10. 2025	44,213
 2.	Poplová Michaela	S	BZK Praha	44,964	Bormio	29. 11. 2025
@@ -903,7 +904,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 21.	Havrylets Sofia	F2	KSB Benátky	63,884	Dresden	8. 2. 2026
 22.	Zbořilová Kateřina	F2	KSB Benátky	70,321	Budapest	6. 12. 2025
 
-=== 2025-2026 | st | Ženy 777 m
+=== 2025-2026 | st | Ženy 777 m | Žebříček 2025/2026, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Nevřelová Laura	C2	KSB Benátky	1:14.521	Dresden	7. 9. 2025
 2.	Prachárová Monika	A2	BZK Praha	1:19.161	Benátky	10. 1. 2026
@@ -925,7 +926,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 18.	Prachárová Johana	A2	BZK Praha	Benátky	1/12/2025	1:26.050
 19.	Koudelková Kateřina	D1	KSB Benátky	Szeged	3/1/2025	1:55.404
 
-=== 2025-2026 | st | Ženy 1000 m
+=== 2025-2026 | st | Ženy 1000 m | Žebříček 2025/2026, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Vaňková Petra	S	BZK Praha	1:30.645	Salt Lake City	10. 8. 2025	1:29.471
 2.	Gáková Barbora	S	BZK Praha	1:33.876	Montreal	15. 3. 2026	1:32.104
@@ -943,7 +944,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 15.	Malíková Jana	S	BK Náchod	1:54.905	Oberstdorf	9. 8. 2025	1:47.919
 16.	Blahová Andrea	D2	STC Žďár	1:56.510	Trnava	14. 12. 2025
 
-=== 2025-2026 | st | Ženy 1500 m
+=== 2025-2026 | st | Ženy 1500 m | Žebříček 2025/2026, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Gáková Barbora	S	BZK Praha	2:18.986	Dresden	7. 2. 2026
 3.	Pňovská Anna	B2	KSB Benátky	2:25.708	SLC	1. 2. 2026
@@ -956,7 +957,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 10.	Sejpalová Šárka	C2	KSB Benátky	2:57.809	Trnava	13. 12. 2025	2:53.360
 11.	Brázdilová Eliška	C2	KSB Benátky	2:58.222	Sanok	11. 10. 2025
 
-=== 2025-2026 | st | Muži 111 m
+=== 2025-2026 | st | Muži 111 m | Žebříček 2025/2026, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Jokl  Štěpán	F2	STC Žďár	15,797	Trnava	14. 12. 2025
 2.	Trnkka Vojtěch	F2	KSB Benátky	15,883	Benátky	2. 11. 2025
@@ -967,7 +968,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 7.	Pajtl Antonín	JF	STC Žďár	19,12	Benátky	10. 1. 2026
 8.	Švarc Jakub	F1	KSB Benátky	21,634	Benátky	8. 3. 2026
 
-=== 2025-2026 | st | Muži 222 m
+=== 2025-2026 | st | Muži 222 m | Žebříček 2025/2026, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Šír Jakub	C1	STC Žďár	28,029	Benátky	2. 11. 2025
 2.	Jokl Štěpán	F2	STC Žďár	28,543	Benátky	8. 3. 2026
@@ -983,7 +984,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 12.	Kovanič Anton	F2	KSB Benátky	Benátky	1/12/2025	33,249
 13.	Altan Ochir Buyandari	E2	BK Náchod	Benátky	1/12/2025	33,531
 
-=== 2025-2026 | st | Muži 333 m
+=== 2025-2026 | st | Muži 333 m | Žebříček 2025/2026, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Fuhrmann Daniel	D1	BZK Praha	37,906	Benátky	2. 11. 2025
 2.	Martinec Oliver	D1	KSB Benátky	39,162	Benátky	10. 1. 2026
@@ -1005,7 +1006,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 18.	Kovanič Anton	F1	KSB Benátky	Benátky	1/12/2025	48,43
 19.	Altan Ochir Buyandari	E1	BK Náchod	Benátky	1/12/2025	52,854
 
-=== 2025-2026 | st | Muži 500 m
+=== 2025-2026 | st | Muži 500 m | Žebříček 2025/2026, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Fajkus Radek	S	KSB Benátky	41,121	Bormio	21. 9. 2025	41,007
 2.	Šulc Samuel Oliver	B2	KSB Benátky	42,32	SLC	31. 1. 2026
@@ -1036,7 +1037,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 28.	Altan Ochir Buyandari	E2	BK Náchod	Benátky	1/12/2025	78,373
 29.	Syrotiuk David	F2	KSB Benátky	Benátky	1/12/2025	88,601
 
-=== 2025-2026 | st | Muži 1000 m
+=== 2025-2026 | st | Muži 1000 m | Žebříček 2025/2026, poř. č. 12
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Sejpal Zdeněk	S	KSB Benátky	1:27.110	Bormio	21. 9. 2025	1:25.189
 2.	Procházka Marek	A2	BZK Praha	1:27.287	Sal Lake City	1. 2. 2026
@@ -1051,7 +1052,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 12.	Kamenský Václav	B2	KSB Benátky	Dresden	2/9/2025	1:13.342
 13.	Kraml Matyáš	C2	BK Náchod	Benátky	1/12/2025	1:31.734
 
-=== 2020-2021 | ss | Muži 500 m
+=== 2020-2021 | ss | Muži 500 m | Žebříček 2020/2021, poř. č. 13
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Briešťanský Sebastien	S	KRS Svratka	38.31	Inzell	9. 1. 2021
 2.	Stodola Prokop	JA	KSBM Modřany	38.31	Inzell	21. 2. 2021
@@ -1066,7 +1067,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 11.	Balák Denis	JF	KSB Hodonín	55.68	Inzell	7. 11. 2020
 12.	Krušina David	JC	RK Skuteč	62.12	Zakopane	18. 12. 2020
 
-=== 2020-2021 | ss | Muži 1000 m
+=== 2020-2021 | ss | Muži 1000 m | Žebříček 2020/2021, poř. č. 13
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Briešťanský Sebastien	S	KRS Svratka	1:14.68	Inzell	9. 1. 2021
 2.	Steklý Lukáš	JB	KSB Hodonín	1:15.05	Inzell	13. 12. 2020
@@ -1081,7 +1082,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 11.	Krušina David	JC	RK Skuteč	2:08.08	Zakopane	19. 12. 2020
 12.	Popl Matěj	JC	BZK Praha	1:35.56		
 
-=== 2020-2021 | ss | Muži 1500 m
+=== 2020-2021 | ss | Muži 1500 m | Žebříček 2020/2021, poř. č. 13
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Steklý Lukáš	JB	KSB Hodonín	1:53.50	Inzell	30. 1. 2021
 2.	Stodola Prokop	JA	KSBM Modřany	1:55.57	Inzell	27. 2. 2021
@@ -1096,7 +1097,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 11.	Krušina David	JC	RK Skuteč	3:30.23	Zakopane	18. 12. 2020
 12.	Popl Matěj	JC	BZK Praha	2:33.000		
 
-=== 2020-2021 | ss | Muži 3000 m
+=== 2020-2021 | ss | Muži 3000 m | Žebříček 2020/2021, poř. č. 13
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Steklý Lukáš	JB	KSB Hodonín	3:52.57	Inzell	12. 13. 2020
 2.	Stodola Prokop	JA	KSBM Modřany	4:08.59	Inzell	2. 6. 2021
@@ -1106,17 +1107,17 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 6.	Popl Matěj	JC	BZK Praha	4:59.05	Tomaszow	8. 24. 2020
 7.	Kačálek Vojtěch	JC	RK Chrudim	5:57.26	Zakopane	12. 19. 2020
 
-=== 2020-2021 | ss | Muži 5000 m
+=== 2020-2021 | ss | Muži 5000 m | Žebříček 2020/2021, poř. č. 13
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Steklý Lukáš	JB	KSB Hodonín	6:38.18	Inzell	21. 11. 2020
 2.	Kočí Jakub	JB	KSB Hodonín	7:49.51	Collalbo	22. 1. 2020
 3.	Briešťanský Sebastien	S	KRS Svratka	7:31.98		
 
-=== 2020-2021 | ss | Muži 10000 m
+=== 2020-2021 | ss | Muži 10000 m | Žebříček 2020/2021, poř. č. 13
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Steklý Lukáš	J	KSB Hodonín	13:52.32	Inzell	6. 2. 2021
 
-=== 2021-2022 | ss | Muži 500 m
+=== 2021-2022 | ss | Muži 500 m | Žebříček 2021/2022, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Stodola Prokop	JA	KSBM Modřany	37.95	Inzell	5. 12. 2021
 2.	Briešťanský Sebastien	S	KRS Svratka	38.26	Inzell	5. 12. 2021
@@ -1143,7 +1144,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 23.	Bůžička Adam	JF	BOJ Žďár	72.93	Tomaszow	19. 12. 2021
 24.	Meduna Kryštof	JF	SKP Kometa Brno	76.42	Tomaszow	19. 12. 2021
 
-=== 2021-2022 | ss | Muži 1000 m
+=== 2021-2022 | ss | Muži 1000 m | Žebříček 2021/2022, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Steklý Lukáš	JA	KSB Hodonín	1:14.90	Calgary	19. 3. 2022
 2.	Stodola Prokop	JA	KSBM Modřany	1:15.36	Inzell	31. 7. 2021
@@ -1168,7 +1169,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 21.	Shalamanov Maxmilián	JE	BOJ Žďár	2:12.98	Tomaszow	19. 12. 2021
 22.	Čermák Jakub	S	ASK Blansko	2:55.75	Tomaszow	19. 12. 2021
 
-=== 2021-2022 | ss | Muži 1500 m
+=== 2021-2022 | ss | Muži 1500 m | Žebříček 2021/2022, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Steklý Lukáš	JA	KSB Hodonín	1:51.72	Calgary	20. 3. 2022
 2.	Stodola Prokop	JA	KSBM Modřany	1:53.69	Inzell	28. 11. 2021
@@ -1184,7 +1185,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 12.	Čermák Jakub	JA	ASK B lansko	2:47.86	Tomaszow	19. 12. 2021
 13.	Javora Petr	JA	SKP Kometa Brno	2:49.14	Tomaszow	19. 12. 2021
 
-=== 2021-2022 | ss | Muži 3000 m
+=== 2021-2022 | ss | Muži 3000 m | Žebříček 2021/2022, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Steklý Lukáš	JA	KSB Hodonín	3:55.22	Inzell	2. 25. 2022
 2.	Kočí Jakub	JA	KRS Svratka	3:59.98	Inzell	12. 4. 2021
@@ -1199,14 +1200,14 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 11.	Čermák Jakub	JA	ASK Blansko	5:52.93	Tomaszow	12. 19. 2021
 12.	Javora Petr	JA	SKP Kometa Brno	6:16.07	Tomaszow	12. 19. 2021
 
-=== 2021-2022 | ss | Muži 5000 m
+=== 2021-2022 | ss | Muži 5000 m | Žebříček 2021/2022, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Steklý Lukáš	JA	KSB Hodonín	6:32.12	Calgary	18. 3. 2022
 2.	Stodola Prokop	JA	KSBM Praha	7:09.00	Inzell	26. 2. 2022
 3.	Kočí Jakub	JA	KRS Svratka	7:28.00	Innsbruck	29. 1. 2022
 4.	Briešťanský Sebastien	S	KRS Svratka	7:52.01	Erfurt	7. 11. 2021
 
-=== 2021-2022 | ss | Ženy 500 m
+=== 2021-2022 | ss | Ženy 500 m | Žebříček 2021/2022, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 6.	Korvasová Lucie	JA	SKR Hlinsko	2:10.55	Inzell	27. 2. 2022
 7.	Kainová Kateřina	JA	KSBM Modřany	2:11.65	Inzell	27. 2. 2022
@@ -1227,7 +1228,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 3.	Kuršová Zuzana	JA	KRS Svratka	1:59.80	Calgary	12. 12. 2021
 4.	Antošová Veronika	S	KRS Svratka	2:03.52	Inzell	5. 12. 2021
 
-=== 2021-2022 | ss | Ženy 1000 m
+=== 2021-2022 | ss | Ženy 1000 m | Žebříček 2021/2022, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 24.	Horáková Karoline	JC	52.27	Enschede	10/16/2021	
 25.	Kopečková Sophia	JE	BK Žďár	53.20	Inzell	7. 11. 2021
@@ -1245,7 +1246,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 37.	Geierová Ema	JE	SKP Kometa Brno	81.71	Tomaszow	19. 12. 2021
 38.	Němcová Zuzana	JF	BOJ Žďár	91.46	Tomaszow	19. 12. 2021
 
-=== 2021-2022 | ss | Ženy 1500 m
+=== 2021-2022 | ss | Ženy 1500 m | Žebříček 2021/2022, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 3.	Kuršová Zuzana	JA	KRS Svratka	1:20.46	Heerenveen	9. 1. 2022
 4.	Antošová Veronika	S	KRS Svratka	1:20.75	Inzell	4. 12. 2021
@@ -1277,13 +1278,13 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 39.	Geierová Ema	JE	SKP Kometa Brno	2:45.69	Tomaszow	19. 12. 2021
 31.	Sedláčková Martina	JE	SKP Kometa Brno	2:48.54	Tomaszow	19. 12. 2021
 
-=== 2021-2022 | ss | Ženy 3000 m
+=== 2021-2022 | ss | Ženy 3000 m | Žebříček 2021/2022, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 20.	Schneiderová Ema	JB	KRS Svratka	2:41.89	Inzell	7. 8. 2010
 21.	Dostálová Lea	JA	RK Skuteč	2:57.58	Tomaszow	19. 12. 2021
 22.	Geierová Anna	JC	SKP Kometa Brno	3:06.12	Tomaszow	19. 12. 2021
 
-=== 2021-2022 | ss | Ženy 5000 m
+=== 2021-2022 | ss | Ženy 5000 m | Žebříček 2021/2022, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Sáblíková Martina	S	KRS Svratka	3:55,50	Calgary	10. 12. 2021
 2.	Zdráhalová Nikola	S	KRS Svratka	3:59,66	Calgary	5. 12. 2021
@@ -1308,13 +1309,13 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 21.	Dostálová Lea	JA	RK Skuteč	6:26,05	Tomaszow	19. 12. 2021
 22.	Geierová Anna	JC	SKP Kometa Brno	6:37,49	Tomaszow	19. 12. 2021
 
-=== 2021-2022 | ss | Ženy 10000 m
+=== 2021-2022 | ss | Ženy 10000 m | Žebříček 2021/2022, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Sáblíková Martina	S	KRS Svratka	6:50.09	Peking	10. 2. 2022
 2.	Zdráhalová Nikola	S	KRS Svratka	7:12.89	Stavanger	20. 11. 2021
 3.	Antošová Veronika	S	KSB Hodonín	7:38.79	Inzell	20. 2. 2022
 
-=== 2022-2023 | ss | Muži 500 m
+=== 2022-2023 | ss | Muži 500 m | Žebříček 2022/2023, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Bohumský  Tomáš	S	KSBM Praha	37.68	Inzell	5. 2. 2023
 2.	Kočí Jakub	JA	KRS Svratka	38.15	Calgary	2. 12. 2022
@@ -1349,7 +1350,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 31.	Růžička Adam	JF	BOJ Žďár	74.81	Tomaszow	18. 12. 2022
 32.	Krutiš Vojtěch	JF	ASK Blansko	87.69	Inzell	10. 12. 2022
 
-=== 2022-2023 | ss | Muži 1000 m
+=== 2022-2023 | ss | Muži 1000 m | Žebříček 2022/2023, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Kočí Jakub	JA	KRS Svratka	1:14.02	Inzell	24. 2. 2023
 2.	Stodola Prokop	S	KSBM Praha	1:16.27	Inzell	5. 2. 2023	1:15.36
@@ -1380,7 +1381,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 27.	Duraja Vít	JE	KRS Svratka	2:12.74	Tomaszow	18. 12. 2022
 28.	Meduna Kryštof	JF	SKP Kometa Brno	2:24.54	Inzell	19. 2. 2023
 
-=== 2022-2023 | ss | Muži 1500 m
+=== 2022-2023 | ss | Muži 1500 m | Žebříček 2022/2023, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Steklý Lukáš	JA	KSB Hodonín	1:52.75	Inzell	5. 2. 2023	1:51.72
 2.	Kočí Jakub	JA	KRS Svratka	1:53.99	Inzell	11. 2. 2023
@@ -1401,7 +1402,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 17.	Sáblík Martin	JD	BK Ždár	2:51.34	Inzell	19. 2. 2023
 18.	Duraja Vojtěch	JC	KRS Svratka	2:54.60	Tomaszow	18. 12. 2022
 
-=== 2022-2023 | ss | Muži 3000 m
+=== 2022-2023 | ss | Muži 3000 m | Žebříček 2022/2023, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Steklý Lukáš	JA	KSB Hodonín	3:51.01	Inzell	2. 5. 2023
 2.	Jílek Metoděj	JB	BZK Praha	3:56.12	Inzell	2. 5. 2023
@@ -1414,7 +1415,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 9.	Šnajdr Petr	JB	KSBM Praha	5:03.00	Tomaszow	12. 18. 2022
 10.	Duraja Vojtěch	JC	KRS Svratka	5:57.86	Tomaszow	12. 18. 2022
 
-=== 2022-2023 | ss | Muži 5000 m
+=== 2022-2023 | ss | Muži 5000 m | Žebříček 2022/2023, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Steklý Lukáš	JA	KSB Hodonín	6:31.66	Inzell	11. 2. 2023
 2.	Jílek Metoděj	JB	BZK Praha	6:44.60	Inzell	11. 2. 2023
@@ -1422,11 +1423,11 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 4.	Procházka Tadeáš	S	SKR Hlinsko	7:16.31	Inzell	25. 2. 2023
 5.	Stodola Prokop	S	KSBM Praha	7:23.86	Inzell	30. 9. 2022	7:09.00
 
-=== 2022-2023 | ss | Muži 10000 m
+=== 2022-2023 | ss | Muži 10000 m | Žebříček 2022/2023, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Steklý Lukáš	JA	KSB Hodonín	Inzell	2/6/2021	13:52.320
 
-=== 2022-2023 | ss | Ženy 500 m
+=== 2022-2023 | ss | Ženy 500 m | Žebříček 2022/2023, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Sáblíková Martina	S	KRS Svratka	40.39	Calgary	2. 12. 2022	39.23
 2.	Antošová Veronika	S	KRS Svratka	40.81	Inzell	5. 2. 2023
@@ -1467,7 +1468,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 37.	Hundová Eliška	JF	ASK Blansko	70.28	Tomaszow	18. 12. 2022
 38.	Žilková Amélie	JF	SKP Kometa Brno	80.67	Tomaszow	18. 12. 2022
 
-=== 2022-2023 | ss | Ženy 1000 m
+=== 2022-2023 | ss | Ženy 1000 m | Žebříček 2022/2023, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Sáblíková Martina	S	KRS Svratka	1:19.70	Calgary	2. 12. 2022	1:18.09
 2.	Antošová Veronika	S	KRS Svratka	1:19.89	Inzell	4. 2. 2023
@@ -1501,7 +1502,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 31.	Geierová Ema	JE	SKP Kometa Brno	2:21.45	Inzell	18. 2. 2023
 32.	Hundová Eliška	JE	ASK Blansko	2:25.87	Tomaszow	18. 12. 2022
 
-=== 2022-2023 | ss | Ženy 1500 m
+=== 2022-2023 | ss | Ženy 1500 m | Žebříček 2022/2023, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Sáblíková Martina	S	KRS Svratka	2:00.22	Tomaszow	11. 2. 2023	1:53.44
 2.	Antošová Veronika	S	KRS Svratka	2:02.57	Inzell	5. 2. 2023
@@ -1525,7 +1526,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 20.	Kopečková Sophia	JE	BK Žďár	2:59.09	Inzell	19. 2. 2023
 21.	Lai   Emily	JE	SKP Kometa Brno	3:00.92	Inzell	8. 1. 2023
 
-=== 2022-2023 | ss | Ženy 3000 m
+=== 2022-2023 | ss | Ženy 3000 m | Žebříček 2022/2023, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Sáblíková Martina	S	KRS Svratka	3:58,35	Heerenveen	3. 3. 2023	3:52,02
 2.	Kuršová Zuzana	JA	KRS Svratka	4:19.37	Calgary	9. 12. 2022	4:15,42
@@ -1544,12 +1545,12 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 15.	Geierová Anna	JC	SKP Kometa Brno	5:50,55	Tomaszow	18. 12. 2022
 16.	Doležalová Tereza	JC	BK Žďár	5:56,90	Tomaszow	18. 12. 2022
 
-=== 2022-2023 | ss | Ženy 5000 m
+=== 2022-2023 | ss | Ženy 5000 m | Žebříček 2022/2023, poř. č. 10
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Sáblíková Martina	S	KRS Svratka	6:47.78	Heerenveen	5. 3. 2023	6:41,18
 2.	Kuršová Zuzana	JA	KRS Svratka	7:30.93	Calgary	17. 12. 2022
 
-=== 2023-2024 | ss | Muži 500 m
+=== 2023-2024 | ss | Muži 500 m | Žebříček 2023/2024, poř. č. 14
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Bohumský  Tomáš	S	KSBM Praha	37.15	Inzell	10. 12. 2023
 2.	Stodola Prokop	S	KSBM Praha	37.93	Inzell	21. 10. 2023
@@ -1591,7 +1592,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 38.	Růžička Adam	F2	BOJ Žďár	Tomaszow	12/18/2022	74.81
 39.	Krutiš Vojtěch	F2	ASK Blansko	Inzell	12/10/2022	87.69
 
-=== 2023-2024 | ss | Muži 1000 m
+=== 2023-2024 | ss | Muži 1000 m | Žebříček 2023/2024, poř. č. 14
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Jílek Metoděj	A1	BZK Praha	1:14.26	Inzell	21. 10. 2023	os.rekord
 2.	Stodola Prokop	S	KSBM Praha	1:14.29	Inzell	21. 10. 2023	1.
@@ -1637,7 +1638,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 33.	Duraja Vojtěch	C2	KRS Svratka	Tomaszow	12/18/2022	1:49.88
 34.	Duraja Vít	D1	KRS Svratka	Tomaszow	12/18/2022	2:12.74
 
-=== 2023-2024 | ss | Muži 1500 m
+=== 2023-2024 | ss | Muži 1500 m | Žebříček 2023/2024, poř. č. 14
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 14.	Chmel Filip	D1	BOJ Žďár	2:27.82	Collalbo	13. 1. 2024
 15.	Chmel Matěj	C1	BOJ Žďár	2:28.53	Tomaszow	15. 12. 2023
@@ -1651,7 +1652,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 23.	Žilka Max	D2	SKP Kometa Brno	Inzell	1/8/2023	2:43.68
 24.	Duraja Vojtěch	C2	KRS Svratka	Tomaszow	12/18/2022	2:54.60
 
-=== 2023-2024 | ss | Muži 3000 m
+=== 2023-2024 | ss | Muži 3000 m | Žebříček 2023/2024, poř. č. 14
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Jílek Metoděj	A1	BZK Praha	3:46.58	Hachinohe	2. 3. 2024
 2.	Steklý Lukáš	S	KSB Hodonín	4:00.67	Inzell	1. 6. 2024	3:51.01
@@ -1672,7 +1673,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 17.	Krupka Matěj	S	KSBM Praha	Tomaszow	18/12/2022	4:39.60
 18.	Duraja Vojtěch	C2	KRS Svratka	Tomaszow	18/12/2022	5:57.86
 
-=== 2023-2024 | ss | Muži 5000 m
+=== 2023-2024 | ss | Muži 5000 m | Žebříček 2023/2024, poř. č. 14
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Jílek Metoděj	A1	BZK Praha	6:19.60	Hachinohe	10. 2. 2024
 2.	Procházka Tadeáš	S	SKR Hlinsko	7:01.37	Inzell	24. 2. 2024
@@ -1682,11 +1683,11 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 6.	Sochr Tadeáš	S	KSBM Praha	8.28,78	Inzell	21. 10. 2023
 7.	Steklý Lukáš	S	KSB Hodonín	6:31.66		
 
-=== 2023-2024 | ss | Muži 10000 m
+=== 2023-2024 | ss | Muži 10000 m | Žebříček 2023/2024, poř. č. 14
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Steklý Lukáš	JA	KSB Hodonín	13:52.32		
 
-=== 2023-2024 | ss | Ženy 500 m
+=== 2023-2024 | ss | Ženy 500 m | Žebříček 2023/2024, poř. č. 14
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Sáblíková Martina	S	KRS Svratka	1:58.39	Inzell	22. 10. 2023	1:53.44
 2.	Kuršová Zuzana	S	KRS Svratka	2:00.71	SLC	27. 1. 2024	1:59.80
@@ -1697,7 +1698,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 26.	Sedláčková Martina	D1	SKP Kometa Brno	1:47.98	Inzell	17. 2. 2024
 27.	Pecová Lucie	B2	SKP Kometa Brno	1:48.15	Inzell	10. 2. 2024
 
-=== 2023-2024 | ss | Ženy 1000 m
+=== 2023-2024 | ss | Ženy 1000 m | Žebříček 2023/2024, poř. č. 14
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 47.	Krutišová Jasmína	D1	SKP Kometa Brno	Inzell	1/8/2023	68.5
 48.	Hundová Eliška	D1	ASK Blansko	Tomaszow	12/18/2022	70.28
@@ -1713,7 +1714,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 10.	Prachárová Monika	B2	BZK Praha	4:53.43	Erfurt	1. 3. 2024
 11.	Hlušková Sára	B1	BK Náchod	4:58.59	Inzell	6. 1. 2024
 
-=== 2023-2024 | ss | Ženy 1500 m
+=== 2023-2024 | ss | Ženy 1500 m | Žebříček 2023/2024, poř. č. 14
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 28.	Procházková Anděla	F2	BOJ Žďár	1:50.53	Inzell	10. 2. 2024
 29.	Lai Emily	D1	SKP Kometa Brno	1:53.46	Inzell	10. 2. 2024
@@ -1751,7 +1752,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 20.	Fakenbergrová Eliška	A1	RK Skuteč	1:38.69	Tomaszow	14. 12. 2023	1:34.49
 21.	Kopečková Sophia	D2	BK Žďár	1:38.88	Tomaszow	14. 12. 2023
 
-=== 2023-2024 | ss | Ženy 3000 m
+=== 2023-2024 | ss | Ženy 3000 m | Žebříček 2023/2024, poř. č. 14
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 4.	Kainová Kateřina	S	KSBM Praha	2:10.37	Inzell	22. 10. 2023
 5.	Antošová Veronika	S	KRS Svratka	2:11.20	Baselga	26. 11. 2023	2:02.57
@@ -1778,7 +1779,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 26.	Slámová Barbora	B1	KRS Svratka	2:34.66		
 27.	Lai   Emily	D1	SKP Kometa Brno	Inzell	1/8/2023	3:00.92
 
-=== 2023-2024 | ss | Ženy 5000 m
+=== 2023-2024 | ss | Ženy 5000 m | Žebříček 2023/2024, poř. č. 14
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 12.	Prachárová Johana	B2	BZK Praha	5:02.22	Erfurt	1. 3. 2024
 13.	Horká Stella	A1	KSB Hodonín	5:04.60	Baselga	25. 11. 2023	4:49,72
@@ -1792,12 +1793,12 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 21.	Schneiderová Ema	A1	KRS Svratka	Tomaszow	12/18/2022	5:38,75
 22.	Geierová Anna	B1	SKP Kometa Brno	Tomaszow	12/18/2022	5:50,55
 
-=== 2023-2024 | ss | Ženy 10000 m
+=== 2023-2024 | ss | Ženy 10000 m | Žebříček 2023/2024, poř. č. 14
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Sáblíková Martina	S	KRS Svratka	6:51.88	Calgary	18. 2. 2024	6:41,18
 2.	Kuršová Zuzana	S	KRS Svratka	Calgary	12/17/2022	7:30,93
 
-=== 2024-2025 | ss | Muži 500 m
+=== 2024-2025 | ss | Muži 500 m | Žebříček 2024/2025, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Bohumský  Tomáš	S	SKR Hlinsko	36.75	Inzell	26. 10. 2024
 2.	Stodola Prokop	S	KSBM Praha	37.16	Inzell	26. 10. 2024
@@ -1828,7 +1829,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 27.	Meduna Kryštof	E2	SKP Kometa Brno	55.23	Inzell	23. 2. 2025
 28.	Anděl Marek	E2	BOJ Žďár	Inzell	2/10/2024	54.77
 
-=== 2024-2025 | ss | Muži 1000 m
+=== 2024-2025 | ss | Muži 1000 m | Žebříček 2024/2025, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Jílek Metoděj	A2	BZK Praha	1:11.36	Inzell	18. 10. 2024
 2.	Stodola Prokop	S	KSBM Praha	1:12.30	Inzell	26. 10. 2024
@@ -1884,12 +1885,12 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 28.	Meduna Kryštof	E2	SKP Kometa Brno	2:01.10	Inzell	5. 1. 2025
 29.	Anděl Marek	E2	BOJ Žďár	Inzell	2/10/2024	1:50.57
 
-=== 2024-2025 | ss | Muži 1500 m
+=== 2024-2025 | ss | Muži 1500 m | Žebříček 2024/2025, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 5.	Bohumský Tomáš	S	SKR Hlinsko	8:00.10	Erfurt	3. 11. 2024
 6.	Briešťanský Sebastien	S	KRS Svratka	8:11.20	Erfurt	3. 11. 2024
 
-=== 2024-2025 | ss | Muži 3000 m
+=== 2024-2025 | ss | Muži 3000 m | Žebříček 2024/2025, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Jílek Metoděj	A2	BZK Praha	12:37.81	Calgary	25. 1. 2025
 1.	Jílek Metoděj	A2	BZK Praha	3:38.80	Calgary	1. 18. 2025
@@ -1910,14 +1911,14 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 16.	Sáblík Martin	C2	BK Žďár	5:23.54	Erfurt	1. 25. 2025
 17.	Kyncl Michal	B2	KRS Svratka	6:07.00	Erfurt	2. 23. 2025
 
-=== 2024-2025 | ss | Muži 5000 m
+=== 2024-2025 | ss | Muži 5000 m | Žebříček 2024/2025, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Jílek Metoděj	A2	BZK Praha	6:12.99	Peking	11. 30. 2024
 2.	Kočí Jakub	S	KRS Svratka	6:50.12	Inzell	1. 3. 2025
 3.	Procházka Tadeáš	S	SKR Hlinsko	6:50.38	Inzell	26. 10. 2024
 4.	Stodola Prokop	S	KSBM Praha	6:53.47		
 
-=== 2024-2025 | ss | Ženy 500 m
+=== 2024-2025 | ss | Ženy 500 m | Žebříček 2024/2025, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Zdráhalová Nikola	S	KRS Svratka	1:54.79	Calgary	25. 1. 2025	1:53.48
 2.	Sáblíková Martina	S	KRS Svratka	1:55.50	Calgary	25. 1. 2025	1:53.44
@@ -1931,7 +1932,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 10.	Prachárová Monika	A1	BZK Praha	2:12.74	Inzell	22. 12. 2024
 11.	Macháčková Monika	B2	KRS Svratka	2:16.47	Inzell	5. 1. 2025
 
-=== 2024-2025 | ss | Ženy 1000 m
+=== 2024-2025 | ss | Ženy 1000 m | Žebříček 2024/2025, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 32.	Porada Sviatoslava	E1	BOJ Žďár	58.03	Inzell	15. 2. 2025
 33.	Dvořáčková Zuzana	C1	SKP Kometa Brno	59.18	Inzell	27. 8. 2024
@@ -1944,7 +1945,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 40.	Vojtová Sofie	F2	RK Chrudim	97.94	Erfurt	22. 2. 2025
 41.	Ondrušková Celestýna	D2	KSB Hodonín	Inzell	2/17/2024	47.82
 
-=== 2024-2025 | ss | Ženy 1500 m
+=== 2024-2025 | ss | Ženy 1500 m | Žebříček 2024/2025, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 37.	Samsonová Melissa	A1	SKP Kometa Brno	Inzell	2/17/2024	2:03.00
 1.	Zdráhalová Nikola	S	KRS Svratka	1:15.26	Calgary	24. 1. 2025	1:13.83
@@ -1992,7 +1993,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 6.	Forstová Jesika	A2	KRS Svratka	4:30.95	Inzell	26. 10. 2024
 7.	Macháčková Kateřina	S	KRS Svratka	4:34.10	Inzell	26. 10. 2024
 
-=== 2024-2025 | ss | Ženy 3000 m
+=== 2024-2025 | ss | Ženy 3000 m | Žebříček 2024/2025, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 12.	Prachárová Johana	A1	BZK Praha	2:17.84	Inzell	22. 12. 2024
 13.	Sáblíková Barbora	C1	BK Žďár	2:18.96	Inzell	15. 2. 2025
@@ -2010,7 +2011,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 25.	Vrbová Anežka	D2	KSBM Praha	2:41.14	Erfurt	23. 2. 2025
 26.	Khomová Antonie	C1	RK Skuteč	3:12.40	Erfurt	22. 2. 2025
 
-=== 2024-2025 | ss | Ženy 5000 m
+=== 2024-2025 | ss | Ženy 5000 m | Žebříček 2024/2025, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 8.	Antošová Veronika	S	KRS Svratka	4:36.62	Inzell	16. 11. 2024	4:17,75
 9.	Hlušková Sára	B2	BK Náchod	4:38.92	Heerenveen	8. 3. 2025
@@ -2027,12 +2028,12 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 20.	Geierová Anna	B2	SKP Kometa Brno	5:30.51	Inzell	15. 2. 2025
 21.	Sedláčková Martina	D1	SKP Kometa Brno	5:34.61	Inzell	15. 2. 2025
 
-=== 2024-2025 | ss | Ženy 10000 m
+=== 2024-2025 | ss | Ženy 10000 m | Žebříček 2024/2025, poř. č. 15
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 3.	Kuršová Zuzana	S	KRS Svratka	7:10.08	Calgary	24. 1. 2025
 4.	Kainová Kateřina	S	KSBM Praha	7:25.40	Calgary	24. 1. 2025
 
-=== 2025-2026 | ss | Ženy 500 m
+=== 2025-2026 | ss | Ženy 500 m | Žebříček 2025/2026, poř. č. 16
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Zdráhalová Nikola	S	KRS Svratka	38,34	Heerenveen	7. 12. 2025	38,1
 2.	Antošová Veronika	S	KRS Svratka	41,07	SLC	25. 10. 2025	40,84
@@ -2083,7 +2084,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 42.	Chmelová Klára	D1	BOJ Žďár	60,95		
 43.	Zvolánková Ester	E1	RK Chrudim	81,38		
 
-=== 2025-2026 | ss | Ženy 1000 m
+=== 2025-2026 | ss | Ženy 1000 m | Žebříček 2025/2026, poř. č. 16
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Zdráhalová Nikola	S	KRS Svratka	1:14.70	Calgary	21. 11. 2025	1:13.83
 2.	Antošová Veronika	S	KRS Svratka	1:19.47	Calgary	7. 11. 2025
@@ -2130,7 +2131,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 43.	Ondrušková Celestýna JE	D2	KSB Hodonín	Inzell	2/17/2024	1:41.06
 44.	Samsonová Melissa	A2	SKP Kometa Brno	Inzell	2/17/2024	2:03.00
 
-=== 2025-2026 | ss | Ženy 1500 m
+=== 2025-2026 | ss | Ženy 1500 m | Žebříček 2025/2026, poř. č. 16
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Zdráhalová Nikola	S	KRS Svratka	1:52.86	Calgary	22. 11. 2025
 2.	Sáblíková Martina	S	KRS Svratka	1:54.35	SLC	15. 11. 2025	1:53.44
@@ -2164,7 +2165,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 30.	Vystrčilová Kateřina	A2	KSB Hodonín	2:39.07		
 31.	Khomová Antonie	C2	RK Skuteč	3:12.40		
 
-=== 2025-2026 | ss | Ženy 3000 m
+=== 2025-2026 | ss | Ženy 3000 m | Žebříček 2025/2026, poř. č. 16
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Sáblíková Martina	S	KRS Svratka	3:58.49	SLC	14. 11. 2025	3:52,02
 2.	Zdráhalová Nikola	S	KRS Svratka	4:01,00	Calgary	21. 11. 2025
@@ -2195,7 +2196,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 27.	Antošová Veronika	S	KRS Svratka	4:17,75		
 28.	Krejčí Nela	B1	KSBM Praha	5:20.79		
 
-=== 2025-2026 | ss | Ženy 5000 m
+=== 2025-2026 | ss | Ženy 5000 m | Žebříček 2025/2026, poř. č. 16
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Sáblíková Martina	S	KRS Svratka	6:49.01	Calgary	24. 1. 2025	6:41,18
 2.	Korvasová Kateřina	S	KRS Svratka	7:16.48	Heerenveen	5. 12. 2025
@@ -2203,7 +2204,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 4.	Kuršová Zuzana	S	KRS Svratka	7:27.74	Calgary	24. 1. 2025	7:10,08
 5.	Zdráhalová Nikola	S	KRS Svratka	Calgary	1/24/2025	7:05,59
 
-=== 2026-2027 | ss | Muži 500 m
+=== 2025-2026 | ss | Muži 500 m | Žebříček 2026/2027, poř. č. 1, publikováno na stránce sezóny 2025-2026
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Jílek Metoděj	S	BZK Praha	36,61	Inzell	7. 3. 2026
 2.	Stodola Prokop	S	KSBM Praha	36,99	SLC	25. 10. 2025
@@ -2238,7 +2239,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 31.	Čermák Jakub	S	ASK Blansko	50,01		
 32.	Anděl Marek	D1	BOJ Žďár	54,77		
 
-=== 2026-2027 | ss | Muži 1000 m
+=== 2025-2026 | ss | Muži 1000 m | Žebříček 2026/2027, poř. č. 1, publikováno na stránce sezóny 2025-2026
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Stodola Prokop	S	KSBM Praha	1:11.20	SLC	12. 11. 2025
 2.	Kočí Jakub	S	KRS Svratka	1:13.69	Inzell	21. 2. 2026
@@ -2272,7 +2273,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 29.	Čermák Jakub	S	ASK Blansko	1:39.45		
 30.	Anděl Marek	D1	BOJ Žďár	1:50.57		
 
-=== 2026-2027 | ss | Muži 1500 m
+=== 2025-2026 | ss | Muži 1500 m | Žebříček 2026/2027, poř. č. 1, publikováno na stránce sezóny 2025-2026
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Jílek Metoděj	S	BZK Praha	1:43.91	SLC	15. 11. 2025
 2.	Procházka Tadeáš	S	SKR Hlinsko	1:49.92	SLC	7. 11. 2025
@@ -2303,7 +2304,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 27.	Suchý Václav	C1	ASK Blansko	2:49.37		
 28.	Čermák Jakub	S	ASK Blansko	2:32.25		
 
-=== 2026-2027 | ss | Muži 3000 m
+=== 2025-2026 | ss | Muži 3000 m | Žebříček 2026/2027, poř. č. 1, publikováno na stránce sezóny 2025-2026
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Jílek Metoděj	S	BZK Praha	3:32.52	SLC	10. 26. 2025
 2.	Jílek Filip	B1	BZK Praha	3:58.95	Inzell	2. 21. 2026
@@ -2326,7 +2327,7 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 19.	Kyncl Michal	A1	KRS Svratka	5:38.54	Erfurt	11. 9. 2025
 20.	Procházka Tadeáš	S	SKR Hlinsko	4:04.47		
 
-=== 2026-2027 | ss | Muži 5000 m
+=== 2025-2026 | ss | Muži 5000 m | Žebříček 2026/2027, poř. č. 1, publikováno na stránce sezóny 2025-2026
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Jílek Metoděj	S	BZK Praha	6:01.98	Inzell	1. 24. 2026
 2.	Procházka Tadeáš	S	SKR Hlinsko	6:39.78	Inzell	25. 10. 2025
@@ -2338,6 +2339,6 @@ Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 8.	Bohumský Tomáš	S	SKR Hlinsko	8:00.10		
 9.	Briešťanský Sebastien	S	KRS Svratka	8:11.20		
 
-=== 2026-2027 | ss | Muži 10000 m
+=== 2025-2026 | ss | Muži 10000 m | Žebříček 2026/2027, poř. č. 1, publikováno na stránce sezóny 2025-2026
 Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
 1.	Jílek Metoděj	S	BZK Praha	12:29.63	Heerenveen	6. 12. 2025
