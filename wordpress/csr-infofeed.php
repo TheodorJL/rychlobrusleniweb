@@ -119,6 +119,8 @@ function csr_feed_metabox_render( $post ) {
 	$l1_url   = get_post_meta( $post->ID, '_csr_link1_url', true );
 	$l1_label = get_post_meta( $post->ID, '_csr_link1_label', true );
 	$l2_url   = get_post_meta( $post->ID, '_csr_link2_url', true );
+	$l3_url   = get_post_meta( $post->ID, '_csr_link3_url', true );
+	$l3_label = get_post_meta( $post->ID, '_csr_link3_label', true );
 	$l2_label = get_post_meta( $post->ID, '_csr_link2_label', true );
 	$icon     = get_post_meta( $post->ID, '_csr_icon', true );
 	$icon     = $icon ? $icon : 'dokument';
@@ -149,6 +151,17 @@ function csr_feed_metabox_render( $post ) {
 			<div>
 				<label for="csr_link2_label">Text druhého odkazu</label>
 				<input type="text" id="csr_link2_label" name="csr_link2_label" value="<?php echo esc_attr( $l2_label ); ?>" placeholder="Soubor výsledků">
+			</div>
+		</div>
+
+		<div class="csr-pair">
+			<div>
+				<label for="csr_link3_url">Třetí odkaz (nepovinné)</label>
+				<input type="url" id="csr_link3_url" name="csr_link3_url" value="<?php echo esc_attr( $l3_url ); ?>" placeholder="https://…">
+			</div>
+			<div>
+				<label for="csr_link3_label">Text třetího odkazu</label>
+				<input type="text" id="csr_link3_label" name="csr_link3_label" value="<?php echo esc_attr( $l3_label ); ?>" placeholder="Video">
 			</div>
 		</div>
 
@@ -189,11 +202,11 @@ function csr_feed_save( $post_id ) {
 		return;
 	}
 
-	foreach ( array( 'csr_link1_url', 'csr_link2_url' ) as $field ) {
+	foreach ( array( 'csr_link1_url', 'csr_link2_url', 'csr_link3_url' ) as $field ) {
 		$value = isset( $_POST[ $field ] ) ? esc_url_raw( trim( wp_unslash( $_POST[ $field ] ) ) ) : '';
 		update_post_meta( $post_id, '_' . $field, $value );
 	}
-	foreach ( array( 'csr_link1_label', 'csr_link2_label' ) as $field ) {
+	foreach ( array( 'csr_link1_label', 'csr_link2_label', 'csr_link3_label' ) as $field ) {
 		$value = isset( $_POST[ $field ] ) ? sanitize_text_field( wp_unslash( $_POST[ $field ] ) ) : '';
 		update_post_meta( $post_id, '_' . $field, $value );
 	}
@@ -273,6 +286,33 @@ function csr_feed_bulk_menu() {
 add_action( 'admin_menu', 'csr_feed_bulk_menu' );
 
 /**
+ * Datum z hromadného vložení na tvar, kterému rozumí WordPress.
+ *
+ * Bere „2025-02-23" i „23. 2. 2025". Co nerozpozná, vrátí prázdné —
+ * zpráva se pak vloží bez data a datum se u ní vůbec nevypíše.
+ *
+ * @param string $raw Text ze sloupce.
+ * @return string Datum ve tvaru RRRR-MM-DD 00:00:00, nebo prázdno.
+ */
+function csr_parse_feed_date( $raw ) {
+	$raw = trim( (string) $raw );
+	if ( '' === $raw ) {
+		return '';
+	}
+	if ( preg_match( '/^(\d{4})-(\d{1,2})-(\d{1,2})$/', $raw, $m ) ) {
+		list( , $r, $mes, $d ) = $m;
+	} elseif ( preg_match( '/^(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})$/', $raw, $m ) ) {
+		list( , $d, $mes, $r ) = $m;
+	} else {
+		return '';
+	}
+	if ( ! checkdate( (int) $mes, (int) $d, (int) $r ) ) {
+		return '';
+	}
+	return sprintf( '%04d-%02d-%02d 00:00:00', $r, $mes, $d );
+}
+
+/**
  * Vykreslí a zpracuje hromadné vkládání položek.
  */
 function csr_feed_bulk_render() {
@@ -287,6 +327,7 @@ function csr_feed_bulk_render() {
 
 		$raw    = isset( $_POST['csr_items'] ) ? sanitize_textarea_field( wp_unslash( $_POST['csr_items'] ) ) : '';
 		$source = isset( $_POST['csr_source_id'] ) ? absint( $_POST['csr_source_id'] ) : 0;
+		$poradi = 0;
 
 		foreach ( preg_split( '/\R/', $raw ) as $line ) {
 			$line = trim( $line );
@@ -306,14 +347,24 @@ function csr_feed_bulk_render() {
 			// Část zpráv má dva odkazy (článek a k němu výsledkovou listinu).
 			$url2   = isset( $parts[3] ) ? preg_replace( '/\s+/', '', $parts[3] ) : '';
 			$label2 = isset( $parts[4] ) ? trim( $parts[4] ) : '';
+			$url3   = isset( $parts[5] ) ? preg_replace( '/\s+/', '', $parts[5] ) : '';
+			$label3 = isset( $parts[6] ) ? trim( $parts[6] ) : '';
+			// Nepovinné datum ve tvaru RRRR-MM-DD nebo D. M. RRRR.
+			$datum  = isset( $parts[7] ) ? csr_parse_feed_date( $parts[7] ) : '';
 
-			$post_id = wp_insert_post(
-				array(
-					'post_type'   => CSR_CPT_FEED,
-					'post_title'  => $title,
-					'post_status' => 'publish',
-				)
+			// menu_order drží pořadí ze vstupu. Bez něj by se všechny zprávy
+			// vložily se stejným časem a seřadily by se náhodně.
+			$poradi++;
+			$args = array(
+				'post_type'   => CSR_CPT_FEED,
+				'post_title'  => $title,
+				'post_status' => 'publish',
+				'menu_order'  => $poradi,
 			);
+			if ( $datum ) {
+				$args['post_date'] = $datum;
+			}
+			$post_id = wp_insert_post( $args );
 			if ( is_wp_error( $post_id ) || ! $post_id ) {
 				continue;
 			}
@@ -323,6 +374,14 @@ function csr_feed_bulk_render() {
 			if ( $url2 ) {
 				update_post_meta( $post_id, '_csr_link2_url', esc_url_raw( $url2 ) );
 				update_post_meta( $post_id, '_csr_link2_label', $label2 ? $label2 : 'Další odkaz' );
+			}
+			if ( $url3 ) {
+				update_post_meta( $post_id, '_csr_link3_url', esc_url_raw( $url3 ) );
+				update_post_meta( $post_id, '_csr_link3_label', $label3 ? $label3 : 'Další odkaz' );
+			}
+			if ( ! $datum ) {
+				// Datum neznáme — ať se u zprávy nevypisuje den importu.
+				update_post_meta( $post_id, '_csr_feed_nodate', 1 );
 			}
 			update_post_meta( $post_id, '_csr_icon', 'dokument' );
 
@@ -409,7 +468,7 @@ function csr_render_feed_item( $item ) {
 	$text    = trim( wp_strip_all_tags( $item->post_content ) );
 
 	$links = array();
-	for ( $i = 1; $i <= 2; $i++ ) {
+	for ( $i = 1; $i <= 3; $i++ ) {
 		$url = get_post_meta( $item->ID, "_csr_link{$i}_url", true );
 		if ( ! $url ) {
 			continue;
@@ -438,9 +497,21 @@ function csr_render_feed_item( $item ) {
 		</div>
 
 		<div class="csr-feeditem__body">
-			<time class="csr-feeditem__date" datetime="<?php echo esc_attr( get_the_date( 'c', $item ) ); ?>">
-				<?php echo esc_html( get_the_date( 'j. n. Y', $item ) ); ?>
-			</time>
+			<?php
+			/*
+			 * U zpráv přenesených ze starého webu datum zveřejnění neznáme —
+			 * na původní stránce nikde nebylo. Vypsat den importu by bylo
+			 * horší než nevypsat nic: u čtyřiaosmdesáti zpráv by stálo
+			 * totéž datum a čtenáře by to mátlo.
+			 */
+			if ( ! get_post_meta( $item->ID, '_csr_feed_nodate', true ) ) :
+				?>
+				<time class="csr-feeditem__date" datetime="<?php echo esc_attr( get_the_date( 'c', $item ) ); ?>">
+					<?php echo esc_html( get_the_date( 'j. n. Y', $item ) ); ?>
+				</time>
+				<?php
+			endif;
+			?>
 
 			<h3 class="csr-feeditem__title"><?php echo esc_html( get_the_title( $item ) ); ?></h3>
 

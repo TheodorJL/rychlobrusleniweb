@@ -952,10 +952,20 @@ s mřížkou na začátku se přeskočí, takže je můžete vložit i s hlavič
 * **Reprezentanti** — hromadné vložení je v *Reprezentanti → Hromadné
   přidání*, formát `Jméno | rok narození | klub | role`. Soupisky ze starého
   webu jsem nedostal, tenhle soubor proto v balíčku není.
-* **InfoFeed** — 84 zpráv ze starého webu i s odkazy. Sedm jich má dva
-  odkazy (článek a k němu výsledkovou listinu), formát je proto
-  `Název|odkaz|popisek|druhý odkaz|popisek druhého`. Čtyři zprávy odkaz
-  neměly, vloží se jen s názvem.
+* **InfoFeed** — 84 zpráv ze starého webu i s odkazy. Formát:
+  `Název|odkaz|popisek|2. odkaz|popisek|3. odkaz|popisek|datum`.
+  Šest zpráv má dva odkazy (článek a k němu výsledkovou listinu),
+  jedna tři, čtyři žádný.
+
+  **Pořadí drží `menu_order`**, ne datum. Hromadně vložené zprávy dostanou
+  pořadí 1, 2, 3… a zůstanou tak, jak šly za sebou na starém webu; nově
+  přidaná zpráva má nulu, takže jde navrch. Bez toho by se všech
+  čtyřiaosmdesát vložilo se stejným časem a seřadilo náhodně.
+
+  **Datum se vypisuje jen tam, kde ho známe** — u osmi zpráv, které ho měly
+  v názvu. Na původní stránce datum zveřejnění nikde nebylo. Vypsat den
+  importu by bylo horší než nevypsat nic: u všech zpráv by stálo totéž.
+  Až datum doplníte (v poli *Publikováno* u zprávy), vypíše se.
 * **Fotky** — vložit hromadně nejdou, vybírají se z knihovny médií.
   `alba.txt` je jen soupis toho, co na starém webu bylo.
 

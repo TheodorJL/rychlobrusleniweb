@@ -23,6 +23,16 @@ $csr_query = new WP_Query(
 		'post_status'    => 'publish',
 		'posts_per_page' => max( 1, (int) csr_opt( 'csr_feed_per_page' ) ),
 		'paged'          => $csr_paged,
+		/*
+		 * Nově přidané zprávy mají menu_order 0, takže jdou navrch.
+		 * Hromadně vložené dostaly pořadí 1, 2, 3… a drží se tak, jak
+		 * šly za sebou na starém webu — bez toho by se všechny vložily
+		 * se stejným časem a seřadily by se náhodně.
+		 */
+		'orderby'        => array(
+			'menu_order' => 'ASC',
+			'date'       => 'DESC',
+		),
 	)
 );
 
