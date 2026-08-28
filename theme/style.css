@@ -9,6 +9,11 @@ Author:      Theodor Létal
 Template:    generatepress
 Version:     1.0.0
 Text Domain: csr-child
+Requires PHP: 7.4
+
+GitHub Theme URI: https://github.com/TheodorJL/rychlobrusleniweb
+Primary Branch:   main
+Release Asset:    true
 */
 
 /* Sem patří drobné úpravy. Většina vzhledu je v assets/css/csr-home.css. */

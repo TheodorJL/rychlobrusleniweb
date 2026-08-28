@@ -1,20 +1,26 @@
-# Kontrola a nasazení šablony na speedskating.cz
+# Kontrola a vydání šablony
 #
-# Na každý push se soubory zkontrolují. Z větve main se navíc nahrají na web.
-# Kontrola běží vždycky první — když PHP obsahuje překlep, nasazení se
-# nespustí a web zůstane, jak byl. To je tu hlavní pojistka: rozbitý PHP
-# soubor jinak shodí celý web do bílé stránky.
+# Na každý push se soubory zkontrolují. Z větve main se navíc vydá nová
+# verze šablony jako ZIP — ten se dá buď nahrát ve WordPressu ručně,
+# nebo si ho sám stáhne plugin Git Updater.
+#
+# Kontrola běží vždycky první. Když PHP obsahuje překlep, verze se nevydá
+# a na webu se nic nezmění. Rozbitý PHP soubor jinak shodí web do bílé
+# stránky — a k hostingu není přístup, takže by nebylo jak ho vrátit.
 
-name: Kontrola a nasazení
+name: Kontrola a vydání
 
 on:
   push:
     branches: ['**']
   pull_request:
-  workflow_dispatch:      # umožní spustit ručně z karty Actions
+  workflow_dispatch:
+
+permissions:
+  contents: write        # potřeba na vytvoření vydání (release)
 
 concurrency:
-  group: nasazeni-${{ github.ref }}
+  group: vydani-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -62,62 +68,44 @@ jobs:
           retention-days: 30
 
   # ────────────────────────────────────────────────────────────────
-  nasazeni:
-    name: Nahrát na web
+  vydani:
+    name: Vydat novou verzi
     needs: kontrola
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
-    environment: produkce      # umožní vyžádat schválení v Settings → Environments
     steps:
       - uses: actions/checkout@v4
 
       - name: Sestavit šablonu
         run: bash .github/sestavit.sh
 
-      # Dokud nejsou v Settings → Secrets vyplněné FTP údaje, nasazení se
-      # přeskočí. Červený křížek u každého pushu by jen odnaučil chyb si
-      # všímat — a kontrola nad tím je ta, na které záleží.
-      - name: Jsou vyplněné přístupy?
-        id: pristupy
+      # Číslo verze musí po každé změně vyrůst, jinak WordPress aktualizaci
+      # nenabídne. Poslední část je pořadové číslo běhu, takže se o ni
+      # nikdo nemusí starat.
+      - name: Očíslovat verzi
+        id: verze
         run: |
-          if [ -n "${{ secrets.FTP_SERVER }}" ]; then
-            echo "pripraveno=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "pripraveno=false" >> "$GITHUB_OUTPUT"
-            echo "::notice::FTP přístupy zatím nejsou nastavené, nasazení se přeskakuje. Doplňte je v Settings → Secrets and variables → Actions (FTP_SERVER, FTP_USERNAME, FTP_PASSWORD). Šablonu si zatím stáhnete z Artifacts tohoto běhu."
-          fi
+          VERZE="1.0.${{ github.run_number }}"
+          sed -i "s/^Version: .*/Version:     $VERZE/" build/csr-child/style.css
+          grep -m1 "^Version:" build/csr-child/style.css
+          echo "verze=$VERZE" >> "$GITHUB_OUTPUT"
 
-      - name: Nahrát přes FTPS
-        if: steps.pristupy.outputs.pripraveno == 'true'
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Zabalit
+        run: |
+          cd build
+          zip -rq "csr-child.zip" csr-child
+          echo "Velikost: $(du -h csr-child.zip | cut -f1)"
+
+      - name: Vydat
+        uses: softprops/action-gh-release@v2
         with:
-          server:   ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          # Když hosting FTPS neumí, změňte na "ftp". Pozor: obyčejné FTP
-          # posílá heslo v čitelné podobě. Má-li hosting SSH, je lepší
-          # tenhle krok nahradit rsyncem přes SSH.
-          protocol: ftps
-          port: ${{ vars.FTP_PORT || 21 }}
-          local-dir: ./build/csr-child/
-          server-dir: ${{ vars.FTP_PATH || '/www/wp-content/themes/csr-child/' }}
-          # Nic na serveru nemažeme nad rámec toho, co balíček obsahuje.
-          dangerous-clean-slate: false
-          log-level: minimal
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.DS_Store
+          tag_name: v${{ steps.verze.outputs.verze }}
+          name: Verze ${{ steps.verze.outputs.verze }}
+          body: |
+            Šablona pro WordPress — nahrajte `csr-child.zip` ve *Vzhled →
+            Šablony → Přidat novou → Nahrát šablonu*, nebo ji nechte
+            stáhnout plugin Git Updater.
 
-      - name: Hotovo
-        if: steps.pristupy.outputs.pripraveno == 'true'
-        run: echo "::notice::Šablona nahrána do ${{ vars.FTP_PATH || '/www/wp-content/themes/csr-child/' }}"
-
-      # Kontrola prošla, takže i bez nasazení je z čeho instalovat ručně.
-      - name: Šablona ke stažení
-        if: steps.pristupy.outputs.pripraveno != 'true'
-        uses: actions/upload-artifact@v4
-        with:
-          name: csr-child-k-instalaci
-          path: build/csr-child
-          retention-days: 30
+            Změny: ${{ github.event.head_commit.message }}
+          files: build/csr-child.zip
+          make_latest: true

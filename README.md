@@ -796,8 +796,13 @@ ručně jako tabulka se zaškrtnutým *Zobrazit na stránce Českých rekordů*.
 ## Nasazení z GitHubu
 
 Web zatím **nemá potomkovskou šablonu** — běží přímo na GeneratePressu.
-Balíček se instaluje jako potomkovská šablona, aby se při aktualizaci
-GeneratePressu nic nepřepsalo.
+Balíček se instaluje jako potomkovská šablona, aby ho aktualizace
+GeneratePressu nepřepsala.
+
+K hostingu není přístup, jen do WordPressu. Nasazení proto neběží přes FTP,
+ale přes **vydání (release) na GitHubu**: každý push do `main` sestaví ZIP
+se šablonou a vydá novou verzi. Ten ZIP se dá buď nahrát ve WordPressu
+ručně, nebo si ho sám stáhne plugin.
 
 ### Co je v repozitáři kde
 
@@ -806,19 +811,19 @@ GeneratePressu nic nepřepsalo.
 | `theme/` | hlavička šablony (`style.css`) a `functions.php` |
 | `wordpress/` | moduly a šablony stránek |
 | `assets/` | CSS, JavaScript, logo |
-| `preview/` | náhledy — na web se nenahrávají |
-| `data/` | obsah k přenesení — na web se nenahrává |
+| `preview/` | náhledy — do šablony nepatří |
+| `data/` | obsah k přenesení — do šablony nepatří |
 
 Ve WordPressu musí PHP soubory ležet v kořeni šablony vedle sebe, protože
-se na sebe odkazují přes `__DIR__`. Poskládá je skript `.github/sestavit.sh`
-do `build/csr-child/`.
+se na sebe odkazují přes `__DIR__`. Poskládá je `.github/sestavit.sh`.
 
-### První instalace (jednou ručně)
+### První instalace
 
 1. **Udělejte zálohu webu i databáze.**
-2. Na GitHubu otevřete **Actions → poslední běh → Artifacts → `csr-child`**
-   a stáhněte ZIP. (Vznikne při každém pushi.)
-3. *Vzhled → Šablony → Přidat novou → Nahrát šablonu* → vybrat ZIP.
+2. Na GitHubu vpravo v **Releases** otevřete poslední verzi a stáhněte
+   `csr-child.zip`.
+3. *Vzhled → Šablony → Přidat novou → Nahrát šablonu* → vybrat ZIP →
+   **Instalovat**.
 4. **Aktivovat.**
 
 Šablona si při aktivaci sama převezme z GeneratePressu přiřazení menu,
@@ -828,51 +833,57 @@ logo i Doplňkové CSS — bez toho by web na první pohled vypadal rozbitě.
    (*ČSR — Výsledky*, *ČSR — Kontakty*, …). Dokud ji nevyberete, stránka
    se chová přesně jako dosud.
 
-### Automatické nasazení
+### Aktualizace jedním kliknutím
 
-Po nastavení se každý push do větve `main` sám nahraje na web.
+Aby se další verze objevovaly rovnou ve *Vzhled → Šablony* jako běžná
+aktualizace:
 
-V repozitáři na GitHubu → **Settings → Secrets and variables → Actions**:
+1. Nainstalujte plugin **Git Updater**
+   (git-updater.com — do WordPressu se nahrává jako ZIP, v katalogu není).
+2. Repozitář je soukromý, takže potřebuje přístupový token:
+   na GitHubu *Settings → Developer settings → Personal access tokens →
+   Fine-grained tokens → Generate new token*, u položky **Repository access**
+   vyberte `rychlobrusleniweb` a v **Permissions → Repository permissions**
+   nastavte **Contents: Read-only**.
+3. Token vložte ve WordPressu v *Nastavení → Git Updater → GitHub*.
 
-**Secrets** (New repository secret):
+Od té chvíle se po každém pushi do `main` nabídne aktualizace šablony jako
+u kteréhokoli jiného pluginu.
 
-| Název | Hodnota |
-| --- | --- |
-| `FTP_SERVER` | adresa FTP serveru hostingu, např. `ftp.speedskating.cz` |
-| `FTP_USERNAME` | přihlašovací jméno k FTP |
-| `FTP_PASSWORD` | heslo k FTP |
+Bez pluginu to jde taky — stáhnout ZIP z Releases a nahrát ho stejně jako
+poprvé. WordPress se zeptá, jestli má stávající šablonu nahradit.
 
-**Variables** (karta Variables), obojí nepovinné:
+### Číslo verze
 
-| Název | Výchozí | Kdy změnit |
-| --- | --- | --- |
-| `FTP_PATH` | `/www/wp-content/themes/csr-child/` | když hosting používá jinou cestu — `/public_html/`, `/web/`, `/httpdocs/` |
-| `FTP_PORT` | `21` | výjimečně |
-
-**Cestu si ověřte** — připojte se jednou FTP klientem a podívejte se, kde
-leží `wp-content`. Špatná cesta nahraje šablonu vedle a nic se nestane.
-
-Hosting bez FTPS: v `.github/workflows/nasazeni.yml` změňte `protocol: ftps`
-na `ftp`. Obyčejné FTP posílá heslo v čitelné podobě — pokud má hosting SSH,
-je lepší ten krok nahradit rsyncem.
+Řeší se samo: poslední část je pořadové číslo běhu (`1.0.7`, `1.0.8`, …).
+WordPress nabídne aktualizaci jen tehdy, když je verze vyšší než nainstalovaná.
 
 ### Pojistka proti bílé stránce
 
-Před nahráním proběhne kontrola a **při chybě se nasazení nespustí**:
+Vydání se spustí **až po kontrole**. Při chybě se nová verze nevydá
+a na webu se nic nezmění:
 
-* `php -l` na každém PHP souboru — překlep tam neprojde;
+* `php -l` na každém PHP souboru;
 * `node --check` na JavaScriptu;
 * `.github/kontrola.py` hlídá věci, které PHP samo nenajde — volání
   neexistující funkce, dvakrát definovanou funkci, dvojí registraci
-  typu obsahu nebo taxonomie, chybějící ověření `nonce`, klíč čtený
+  typu obsahu nebo taxonomie, `nonce` bez ověření, klíč čtený
   z Customizeru, který se nikde neregistruje.
 
 Ta dvojí registrace tam není náhodou: taxonomie sezón se používá
 v reprezentaci i ve výsledcích a druhá registrace téhož názvu by tu první
 tiše přepsala.
 
-Chcete-li navíc potvrzovat každé nasazení ručně, v *Settings → Environments*
-založte prostředí `produkce` a zapněte u něj **Required reviewers**.
+Tohle je jediná záchranná brzda, kterou máte — bez přístupu k hostingu
+se rozbitý web nedá opravit jinak než přes WordPress, do kterého se
+při chybě v šabloně nemusíte dostat.
+
+### Kdyby se web přesto rozbil
+
+Aktivní šablona se dá vypnout i bez přihlášení do administrace: stačí
+smazat její složku přes správce souborů hostingu — WordPress se sám
+přepne zpět na výchozí šablonu. **K tomu je ale potřeba někdo s přístupem
+k hostingu.** Mějte na to dopředu kontakt.
 
 ### Práce dál
 
@@ -885,12 +896,14 @@ git commit -am "Popis změny"
 git push -u origin uprava-vysledku
 ```
 
-Kontrola proběhne i na větvi, ale nasadí se až po sloučení do `main`.
+Kontrola proběhne i na větvi. Nová verze se vydá až po sloučení do `main`.
 
 ### Návrat zpět
 
 * **Jedna stránka** — v *Atributech stránky* přepnout šablonu na *Výchozí*.
 * **Celý web** — *Vzhled → Šablony* → aktivovat zpět GeneratePress.
+* **Starší verze šablony** — na GitHubu v *Releases* stáhnout dřívější ZIP
+  a nahrát ho.
 
 Elementorový obsah zůstává ve všech případech uložený.
 
