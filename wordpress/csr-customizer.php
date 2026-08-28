@@ -104,9 +104,9 @@ function csr_settings_registry() {
 			),
 			'csr_logo_invert' => array(
 				'type'    => 'checkbox',
-				'label'   => 'Zobrazit logo bíle',
-				'desc'    => 'Hlavička i patička jsou tmavé. Zapněte, pokud je vaše logo tmavé a zanikalo by. Vypněte, pokud máte barevné logo připravené na tmavé pozadí.',
-				'default' => true,
+				'label'   => 'Převést logo na bílé',
+				'desc'    => 'Zapněte jen u jednobarevného tmavého loga, které by na tmavé hlavičce zaniklo. U barevného loga to nezapínejte — převod smaže i barvy a zbude bílá plocha.',
+				'default' => false,
 			),
 			'csr_logo_height' => array(
 				'type'    => 'number',

@@ -1572,20 +1572,25 @@ body { margin: 0; background: var(--csr-bg); }
    Výšku řídí --csr-logo-h z Customizeru, šířka se dopočítá.
    -------------------------------------------------------------------------- */
 
-.csr-brand__logo {
+/* Selektor musí být dvoutřídní. Obrázkům se v sekci ZÁKLAD nastavuje
+   .csr-page img { height: auto } a to má vyšší specificitu než samotné
+   .csr-brand__logo — logo by se pak vykreslilo v původní velikosti,
+   u SVG klidně přes celou obrazovku. */
+.csr-page .csr-brand__logo {
   height: var(--csr-logo-h, 40px);
   width: auto;
   max-width: min(240px, 42vw);
   object-fit: contain;
   object-position: left center;
 }
-/* Hlavička i patička jsou tmavé — tmavé logo je nutné převést na bílé. */
+/* Tmavé logo by na tmavé hlavičce zaniklo. Zapíná se v nastavení a platí
+   jen pro jednobarevná loga — barevné logo by se převedlo na bílou plochu. */
 .csr-brand--invert .csr-brand__logo { filter: brightness(0) invert(1); }
 
-.csr-footer__brand .csr-brand__logo { height: calc(var(--csr-logo-h, 40px) * 1.15); }
+.csr-page .csr-footer__brand .csr-brand__logo { height: calc(var(--csr-logo-h, 40px) * 1.15); }
 
 @media (max-width: 480px) {
-  .csr-brand__logo { height: calc(var(--csr-logo-h, 40px) * .85); max-width: 46vw; }
+  .csr-page .csr-brand__logo { height: calc(var(--csr-logo-h, 40px) * .85); max-width: 46vw; }
 }
 
 /* Loga partnerů z knihovny médií */
