@@ -83,7 +83,7 @@ foreach ( $csr_tables as $csr_t ) {
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v14H3z"/><path d="M3 10h18M9 10v9M15 10v9"/></svg>
 				<h2>Výsledky zatím nejsou zveřejněné</h2>
 				<?php if ( current_user_can( 'edit_posts' ) ) : ?>
-					<p><small>Tabulky se přidávají v administraci v sekci <em>Výsledky</em>.
+					<p><small>Vidíte jen vy jako správce: tabulky se přidávají v administraci v sekci <em>Výsledky</em>.
 						Nezapomeňte u nich vybrat sezónu
 						<?php if ( $csr_scope['season'] ) : ?>
 							<strong><?php echo esc_html( $csr_scope['season'] ); ?></strong>

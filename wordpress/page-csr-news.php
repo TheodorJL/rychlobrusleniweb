@@ -148,7 +148,7 @@ foreach ( $csr_query->posts as $csr_p ) {
 					<h2>Zatím tu nejsou žádné články</h2>
 				<?php endif; ?>
 				<?php if ( current_user_can( 'edit_posts' ) ) : ?>
-					<p><small>Výběr článků nastavíte vpravo u této stránky v boxu <em>Novinky</em>.</small></p>
+					<p><small>Vidíte jen vy jako správce: výběr článků nastavíte vpravo u této stránky v boxu <em>Novinky</em>.</small></p>
 				<?php endif; ?>
 			</div>
 

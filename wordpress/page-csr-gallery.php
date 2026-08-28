@@ -120,7 +120,7 @@ foreach ( $csr_alba as $csr_a ) {
 									<?php endif; ?>
 								</span>
 								<?php if ( ! $csr_ids ) : ?>
-									<span class="csr-album__warn">Vidíte jen vy: album nemá žádné fotky.</span>
+									<span class="csr-album__warn">Vidíte jen vy jako správce: album nemá žádné fotky.</span>
 								<?php endif; ?>
 							</span>
 						</a>

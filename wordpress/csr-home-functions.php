@@ -120,6 +120,33 @@ function csr_page_prose( $post_id ) {
 }
 
 /**
+ * Adresa výpisu závodů, na kterou se dá odkazovat.
+ *
+ * Šablona kalendáře běží ve dvou situacích: na stránce, které je
+ * přiřazená, a na archivu akcí, pokud si ho tak nastaví The Events
+ * Calendar. Na archivu ale get_permalink() nic nevrátí — archiv není
+ * stránka — a odkaz „Nadcházející" pak vede na prázdno, takže se
+ * z proběhlých závodů nedá vrátit zpět.
+ *
+ * @return string
+ */
+function csr_events_base_url() {
+	if ( is_page() ) {
+		$url = get_permalink();
+		if ( $url ) {
+			return $url;
+		}
+	}
+	if ( post_type_exists( 'tribe_events' ) ) {
+		$url = get_post_type_archive_link( 'tribe_events' );
+		if ( $url ) {
+			return $url;
+		}
+	}
+	return home_url( '/' );
+}
+
+/**
  * Odkaz na telefon. Plus na začátku necháváme — bez něj se číslo
  * ze zahraničí nemusí vytočit.
  *

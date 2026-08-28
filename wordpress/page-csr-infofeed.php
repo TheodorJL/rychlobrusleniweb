@@ -151,7 +151,7 @@ $csr_sources = get_terms(
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h11l5 5v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"/><path d="M8 12h6M8 16h4"/></svg>
 				<h2>InfoFeed je zatím prázdný</h2>
 				<?php if ( current_user_can( 'edit_posts' ) ) : ?>
-					<p>Oznámení přidáte v administraci v sekci <em>InfoFeed</em>. Pro převod
+					<p>Vidíte jen vy jako správce: oznámení se přidávají v administraci v sekci <em>InfoFeed</em>. Pro převod
 						stávajících položek použijte <em>InfoFeed → Hromadné přidání</em>.</p>
 				<?php else : ?>
 					<p>Zatím tu nejsou žádná oznámení.</p>

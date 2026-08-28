@@ -22,6 +22,8 @@ $csr_has_tec = function_exists( 'tribe_get_events' );
 // phpcs:disable WordPress.Security.NonceVerification.Recommended — jen čtení výpisu
 $csr_past  = isset( $_GET['zobrazit'] ) && 'minule' === sanitize_key( wp_unslash( $_GET['zobrazit'] ) );
 $csr_paged = isset( $_GET['strana'] ) ? max( 1, absint( $_GET['strana'] ) ) : 1;
+// Adresa výpisu. Na archivu akcí by get_permalink() vrátil prázdno.
+$csr_url   = csr_events_base_url();
 // phpcs:enable
 
 $csr_per_page = max( 1, (int) csr_opt( 'csr_cal_per_page' ) );
@@ -98,9 +100,9 @@ if ( $csr_has_tec ) {
 
 		<div class="csr-calbar csr-reveal">
 			<div class="csr-filters" role="group" aria-label="Přepnout výpis závodů">
-				<a class="csr-filter" href="<?php echo esc_url( get_permalink() ); ?>"
+				<a class="csr-filter" href="<?php echo esc_url( $csr_url ); ?>"
 				   aria-pressed="<?php echo $csr_past ? 'false' : 'true'; ?>">Nadcházející</a>
-				<a class="csr-filter" href="<?php echo esc_url( add_query_arg( 'zobrazit', 'minule', get_permalink() ) ); ?>"
+				<a class="csr-filter" href="<?php echo esc_url( add_query_arg( 'zobrazit', 'minule', $csr_url ) ); ?>"
 				   aria-pressed="<?php echo $csr_past ? 'true' : 'false'; ?>">Proběhlé</a>
 			</div>
 
@@ -130,9 +132,9 @@ if ( $csr_has_tec ) {
 				<?php else : ?>
 					<h2>Zatím tu nejsou žádné nadcházející závody</h2>
 					<p>Kalendář sezóny se připravuje. Mezitím si můžete projít
-						<a href="<?php echo esc_url( add_query_arg( 'zobrazit', 'minule', get_permalink() ) ); ?>">proběhlé závody</a>.</p>
+						<a href="<?php echo esc_url( add_query_arg( 'zobrazit', 'minule', $csr_url ) ); ?>">proběhlé závody</a>.</p>
 					<?php if ( current_user_can( 'edit_posts' ) ) : ?>
-						<p><small>Závody přidáte v administraci v sekci <em>Akce → Vytvořit</em>.</small></p>
+						<p><small>Vidíte jen vy jako správce: závody se přidávají v administraci v sekci <em>Akce → Vytvořit</em>.</small></p>
 					<?php endif; ?>
 				<?php endif; ?>
 			</div>
@@ -229,7 +231,7 @@ if ( $csr_has_tec ) {
 			<?php
 			$csr_pages = $csr_query ? (int) $csr_query->max_num_pages : 1;
 			if ( $csr_pages > 1 ) :
-				$csr_base = $csr_past ? add_query_arg( 'zobrazit', 'minule', get_permalink() ) : get_permalink();
+				$csr_base = $csr_past ? add_query_arg( 'zobrazit', 'minule', $csr_url ) : $csr_url;
 				?>
 				<nav class="csr-pager" aria-label="Stránkování závodů">
 					<?php

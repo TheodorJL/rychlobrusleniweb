@@ -121,7 +121,7 @@ foreach ( $csr_docs as $csr_d ) {
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
 				<h2>Zatím tu nejsou žádné dokumenty</h2>
 				<?php if ( current_user_can( 'edit_posts' ) ) : ?>
-					<p><small>Dokumenty se přidávají v administraci v sekci <em>Dokumenty</em>.</small></p>
+					<p><small>Vidíte jen vy jako správce: dokumenty se přidávají v administraci v sekci <em>Dokumenty</em>.</small></p>
 				<?php endif; ?>
 			</div>
 

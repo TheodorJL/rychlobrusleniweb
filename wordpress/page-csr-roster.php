@@ -81,7 +81,7 @@ get_template_part( 'template-parts/csr-header' );
 			<p class="csr-news__empty">
 				Pro tuto kombinaci sezóny a týmu zatím nikdo není zařazený.
 				<?php if ( current_user_can( 'edit_posts' ) ) : ?>
-					<br><small>Lidi přidáte v sekci <em>Reprezentanti</em>, výběr sezóny a týmu je vpravo u této stránky.</small>
+					<br><small>Vidíte jen vy jako správce: reprezentanti se přidávají v sekci <em>Reprezentanti</em>, výběr sezóny a týmu je vpravo u této stránky.</small>
 				<?php endif; ?>
 			</p>
 

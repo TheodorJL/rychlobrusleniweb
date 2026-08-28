@@ -54,7 +54,7 @@ $csr_total = array_sum( array_map( 'count', $csr_all ) );
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19a6.5 6.5 0 0 1 13 0M16 5.5a3 3 0 0 1 0 5M18 19a6.6 6.6 0 0 0-2-4.7"/></svg>
 				<h2>Zatím tu nikdo není</h2>
 				<?php if ( current_user_can( 'edit_posts' ) ) : ?>
-					<p><small>Lidi přidáte v administraci v sekci <em>Lidé</em>, všechny naráz přes
+					<p><small>Vidíte jen vy jako správce: lidé se přidávají v administraci v sekci <em>Lidé</em>, všechny naráz přes
 						<em>Lidé → Hromadné vložení</em>.</small></p>
 				<?php endif; ?>
 			</div>
