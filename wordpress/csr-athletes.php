@@ -478,6 +478,7 @@ function csr_bulk_add_render() {
 	$done = array();
 	$skipped = array();
 
+	$smazano = 0;
 	if ( isset( $_POST['csr_bulk_nonce'] )
 		&& wp_verify_nonce( sanitize_key( wp_unslash( $_POST['csr_bulk_nonce'] ) ), 'csr_bulk_add' ) ) {
 
@@ -488,25 +489,33 @@ function csr_bulk_add_render() {
 		$bez_fotky = array();
 		$order  = 0;
 
+		if ( ! empty( $_POST['csr_roster_reset'] ) ) {
+			$smazano = csr_smazat_reprezentanty();
+		}
+
 		foreach ( preg_split( '/\R/', $raw ) as $line ) {
 			$row = csr_parse_roster_line( $line );
 			if ( ! $row ) {
 				continue;
 			}
 
-			// Existujícího člověka jen doplníme do další sezóny, nezakládáme znovu.
-			$existing = get_posts(
-				array(
-					'post_type'      => CSR_CPT_ATHLETE,
-					'title'          => $row['name'],
-					'posts_per_page' => 1,
-					'post_status'    => 'any',
-					'fields'         => 'ids',
-				)
-			);
+			// Sezóna a tým z řádku mají přednost před výběrem nad polem.
+			$radek_season = ! empty( $row['season'] ) ? csr_term_id_by_name( CSR_TAX_SEASON, $row['season'] ) : 0;
+			$radek_squad  = ! empty( $row['squad'] ) ? csr_term_id_by_name( CSR_TAX_SQUAD, $row['squad'] ) : 0;
+			$pouzit_season = $radek_season ? $radek_season : $season;
+			$pouzit_squad  = $radek_squad ? $radek_squad : $squad;
+
+			/*
+			 * Jeden záznam = jeden člověk v jedné sezóně a jednom týmu.
+			 * Dřív byl každý člověk jen jednou a sezóny i týmy se k němu
+			 * přisypávaly — kdo byl jeden rok junior a druhý senior, se pak
+			 * objevil na obou soupiskách obou let. Dvojice sezóna + tým
+			 * se z toho nedala přečíst.
+			 */
+			$existing = csr_find_roster_entry( $row['name'], $pouzit_season, $pouzit_squad );
 
 			if ( $existing ) {
-				$post_id = (int) $existing[0];
+				$post_id   = $existing;
 				$skipped[] = $row['name'];
 			} else {
 				$post_id = wp_insert_post(
@@ -520,23 +529,21 @@ function csr_bulk_add_render() {
 				if ( is_wp_error( $post_id ) || ! $post_id ) {
 					continue;
 				}
-				update_post_meta( $post_id, '_csr_year', $row['year'] ? $row['year'] : '' );
-				update_post_meta( $post_id, '_csr_club', $row['club'] );
-				update_post_meta( $post_id, '_csr_role', $row['role'] );
 				$done[] = $row['name'];
 			}
 
-			// Sezóna a tým z řádku mají přednost před výběrem nad polem.
-			$radek_season = ! empty( $row['season'] ) ? csr_term_id_by_name( CSR_TAX_SEASON, $row['season'] ) : 0;
-			$radek_squad  = ! empty( $row['squad'] ) ? csr_term_id_by_name( CSR_TAX_SQUAD, $row['squad'] ) : 0;
-			$pouzit_season = $radek_season ? $radek_season : $season;
-			$pouzit_squad  = $radek_squad ? $radek_squad : $squad;
+			foreach ( array( '_csr_year' => $row['year'], '_csr_club' => $row['club'], '_csr_role' => $row['role'] ) as $klic => $hodnota ) {
+				if ( '' !== (string) $hodnota && '' === (string) get_post_meta( $post_id, $klic, true ) ) {
+					update_post_meta( $post_id, $klic, $hodnota );
+				}
+			}
 
+			// Každý záznam nese právě jednu sezónu a právě jeden tým.
 			if ( $pouzit_season ) {
-				wp_set_object_terms( $post_id, array( $pouzit_season ), CSR_TAX_SEASON, true );
+				wp_set_object_terms( $post_id, array( $pouzit_season ), CSR_TAX_SEASON );
 			}
 			if ( $pouzit_squad ) {
-				wp_set_object_terms( $post_id, array( $pouzit_squad ), CSR_TAX_SQUAD, true );
+				wp_set_object_terms( $post_id, array( $pouzit_squad ), CSR_TAX_SQUAD );
 			}
 
 			/*
@@ -571,6 +578,12 @@ function csr_bulk_add_render() {
 			</p></div>
 		<?php endif; ?>
 
+		<?php if ( $smazano ) : ?>
+			<div class="notice notice-warning"><p>
+				Smazáno <strong><?php echo (int) $smazano; ?></strong> starých záznamů.
+			</p></div>
+		<?php endif; ?>
+
 		<?php if ( $fotek ) : ?>
 			<div class="notice notice-success"><p>
 				Přiřazeno fotek z knihovny médií: <strong><?php echo (int) $fotek; ?></strong>.
@@ -587,7 +600,7 @@ function csr_bulk_add_render() {
 
 		<?php if ( $skipped ) : ?>
 			<div class="notice notice-info"><p>
-				Už existovali, jen jsem je zařadil do vybrané sezóny a týmu
+				Tenhle záznam už v té sezóně a týmu byl, jen se doplnilo, co chybělo
 				(<strong><?php echo count( $skipped ); ?></strong>):
 				<?php echo esc_html( implode( ', ', $skipped ) ); ?>
 			</p></div>
@@ -640,6 +653,17 @@ function csr_bulk_add_render() {
 				</tr>
 			</table>
 
+			<p>
+				<label>
+					<input type="checkbox" name="csr_roster_reset" value="1">
+					<strong>Nejdřív smazat všechny reprezentanty</strong>
+				</label><br>
+				<span class="description">
+					Smaže <em>všechny</em> záznamy a vloží je znovu podle pole výš. Použijte,
+					když jsou uložení po starém — jeden člověk se všemi sezónami naráz.
+					Jiný obsah se nemaže.
+				</span>
+			</p>
 			<?php submit_button( 'Přidat reprezentanty' ); ?>
 		</form>
 
@@ -804,15 +828,16 @@ function csr_roster_page_metabox_render( $post ) {
 /**
  * Odhadne tým podle názvu stránky.
  *
- * Stránka „SS – .Senioři." patří týmu „SS – Senioři". Porovnávají se
- * slova bez diakritiky a bez teček, jinak by se tyhle dva názvy minuly.
+ * Názvy nejsou psané jednotně — „SS – Junioři", „SS – .Junioři.",
+ * „Speed skating – Junioři". Porovnávat je slovo od slova je křehké,
+ * tak z obojího uděláme klíč disciplína + kategorie.
  *
  * @param int $page_id ID stránky.
  * @return int ID termínu, nebo 0.
  */
 function csr_roster_guess_squad( $page_id ) {
-	$slova = csr_roster_words( get_the_title( $page_id ) );
-	if ( ! $slova ) {
+	$klic = csr_squad_key( get_the_title( $page_id ) );
+	if ( '' === $klic ) {
 		return 0;
 	}
 
@@ -822,7 +847,7 @@ function csr_roster_guess_squad( $page_id ) {
 	}
 
 	foreach ( $terms as $term ) {
-		if ( csr_roster_words( $term->name ) === $slova ) {
+		if ( csr_squad_key( $term->name ) === $klic ) {
 			return (int) $term->term_id;
 		}
 	}
@@ -830,15 +855,34 @@ function csr_roster_guess_squad( $page_id ) {
 }
 
 /**
- * Rozloží název na porovnatelná slova.
+ * Klíč týmu: disciplína a kategorie, nezávisle na zápisu.
  *
- * @param string $text Název.
- * @return array
+ * @param string $text Název stránky nebo týmu.
+ * @return string Například „ss|juniori", nebo prázdný řetězec.
  */
-function csr_roster_words( $text ) {
-	$slova = preg_split( '/[^a-z0-9]+/', csr_fold( $text ), -1, PREG_SPLIT_NO_EMPTY );
-	sort( $slova );
-	return $slova;
+function csr_squad_key( $text ) {
+	$t = csr_fold( $text );
+
+	$disciplina = '';
+	if ( preg_match( '/(^|[^a-z])st([^a-z]|$)/', $t ) || false !== strpos( $t, 'short' ) || false !== strpos( $t, 'kratk' ) ) {
+		$disciplina = 'st';
+	} elseif ( preg_match( '/(^|[^a-z])ss([^a-z]|$)/', $t ) || false !== strpos( $t, 'speed' ) || false !== strpos( $t, 'dlouh' ) ) {
+		$disciplina = 'ss';
+	}
+
+	$kategorie = '';
+	if ( false !== strpos( $t, 'junior' ) ) {
+		$kategorie = 'juniori';
+	} elseif ( false !== strpos( $t, 'senior' ) ) {
+		$kategorie = 'seniori';
+	} elseif ( false !== strpos( $t, 'sledovan' ) ) {
+		$kategorie = 'sledovani';
+	}
+
+	if ( '' === $disciplina || '' === $kategorie ) {
+		return '';
+	}
+	return $disciplina . '|' . $kategorie;
 }
 
 /**
@@ -910,6 +954,68 @@ function csr_render_person_card( $person, $small = false ) {
 		</div>
 	</article>
 	<?php
+}
+
+/**
+ * Smaže všechny reprezentanty.
+ *
+ * Slouží k opravě, když jsou záznamy uložené po starém — jeden člověk
+ * se všemi sezónami naráz. Tenhle typ obsahu zakládá jen hromadné
+ * vložení, takže se nemaže nic, co by z něj nešlo znovu vytvořit.
+ *
+ * @return int Počet smazaných záznamů.
+ */
+function csr_smazat_reprezentanty() {
+	$vsichni = get_posts(
+		array(
+			'post_type'      => CSR_CPT_ATHLETE,
+			'post_status'    => 'any',
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+		)
+	);
+	$smazano = 0;
+	foreach ( $vsichni as $id ) {
+		if ( wp_delete_post( (int) $id, true ) ) {
+			$smazano++;
+		}
+	}
+	return $smazano;
+}
+
+/**
+ * Najde záznam téhož člověka v téže sezóně a témže týmu.
+ *
+ * @param string $jmeno  Jméno.
+ * @param int    $season ID sezóny.
+ * @param int    $squad  ID týmu.
+ * @return int ID záznamu, nebo 0.
+ */
+function csr_find_roster_entry( $jmeno, $season, $squad ) {
+	$args = array(
+		'post_type'      => CSR_CPT_ATHLETE,
+		'title'          => $jmeno,
+		'post_status'    => 'any',
+		'posts_per_page' => 1,
+		'fields'         => 'ids',
+	);
+
+	$tax = array();
+	if ( $season ) {
+		$tax[] = array( 'taxonomy' => CSR_TAX_SEASON, 'field' => 'term_id', 'terms' => (int) $season );
+	}
+	if ( $squad ) {
+		$tax[] = array( 'taxonomy' => CSR_TAX_SQUAD, 'field' => 'term_id', 'terms' => (int) $squad );
+	}
+	if ( count( $tax ) > 1 ) {
+		$tax['relation'] = 'AND';
+	}
+	if ( $tax ) {
+		$args['tax_query'] = $tax; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+	}
+
+	$nalezeni = get_posts( $args );
+	return $nalezeni ? (int) $nalezeni[0] : 0;
 }
 
 /**
