@@ -593,3 +593,195 @@ function csr_render_person( $person ) {
 	</article>
 	<?php
 }
+
+/* -------------------------------------------------------------------------
+ * Doplnění lidí po aktualizaci šablony
+ *
+ * Předsednictvo a kontrolní komise byly na webu zavedené jen příjmením,
+ * bez funkce a kontaktu, a u předsedů klubů chyběla dráha. Čekat, že se
+ * hromadné vložení spustí ručně, se ukázalo jako nespolehlivé. Tohle
+ * jednou projde už existující lidi a doplní jim, co mají prázdné.
+ * Nikoho nezakládá a nic nepřepisuje.
+ * ---------------------------------------------------------------------- */
+
+/**
+ * Doplní chybějící údaje lidí z připravených dat.
+ */
+function csr_people_autofill() {
+	$verze = (string) wp_get_theme()->get( 'Version' );
+	if ( get_option( 'csr_people_filled' ) === $verze ) {
+		return;
+	}
+	update_option( 'csr_people_filled', $verze, false );
+
+	$data = csr_import_seed( 'lide' );
+	if ( '' === $data ) {
+		return;
+	}
+
+	csr_seed_bodies();
+	$doplneno = 0;
+
+	foreach ( preg_split( '/\R/', $data ) as $radek ) {
+		$osoba = csr_parse_person_line( $radek );
+		if ( ! $osoba ) {
+			continue;
+		}
+
+		$body = csr_body_slug( $osoba['body'] );
+		$id   = csr_find_person( $osoba['name'], $body );
+
+		// Lidé zavedení jen příjmením — a taky s překlepem v něm.
+		if ( ! $id ) {
+			$id = csr_find_person_by_surname( $osoba['name'], $body );
+			if ( $id ) {
+				wp_update_post(
+					array(
+						'ID'         => $id,
+						'post_title' => sanitize_text_field( $osoba['name'] ),
+					)
+				);
+			}
+		}
+
+		/*
+		 * U předsedů klubů je spolehlivější klíč klub než jméno — u dvou
+		 * se jméno na webu a v podkladech liší a přejmenovat člověka
+		 * podle nejistého zdroje nechceme. Doplníme jen prázdná pole.
+		 */
+		if ( ! $id && '' !== $osoba['club'] ) {
+			$id = csr_find_person_by_club( $osoba['club'], $body );
+		}
+
+		if ( ! $id ) {
+			continue;
+		}
+
+		$zmena = false;
+		foreach ( array( 'role', 'club', 'email', 'phone' ) as $klic ) {
+			$hodnota = 'email' === $klic ? sanitize_email( $osoba[ $klic ] ) : sanitize_text_field( $osoba[ $klic ] );
+			if ( '' !== $hodnota && '' === (string) get_post_meta( $id, '_csr_person_' . $klic, true ) ) {
+				update_post_meta( $id, '_csr_person_' . $klic, $hodnota );
+				$zmena = true;
+			}
+		}
+		$draha = csr_track_key( $osoba['track'] );
+		if ( '' !== $draha && '' === (string) get_post_meta( $id, '_csr_person_track', true ) ) {
+			update_post_meta( $id, '_csr_person_track', $draha );
+			$zmena = true;
+		}
+		if ( $body ) {
+			wp_set_object_terms( $id, $body, 'csr_body' );
+		}
+		if ( $zmena ) {
+			$doplneno++;
+		}
+	}
+
+	if ( $doplneno ) {
+		set_transient( 'csr_people_notice', $doplneno, DAY_IN_SECONDS );
+	}
+}
+add_action( 'admin_init', 'csr_people_autofill' );
+
+/**
+ * Slug orgánu z názvu i ze zkratky.
+ *
+ * @param string $nazev Zapsaný orgán.
+ * @return string Slug, nebo prázdný řetězec.
+ */
+function csr_body_slug( $nazev ) {
+	$slug = sanitize_title( $nazev );
+	if ( array_key_exists( $slug, csr_bodies() ) ) {
+		return $slug;
+	}
+	foreach ( csr_bodies() as $klic => $jmeno ) {
+		if ( sanitize_title( $jmeno ) === $slug ) {
+			return $klic;
+		}
+	}
+	return '';
+}
+
+/**
+ * Najde člověka podle příjmení — i když je v něm přehozené písmeno.
+ *
+ * Na webu je „Cheml" místo „Chmel". Porovnáváme proto i seřazená
+ * písmena, ale jen v rámci jednoho orgánu, kde je lidí pár.
+ *
+ * @param string $jmeno Celé jméno z dat.
+ * @param string $body  Slug orgánu.
+ * @return int ID záznamu, nebo 0.
+ */
+function csr_find_person_by_surname( $jmeno, $body ) {
+	$prijmeni = csr_person_surname( $jmeno );
+	if ( '' === $prijmeni || '' === $body ) {
+		return 0;
+	}
+
+	$id = csr_find_person( $prijmeni, $body );
+	if ( $id ) {
+		return $id;
+	}
+
+	$otisk = csr_letter_fingerprint( $prijmeni );
+	foreach ( csr_get_people( $body ) as $clovek ) {
+		$slova = preg_split( '/\s+/u', $clovek->post_title, -1, PREG_SPLIT_NO_EMPTY );
+		if ( count( $slova ) > 1 ) {
+			continue; // Celé jméno už je vyplněné, tomu se nepleteme.
+		}
+		if ( csr_letter_fingerprint( $clovek->post_title ) === $otisk ) {
+			return (int) $clovek->ID;
+		}
+	}
+	return 0;
+}
+
+/**
+ * Najde člověka podle klubu, který zastupuje.
+ *
+ * @param string $klub Název klubu.
+ * @param string $body Slug orgánu.
+ * @return int ID záznamu, nebo 0.
+ */
+function csr_find_person_by_club( $klub, $body ) {
+	if ( '' === $body ) {
+		return 0;
+	}
+	$hledany = csr_fold( $klub );
+	foreach ( csr_get_people( $body ) as $clovek ) {
+		if ( csr_fold( (string) get_post_meta( $clovek->ID, '_csr_person_club', true ) ) === $hledany ) {
+			return (int) $clovek->ID;
+		}
+	}
+	return 0;
+}
+
+/**
+ * Písmena slova seřazená — pro porovnání přes překlep.
+ *
+ * @param string $slovo Slovo.
+ * @return string
+ */
+function csr_letter_fingerprint( $slovo ) {
+	$slovo = csr_fold( $slovo );
+	$znaky = preg_split( '//u', $slovo, -1, PREG_SPLIT_NO_EMPTY );
+	sort( $znaky );
+	return implode( '', $znaky );
+}
+
+/**
+ * Řekne správci, že se lidé doplnili sami.
+ */
+function csr_people_notice() {
+	$pocet = get_transient( 'csr_people_notice' );
+	if ( ! $pocet ) {
+		return;
+	}
+	delete_transient( 'csr_people_notice' );
+	printf(
+		'<div class="notice notice-success is-dismissible"><p>U <strong>%d</strong> lidí ve svazu se doplnily chybějící údaje. Nic vyplněného se nepřepisovalo.</p></div>',
+		(int) $pocet
+	);
+}
+add_action( 'admin_notices', 'csr_people_notice' );

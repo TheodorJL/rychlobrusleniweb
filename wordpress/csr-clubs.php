@@ -471,6 +471,59 @@ function csr_get_clubs() {
 }
 
 /**
+ * Značka s logem klubu.
+ *
+ * Na ostrém webu se ukázalo, že get_the_post_thumbnail() umí vrátit
+ * prázdno i tehdy, když příloha existuje a soubor je dostupný — karta
+ * pak zůstala prázdná. Nespoléháme na ni tedy jako na jediný zdroj:
+ * když nic nevrátí, poskládáme značku z adresy přílohy, a teprve
+ * nakonec sáhneme po adrese uložené při hromadném vložení.
+ *
+ * @param WP_Post $club Klub.
+ * @return string HTML značky, nebo prázdný řetězec.
+ */
+function csr_club_logo_html( $club ) {
+	$alt   = 'Logo ' . $club->post_title;
+	$atributy = array(
+		'alt'      => $alt,
+		'loading'  => 'lazy',
+		'decoding' => 'async',
+	);
+
+	$thumb = (int) get_post_thumbnail_id( $club->ID );
+	if ( $thumb ) {
+		$html = wp_get_attachment_image( $thumb, 'medium', false, $atributy );
+		if ( '' !== (string) $html ) {
+			return $html;
+		}
+
+		$src = wp_get_attachment_image_url( $thumb, 'medium' );
+		if ( ! $src ) {
+			$src = wp_get_attachment_url( $thumb );
+		}
+		if ( $src ) {
+			$GLOBALS['csr_club_logo_nouzove'] = ( isset( $GLOBALS['csr_club_logo_nouzove'] ) ? $GLOBALS['csr_club_logo_nouzove'] : 0 ) + 1;
+			return sprintf(
+				'<img src="%s" alt="%s" loading="lazy" decoding="async">',
+				esc_url( $src ),
+				esc_attr( $alt )
+			);
+		}
+	}
+
+	$adresa = (string) get_post_meta( $club->ID, '_csr_club_logo', true );
+	if ( $adresa ) {
+		return sprintf(
+			'<img src="%s" alt="%s" loading="lazy" decoding="async">',
+			esc_url( $adresa ),
+			esc_attr( $alt )
+		);
+	}
+
+	return '';
+}
+
+/**
  * Karta jednoho klubu.
  *
  * @param WP_Post $club Klub.
@@ -494,28 +547,15 @@ function csr_render_club_card( $club ) {
 
 		<div class="csr-club__logo">
 			<?php
-			// Náhradní adresa z importu — použije se, když klub nemá náhledový obrázek.
-			$logo_url = (string) get_post_meta( $club->ID, '_csr_club_logo', true );
-			?>
-			<?php if ( has_post_thumbnail( $club->ID ) ) : ?>
-				<?php
-				echo get_the_post_thumbnail(
-					$club->ID,
-					'medium',
-					array(
-						'alt'      => 'Logo ' . esc_attr( $club->post_title ),
-						'loading'  => 'lazy',
-						'decoding' => 'async',
-					)
-				);
+			$logo = csr_club_logo_html( $club );
+			if ( '' !== $logo ) {
+				echo $logo; // phpcs:ignore WordPress.Security.EscapeOutput — sestaveno v csr_club_logo_html()
+			} else {
 				?>
-			<?php elseif ( $logo_url ) : ?>
-				<img src="<?php echo esc_url( $logo_url ); ?>"
-					alt="<?php echo esc_attr( 'Logo ' . $club->post_title ); ?>"
-					loading="lazy" decoding="async">
-			<?php else : ?>
 				<span class="csr-club__initials" aria-hidden="true"><?php echo esc_html( $club->post_title ); ?></span>
-			<?php endif; ?>
+				<?php
+			}
+			?>
 		</div>
 
 		<div class="csr-club__body">
