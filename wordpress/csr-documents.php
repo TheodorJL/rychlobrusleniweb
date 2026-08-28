@@ -482,30 +482,50 @@ function csr_documents_import_render() {
 					'fields'         => 'ids',
 				)
 			);
+			/*
+			 * Dokument stejného názvu nezakládáme podruhé, ale doplníme
+			 * u něj, co chybí. Bez toho by opakované vložení souboru
+			 * s nově přibylým sloupcem (například rubrikou) neudělalo nic
+			 * a stránky by dál vypisovaly všechny dokumenty.
+			 */
+			$doplneno = false;
 			if ( $exists ) {
-				$skip[] = $parts[0];
-				continue;
+				$post_id = (int) $exists[0];
+			} else {
+				$post_id = wp_insert_post(
+					array(
+						'post_type'   => 'csr_document',
+						'post_title'  => sanitize_text_field( $parts[0] ),
+						'post_status' => 'publish',
+					)
+				);
+				if ( is_wp_error( $post_id ) ) {
+					continue;
+				}
+				$done++;
 			}
 
-			$post_id = wp_insert_post(
-				array(
-					'post_type'   => 'csr_document',
-					'post_title'  => sanitize_text_field( $parts[0] ),
-					'post_status' => 'publish',
-				)
-			);
-			if ( is_wp_error( $post_id ) ) {
-				continue;
+			if ( ! get_post_meta( $post_id, '_csr_doc_url', true ) && ! empty( $parts[1] ) ) {
+				update_post_meta( $post_id, '_csr_doc_url', esc_url_raw( $parts[1] ) );
+				$doplneno = true;
 			}
-
-			update_post_meta( $post_id, '_csr_doc_url', isset( $parts[1] ) ? esc_url_raw( $parts[1] ) : '' );
-			update_post_meta( $post_id, '_csr_doc_date', isset( $parts[3] ) ? sanitize_text_field( $parts[3] ) : '' );
+			if ( ! get_post_meta( $post_id, '_csr_doc_date', true ) && ! empty( $parts[3] ) ) {
+				update_post_meta( $post_id, '_csr_doc_date', sanitize_text_field( $parts[3] ) );
+				$doplneno = true;
+			}
 
 			$type = isset( $parts[2] ) ? sanitize_title( $parts[2] ) : '';
 			if ( array_key_exists( $type, csr_doctypes() ) ) {
-				wp_set_object_terms( $post_id, $type, 'csr_doctype' );
+				$ma = wp_get_object_terms( $post_id, 'csr_doctype', array( 'fields' => 'slugs' ) );
+				if ( is_wp_error( $ma ) || ! in_array( $type, (array) $ma, true ) ) {
+					wp_set_object_terms( $post_id, $type, 'csr_doctype' );
+					$doplneno = true;
+				}
 			}
-			$done++;
+
+			if ( $exists ) {
+				$skip[] = $parts[0] . ( $doplneno ? ' (doplněno)' : '' );
+			}
 		}
 	}
 	?>

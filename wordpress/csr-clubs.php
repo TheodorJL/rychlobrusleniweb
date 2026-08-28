@@ -307,8 +307,9 @@ add_action( 'admin_menu', 'csr_club_import_page' );
  * Vykreslí a zpracuje hromadné vložení.
  */
 function csr_club_import_render() {
-	$hotovo = 0;
-	$log    = 0;
+	$hotovo   = 0;
+	$doplnene = 0;
+	$log      = 0;
 
 	if ( isset( $_POST['csr_club_import_nonce'] )
 		&& wp_verify_nonce( sanitize_key( $_POST['csr_club_import_nonce'] ), 'csr_club_import' )
@@ -327,27 +328,49 @@ function csr_club_import_render() {
 				continue;
 			}
 
-			$post_id = wp_insert_post(
+			/*
+			 * Klub stejného názvu nezakládáme podruhé, jen u něj doplníme,
+			 * co chybí. Bez toho by opakované vložení souboru s nově
+			 * přibylým sloupcem (logo) buď neudělalo nic, nebo kluby zdvojilo.
+			 */
+			$existuje = get_posts(
 				array(
-					'post_type'   => 'csr_club',
-					'post_title'  => sanitize_text_field( $nazev ),
-					'post_status' => 'publish',
+					'post_type'      => 'csr_club',
+					'title'          => $nazev,
+					'post_status'    => 'any',
+					'posts_per_page' => 1,
+					'fields'         => 'ids',
 				)
 			);
-			if ( is_wp_error( $post_id ) ) {
-				continue;
+			if ( $existuje ) {
+				$post_id = (int) $existuje[0];
+				$doplnene++;
+			} else {
+				$post_id = wp_insert_post(
+					array(
+						'post_type'   => 'csr_club',
+						'post_title'  => sanitize_text_field( $nazev ),
+						'post_status' => 'publish',
+					)
+				);
+				if ( is_wp_error( $post_id ) ) {
+					continue;
+				}
+				$hotovo++;
 			}
 
 			$pocet_poli = count( csr_club_fields() );
 			foreach ( array_keys( csr_club_fields() ) as $i => $key ) {
-				if ( isset( $casti[ $i ] ) ) {
+				// U existujícího klubu nepřepisujeme, co už má vyplněné.
+				if ( isset( $casti[ $i ] ) && '' !== $casti[ $i ]
+					&& ( ! $existuje || '' === (string) get_post_meta( $post_id, '_csr_club_' . $key, true ) ) ) {
 					update_post_meta( $post_id, '_csr_club_' . $key, sanitize_text_field( $casti[ $i ] ) );
 				}
 			}
 
 			// Za posledním polem může být adresa loga. Nenahrává se —
 			// hledá se v knihovně médií, obrázky ze starého webu tam už jsou.
-			if ( ! empty( $casti[ $pocet_poli ] ) ) {
+			if ( ! empty( $casti[ $pocet_poli ] ) && ! has_post_thumbnail( $post_id ) ) {
 				$logo_id = csr_attachment_from_url( $casti[ $pocet_poli ] );
 				if ( $logo_id ) {
 					set_post_thumbnail( $post_id, $logo_id );
@@ -358,14 +381,18 @@ function csr_club_import_render() {
 			if ( $kraj ) {
 				wp_set_object_terms( $post_id, $kraj, 'csr_region' );
 			}
-			$hotovo++;
 		}
 	}
 	?>
 	<div class="wrap">
 		<h1>Hromadné vložení klubů</h1>
-		<?php if ( $hotovo ) : ?>
-			<div class="notice notice-success"><p>Vloženo <strong><?php echo (int) $hotovo; ?></strong> klubů.</p></div>
+		<?php if ( $hotovo || $doplnene ) : ?>
+			<div class="notice notice-success"><p>
+				Vloženo <strong><?php echo (int) $hotovo; ?></strong> klubů.
+				<?php if ( $doplnene ) : ?>
+					U <strong><?php echo (int) $doplnene; ?></strong> už existujících se doplnilo, co chybělo.
+				<?php endif; ?>
+			</p></div>
 			<?php if ( $log ) : ?>
 				<div class="notice notice-success"><p>
 					Přiřazeno log z knihovny médií: <strong><?php echo (int) $log; ?></strong>.

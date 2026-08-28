@@ -329,6 +329,7 @@ function csr_feed_bulk_render() {
 		$source = isset( $_POST['csr_source_id'] ) ? absint( $_POST['csr_source_id'] ) : 0;
 		$poradi    = 0;
 		$fotek     = 0;
+		$doplnene  = 0;
 		$bez_fotky = 0;
 
 		foreach ( preg_split( '/\R/', $raw ) as $line ) {
@@ -359,27 +360,49 @@ function csr_feed_bulk_render() {
 			// menu_order drží pořadí ze vstupu. Bez něj by se všechny zprávy
 			// vložily se stejným časem a seřadily by se náhodně.
 			$poradi++;
-			$args = array(
-				'post_type'   => CSR_CPT_FEED,
-				'post_title'  => $title,
-				'post_status' => 'publish',
-				'menu_order'  => $poradi,
+
+			/*
+			 * Zprávu stejného názvu nezakládáme podruhé, jen u ní doplníme,
+			 * co chybí. Bez toho by opakované vložení souboru s nově
+			 * přibylým sloupcem (ikona, fotka) zprávy zdvojilo.
+			 */
+			$existuje = get_posts(
+				array(
+					'post_type'      => CSR_CPT_FEED,
+					'title'          => $title,
+					'post_status'    => 'any',
+					'posts_per_page' => 1,
+					'fields'         => 'ids',
+				)
 			);
-			if ( $datum ) {
-				$args['post_date'] = $datum;
+			if ( $existuje ) {
+				$post_id = (int) $existuje[0];
+				$doplnene++;
+			} else {
+				$args = array(
+					'post_type'   => CSR_CPT_FEED,
+					'post_title'  => $title,
+					'post_status' => 'publish',
+					'menu_order'  => $poradi,
+				);
+				if ( $datum ) {
+					$args['post_date'] = $datum;
+				}
+				$post_id = wp_insert_post( $args );
 			}
-			$post_id = wp_insert_post( $args );
 			if ( is_wp_error( $post_id ) || ! $post_id ) {
 				continue;
 			}
 
-			update_post_meta( $post_id, '_csr_link1_url', esc_url_raw( $url ) );
-			update_post_meta( $post_id, '_csr_link1_label', $label ? $label : 'Dokument naleznete zde' );
-			if ( $url2 ) {
+			if ( $url && ! get_post_meta( $post_id, '_csr_link1_url', true ) ) {
+				update_post_meta( $post_id, '_csr_link1_url', esc_url_raw( $url ) );
+				update_post_meta( $post_id, '_csr_link1_label', $label ? $label : 'Dokument naleznete zde' );
+			}
+			if ( $url2 && ! get_post_meta( $post_id, '_csr_link2_url', true ) ) {
 				update_post_meta( $post_id, '_csr_link2_url', esc_url_raw( $url2 ) );
 				update_post_meta( $post_id, '_csr_link2_label', $label2 ? $label2 : 'Další odkaz' );
 			}
-			if ( $url3 ) {
+			if ( $url3 && ! get_post_meta( $post_id, '_csr_link3_url', true ) ) {
 				update_post_meta( $post_id, '_csr_link3_url', esc_url_raw( $url3 ) );
 				update_post_meta( $post_id, '_csr_link3_label', $label3 ? $label3 : 'Další odkaz' );
 			}
@@ -392,7 +415,7 @@ function csr_feed_bulk_render() {
 			update_post_meta( $post_id, '_csr_icon', array_key_exists( $ikona, $ikony ) ? $ikona : 'dokument' );
 
 			// Fotka se hledá v knihovně médií podle adresy, nic se nenahrává.
-			if ( $foto ) {
+			if ( $foto && ! has_post_thumbnail( $post_id ) ) {
 				$foto_id = csr_attachment_from_url( $foto );
 				if ( $foto_id ) {
 					set_post_thumbnail( $post_id, $foto_id );
