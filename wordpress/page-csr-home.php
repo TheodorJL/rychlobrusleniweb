@@ -55,15 +55,13 @@ if ( csr_opt( 'csr_events_show' ) && function_exists( 'tribe_get_events' ) ) {
 	);
 }
 
+/*
+ * Fotogalerie ukazuje alba, ne poslední obrázky z knihovny médií.
+ * Ty totiž zahrnují i loga klubů, fotky reprezentantů a náhledy
+ * dokumentů — do galerie na úvodní stránce nic z toho nepatří.
+ */
 $csr_gallery = csr_opt( 'csr_gallery_show' )
-	? get_posts(
-		array(
-			'post_type'      => 'attachment',
-			'post_mime_type' => 'image',
-			'post_status'    => 'inherit',
-			'numberposts'    => (int) csr_opt( 'csr_gallery_count' ),
-		)
-	)
+	? array_slice( csr_get_albums(), 0, max( 1, (int) csr_opt( 'csr_gallery_count' ) ) )
 	: array();
 
 // Fotka v hero: nastavení v Customizeru, jinak náhledový obrázek stránky.
@@ -442,16 +440,13 @@ if ( $csr_ticker ) :
 				</a>
 			</div>
 
-			<div class="csr-gallery csr-reveal">
-				<?php foreach ( $csr_gallery as $csr_img ) : ?>
-					<a class="csr-gallery__item" href="<?php echo esc_url( wp_get_attachment_url( $csr_img->ID ) ); ?>">
-						<?php echo wp_get_attachment_image( $csr_img->ID, 'medium_large', false, array( 'loading' => 'lazy', 'alt' => '' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-						<?php if ( $csr_img->post_title ) : ?>
-							<span class="csr-gallery__cap"><?php echo esc_html( $csr_img->post_title ); ?></span>
-						<?php endif; ?>
-					</a>
-				<?php endforeach; ?>
-			</div>
+			<ul class="csr-albums csr-albums--home csr-reveal" data-csr-stagger="55">
+				<?php
+				foreach ( $csr_gallery as $csr_album ) {
+					csr_render_album_card( $csr_album );
+				}
+				?>
+			</ul>
 		</div>
 	</section>
 <?php endif; ?>

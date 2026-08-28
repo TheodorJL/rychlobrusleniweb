@@ -3204,3 +3204,101 @@ body.csr-lb-open { overflow: hidden; }
   .csr-landing .se-webform .se-submit button { transition: none; }
   .csr-landing .se-webform .se-submit button:hover { transform: none; }
 }
+
+/* ==========================================================================
+   33. VÝSLEDKY HLEDÁNÍ
+   -------------------------------------------------------------------------- */
+
+.csr-searchbar {
+  display: flex; gap: .7rem; flex-wrap: wrap;
+  margin-bottom: clamp(1.6rem, 1rem + 2vw, 2.6rem);
+}
+.csr-searchbar .csr-clubsearch { flex: 1 1 260px; }
+
+.csr-results { list-style: none; margin: 0; padding: 0; display: grid; gap: .8rem; }
+
+.csr-result__link {
+  display: flex; gap: 1.1rem; align-items: flex-start;
+  padding: 1rem 1.15rem;
+  text-decoration: none; color: inherit;
+  background: var(--csr-surface);
+  border: 1px solid var(--csr-border);
+  border-radius: var(--csr-r);
+  transition: border-color .2s, transform .2s var(--csr-ease);
+}
+.csr-result__link:hover,
+.csr-result__link:focus-visible { border-color: var(--csr-accent); transform: translateY(-2px); }
+
+.csr-result__media {
+  flex: 0 0 92px; overflow: hidden;
+  border-radius: var(--csr-r-sm);
+  aspect-ratio: 4 / 3;
+}
+.csr-result__media img { width: 100%; height: 100%; object-fit: cover; }
+
+.csr-result__body { display: grid; gap: .3rem; min-width: 0; }
+.csr-result__meta {
+  display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+  font-size: var(--csr-fs-xs); color: var(--csr-text-muted);
+}
+.csr-result__title {
+  font-family: var(--csr-font-display);
+  font-size: 1.18rem; font-weight: 700; line-height: 1.2;
+  color: var(--csr-text);
+}
+.csr-result__excerpt { font-size: var(--csr-fs-sm); color: var(--csr-text-soft); }
+
+@media (max-width: 520px) {
+  .csr-result__media { flex-basis: 68px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .csr-result__link { transition: none; }
+  .csr-result__link:hover { transform: none; }
+}
+
+/* ==========================================================================
+   34. DETAIL ZÁVODU
+   -------------------------------------------------------------------------- */
+
+.csr-event { display: grid; gap: clamp(1.5rem, 1rem + 2vw, 2.8rem); }
+@media (min-width: 900px) {
+  /* Údaje o závodu drží vedle textu a při scrollu zůstávají na očích. */
+  .csr-event { grid-template-columns: minmax(0, 1fr) 320px; align-items: start; }
+  .csr-event__side { position: sticky; top: calc(var(--csr-header-h) + 1.2rem); }
+}
+
+.csr-event__photo { margin: 0 0 1.6rem; }
+.csr-event__photo img {
+  width: 100%; border-radius: var(--csr-r-lg);
+  border: 1px solid var(--csr-border);
+}
+.csr-event__nodesc {
+  padding: 1rem 1.15rem; margin: 0;
+  font-size: var(--csr-fs-sm); color: var(--csr-text-muted);
+  background: var(--csr-surface-2);
+  border: 1px dashed var(--csr-border-strong);
+  border-radius: var(--csr-r);
+}
+
+.csr-event__facts {
+  margin: 0; padding: 1.2rem 1.35rem;
+  background: var(--csr-surface);
+  border: 1px solid var(--csr-border);
+  border-radius: var(--csr-r-lg);
+  display: grid; gap: 1rem;
+}
+.csr-event__facts > div { display: grid; gap: .2rem; }
+.csr-event__facts dt {
+  font-size: var(--csr-fs-label); font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--csr-text-muted);
+}
+.csr-event__facts dd { margin: 0; font-weight: 600; color: var(--csr-text); }
+.csr-event__facts dd a { color: var(--csr-accent-text); }
+.csr-event__addr { font-weight: 400; color: var(--csr-text-soft); font-size: var(--csr-fs-sm); }
+
+.csr-event__actions { display: grid; gap: .6rem; margin-top: 1rem; }
+.csr-event__actions .csr-btn { justify-content: center; }
+
+/* Alba na úvodní stránce — stejná karta jako v galerii, jen menší mřížka. */
+.csr-albums--home { margin-top: 0; }

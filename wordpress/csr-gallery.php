@@ -586,6 +586,74 @@ function csr_render_media( $id, $index ) {
 	unset( $titul );
 }
 
+/**
+ * Vykreslí jednu kartu alba.
+ *
+ * Používá ji stránka fotogalerie i sekce na úvodní stránce, ať je
+ * karta na obou místech stejná.
+ *
+ * @param WP_Post $album Album.
+ */
+function csr_render_album_card( $album ) {
+	$ids   = csr_album_items( $album->ID );
+	$casti = csr_album_split( $ids );
+	$obal  = csr_album_cover( $album->ID );
+	$datum = csr_album_date_label( $album->ID );
+	$misto = (string) get_post_meta( $album->ID, '_csr_album_place', true );
+	$slugy = wp_list_pluck( wp_get_post_terms( $album->ID, 'csr_album_type' ), 'slug' );
+
+	// Prázdné album ukážeme jen správci, ať to může spravit.
+	if ( ! $ids && ! current_user_can( 'edit_posts' ) ) {
+		return;
+	}
+	?>
+	<li class="csr-album csr-reveal<?php echo $ids ? '' : ' csr-album--empty'; ?>"
+		data-csr-item
+		data-csr-cat="<?php echo esc_attr( implode( ' ', $slugy ) ); ?>">
+		<a class="csr-album__link" href="<?php echo esc_url( get_permalink( $album->ID ) ); ?>">
+			<span class="csr-album__cover">
+				<?php if ( $obal ) : ?>
+					<?php
+					echo wp_get_attachment_image(
+						$obal,
+						'medium_large',
+						false,
+						array( 'alt' => '', 'loading' => 'lazy', 'class' => 'csr-album__img' )
+					);
+					?>
+				<?php else : ?>
+					<span class="csr-album__blank" aria-hidden="true"></span>
+				<?php endif; ?>
+				<?php if ( $casti['fotky'] || $casti['videa'] ) : ?>
+					<span class="csr-album__count">
+						<?php if ( $casti['fotky'] ) : ?>
+							<?php echo (int) count( $casti['fotky'] ); ?>&nbsp;foto
+						<?php endif; ?>
+						<?php if ( $casti['videa'] ) : ?>
+							<?php echo (int) count( $casti['videa'] ); ?>&nbsp;video
+						<?php endif; ?>
+					</span>
+				<?php endif; ?>
+			</span>
+			<span class="csr-album__body">
+				<span class="csr-album__title"><?php echo esc_html( get_the_title( $album->ID ) ); ?></span>
+				<span class="csr-album__meta">
+					<?php if ( $datum ) : ?>
+						<span><?php echo esc_html( $datum ); ?></span>
+					<?php endif; ?>
+					<?php if ( $misto ) : ?>
+						<span><?php echo esc_html( $misto ); ?></span>
+					<?php endif; ?>
+				</span>
+				<?php if ( ! $ids ) : ?>
+					<span class="csr-album__warn">Vidíte jen vy jako správce: album nemá žádné fotky.</span>
+				<?php endif; ?>
+			</span>
+		</a>
+	</li>
+	<?php
+}
+
 /* -------------------------------------------------------------------------
  * Hromadné vložení alb
  * ---------------------------------------------------------------------- */
@@ -730,8 +798,9 @@ function csr_albums_import_render() {
 				<tr>
 					<th scope="row"><label for="csr_albums_data">Alba</label></th>
 					<td>
+						<?php echo wp_kses_post( csr_import_seed_note( 'galerie' ) ); ?>
 						<textarea name="csr_albums_data" id="csr_albums_data" rows="12" class="large-text code"
-						          placeholder="Název alba|rubrika|datum|adresa1, adresa2, adresa3"></textarea>
+						          placeholder="Název alba|rubrika|datum|adresa1, adresa2, adresa3"><?php echo esc_textarea( csr_import_seed( 'galerie' ) ); ?></textarea>
 						<p class="description">
 							Jedno album na řádek. Rubrika je jedna z:
 							<?php echo esc_html( implode( ', ', array_keys( csr_album_types() ) ) ); ?>.

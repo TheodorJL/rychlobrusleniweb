@@ -76,64 +76,10 @@ foreach ( $csr_alba as $csr_a ) {
 
 			<ul class="csr-albums" data-csr-albums data-csr-stagger="55">
 				<?php
-				foreach ( $csr_alba as $csr_album ) :
-					$csr_ids    = csr_album_items( $csr_album->ID );
-					$csr_casti  = csr_album_split( $csr_ids );
-					$csr_obal   = csr_album_cover( $csr_album->ID );
-					$csr_datum  = csr_album_date_label( $csr_album->ID );
-					$csr_misto  = (string) get_post_meta( $csr_album->ID, '_csr_album_place', true );
-					$csr_slugy  = wp_list_pluck( wp_get_post_terms( $csr_album->ID, 'csr_album_type' ), 'slug' );
-
-					// Prázdné album ukážeme jen správci, ať to může spravit.
-					if ( ! $csr_ids && ! current_user_can( 'edit_posts' ) ) {
-						continue;
-					}
-					?>
-					<li class="csr-album csr-reveal<?php echo $csr_ids ? '' : ' csr-album--empty'; ?>"
-						data-csr-item
-						data-csr-cat="<?php echo esc_attr( implode( ' ', $csr_slugy ) ); ?>">
-						<a class="csr-album__link" href="<?php echo esc_url( get_permalink( $csr_album->ID ) ); ?>">
-							<span class="csr-album__cover">
-								<?php if ( $csr_obal ) : ?>
-									<?php
-									echo wp_get_attachment_image(
-										$csr_obal,
-										'medium_large',
-										false,
-										array( 'alt' => '', 'loading' => 'lazy', 'class' => 'csr-album__img' )
-									);
-									?>
-								<?php else : ?>
-									<span class="csr-album__blank" aria-hidden="true"></span>
-								<?php endif; ?>
-								<?php if ( $csr_casti['fotky'] || $csr_casti['videa'] ) : ?>
-									<span class="csr-album__count">
-										<?php if ( $csr_casti['fotky'] ) : ?>
-											<?php echo (int) count( $csr_casti['fotky'] ); ?>&nbsp;foto
-										<?php endif; ?>
-										<?php if ( $csr_casti['videa'] ) : ?>
-											<?php echo (int) count( $csr_casti['videa'] ); ?>&nbsp;video
-										<?php endif; ?>
-									</span>
-								<?php endif; ?>
-							</span>
-							<span class="csr-album__body">
-								<span class="csr-album__title"><?php echo esc_html( get_the_title( $csr_album->ID ) ); ?></span>
-								<span class="csr-album__meta">
-									<?php if ( $csr_datum ) : ?>
-										<span><?php echo esc_html( $csr_datum ); ?></span>
-									<?php endif; ?>
-									<?php if ( $csr_misto ) : ?>
-										<span><?php echo esc_html( $csr_misto ); ?></span>
-									<?php endif; ?>
-								</span>
-								<?php if ( ! $csr_ids ) : ?>
-									<span class="csr-album__warn">Vidíte jen vy jako správce: album nemá žádné fotky.</span>
-								<?php endif; ?>
-							</span>
-						</a>
-					</li>
-				<?php endforeach; ?>
+				foreach ( $csr_alba as $csr_album ) {
+					csr_render_album_card( $csr_album );
+				}
+				?>
 			</ul>
 			<p class="csr-news__empty" data-csr-albumempty hidden>V téhle rubrice zatím žádné album není.</p>
 

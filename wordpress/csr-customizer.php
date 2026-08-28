@@ -328,7 +328,7 @@ function csr_settings_registry() {
 			'csr_gallery_show'    => array( 'type' => 'checkbox', 'label' => 'Zobrazit sekci', 'default' => true ),
 			'csr_gallery_eyebrow' => array( 'type' => 'text', 'label' => 'Nadřazený popisek', 'default' => 'Ze závodů' ),
 			'csr_gallery_title'   => array( 'type' => 'text', 'label' => 'Nadpis', 'default' => 'Fotogalerie' ),
-			'csr_gallery_count'   => array( 'type' => 'number', 'label' => 'Kolik fotek', 'default' => 6, 'min' => 3, 'max' => 12 ),
+			'csr_gallery_count'   => array( 'type' => 'number', 'label' => 'Kolik alb zobrazit', 'desc' => 'Ukazují se alba z Fotogalerie, ne obrázky z knihovny médií.', 'default' => 6, 'min' => 1, 'max' => 12 ),
 			'csr_gallery_url'     => array( 'type' => 'url', 'label' => 'Odkaz na celou galerii', 'default' => '/galerie-1-1/' ),
 		),
 	);
@@ -531,6 +531,30 @@ function csr_settings_registry() {
 					1 => array( 'label' => 'International Skating Union (ISU)', 'url' => 'https://www.isu.org' ),
 				)
 			)
+		),
+	);
+
+	/* ---- Hledání a závody ---- */
+	$sections['hledani'] = array(
+		'title'  => 'Hledání a detail závodu',
+		'desc'   => 'Výsledky hledání ani detail závodu nejsou stránka, takže se k nim šablona nepřiřazuje ručně — zapíná se tady.',
+		'fields' => array(
+			'csr_search_enable' => array(
+				'type'    => 'checkbox',
+				'label'   => 'Výsledky hledání v novém vzhledu',
+				'default' => true,
+			),
+			'csr_search_lead' => array(
+				'type'  => 'textarea',
+				'label' => 'Text nad výsledky hledání',
+				'desc'  => 'Nepovinné.',
+			),
+			'csr_event_enable' => array(
+				'type'    => 'checkbox',
+				'label'   => 'Detail závodu v novém vzhledu',
+				'desc'    => 'Týká se závodů z pluginu The Events Calendar.',
+				'default' => true,
+			),
 		),
 	);
 

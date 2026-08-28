@@ -56,6 +56,9 @@ require_once __DIR__ . '/csr-landing.php';
 // Čísla na úvodní stránce.
 require_once __DIR__ . '/csr-stats.php';
 
+// Hledání a detail závodu.
+require_once __DIR__ . '/csr-search.php';
+
 const CSR_HOME_TEMPLATE   = 'page-csr-home.php';
 const CSR_ROSTER_TEMPLATE = 'page-csr-roster.php';
 const CSR_EVENTS_TEMPLATE = 'page-csr-events.php';
@@ -71,6 +74,8 @@ const CSR_CONTACT_TEMPLATE = 'page-csr-contact.php';
 const CSR_RESULTS_TEMPLATE = 'page-csr-results.php';
 const CSR_RECORDS_TEMPLATE = 'page-csr-records.php';
 const CSR_LANDING_TEMPLATE = 'page-csr-landing.php';
+const CSR_SEARCH_TEMPLATE  = 'search.php';
+const CSR_EVENT_TEMPLATE   = 'single-csr-event.php';
 
 /**
  * Všechny šablony z tohoto balíčku. Podle nich se rozhoduje, kdy načíst styly.
@@ -233,7 +238,7 @@ function csr_templates() {
 function csr_all_template_files() {
 	return array_merge(
 		csr_templates(),
-		array( CSR_ARTICLE_TEMPLATE, CSR_ALBUM_TEMPLATE )
+		array( CSR_ARTICLE_TEMPLATE, CSR_ALBUM_TEMPLATE, CSR_SEARCH_TEMPLATE, CSR_EVENT_TEMPLATE )
 	);
 }
 
@@ -673,4 +678,57 @@ function csr_event_day_label( $start, $end ) {
 	}
 
 	return $d1 . '–' . $d2;
+}
+
+/**
+ * Načte připravená data pro hromadné vložení.
+ *
+ * Soubory leží v šabloně ve složce data/import/. Formuláře se jimi
+ * předvyplní, aby se do nich nemuselo pokaždé kopírovat odjinud —
+ * všechna hromadná vložení jdou pustit znovu, jen doplní, co chybí.
+ *
+ * @param string $jmeno Název souboru bez přípony, např. „kluby".
+ * @return string Obsah souboru, nebo prázdný řetězec.
+ */
+function csr_import_seed( $jmeno ) {
+	$jmeno = preg_replace( '/[^a-z0-9-]/', '', (string) $jmeno );
+	if ( '' === $jmeno ) {
+		return '';
+	}
+
+	$cesta = __DIR__ . '/data/import/' . $jmeno . '.txt';
+	if ( ! is_readable( $cesta ) ) {
+		return '';
+	}
+
+	$obsah = file_get_contents( $cesta ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+	return false === $obsah ? '' : $obsah;
+}
+
+/**
+ * Vysvětlivka nad předvyplněným formulářem.
+ *
+ * @param string $jmeno Název souboru bez přípony.
+ * @return string HTML, nebo prázdný řetězec.
+ */
+function csr_import_seed_note( $jmeno ) {
+	$data = csr_import_seed( $jmeno );
+	if ( '' === $data ) {
+		return '';
+	}
+
+	$radku = 0;
+	foreach ( explode( "\n", $data ) as $radek ) {
+		$radek = trim( $radek );
+		if ( '' !== $radek && '#' !== $radek[0] ) {
+			$radku++;
+		}
+	}
+	if ( ! $radku ) {
+		return '';
+	}
+
+	return '<div class="notice notice-info inline"><p>Pole je předvyplněné daty ze starého webu — <strong>'
+		. (int) $radku . '</strong> ' . ( 1 === $radku ? 'položka' : ( $radku < 5 ? 'položky' : 'položek' ) )
+		. '. Stačí kliknout na tlačítko pod ním. Vložení jde pustit i opakovaně, jen doplní, co chybí.</p></div>';
 }
