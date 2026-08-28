@@ -159,9 +159,47 @@ function csr_templates() {
 }
 
 /**
+ * Všechny soubory šablon z balíčku, včetně těch, které se nepřiřazují
+ * stránce, ale nasazují se filtrem.
+ *
+ * @return array
+ */
+function csr_all_template_files() {
+	return array_merge(
+		csr_templates(),
+		array( CSR_ARTICLE_TEMPLATE, CSR_ALBUM_TEMPLATE )
+	);
+}
+
+/**
+ * Zapamatuje si, kterou šablonu WordPress nakonec vybral.
+ *
+ * Běží dřív než wp_head(), takže se podle toho dá rozhodnout o načtení
+ * stylů. Bez toho jsme se ptali jen is_page_template(), což platí pouze
+ * pro stránky — na archivu akcí z The Events Calendar, který stránka
+ * není, se proto styly nenačetly a zůstal z něj holý seznam odkazů,
+ * přestože hlavička i patička se vykreslily.
+ *
+ * @param string $template Cesta k vybrané šabloně.
+ * @return string Nezměněná cesta.
+ */
+function csr_remember_template( $template ) {
+	$GLOBALS['csr_current_template'] = $template ? basename( $template ) : '';
+	return $template;
+}
+// Priorita 999: až za našimi vlastními přesměrováními (článek, album)
+// i za pluginy, ať vidíme skutečně poslední volbu.
+add_filter( 'template_include', 'csr_remember_template', 999 );
+
+/**
  * Běží právě některá z našich šablon?
  */
 function csr_is_csr_template() {
+	$aktualni = isset( $GLOBALS['csr_current_template'] ) ? $GLOBALS['csr_current_template'] : '';
+	if ( $aktualni && in_array( $aktualni, csr_all_template_files(), true ) ) {
+		return true;
+	}
+	// Záloha pro případ, že se filtr nestihl uplatnit.
 	return is_page_template( csr_templates() ) || csr_is_article_view() || is_singular( 'csr_album' );
 }
 const CSR_HOME_VERSION  = '1.0.0';
