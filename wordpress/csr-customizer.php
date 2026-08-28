@@ -111,7 +111,8 @@ function csr_settings_registry() {
 			'csr_logo_height' => array(
 				'type'    => 'number',
 				'label'   => 'Výška loga v hlavičce (px)',
-				'default' => 40,
+				'desc'    => 'Hlavička se logu přizpůsobí. Nad 60 px roste i ona.',
+				'default' => 60,
 				'min'     => 20,
 				'max'     => 90,
 			),

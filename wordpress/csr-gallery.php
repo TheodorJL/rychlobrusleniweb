@@ -585,3 +585,164 @@ function csr_render_media( $id, $index ) {
 	<?php
 	unset( $titul );
 }
+
+/* -------------------------------------------------------------------------
+ * Hromadné vložení alb
+ * ---------------------------------------------------------------------- */
+
+/**
+ * Podstránka pro hromadné založení alb.
+ */
+function csr_albums_import_page() {
+	add_submenu_page(
+		'edit.php?post_type=csr_album',
+		'Hromadné přidání',
+		'Hromadné přidání',
+		'edit_posts',
+		'csr-albums-import',
+		'csr_albums_import_render'
+	);
+}
+add_action( 'admin_menu', 'csr_albums_import_page' );
+
+/**
+ * Formulář hromadného přidání alb.
+ *
+ * Fotky se nenahrávají — hledají se v knihovně médií podle adresy.
+ * Obrázky ze starého webu tam už jsou, takže se nic nekopíruje
+ * a nevznikají duplikáty.
+ */
+function csr_albums_import_render() {
+	if ( ! current_user_can( 'edit_posts' ) ) {
+		wp_die( 'Na tohle nemáte oprávnění.' );
+	}
+
+	$zalozeno = 0;
+	$fotek    = 0;
+	$nenalez  = array();
+
+	if ( isset( $_POST['csr_albums_import_nonce'] ) && wp_verify_nonce( sanitize_key( $_POST['csr_albums_import_nonce'] ), 'csr_albums_import' ) ) {
+		csr_seed_album_types();
+		$raw = isset( $_POST['csr_albums_data'] ) ? sanitize_textarea_field( wp_unslash( $_POST['csr_albums_data'] ) ) : '';
+
+		$poradi = 0;
+		foreach ( preg_split( '/\R/', $raw ) as $line ) {
+			$line = trim( $line );
+			if ( '' === $line || 0 === strpos( $line, '#' ) ) {
+				continue;
+			}
+
+			$parts  = array_map( 'trim', explode( '|', $line ) );
+			$nazev  = $parts[0];
+			$rubrika = isset( $parts[1] ) ? sanitize_title( $parts[1] ) : '';
+			$datum  = isset( $parts[2] ) ? $parts[2] : '';
+			$fotky  = isset( $parts[3] ) ? $parts[3] : '';
+
+			if ( '' === $nazev ) {
+				continue;
+			}
+
+			// Album stejného názvu nezakládáme podruhé.
+			$existuje = get_posts(
+				array(
+					'post_type'      => 'csr_album',
+					'title'          => $nazev,
+					'post_status'    => 'any',
+					'posts_per_page' => 1,
+					'fields'         => 'ids',
+				)
+			);
+			if ( $existuje ) {
+				continue;
+			}
+
+			$poradi += 10;
+			$post_id = wp_insert_post(
+				array(
+					'post_type'   => 'csr_album',
+					'post_title'  => $nazev,
+					'post_status' => 'publish',
+					'menu_order'  => $poradi,
+				)
+			);
+			if ( is_wp_error( $post_id ) || ! $post_id ) {
+				continue;
+			}
+			$zalozeno++;
+
+			if ( $datum ) {
+				update_post_meta( $post_id, '_csr_album_date', sanitize_text_field( $datum ) );
+			}
+			if ( $rubrika && term_exists( $rubrika, 'csr_album_type' ) ) {
+				wp_set_object_terms( $post_id, $rubrika, 'csr_album_type' );
+			}
+
+			// Adresy fotek → ID příloh z knihovny médií.
+			$ids = array();
+			foreach ( preg_split( '/\s*,\s*/', $fotky ) as $url ) {
+				$url = trim( $url );
+				if ( '' === $url ) {
+					continue;
+				}
+				$id = csr_attachment_from_url( $url );
+				if ( $id ) {
+					$ids[] = $id;
+					$fotek++;
+				} else {
+					$nenalez[] = $url;
+				}
+			}
+			$ids = array_values( array_unique( $ids ) );
+			if ( $ids ) {
+				update_post_meta( $post_id, '_csr_album_items', implode( ',', $ids ) );
+				// První fotka poslouží jako náhled alba.
+				set_post_thumbnail( $post_id, $ids[0] );
+			}
+		}
+	}
+	?>
+	<div class="wrap">
+		<h1>Hromadné přidání alb</h1>
+
+		<?php if ( $zalozeno ) : ?>
+			<div class="notice notice-success"><p>
+				Založeno alb: <strong><?php echo (int) $zalozeno; ?></strong>,
+				přiřazeno fotek z knihovny médií: <strong><?php echo (int) $fotek; ?></strong>.
+			</p></div>
+		<?php endif; ?>
+
+		<?php if ( $nenalez ) : ?>
+			<div class="notice notice-warning"><p>
+				<strong><?php echo count( $nenalez ); ?></strong>
+				<?php echo 1 === count( $nenalez ) ? 'fotka se v knihovně médií nenašla' : 'fotek se v knihovně médií nenašlo'; ?>.
+				Doplňte je u alba ručně. Prvních deset:<br>
+				<code style="display:block;white-space:pre-wrap"><?php echo esc_html( implode( "\n", array_slice( $nenalez, 0, 10 ) ) ); ?></code>
+			</p></div>
+		<?php endif; ?>
+
+		<p>Fotky se <strong>nenahrávají</strong> — hledají se v knihovně médií podle adresy.
+			Obrázky ze starého webu v ní už jsou, takže se nic nekopíruje a nevznikají duplikáty.
+			Když je na stránce odkaz na zmenšeninu, zkusí se i původní soubor.</p>
+
+		<form method="post">
+			<?php wp_nonce_field( 'csr_albums_import', 'csr_albums_import_nonce' ); ?>
+			<table class="form-table">
+				<tr>
+					<th scope="row"><label for="csr_albums_data">Alba</label></th>
+					<td>
+						<textarea name="csr_albums_data" id="csr_albums_data" rows="12" class="large-text code"
+						          placeholder="Název alba|rubrika|datum|adresa1, adresa2, adresa3"></textarea>
+						<p class="description">
+							Jedno album na řádek. Rubrika je jedna z:
+							<?php echo esc_html( implode( ', ', array_keys( csr_album_types() ) ) ); ?>.
+							Datum ve tvaru <code>2024-11-03</code>. Adresy fotek oddělte čárkami.
+							Album se stejným názvem se přeskočí, takže vložení jde spustit znovu.
+						</p>
+					</td>
+				</tr>
+			</table>
+			<?php submit_button( 'Založit alba' ); ?>
+		</form>
+	</div>
+	<?php
+}

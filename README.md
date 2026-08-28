@@ -941,7 +941,7 @@ s mřížkou na začátku se přeskočí, takže je můžete vložit i s hlavič
 | `dokumenty.txt` | Dokumenty → Hromadné přidání | 23 |
 | `infofeed.txt` | InfoFeed → Hromadné přidání | 84 |
 | `vysledky-tabulky.txt` | Výsledky → Hromadné přidání | 2 |
-| `alba.txt` | *jen soupis*, alba se zakládají ručně | 18 |
+| `galerie.txt` | Fotogalerie → Hromadné přidání | 7 alb / 135 fotek |
 
 ### Co se vloží samo a co ne
 
@@ -976,8 +976,14 @@ s mřížkou na začátku se přeskočí, takže je můžete vložit i s hlavič
   v názvu. Na původní stránce datum zveřejnění nikde nebylo. Vypsat den
   importu by bylo horší než nevypsat nic: u všech zpráv by stálo totéž.
   Až datum doplníte (v poli *Publikováno* u zprávy), vypíše se.
-* **Fotky** — vložit hromadně nejdou, vybírají se z knihovny médií.
-  `alba.txt` je jen soupis toho, co na starém webu bylo.
+* **Fotogalerie** — 7 alb a 135 fotek. Fotky se **nenahrávají**: hledají
+  se v knihovně médií podle adresy, stejně jako u reprezentantů. První
+  fotka se použije jako náhled alba. Album stejného názvu se přeskočí,
+  takže vložení jde spustit znovu.
+
+  Čtyři alba na starém webu měla jen video, ne fotky — ta v souboru nejsou
+  a přidáte je ručně (*Short track v Čechách*, *MS na dlouhé dráze
+  Heerenveen*, *SP 2022 Stavanger*, *SP juniorů 2022 Innsbruck*).
 
 ### Než to vložíte
 

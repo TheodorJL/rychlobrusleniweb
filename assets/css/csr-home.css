@@ -91,7 +91,9 @@
   --csr-t:         .32s;
   --csr-t-slow:    .6s;
 
-  --csr-header-h: 74px;
+  /* Hlavička se přizpůsobí logu: nikdy není nižší než logo i s odsazením,
+     ať se při větším logu neořízne ani nepřeteče. */
+  --csr-header-h: max(74px, calc(var(--csr-logo-h, 60px) + 26px));
 
   color-scheme: light;
 }
@@ -1585,7 +1587,7 @@ body { margin: 0; background: var(--csr-bg); }
    .csr-brand__logo — logo by se pak vykreslilo v původní velikosti,
    u SVG klidně přes celou obrazovku. */
 .csr-page .csr-brand__logo {
-  height: var(--csr-logo-h, 40px);
+  height: var(--csr-logo-h, 60px);
   width: auto;
   max-width: min(240px, 42vw);
   object-fit: contain;
@@ -1595,10 +1597,10 @@ body { margin: 0; background: var(--csr-bg); }
    jen pro jednobarevná loga — barevné logo by se převedlo na bílou plochu. */
 .csr-brand--invert .csr-brand__logo { filter: brightness(0) invert(1); }
 
-.csr-page .csr-footer__brand .csr-brand__logo { height: calc(var(--csr-logo-h, 40px) * 1.15); }
+.csr-page .csr-footer__brand .csr-brand__logo { height: calc(var(--csr-logo-h, 60px) * 1.15); }
 
 @media (max-width: 480px) {
-  .csr-page .csr-brand__logo { height: calc(var(--csr-logo-h, 40px) * .85); max-width: 46vw; }
+  .csr-page .csr-brand__logo { height: calc(var(--csr-logo-h, 60px) * .85); max-width: 46vw; }
 }
 
 /* Loga partnerů z knihovny médií */
