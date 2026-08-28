@@ -3050,3 +3050,147 @@ body.csr-lb-open { overflow: hidden; }
    jen poslední položky lišty a u čtyřúrovňového menu to nestačí. */
 .csr-nav__list > li.csr-flip > .sub-menu { left: auto; right: 0; }
 .csr-nav .sub-menu li.csr-flip > .sub-menu { left: auto; right: calc(100% + .35rem); }
+
+/* ==========================================================================
+   32. NÁBOROVÁ STRÁNKA
+   -------------------------------------------------------------------------- */
+
+.csr-pagehead--landing .csr-pagehead__title { max-width: 20ch; }
+.csr-landing__badge { margin-bottom: .9rem; }
+
+.csr-landing {
+  max-width: var(--csr-maxw-text);
+  margin-inline: auto;
+  font-size: var(--csr-fs-lead);
+  line-height: 1.7;
+  color: var(--csr-text-soft);
+}
+.csr-landing > *:first-child { margin-top: 0; }
+.csr-landing p { margin: 0 0 1.1em; }
+.csr-landing strong { color: var(--csr-text); }
+
+.csr-landing ul { margin: 0 0 1.6em; padding: 0; list-style: none; }
+.csr-landing ul li {
+  position: relative;
+  padding: .55rem 0 .55rem 2rem;
+  border-bottom: 1px solid var(--csr-border);
+}
+.csr-landing ul li:last-child { border-bottom: 0; }
+.csr-landing ul li p { margin: 0; }
+/* Odrážka jako fajfka — jde o seznam toho, co člověk dostane. */
+.csr-landing ul li::before {
+  content: "";
+  position: absolute; left: .35rem; top: 1.1em;
+  width: .55rem; height: .3rem;
+  border-left: 2px solid var(--csr-accent);
+  border-bottom: 2px solid var(--csr-accent);
+  transform: rotate(-45deg);
+}
+
+/* ---- Vložený formulář SmartEmailing ----
+   Formulář si nese vlastní styly, které míří na #se-webform-NN. Proti
+   takové specificitě se z jedné třídy vyhrát nedá, proto tu jsou
+   !important — jinak by na tmavé stránce zůstal bílý obdélník
+   s pevnou šířkou 400 px. */
+.csr-landing .se-webform,
+.csr-landing form[class*="se-webform"] {
+  width: 100% !important;
+  max-width: 560px !important;
+  margin: 2.5rem auto 0 !important;
+  background: var(--csr-surface) !important;
+  border: 1px solid var(--csr-border) !important;
+  border-radius: var(--csr-r-lg) !important;
+  box-shadow: var(--csr-shadow) !important;
+  font-family: var(--csr-font-body) !important;
+  color: var(--csr-text) !important;
+}
+
+.csr-landing .se-webform .se-header h3 {
+  font-family: var(--csr-font-display) !important;
+  font-size: var(--csr-fs-h3) !important;
+  text-transform: uppercase; letter-spacing: .01em;
+  color: var(--csr-text) !important;
+  padding: 1.6rem 1.6rem .3rem !important;
+}
+.csr-landing .se-webform .se-text p {
+  color: var(--csr-text-soft) !important;
+  font-size: var(--csr-fs-sm) !important;
+  padding: .4rem 1.6rem 1rem !important;
+}
+.csr-landing .se-webform .se-body ul { margin: 0 1.6rem !important; }
+.csr-landing .se-webform .se-body ul li { border-bottom: 0; padding: .45rem 0 !important; }
+.csr-landing .se-webform .se-body ul li::before { content: none; }
+
+.csr-landing .se-webform .se-body label {
+  font-size: var(--csr-fs-label) !important;
+  font-weight: 700 !important;
+  letter-spacing: .05em; text-transform: uppercase;
+  color: var(--csr-text-muted) !important;
+}
+.csr-landing .se-webform input[type="text"] {
+  width: 100% !important;
+  padding: .7rem .85rem !important;
+  font-family: inherit !important;
+  font-size: var(--csr-fs-body) !important;
+  font-weight: 500 !important;
+  color: var(--csr-text) !important;
+  background: var(--csr-surface-2) !important;
+  border: 1px solid var(--csr-border-strong) !important;
+  border-radius: var(--csr-r-sm) !important;
+}
+.csr-landing .se-webform input[type="text"]:focus {
+  outline: 2px solid var(--csr-accent);
+  outline-offset: 1px;
+  border-color: var(--csr-accent) !important;
+}
+
+/* Souhlas se zpracováním údajů. Na původní stránce to byl jeden dlouhý
+   odstavec bez členění — tady aspoň zmenšíme a odsadíme, ať je zřejmé,
+   že jde o poučení, a ať se dá přeskočit očima. */
+.csr-landing .se-webform .se-webform-primary-purpose {
+  border-top: 1px solid var(--csr-border);
+  border-bottom: 0 !important;
+  margin-top: 1rem !important;
+  padding: 1rem 0 0 !important;
+  max-height: 11em; overflow-y: auto;
+}
+.csr-landing .se-webform .se-webform-primary-purpose span {
+  font-size: var(--csr-fs-xs) !important;
+  line-height: 1.55;
+  color: var(--csr-text-muted) !important;
+  white-space: pre-line;
+}
+
+.csr-landing .se-webform .se-submit { padding: 1.2rem 1.6rem 1.7rem !important; }
+.csr-landing .se-webform .se-submit button {
+  width: 100%;
+  padding: .85rem 1.2rem !important;
+  font-family: var(--csr-font-display) !important;
+  font-size: 1.02rem !important; font-weight: 700 !important;
+  letter-spacing: .02em; text-transform: uppercase;
+  color: #fff !important;
+  background: var(--csr-grad-ice) !important;
+  border-radius: var(--csr-r-pill) !important;
+  box-shadow: var(--csr-shadow-ice);
+  transition: transform .2s var(--csr-ease), box-shadow .2s;
+}
+.csr-landing .se-webform .se-submit button:hover {
+  transform: translateY(-2px);
+}
+.csr-landing .se-webform .se-submit button:focus-visible {
+  outline: 3px solid var(--csr-accent); outline-offset: 3px;
+}
+
+.csr-landing .se-webform ul.se-errors li { border-radius: var(--csr-r-sm) !important; }
+
+@media (max-width: 560px) {
+  .csr-landing .se-webform .se-header h3,
+  .csr-landing .se-webform .se-text p { padding-inline: 1.1rem !important; }
+  .csr-landing .se-webform .se-body ul { margin-inline: 1.1rem !important; }
+  .csr-landing .se-webform .se-submit { padding-inline: 1.1rem !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .csr-landing .se-webform .se-submit button { transition: none; }
+  .csr-landing .se-webform .se-submit button:hover { transform: none; }
+}

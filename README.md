@@ -949,9 +949,19 @@ s mřížkou na začátku se přeskočí, takže je můžete vložit i s hlavič
   *Web klubu* nezobrazí; doplňte ho ručně.
 * **Dokumenty** — vloží se název a odkaz. Rubriku vyberete u každého
   dokumentu zvlášť, jinak se vypíšou všechny pohromadě.
-* **Reprezentanti** — hromadné vložení je v *Reprezentanti → Hromadné
-  přidání*, formát `Jméno | rok narození | klub | role`. Soupisky ze starého
-  webu jsem nedostal, tenhle soubor proto v balíčku není.
+* **Reprezentanti** — 223 osob z 26 soupisek. Formát
+  `Jméno|rok|klub|role|sezóna|tým|adresa fotky`. Sezóna a tým jsou na
+  každém řádku, takže se vloží všechny soupisky najednou; výběr nad polem
+  platí jen pro řádky, kde chybí.
+
+  **Fotky se přiřadí samy** — hledají se v knihovně médií podle adresy,
+  nic se nestahuje ani nekopíruje. Na stránkách bývá odkaz na zmenšeninu
+  (`…-450x600.jpg`), v knihovně je původní soubor, takže se rozměr na konci
+  názvu odřízne a zkusí se znovu. Kde se fotka nenajde, administrace to
+  vypíše jménem.
+
+  Kdo už v databázi je, znovu se nezaloží — jen se přiřadí do další sezóny
+  a týmu a doplní fotka, pokud ji nemá.
 * **InfoFeed** — 84 zpráv ze starého webu i s odkazy. Formát:
   `Název|odkaz|popisek|2. odkaz|popisek|3. odkaz|popisek|datum`.
   Šest zpráv má dva odkazy (článek a k němu výsledkovou listinu),

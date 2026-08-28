@@ -339,6 +339,48 @@ function csr_bulk_add_menu() {
 add_action( 'admin_menu', 'csr_bulk_add_menu' );
 
 /**
+ * Najde v knihovně médií přílohu podle adresy obrázku.
+ *
+ * Na stránkách bývá odkaz na zmenšeninu („…-450x600.jpg"), zatímco
+ * v knihovně je uložený původní soubor. Proto zkoušíme i adresu
+ * bez rozměru na konci a obě varianty protokolu.
+ *
+ * @param string $url Adresa obrázku.
+ * @return int ID přílohy, nebo 0.
+ */
+function csr_attachment_from_url( $url ) {
+	$url = trim( (string) $url );
+	if ( '' === $url ) {
+		return 0;
+	}
+
+	$kandidati = array( $url );
+
+	// Rozměr odřízneme jen na konci názvu, těsně před příponou —
+	// uvnitř názvu může být „-300x300" součástí původního souboru.
+	$bez_rozmeru = preg_replace( '#-\d+x\d+(\.[A-Za-z0-9]+)$#', '$1', $url );
+	if ( $bez_rozmeru !== $url ) {
+		$kandidati[] = $bez_rozmeru;
+	}
+
+	foreach ( $kandidati as $adresa ) {
+		if ( 0 === strpos( $adresa, 'http://' ) ) {
+			$kandidati[] = 'https://' . substr( $adresa, 7 );
+		} elseif ( 0 === strpos( $adresa, 'https://' ) ) {
+			$kandidati[] = 'http://' . substr( $adresa, 8 );
+		}
+	}
+
+	foreach ( array_unique( $kandidati ) as $adresa ) {
+		$id = attachment_url_to_postid( $adresa );
+		if ( $id ) {
+			return (int) $id;
+		}
+	}
+	return 0;
+}
+
+/**
  * Najde termín podle názvu, a když neexistuje, založí ho.
  *
  * Sezóny i týmy jsou hierarchické taxonomie — u těch wp_set_object_terms()
@@ -395,6 +437,7 @@ function csr_parse_roster_line( $line ) {
 	// jde vložit i několik soupisek najednou, ne jednu po druhé.
 	$season_name = isset( $parts[4] ) ? trim( $parts[4] ) : '';
 	$squad_name  = isset( $parts[5] ) ? trim( $parts[5] ) : '';
+	$foto        = isset( $parts[6] ) ? trim( $parts[6] ) : '';
 
 	// Roli poznáme i ze slova, ne jen z klíče.
 	if ( ! array_key_exists( $role, csr_athlete_roles() ) ) {
@@ -420,6 +463,7 @@ function csr_parse_roster_line( $line ) {
 		'role'   => $role,
 		'season' => $season_name,
 		'squad'  => $squad_name,
+		'foto'   => $foto,
 	);
 }
 
@@ -440,6 +484,8 @@ function csr_bulk_add_render() {
 		$raw    = isset( $_POST['csr_roster'] ) ? sanitize_textarea_field( wp_unslash( $_POST['csr_roster'] ) ) : '';
 		$season = isset( $_POST['csr_season_id'] ) ? absint( $_POST['csr_season_id'] ) : 0;
 		$squad  = isset( $_POST['csr_squad_id'] ) ? absint( $_POST['csr_squad_id'] ) : 0;
+		$fotek     = 0;
+		$bez_fotky = array();
 		$order  = 0;
 
 		foreach ( preg_split( '/\R/', $raw ) as $line ) {
@@ -492,6 +538,22 @@ function csr_bulk_add_render() {
 			if ( $pouzit_squad ) {
 				wp_set_object_terms( $post_id, array( $pouzit_squad ), CSR_TAX_SQUAD, true );
 			}
+
+			/*
+			 * Fotku hledáme v knihovně médií podle adresy. Nic se nestahuje
+			 * ani nekopíruje — obrázky ze starého webu tam už jsou.
+			 * Existujícímu reprezentantovi fotku nepřepisujeme.
+			 */
+			if ( ! empty( $row['foto'] ) && ! has_post_thumbnail( $post_id ) ) {
+				$foto_id = csr_attachment_from_url( $row['foto'] );
+				if ( $foto_id ) {
+					set_post_thumbnail( $post_id, $foto_id );
+					$fotek++;
+				} else {
+					$bez_fotky[] = $row['name'];
+				}
+			}
+
 			$order++;
 		}
 	}
@@ -506,6 +568,20 @@ function csr_bulk_add_render() {
 			<div class="notice notice-success"><p>
 				Přidáno <strong><?php echo count( $done ); ?></strong>:
 				<?php echo esc_html( implode( ', ', $done ) ); ?>
+			</p></div>
+		<?php endif; ?>
+
+		<?php if ( $fotek ) : ?>
+			<div class="notice notice-success"><p>
+				Přiřazeno fotek z knihovny médií: <strong><?php echo (int) $fotek; ?></strong>.
+			</p></div>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $bez_fotky ) ) : ?>
+			<div class="notice notice-warning"><p>
+				U <strong><?php echo count( $bez_fotky ); ?></strong> se fotka v knihovně médií nenašla —
+				doplňte ji u nich ručně jako <em>Náhledový obrázek</em>:
+				<?php echo esc_html( implode( ', ', $bez_fotky ) ); ?>
 			</p></div>
 		<?php endif; ?>
 

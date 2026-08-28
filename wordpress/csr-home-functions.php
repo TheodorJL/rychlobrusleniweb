@@ -50,6 +50,9 @@ require_once __DIR__ . '/csr-results.php';
 // České rekordy.
 require_once __DIR__ . '/csr-records.php';
 
+// Náborová stránka.
+require_once __DIR__ . '/csr-landing.php';
+
 const CSR_HOME_TEMPLATE   = 'page-csr-home.php';
 const CSR_ROSTER_TEMPLATE = 'page-csr-roster.php';
 const CSR_EVENTS_TEMPLATE = 'page-csr-events.php';
@@ -64,6 +67,7 @@ const CSR_ALBUM_TEMPLATE   = 'single-csr-album.php';
 const CSR_CONTACT_TEMPLATE = 'page-csr-contact.php';
 const CSR_RESULTS_TEMPLATE = 'page-csr-results.php';
 const CSR_RECORDS_TEMPLATE = 'page-csr-records.php';
+const CSR_LANDING_TEMPLATE = 'page-csr-landing.php';
 
 /**
  * Všechny šablony z tohoto balíčku. Podle nich se rozhoduje, kdy načíst styly.
@@ -182,6 +186,7 @@ function csr_templates() {
 		CSR_CONTACT_TEMPLATE,
 		CSR_RESULTS_TEMPLATE,
 		CSR_RECORDS_TEMPLATE,
+		CSR_LANDING_TEMPLATE,
 	);
 }
 
