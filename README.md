@@ -853,6 +853,27 @@ u kteréhokoli jiného pluginu.
 Bez pluginu to jde taky — stáhnout ZIP z Releases a nahrát ho stejně jako
 poprvé. WordPress se zeptá, jestli má stávající šablonu nahradit.
 
+### Pluginy, které tahají přímo z Gitu
+
+Některé pluginy (Deployer for Git a podobné) si stáhnou celou větev
+a nasypou ji do složky šablony. Pro ty je připravená větev **`sablona`**:
+obsahuje hotovou šablonu rovnou v kořeni, takže tam `style.css` leží tam,
+kde ho WordPress hledá.
+
+| Nastavení pluginu | Hodnota |
+| --- | --- |
+| Repozitář | `https://github.com/TheodorJL/rychlobrusleniweb` |
+| Větev | `sablona` |
+| Podsložka v repozitáři | žádná — šablona je v kořeni větve |
+| Cíl | šablona (theme), složka `csr-child` |
+
+**Do `sablona` nikdy nic nepište.** Vzniká sama při každém pushi do `main`
+a pokaždé se celá přepíše. Upravuje se `main`.
+
+Větev `main` se pro tenhle účel nehodí — leží v ní soubory roztříděné podle
+toho, k čemu slouží (`theme/`, `wordpress/`, `assets/`, `preview/`, `data/`),
+takže v kořeni žádné `style.css` není a WordPress by ji jako šablonu nepoznal.
+
 ### Číslo verze
 
 Řeší se samo: poslední část je pořadové číslo běhu (`1.0.7`, `1.0.8`, …).

@@ -67,6 +67,44 @@ jobs:
           path: build/csr-child
           retention-days: 30
 
+
+  # ────────────────────────────────────────────────────────────────
+  # Větev se složenou šablonou.
+  #
+  # V main leží soubory roztříděné podle toho, k čemu slouží — v kořeni
+  # tedy není style.css a WordPress by repozitář jako šablonu nepoznal.
+  # Tahle větev obsahuje hotovou šablonu rovnou v kořeni, takže si ji
+  # umí stáhnout kterýkoli plugin, co tahá z Gitu.
+  #
+  # Historie větve je jednorázová — pokaždé se přepíše. Je to výstup
+  # sestavení, ne zdroj; upravovat se má main.
+  vetev-sablona:
+    name: Aktualizovat větev „sablona"
+    needs: kontrola
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sestavit šablonu
+        run: bash .github/sestavit.sh
+
+      - name: Očíslovat verzi
+        run: |
+          sed -i "s/^Version: .*/Version:     1.0.${{ github.run_number }}/" build/csr-child/style.css
+          grep -m1 "^Version:" build/csr-child/style.css
+
+      - name: Publikovat
+        run: |
+          cd build/csr-child
+          git init -q -b sablona
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Šablona 1.0.${{ github.run_number }} ze commitu ${GITHUB_SHA::7}"
+          git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" sablona
+          echo "::notice::Větev sablona aktualizována na verzi 1.0.${{ github.run_number }}"
+
   # ────────────────────────────────────────────────────────────────
   vydani:
     name: Vydat novou verzi
