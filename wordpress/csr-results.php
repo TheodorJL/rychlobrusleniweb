@@ -973,6 +973,131 @@ add_action( 'admin_menu', 'csr_results_import_page' );
 /**
  * Formulář hromadného přidání.
  */
+/**
+ * Rozebere vložený text na tabulky.
+ *
+ * Zvládne dvě podoby:
+ *   • jeden název tabulky na řádek (sezónu a disciplínu vyberete nad polem)
+ *   • „=== sezóna | disciplína | název" a pod tím řádky oddělené tabulátory
+ *
+ * @param string $text     Vložený text.
+ * @param string $sezona   Sezóna z formuláře.
+ * @param string $sport    Disciplína z formuláře.
+ * @return array Tabulky s klíči nazev, sezona, sport, data.
+ */
+function csr_results_parse_bulk( $text, $sezona = '', $sport = '' ) {
+	$tabulky = array();
+	$akt     = null;
+
+	foreach ( preg_split( '/\R/', (string) $text ) as $radek ) {
+		$orez = trim( $radek );
+
+		if ( '' !== $orez && '#' === $orez[0] ) {
+			continue;
+		}
+
+		if ( 0 === strpos( $orez, '===' ) ) {
+			if ( $akt ) {
+				$tabulky[] = $akt;
+			}
+			$casti = array_map( 'trim', explode( '|', substr( $orez, 3 ) ) );
+			$akt   = array(
+				'sezona' => isset( $casti[0] ) ? sanitize_title( $casti[0] ) : $sezona,
+				'sport'  => isset( $casti[1] ) ? sanitize_key( $casti[1] ) : $sport,
+				'nazev'  => isset( $casti[2] ) ? $casti[2] : '',
+				'data'   => array(),
+			);
+			continue;
+		}
+
+		if ( $akt ) {
+			// Uvnitř tabulky si prázdné řádky nedržíme, oddělují jen odstavce.
+			if ( '' !== $orez ) {
+				$akt['data'][] = rtrim( $radek );
+			}
+			continue;
+		}
+
+		// Starší podoba: jeden název na řádek, bez dat.
+		if ( '' !== $orez ) {
+			$tabulky[] = array( 'sezona' => $sezona, 'sport' => $sport, 'nazev' => $orez, 'data' => array() );
+		}
+	}
+	if ( $akt ) {
+		$tabulky[] = $akt;
+	}
+
+	return array_values( array_filter( $tabulky, function ( $t ) {
+		return '' !== $t['nazev'];
+	} ) );
+}
+
+/**
+ * Založí nebo doplní tabulky.
+ *
+ * Tabulka stejného názvu ve stejné sezóně se nezakládá podruhé —
+ * jen se jí doplní data, když je nemá.
+ *
+ * @param string $text   Vložený text.
+ * @param string $sezona Sezóna z formuláře.
+ * @param string $sport  Disciplína z formuláře.
+ * @return int Počet založených a doplněných tabulek.
+ */
+function csr_results_import_run( $text, $sezona = '', $sport = '' ) {
+	$hotovo = 0;
+	$poradi = 0;
+
+	foreach ( csr_results_parse_bulk( $text, $sezona, $sport ) as $t ) {
+		$poradi += 10;
+
+		$existuje = get_posts(
+			array(
+				'post_type'      => 'csr_result',
+				'title'          => $t['nazev'],
+				'post_status'    => 'any',
+				'posts_per_page' => 1,
+				'fields'         => 'ids',
+				'tax_query'      => $t['sezona'] ? array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+					array( 'taxonomy' => CSR_TAX_SEASON, 'field' => 'slug', 'terms' => $t['sezona'] ),
+				) : array(),
+			)
+		);
+
+		if ( $existuje ) {
+			$id = (int) $existuje[0];
+		} else {
+			$id = wp_insert_post(
+				array(
+					'post_type'   => 'csr_result',
+					'post_status' => 'publish',
+					'post_title'  => $t['nazev'],
+					'menu_order'  => $poradi,
+				)
+			);
+			if ( ! $id || is_wp_error( $id ) ) {
+				continue;
+			}
+		}
+
+		if ( $t['data'] && '' === (string) get_post_meta( $id, '_csr_result_data', true ) ) {
+			update_post_meta( $id, '_csr_result_data', csr_sanitize_table( implode( "\n", $t['data'] ) ) );
+		}
+		if ( $t['sport'] && array_key_exists( $t['sport'], csr_result_sports() ) ) {
+			update_post_meta( $id, '_csr_result_sport', $t['sport'] );
+		}
+		if ( $t['sezona'] ) {
+			// Sezóna je hierarchická, ze samotného názvu by ji WordPress nezaložil.
+			$term = csr_term_id_by_name( CSR_TAX_SEASON, $t['sezona'] );
+			if ( $term ) {
+				wp_set_object_terms( $id, array( $term ), CSR_TAX_SEASON );
+			}
+		}
+		$hotovo++;
+	}
+
+	return $hotovo;
+}
+
 function csr_results_import_render() {
 	if ( ! current_user_can( 'edit_posts' ) ) {
 		wp_die( 'Na tohle nemáte oprávnění.' );
@@ -984,33 +1109,11 @@ function csr_results_import_render() {
 
 		$season = isset( $_POST['csr_import_season'] ) ? sanitize_title( wp_unslash( $_POST['csr_import_season'] ) ) : '';
 		$sport  = isset( $_POST['csr_import_sport'] ) ? sanitize_key( wp_unslash( $_POST['csr_import_sport'] ) ) : '';
-		$titles = isset( $_POST['csr_import_titles'] ) ? sanitize_textarea_field( wp_unslash( $_POST['csr_import_titles'] ) ) : '';
+		// Vlastní sanitizace — sanitize_textarea_field() by zahodila tabulátory,
+		// kterými jsou oddělené sloupce tabulek.
+		$titles = isset( $_POST['csr_import_titles'] ) ? csr_sanitize_table( wp_unslash( $_POST['csr_import_titles'] ) ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 
-		$order = 0;
-		foreach ( preg_split( '/\R/', $titles ) as $line ) {
-			$line = trim( $line );
-			if ( '' === $line ) {
-				continue;
-			}
-			$order += 10;
-			$id = wp_insert_post(
-				array(
-					'post_type'   => 'csr_result',
-					'post_status' => 'publish',
-					'post_title'  => $line,
-					'menu_order'  => $order,
-				)
-			);
-			if ( $id && ! is_wp_error( $id ) ) {
-				if ( $sport && array_key_exists( $sport, csr_result_sports() ) ) {
-					update_post_meta( $id, '_csr_result_sport', $sport );
-				}
-				if ( $season ) {
-					wp_set_object_terms( $id, $season, CSR_TAX_SEASON );
-				}
-				$done++;
-			}
-		}
+		$done = csr_results_import_run( $titles, $season, $sport );
 	}
 
 	$terms = get_terms( array( 'taxonomy' => CSR_TAX_SEASON, 'hide_empty' => false ) );
@@ -1019,11 +1122,13 @@ function csr_results_import_render() {
 		<h1>Hromadné přidání výsledkových tabulek</h1>
 
 		<?php if ( $done ) : ?>
-			<div class="notice notice-success"><p>Založeno <strong><?php echo (int) $done; ?></strong> tabulek. Teď do každé vložte data.</p></div>
+			<div class="notice notice-success"><p>Zpracováno <strong><?php echo (int) $done; ?></strong> tabulek.</p></div>
 		<?php endif; ?>
 
-		<p>Založí prázdné tabulky pro jednu sezónu — typicky <em>Muži</em> a <em>Ženy</em>.
-			Data se pak vkládají u každé zvlášť.</p>
+		<p>Pole je předvyplněné žebříčky, které byly na starých stránkách vložené jako PDF
+			přes Google Viewer — <strong>132 tabulek</strong> od sezóny 2020-2021 po 2026-2027.
+			Sezóna i disciplína jsou u každé uvedené, výběr nahoře se použije jen u tabulek,
+			které je neuvádějí.</p>
 
 		<form method="post">
 			<?php wp_nonce_field( 'csr_results_import', 'csr_results_import_nonce' ); ?>
@@ -1053,14 +1158,20 @@ function csr_results_import_render() {
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><label for="csr_import_titles">Názvy tabulek</label></th>
+					<th scope="row"><label for="csr_import_titles">Tabulky</label></th>
 					<td>
-						<textarea name="csr_import_titles" id="csr_import_titles" rows="6" class="large-text code" placeholder="Muži&#10;Ženy"></textarea>
-						<p class="description">Jeden název na řádek. Pořadí na stránce bude stejné jako tady.</p>
+						<?php echo wp_kses_post( csr_import_seed_note( 'vysledky-tabulky' ) ); ?>
+						<textarea name="csr_import_titles" id="csr_import_titles" rows="16" class="large-text code" placeholder="Muži&#10;Ženy"><?php echo esc_textarea( csr_import_seed( 'vysledky-tabulky' ) ); ?></textarea>
+						<p class="description">
+							Buď jeden název tabulky na řádek — pak se použije sezóna a disciplína vybraná nahoře —
+							nebo rovnou celé tabulky: řádek <code>=== sezóna | disciplína | název</code>
+							zakládá novou a pod ním jsou data oddělená tabulátory.
+							Vložení jde pustit znovu, tabulka stejného názvu se nezaloží podruhé.
+						</p>
 					</td>
 				</tr>
 			</table>
-			<?php submit_button( 'Založit tabulky' ); ?>
+			<?php submit_button( 'Vložit tabulky' ); ?>
 		</form>
 	</div>
 	<?php
