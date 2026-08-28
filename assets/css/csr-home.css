@@ -3044,3 +3044,9 @@ body.csr-lb-open { overflow: hidden; }
   border: 1px dashed var(--csr-border-strong);
   border-radius: var(--csr-r);
 }
+
+/* Podnabídka překlopená doleva, aby nevylezla z obrazovky.
+   Třídu přidává JavaScript po změření; statické pravidlo výš pokrývá
+   jen poslední položky lišty a u čtyřúrovňového menu to nestačí. */
+.csr-nav__list > li.csr-flip > .sub-menu { left: auto; right: 0; }
+.csr-nav .sub-menu li.csr-flip > .sub-menu { left: auto; right: calc(100% + .35rem); }

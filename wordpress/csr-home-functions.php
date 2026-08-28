@@ -416,6 +416,44 @@ function csr_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'csr_excerpt_length', 999 );
 
 /**
+ * Odpojí filtry, kterými pluginy přepisují výpis menu.
+ *
+ * Max Mega Menu se věší na wp_nav_menu_args a vrátí vlastní strukturu
+ * s vlastními třídami. Naše CSS na ni neplatí a navigace z hlavičky
+ * úplně zmizí. Na dobu vlastního výpisu proto ty filtry odpojíme
+ * a hned zase vrátíme, ať zbytek webu funguje jako dřív.
+ *
+ * @return array Záloha filtrů pro csr_reattach_menu_filters().
+ */
+function csr_detach_menu_filters() {
+	if ( ! apply_filters( 'csr_isolate_nav_menu', true ) ) {
+		return array();
+	}
+
+	global $wp_filter;
+	$zaloha = array();
+	foreach ( array( 'wp_nav_menu_args', 'wp_nav_menu' ) as $hook ) {
+		if ( isset( $wp_filter[ $hook ] ) ) {
+			$zaloha[ $hook ] = $wp_filter[ $hook ];
+			unset( $wp_filter[ $hook ] );
+		}
+	}
+	return $zaloha;
+}
+
+/**
+ * Vrátí zpět filtry odpojené v csr_detach_menu_filters().
+ *
+ * @param array $zaloha Návratová hodnota csr_detach_menu_filters().
+ */
+function csr_reattach_menu_filters( $zaloha ) {
+	global $wp_filter;
+	foreach ( $zaloha as $hook => $filtry ) {
+		$wp_filter[ $hook ] = $filtry;
+	}
+}
+
+/**
  * Vypíše hlavní navigaci.
  * Zkusí postupně naši pozici, pak stávající "primary", pak seznam stránek —
  * aby web nezůstal bez menu, i když se pozice po nasazení nepřiřadí.
@@ -445,15 +483,22 @@ function csr_nav_menu( $ul_class = 'csr-nav__list' ) {
 		return;
 	}
 
+	$zaloha = csr_detach_menu_filters();
+
 	wp_nav_menu(
 		array(
 			'theme_location' => $location,
 			'container'      => false,
 			'menu_class'     => $ul_class,
-			'depth'          => 3,
+			// Menu svazu je čtyřúrovňové (Reprezentace → sezóna → disciplína
+			// → soupiska). Při menší hloubce by chyběly právě ty odkazy,
+			// kvůli kterým tam menu je.
+			'depth'          => (int) apply_filters( 'csr_nav_depth', 4 ),
 			'fallback_cb'    => false,
 		)
 	);
+
+	csr_reattach_menu_filters( $zaloha );
 }
 
 /**
@@ -463,6 +508,7 @@ function csr_footer_menu( $location ) {
 	if ( ! has_nav_menu( $location ) ) {
 		return false;
 	}
+	$zaloha = csr_detach_menu_filters();
 	wp_nav_menu(
 		array(
 			'theme_location' => $location,
@@ -472,6 +518,7 @@ function csr_footer_menu( $location ) {
 			'fallback_cb'    => false,
 		)
 	);
+	csr_reattach_menu_filters( $zaloha );
 	return true;
 }
 

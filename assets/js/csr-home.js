@@ -807,6 +807,35 @@
     });
   }
 
+  /* ---- Podnabídky, které by vylezly z obrazovky ----
+     Menu svazu je čtyřúrovňové a každá další úroveň se otevírá vedle té
+     předchozí. U položky uprostřed lišty čtvrtá úroveň přeteče vpravo ven.
+     Statické pravidlo v CSS řeší jen poslední položky lišty, což nestačí —
+     tady se každá podnabídka před otevřením změří a případně překlopí.
+
+     Měřit jde i skrytou podnabídku: visibility: hidden zachovává rozvržení. */
+  function initNavEdges() {
+    var nav = $('.csr-nav');
+    if (!nav) return;
+
+    $$('li', nav).forEach(function (li) {
+      var sub = li.querySelector('ul');
+      if (!sub || sub.parentElement !== li) return;
+
+      function zmer() {
+        li.classList.remove('csr-flip');
+        var r = sub.getBoundingClientRect();
+        // 8 px rezerva, ať se podnabídka nelepí na okraj okna.
+        if (r.right > window.innerWidth - 8) {
+          li.classList.add('csr-flip');
+        }
+      }
+
+      li.addEventListener('pointerenter', zmer);
+      li.addEventListener('focusin', zmer);
+    });
+  }
+
   function boot() {
 
 
@@ -843,6 +872,7 @@
       empty: '[data-csr-recempty]'
     });
     initTables();
+    initNavEdges();
     initLightbox();
     initAlbums();
     initParallax();
