@@ -22,12 +22,18 @@ cp -R wordpress/template-parts "$CIL/"
 # 3. Styly, skripty, obrázky
 cp -R assets "$CIL/"
 
+# 4. Připravená data pro hromadné vložení. Bez nich by se do formulářů
+#    muselo pokaždé kopírovat ze souboru v repozitáři.
+mkdir -p "$CIL/data"
+cp -R data/import "$CIL/data/"
+
 # Kontrola, že složené to dává smysl
 test -f "$CIL/style.css"              || { echo "chybí style.css"; exit 1; }
 test -f "$CIL/functions.php"          || { echo "chybí functions.php"; exit 1; }
 test -f "$CIL/csr-home-functions.php" || { echo "chybí csr-home-functions.php"; exit 1; }
 test -f "$CIL/assets/css/csr-home.css" || { echo "chybí assets/css/csr-home.css"; exit 1; }
 test -d "$CIL/template-parts"         || { echo "chybí template-parts/"; exit 1; }
+test -f "$CIL/data/import/kluby.txt"  || { echo "chybí data/import/"; exit 1; }
 
 grep -q "^Template:  *generatepress" "$CIL/style.css" \
   || { echo "style.css neurčuje rodičovskou šablonu generatepress"; exit 1; }

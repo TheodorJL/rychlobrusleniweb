@@ -310,6 +310,8 @@ function csr_club_import_render() {
 	$hotovo   = 0;
 	$doplnene = 0;
 	$log      = 0;
+	$adresy     = 0;
+	$nenalezeno = 0;
 
 	if ( isset( $_POST['csr_club_import_nonce'] )
 		&& wp_verify_nonce( sanitize_key( $_POST['csr_club_import_nonce'] ), 'csr_club_import' )
@@ -368,13 +370,28 @@ function csr_club_import_render() {
 				}
 			}
 
-			// Za posledním polem může být adresa loga. Nenahrává se —
-			// hledá se v knihovně médií, obrázky ze starého webu tam už jsou.
-			if ( ! empty( $casti[ $pocet_poli ] ) && ! has_post_thumbnail( $post_id ) ) {
-				$logo_id = csr_attachment_from_url( $casti[ $pocet_poli ] );
-				if ( $logo_id ) {
-					set_post_thumbnail( $post_id, $logo_id );
-					$log++;
+			/*
+			 * Za posledním polem může být adresa loga. Soubor se nenahrává —
+			 * obrázky ze starého webu už v knihovně médií jsou. Adresu si
+			 * uložíme vždycky: když se příloha v knihovně nenajde, vykreslí
+			 * se logo přímo z ní, ať to nespadne zpátky na iniciály.
+			 */
+			if ( ! empty( $casti[ $pocet_poli ] ) ) {
+				$logo_url = esc_url_raw( $casti[ $pocet_poli ] );
+
+				if ( $logo_url && '' === (string) get_post_meta( $post_id, '_csr_club_logo', true ) ) {
+					update_post_meta( $post_id, '_csr_club_logo', $logo_url );
+					$adresy++;
+				}
+
+				if ( $logo_url && ! has_post_thumbnail( $post_id ) ) {
+					$logo_id = csr_attachment_from_url( $logo_url );
+					if ( $logo_id ) {
+						set_post_thumbnail( $post_id, $logo_id );
+						$log++;
+					} else {
+						$nenalezeno++;
+					}
 				}
 			}
 			$kraj = csr_region_from_zip( get_post_meta( $post_id, '_csr_club_zip', true ) );
@@ -393,9 +410,15 @@ function csr_club_import_render() {
 					U <strong><?php echo (int) $doplnene; ?></strong> už existujících se doplnilo, co chybělo.
 				<?php endif; ?>
 			</p></div>
-			<?php if ( $log ) : ?>
+			<?php if ( $log || $adresy ) : ?>
 				<div class="notice notice-success"><p>
-					Přiřazeno log z knihovny médií: <strong><?php echo (int) $log; ?></strong>.
+					<?php if ( $log ) : ?>
+						Přiřazeno log z knihovny médií: <strong><?php echo (int) $log; ?></strong>.
+					<?php endif; ?>
+					<?php if ( $nenalezeno ) : ?>
+						U <strong><?php echo (int) $nenalezeno; ?></strong> se v knihovně nenašla příloha —
+						logo se vykreslí přímo z uložené adresy.
+					<?php endif; ?>
 				</p></div>
 			<?php endif; ?>
 		<?php endif; ?>
@@ -404,7 +427,8 @@ function csr_club_import_render() {
 		<p>Řádek začínající <code>#</code> se přeskočí. Kraj se doplní podle PSČ.</p>
 		<form method="post">
 			<?php wp_nonce_field( 'csr_club_import', 'csr_club_import_nonce' ); ?>
-			<textarea name="csr_club_data" rows="12" style="width:100%;font-family:monospace"></textarea>
+			<?php echo wp_kses_post( csr_import_seed_note( 'kluby' ) ); ?>
+			<textarea name="csr_club_data" rows="12" style="width:100%;font-family:monospace"><?php echo esc_textarea( csr_import_seed( 'kluby' ) ); ?></textarea>
 			<p><button type="submit" class="button button-primary">Vložit kluby</button></p>
 		</form>
 	</div>
@@ -453,6 +477,10 @@ function csr_render_club_card( $club ) {
 		data-csr-text="<?php echo esc_attr( $haystack ); ?>">
 
 		<div class="csr-club__logo">
+			<?php
+			// Náhradní adresa z importu — použije se, když klub nemá náhledový obrázek.
+			$logo_url = (string) get_post_meta( $club->ID, '_csr_club_logo', true );
+			?>
 			<?php if ( has_post_thumbnail( $club->ID ) ) : ?>
 				<?php
 				echo get_the_post_thumbnail(
@@ -465,6 +493,10 @@ function csr_render_club_card( $club ) {
 					)
 				);
 				?>
+			<?php elseif ( $logo_url ) : ?>
+				<img src="<?php echo esc_url( $logo_url ); ?>"
+					alt="<?php echo esc_attr( 'Logo ' . $club->post_title ); ?>"
+					loading="lazy" decoding="async">
 			<?php else : ?>
 				<span class="csr-club__initials" aria-hidden="true"><?php echo esc_html( $club->post_title ); ?></span>
 			<?php endif; ?>

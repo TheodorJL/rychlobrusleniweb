@@ -486,8 +486,9 @@ function csr_feed_bulk_render() {
 				<tr>
 					<th scope="row"><label for="csr_items">Položky</label></th>
 					<td>
+						<?php echo wp_kses_post( csr_import_seed_note( 'infofeed' ) ); ?>
 						<textarea name="csr_items" id="csr_items" rows="14" class="large-text code"
-							placeholder="Výsledky ze soutěže Přeborník Vysočiny | https://… | Dokument naleznete zde&#10;MČR juniorů | https://… | Článek naleznete zde | https://… | Soubor výsledků&#10;Dlouhá dráha – kvóty na ZOH 2026 | https://…"></textarea>
+							placeholder="Výsledky ze soutěže Přeborník Vysočiny | https://… | Dokument naleznete zde&#10;MČR juniorů | https://… | Článek naleznete zde | https://… | Soubor výsledků&#10;Dlouhá dráha – kvóty na ZOH 2026 | https://…"><?php echo esc_textarea( csr_import_seed( 'infofeed' ) ); ?></textarea>
 					</td>
 				</tr>
 			</table>

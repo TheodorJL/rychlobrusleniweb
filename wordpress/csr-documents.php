@@ -549,7 +549,8 @@ function csr_documents_import_render() {
 
 		<form method="post">
 			<?php wp_nonce_field( 'csr_documents_import', 'csr_documents_import_nonce' ); ?>
-			<textarea name="csr_documents_data" rows="14" style="width:100%;font-family:monospace" placeholder="Stanovy schválené na VH 1.6.2026|https://…|stanovy|1. 6. 2026"></textarea>
+			<?php echo wp_kses_post( csr_import_seed_note( 'dokumenty' ) ); ?>
+			<textarea name="csr_documents_data" rows="14" style="width:100%;font-family:monospace" placeholder="Stanovy schválené na VH 1.6.2026|https://…|stanovy|1. 6. 2026"><?php echo esc_textarea( csr_import_seed( 'dokumenty' ) ); ?></textarea>
 			<?php submit_button( 'Vložit dokumenty' ); ?>
 		</form>
 	</div>
@@ -591,8 +592,85 @@ function csr_get_documents( $type = '' ) {
  * @return string
  */
 function csr_docs_page_type( $page_id ) {
-	$type = get_post_meta( $page_id, '_csr_docs_type', true );
-	return $type ? $type : '';
+	$type = (string) get_post_meta( $page_id, '_csr_docs_type', true );
+
+	// Hodnota „-" znamená, že správce vědomě zvolil „Všechny dokumenty".
+	if ( '-' === $type ) {
+		return '';
+	}
+	if ( '' !== $type ) {
+		return $type;
+	}
+
+	/*
+	 * Rubrika nikdy nebyla nastavená. Než vypsat úplně všechno, zkusíme ji
+	 * odvodit z názvu stránky — „Pravidla a předpisy ISU" tak sama najde
+	 * rubriku „Pravidla ISU". Nikam se to neukládá, ruční volba vždy vyhraje.
+	 */
+	return csr_docs_guess_type( $page_id );
+}
+
+/**
+ * Odhadne rubriku podle názvu stránky.
+ *
+ * Rubrika se použije jen tehdy, když se v názvu stránky najdou všechna
+ * podstatná slova jejího názvu. „Pravidla ISU" tedy sedne na „Pravidla
+ * a předpisy ISU", ale ne na „Základní dokumenty".
+ *
+ * @param int $page_id ID stránky.
+ * @return string Slug rubriky, nebo prázdný řetězec.
+ */
+function csr_docs_guess_type( $page_id ) {
+	$nazev = csr_fold( get_the_title( $page_id ) );
+	if ( '' === $nazev ) {
+		return '';
+	}
+
+	$terms = get_terms( array( 'taxonomy' => 'csr_doctype', 'hide_empty' => false ) );
+	if ( is_wp_error( $terms ) ) {
+		return '';
+	}
+
+	$nejlepsi = '';
+	$nejvic   = 0;
+	foreach ( $terms as $term ) {
+		$slova = preg_split( '/[^a-z0-9]+/', csr_fold( $term->name ), -1, PREG_SPLIT_NO_EMPTY );
+		// Krátká slova („a", „na") by seděla skoro všude.
+		$slova = array_filter( $slova, function ( $slovo ) {
+			return strlen( $slovo ) >= 3;
+		} );
+		if ( ! $slova ) {
+			continue;
+		}
+
+		$sedi = 0;
+		foreach ( $slova as $slovo ) {
+			// Začátek slova stačí — „antidoping" sedne i na „antidopingový".
+			if ( preg_match( '/(^|[^a-z0-9])' . preg_quote( $slovo, '/' ) . '/', $nazev ) ) {
+				$sedi++;
+			}
+		}
+		if ( $sedi === count( $slova ) && $sedi > $nejvic ) {
+			$nejvic   = $sedi;
+			$nejlepsi = $term->slug;
+		}
+	}
+
+	return $nejlepsi;
+}
+
+/**
+ * Vrátí název rubriky podle slugu, pro hlášku v administraci.
+ *
+ * @param string $slug Slug rubriky.
+ * @return string Název, nebo prázdný řetězec.
+ */
+function csr_doctype_name( $slug ) {
+	if ( '' === (string) $slug ) {
+		return '';
+	}
+	$term = get_term_by( 'slug', $slug, 'csr_doctype' );
+	return $term && ! is_wp_error( $term ) ? $term->name : '';
 }
 
 /* -------------------------------------------------------------------------
@@ -615,18 +693,23 @@ add_action( 'add_meta_boxes', 'csr_docs_page_metabox' );
 function csr_docs_page_metabox_render( $post ) {
 	wp_nonce_field( 'csr_docs_page_save', 'csr_docs_page_nonce' );
 
-	if ( CSR_DOCS_TEMPLATE !== get_post_meta( $post->ID, '_wp_page_template', true ) ) {
-		echo '<p class="description">Vyberte nahoře šablonu <strong>„ČSR — Dokumenty"</strong> a stránku uložte. Pak se tu objeví výběr rubriky.</p>';
-		return;
-	}
+	$ulozene = (string) get_post_meta( $post->ID, '_csr_docs_type', true );
+	$current = '-' === $ulozene ? '-' : $ulozene;
+	$odhad   = '' === $ulozene ? csr_docs_guess_type( $post->ID ) : '';
 
-	$current = csr_docs_page_type( $post->ID );
 	// Nabízíme všechny rubriky, které v administraci existují, ne jen výchozí.
 	$terms = get_terms( array( 'taxonomy' => 'csr_doctype', 'hide_empty' => false ) );
 
 	echo '<p><label for="csr_docs_type"><strong>Vypsat rubriku</strong></label>';
 	echo '<select id="csr_docs_type" name="csr_docs_type" style="width:100%">';
-	echo '<option value=""' . selected( $current, '', false ) . '>Všechny dokumenty</option>';
+	printf(
+		'<option value=""%s>%s</option>',
+		selected( $current, '', false ),
+		$odhad
+			? esc_html( 'Podle názvu stránky — ' . csr_doctype_name( $odhad ) )
+			: 'Podle názvu stránky — všechny dokumenty'
+	);
+	echo '<option value="-"' . selected( $current, '-', false ) . '>Všechny dokumenty</option>';
 	if ( ! is_wp_error( $terms ) ) {
 		foreach ( $terms as $term ) {
 			printf(
@@ -638,7 +721,20 @@ function csr_docs_page_metabox_render( $post ) {
 		}
 	}
 	echo '</select></p>';
-	echo '<p class="description">Díky tomu obslouží jedna šablona i stránky jako <em>Pravidla a předpisy ISU</em>, <em>Smlouvy</em> nebo <em>Archiv</em> — každá ukáže svou rubriku.</p>';
+
+	if ( CSR_DOCS_TEMPLATE !== get_post_meta( $post->ID, '_wp_page_template', true ) ) {
+		echo '<p class="description">Uplatní se, až stránka dostane šablonu <strong>„ČSR — Dokumenty"</strong>.</p>';
+		return;
+	}
+
+	if ( $odhad ) {
+		printf(
+			'<p class="description">Teď se vypisuje rubrika <strong>%s</strong>, odvozená z názvu stránky. Když to sedí, nemusíte nic měnit.</p>',
+			esc_html( csr_doctype_name( $odhad ) )
+		);
+	} else {
+		echo '<p class="description">Díky tomu obslouží jedna šablona i stránky jako <em>Pravidla a předpisy ISU</em>, <em>Antidoping</em> nebo <em>Registrace</em> — každá ukáže svou rubriku.</p>';
+	}
 }
 
 /**
@@ -657,7 +753,9 @@ function csr_docs_page_save( $post_id ) {
 		return;
 	}
 	if ( isset( $_POST['csr_docs_type'] ) ) {
-		update_post_meta( $post_id, '_csr_docs_type', sanitize_title( wp_unslash( $_POST['csr_docs_type'] ) ) );
+		// sanitize_title() by z „-" udělalo prázdno, a tím i „odvodit z názvu".
+		$volba = wp_unslash( $_POST['csr_docs_type'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		update_post_meta( $post_id, '_csr_docs_type', '-' === $volba ? '-' : sanitize_title( $volba ) );
 	}
 }
 add_action( 'save_post_page', 'csr_docs_page_save' );

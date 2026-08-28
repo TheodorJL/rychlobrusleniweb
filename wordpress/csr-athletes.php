@@ -633,8 +633,9 @@ function csr_bulk_add_render() {
 				<tr>
 					<th scope="row"><label for="csr_roster">Soupiska</label></th>
 					<td>
+						<?php echo wp_kses_post( csr_import_seed_note( 'reprezentanti' ) ); ?>
 						<textarea name="csr_roster" id="csr_roster" rows="14" class="large-text code"
-							placeholder="Sára Hlušková | 2007 | BK Náchod&#10;Jiří Macháček | | | trenér&#10;&#10;Sezónu a tým lze uvést i na řádku a vložit tak víc soupisek najednou:&#10;Sára Hlušková | 2007 | BK Náchod | | 2026-2027 | SS – Junioři"></textarea>
+							placeholder="Sára Hlušková | 2007 | BK Náchod&#10;Jiří Macháček | | | trenér&#10;&#10;Sezónu a tým lze uvést i na řádku a vložit tak víc soupisek najednou:&#10;Sára Hlušková | 2007 | BK Náchod | | 2026-2027 | SS – Junioři"><?php echo esc_textarea( csr_import_seed( 'reprezentanti' ) ); ?></textarea>
 					</td>
 				</tr>
 			</table>

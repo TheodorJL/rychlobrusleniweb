@@ -394,8 +394,9 @@ function csr_people_import_render() {
 
 		<form method="post">
 			<?php wp_nonce_field( 'csr_people_import', 'csr_people_import_nonce' ); ?>
+			<?php echo wp_kses_post( csr_import_seed_note( 'lide' ) ); ?>
 			<textarea name="csr_people_data" rows="14" style="width:100%;font-family:monospace" placeholder="Jan Novák|predsednictvo|předseda|||jan.novak@example.cz|
-Petr Kulma|predsedove|předseda|dlouhá|SKR HLINSKO||"></textarea>
+Petr Kulma|predsedove|předseda|dlouhá|SKR HLINSKO||"><?php echo esc_textarea( csr_import_seed( 'lide' ) ); ?></textarea>
 			<?php submit_button( 'Vložit lidi' ); ?>
 		</form>
 	</div>

@@ -21,8 +21,9 @@ if ( csr_page_locked() ) {
 	return;
 }
 
-// Stránka může být omezená na jednu rubriku (Pravidla ISU, Smlouvy, Archiv…).
-$csr_only = csr_docs_page_type( get_the_ID() );
+// Stránka může být omezená na jednu rubriku (Pravidla ISU, Antidoping, Registrace…).
+$csr_only   = csr_docs_page_type( get_the_ID() );
+$csr_rucne  = '' !== (string) get_post_meta( get_the_ID(), '_csr_docs_type', true );
 $csr_docs = csr_get_documents( $csr_only );
 
 // Rubriky stavíme jen z těch, které jsou opravdu použité.
@@ -120,6 +121,18 @@ foreach ( $csr_docs as $csr_d ) {
 					<?php echo 1 === $csr_ext ? 'dokument leží' : 'dokumentů leží'; ?>
 					na cizím úložišti. Nahrajte soubory do knihovny médií a vyberte je u dokumentu —
 					jinak zmizí, až služba skončí.
+				</p>
+			<?php endif; ?>
+
+			<?php if ( current_user_can( 'edit_posts' ) ) : ?>
+				<p class="csr-docs__admin">
+					Vidíte jen vy jako správce:
+					<?php if ( $csr_only ) : ?>
+						stránka vypisuje jen rubriku <strong><?php echo esc_html( csr_doctype_name( $csr_only ) ); ?></strong><?php echo $csr_rucne ? '' : ', odvozenou z názvu stránky'; ?>.
+					<?php else : ?>
+						stránka vypisuje <strong>všechny dokumenty</strong>.
+					<?php endif; ?>
+					Změníte to při úpravě stránky v boxu <em>Dokumenty — co se má vypsat</em>.
 				</p>
 			<?php endif; ?>
 
