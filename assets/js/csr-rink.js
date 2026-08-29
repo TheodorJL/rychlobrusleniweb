@@ -332,40 +332,43 @@
                [hlavaB[0] - 0.01, hlavaB[1] - 0.005, hlavaB[2] + 0.07], 0.032, 0.032, 1.6, BARVA_BRYLE, m, out, i);
 
     /* ── Paže ──
-       Cíl vede dlaň a loket dopočítá mezikloub. Levá zůstává složená
-       na kříži pořád — v zatáčce švihá jen pravá, kyvadlem podél boku,
-       nikdy ne přes tělo. */
-    var svihF = Math.sin(cyk + 2.0);
+       Levá je pořád složená na kříži. Pravá v zatáčce švihá kyvadlem
+       počítaným dopředně v kloubech: rameno je čep, kterým se otáčí
+       celá paže, loket je pant ve stejné rovině — dole při průchodu
+       ohnutý, na krajích švihu skoro propnutý. Dlaň nikam netáhneme,
+       vyjde tam, kam ji klouby donesou, takže se paže hýbe jako paže.
+    */
+    var svihF = Math.sin(cyk + 2.1);
     [-1, 1].forEach(function (strana) {
       var rameno = [ramena[0] - 0.02, ramena[1] - 0.04, ramena[2] + strana * 0.16];
 
-      var ruka   = [kycle[0] - 0.10, kycle[1] + 0.12 + (strana > 0 ? 0.03 : 0), kycle[2] * 0.7 + strana * 0.05];
-      var naznak = [-0.1, 0.4, strana];
+      // Klid: dlaň na kříži, loket dopočítá mezikloub.
+      var ruka  = [kycle[0] - 0.10, kycle[1] + 0.12 + (strana > 0 ? 0.03 : 0), kycle[2] * 0.7 + strana * 0.05];
+      var loket = mezikloub(rameno, ruka, NADLOKTI, PREDLOKTI, -0.1, 0.4, strana);
 
       if (strana > 0 && zat > 0.02) {
-        /*
-         * Kyvadlo celé paže, jako má bruslař v zatáčce doopravdy:
-         * vzadu vysoko nad zády, uprostřed nízko podél boku, vpředu
-         * před hrudníkem — na krajích skoro propnutá, loket míří
-         * pořád dolů a ven.
-         */
-        var f = svihF;
-        var svihR = [rameno[0] + 0.03 + f * 0.43,
-                     rameno[1] - 0.36 + f * f * 0.37 - f * 0.11,
-                     rameno[2] + 0.01 - f * 0.12];
-        var svihN = [0.1, -1, 0.45];
+        // Rameno: úhel kyvadla vpřed (+) a vzad (−) od svislice.
+        var theta = -0.25 + 1.15 * svihF;
+        // Loket: ohnutý při průchodu dole, propnutý na krajích švihu.
+        var beta = 0.95 - 0.55 * Math.abs(svihF);
+        // Rovina švihu je od těla odkloněná, aby dlaň míjela bok i koleno.
+        var vybok = 0.32;
 
-        /*
-         * Přechod mezi křížem a švihem vede obloukem kolem boku.
-         * Přímé prolnutí táhlo dlaň skrz hrudník — to bylo to
-         * probublávání paže tělem při nájezdu do zatáčky.
-         */
-        var oblouk = Math.sin(zat * Math.PI) * 0.16;
-        ruka   = [mix(ruka[0], svihR[0], zat), mix(ruka[1], svihR[1], zat), mix(ruka[2], svihR[2], zat) + oblouk];
-        naznak = [mix(naznak[0], svihN[0], zat), mix(naznak[1], svihN[1], zat), mix(naznak[2], svihN[2], zat)];
+        var ux = Math.sin(theta), uy = -Math.cos(theta), uz = strana * vybok;
+        var un = Math.hypot(ux, uy, uz); ux /= un; uy /= un; uz /= un;
+        var loketS = [rameno[0] + ux * NADLOKTI, rameno[1] + uy * NADLOKTI, rameno[2] + uz * NADLOKTI];
+
+        var fi = theta + beta;
+        var fx = Math.sin(fi), fy = -Math.cos(fi), fz = strana * vybok;
+        var fn = Math.hypot(fx, fy, fz); fx /= fn; fy /= fn; fz /= fn;
+        var rukaS = [loketS[0] + fx * PREDLOKTI, loketS[1] + fy * PREDLOKTI, loketS[2] + fz * PREDLOKTI];
+
+        // Přejezd mezi křížem a švihem vede obloukem kolem boku —
+        // přímé prolnutí by dlaň táhlo skrz hrudník.
+        var oblouk = Math.sin(zat * Math.PI) * 0.14;
+        loket = [mix(loket[0], loketS[0], zat), mix(loket[1], loketS[1], zat), mix(loket[2], loketS[2], zat) + oblouk * 0.6];
+        ruka  = [mix(ruka[0], rukaS[0], zat), mix(ruka[1], rukaS[1], zat), mix(ruka[2], rukaS[2], zat) + oblouk];
       }
-
-      var loket = mezikloub(rameno, ruka, NADLOKTI, PREDLOKTI, naznak[0], naznak[1], naznak[2]);
 
       i = trubka(rameno, loket, 0.052, 0.045, 1, dres, m, out, i);
       i = trubka(loket, ruka, 0.042, 0.036, 1, dres, m, out, i);
@@ -415,7 +418,7 @@
         chodidlo = [kycelB[0] + vx * zk, kycelB[1] + vy * zk, kycelB[2] + vz * zk];
       }
 
-      var kolenoB = koleno(kycelB, chodidlo, STEHNO, LYTKO, strana * 0.35);
+      var kolenoB = koleno(kycelB, chodidlo, STEHNO, LYTKO, strana * 0.18);
       var kotnik  = [chodidlo[0], chodidlo[1] + 0.05, chodidlo[2]];
 
       i = trubka(kycelB, kolenoB, 0.085, 0.062, 1.1, dres, m, out, i);
