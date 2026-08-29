@@ -343,13 +343,25 @@
       var naznak = [-0.1, 0.4, strana];
 
       if (strana > 0 && zat > 0.02) {
-        // Kyvadlo v rovině jízdy: vpřed a vzad, výš na krajích švihu,
-        // z boku pořád stejně daleko od těla.
-        var svihR = [rameno[0] - 0.02 + svihF * 0.32,
-                     rameno[1] - 0.34 + svihF * svihF * 0.10,
-                     rameno[2] + 0.06];
-        var svihN = [-0.4, -0.9, 0.5];
-        ruka   = [mix(ruka[0], svihR[0], zat), mix(ruka[1], svihR[1], zat), mix(ruka[2], svihR[2], zat)];
+        /*
+         * Kyvadlo celé paže, jako má bruslař v zatáčce doopravdy:
+         * vzadu vysoko nad zády, uprostřed nízko podél boku, vpředu
+         * před hrudníkem — na krajích skoro propnutá, loket míří
+         * pořád dolů a ven.
+         */
+        var f = svihF;
+        var svihR = [rameno[0] + 0.03 + f * 0.43,
+                     rameno[1] - 0.36 + f * f * 0.37 - f * 0.11,
+                     rameno[2] + 0.01 - f * 0.12];
+        var svihN = [0.1, -1, 0.45];
+
+        /*
+         * Přechod mezi křížem a švihem vede obloukem kolem boku.
+         * Přímé prolnutí táhlo dlaň skrz hrudník — to bylo to
+         * probublávání paže tělem při nájezdu do zatáčky.
+         */
+        var oblouk = Math.sin(zat * Math.PI) * 0.16;
+        ruka   = [mix(ruka[0], svihR[0], zat), mix(ruka[1], svihR[1], zat), mix(ruka[2], svihR[2], zat) + oblouk];
         naznak = [mix(naznak[0], svihN[0], zat), mix(naznak[1], svihN[1], zat), mix(naznak[2], svihN[2], zat)];
       }
 
