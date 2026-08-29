@@ -1,12 +1,14 @@
 /**
- * Ovál v hero sekci úvodní stránky.
+ * Ovál v hero sekci úvodní stránky — dlouhá expozice.
  *
- * Čtyřistametrová dráha ve třech rozměrech a na ní bruslaři — kloubové
- * postavy s vlastním skluzovým cyklem, které se v zatáčkách naklánějí.
- * Kamera střídá několik záběrů: podél dráhy, za zády vedoucího, od
- * mantinelu, shora nad zatáčkou a zevnitř oválu.
+ * Po čtyřistametrové dráze jedou komety světla: protáhlé zářící jádro,
+ * dlouhá stopa a za každou z nich zůstávají v ledu šikmé zářezy nožů,
+ * střídavě vlevo a vpravo, jak je nechává skutečný bruslařský krok.
+ * Vypadá to jako noční fotografie závodu na dlouhý čas — žádné figury,
+ * jen světlo a led. Kamera střídá záběry s plynulými přejezdy.
  *
- * Kreslí se přímo přes WebGL, bez knihovny.
+ * Kreslí se přímo přes WebGL, bez knihovny. Všechno je plochá záře,
+ * takže stačí jediný program a žádná hloubka.
  *
  * Nejede na úzkém okně, při „prefers-reduced-motion", bez WebGL,
  * mimo obraz ani na skryté záložce.
@@ -20,46 +22,13 @@
 
   var siroko = window.matchMedia ? window.matchMedia('(min-width: 1100px)') : { matches: true };
 
-  // Přednásobená alfa: shader záře násobí barvu alfou už sám. Bez toho
-  // by ji prohlížeč při skládání do stránky vynásobil podruhé a ze stop
-  // by místo záře byly tmavé pruhy.
-  var gl = canvas.getContext('webgl', { alpha: true, antialias: true, premultipliedAlpha: true, depth: true })
-        || canvas.getContext('experimental-webgl', { alpha: true, antialias: true, premultipliedAlpha: true, depth: true });
+  // Přednásobená alfa: záře násobí barvu alfou už ve shaderu. Jinak by ji
+  // prohlížeč při skládání do stránky vynásobil podruhé a ztmavla by.
+  var gl = canvas.getContext('webgl', { alpha: true, antialias: true, premultipliedAlpha: true })
+        || canvas.getContext('experimental-webgl', { alpha: true, antialias: true, premultipliedAlpha: true });
   if (!gl) { return; }
 
   /* ══════════════ Matice ══════════════ */
-  function jednotka() {
-    return new Float32Array([1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1]);
-  }
-  function nasob(a, b) {                      // vrací a·b (sloupcové pořadí)
-    var v = new Float32Array(16);
-    for (var i = 0; i < 4; i++) {
-      for (var j = 0; j < 4; j++) {
-        v[i * 4 + j] = a[j] * b[i * 4] + a[4 + j] * b[i * 4 + 1] +
-                       a[8 + j] * b[i * 4 + 2] + a[12 + j] * b[i * 4 + 3];
-      }
-    }
-    return v;
-  }
-  function posun(x, y, z) {
-    var m = jednotka(); m[12] = x; m[13] = y; m[14] = z; return m;
-  }
-  function meritko(x, y, z) {
-    var m = jednotka(); m[0] = x; m[5] = y; m[10] = z; return m;
-  }
-  function otocX(a) {
-    var m = jednotka(), c = Math.cos(a), s = Math.sin(a);
-    m[5] = c; m[6] = s; m[9] = -s; m[10] = c; return m;
-  }
-  function otocY(a) {
-    var m = jednotka(), c = Math.cos(a), s = Math.sin(a);
-    m[0] = c; m[2] = -s; m[8] = s; m[10] = c; return m;
-  }
-  function otocZ(a) {
-    var m = jednotka(), c = Math.cos(a), s = Math.sin(a);
-    m[0] = c; m[1] = s; m[4] = -s; m[5] = c; return m;
-  }
-
   function perspektiva(zorne, pomer, blizko, daleko) {
     var f = 1 / Math.tan(zorne / 2), n = 1 / (blizko - daleko);
     return new Float32Array([f / pomer,0,0,0, 0,f,0,0,
@@ -73,6 +42,16 @@
     var yx = zy * xz - zz * xy, yy = zz * xx - zx * xz, yz = zx * xy - zy * xx;
     return new Float32Array([xx,yx,zx,0, xy,yy,zy,0, xz,yz,zz,0,
       -(xx*oko[0]+xy*oko[1]+xz*oko[2]), -(yx*oko[0]+yy*oko[1]+yz*oko[2]), -(zx*oko[0]+zy*oko[1]+zz*oko[2]), 1]);
+  }
+  function nasob(a, b) {
+    var v = new Float32Array(16);
+    for (var i = 0; i < 4; i++) {
+      for (var j = 0; j < 4; j++) {
+        v[i * 4 + j] = a[j] * b[i * 4] + a[4 + j] * b[i * 4 + 1] +
+                       a[8 + j] * b[i * 4 + 2] + a[12 + j] * b[i * 4 + 3];
+      }
+    }
+    return v;
   }
 
   /* ══════════════ Dráha ══════════════ */
@@ -96,34 +75,11 @@
     return { x: -L / 2 - r * Math.sin(b), z: r * Math.cos(b), tx: -Math.cos(b), tz: -Math.sin(b), k: 1 };
   }
 
-  /* ══════════════ Shadery ══════════════ */
-
-  // Postavy: plné těleso se světlem a obrysovým dosvitem.
-  var VS_TELO =
-    'attribute vec3 aPos; attribute vec3 aNor; attribute vec3 aCol;' +
-    'uniform mat4 uMVP; varying vec3 vNor; varying vec3 vCol; varying vec3 vSmer;' +
-    'void main(){ vNor = aNor; vCol = aCol; vec4 p = uMVP * vec4(aPos, 1.0);' +
-    ' vSmer = normalize(vec3(p.xy, 1.2)); gl_Position = p; }';
-
-  var FS_TELO =
-    'precision mediump float; varying vec3 vNor; varying vec3 vCol; varying vec3 vSmer;' +
-    // Silueta: skoro černá hmota se zářícím obrysem v barvě dresu
-    // a ledovým nádechem. Detaily uvnitř tvaru zmizí — zůstane jen
-    // čistá, světlem obkreslená postava.
-    'void main(){ vec3 n = normalize(vNor);' +
-    ' float d = max(dot(n, normalize(vec3(0.42, 0.86, 0.30))), 0.0);' +
-    ' float obrys = pow(1.0 - abs(dot(n, normalize(vSmer))), 1.8);' +
-    ' vec3 c = vCol * (0.05 + 0.09 * d)' +
-    '        + vCol * obrys * 1.5' +
-    '        + vec3(0.36, 0.68, 0.95) * obrys * 0.4;' +
-    ' gl_FragColor = vec4(c, 1.0); }';
-
-  // Dráha a stopy: ploché, sčítají se.
-  var VS_SVIT =
+  /* ══════════════ Program ══════════════ */
+  var VS =
     'attribute vec3 aPos; attribute vec4 aCol; uniform mat4 uMVP; varying vec4 vCol;' +
     'void main(){ vCol = aCol; gl_Position = uMVP * vec4(aPos, 1.0); }';
-
-  var FS_SVIT =
+  var FS =
     'precision mediump float; varying vec4 vCol;' +
     'void main(){ gl_FragColor = vec4(vCol.rgb * vCol.a, vCol.a); }';
 
@@ -132,382 +88,45 @@
     gl.shaderSource(s, zdroj); gl.compileShader(s);
     return gl.getShaderParameter(s, gl.COMPILE_STATUS) ? s : null;
   }
-  function program(vsZdroj, fsZdroj) {
-    var v = shader(gl.VERTEX_SHADER, vsZdroj), f = shader(gl.FRAGMENT_SHADER, fsZdroj);
-    if (!v || !f) { return null; }
-    var p = gl.createProgram();
-    gl.attachShader(p, v); gl.attachShader(p, f); gl.linkProgram(p);
-    return gl.getProgramParameter(p, gl.LINK_STATUS) ? p : null;
-  }
+  var vs = shader(gl.VERTEX_SHADER, VS), fs = shader(gl.FRAGMENT_SHADER, FS);
+  if (!vs || !fs) { return; }
+  var prog = gl.createProgram();
+  gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
+  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { return; }
+  gl.useProgram(prog);
+  var aPos = gl.getAttribLocation(prog, 'aPos');
+  var aCol = gl.getAttribLocation(prog, 'aCol');
+  var uMVP = gl.getUniformLocation(prog, 'uMVP');
 
-  var progTelo = program(VS_TELO, FS_TELO);
-  var progSvit = program(VS_SVIT, FS_SVIT);
-  if (!progTelo || !progSvit) { return; }
-
-  var teloLoc = {
-    pos: gl.getAttribLocation(progTelo, 'aPos'),
-    nor: gl.getAttribLocation(progTelo, 'aNor'),
-    col: gl.getAttribLocation(progTelo, 'aCol'),
-    mvp: gl.getUniformLocation(progTelo, 'uMVP')
-  };
-  var svitLoc = {
-    pos: gl.getAttribLocation(progSvit, 'aPos'),
-    col: gl.getAttribLocation(progSvit, 'aCol'),
-    mvp: gl.getUniformLocation(progSvit, 'uMVP')
-  };
-
-  /* ══════════════ Bruslař ══════════════
-     Postava stojí v počátku, dívá se na +X, vzhůru je +Y, vpravo +Z.
-     Skládá se ze zúžených osmibokých trubek — kvádry vypadaly jako pár
-     krabic v sobě. Končetiny se nepočítají z úhlů, ale z bodů: řekne se,
-     kde má být chodidlo, a koleno se dopočítá. */
-
-  function hladce(t) { t = Math.min(Math.max(t, 0), 1); return t * t * (3 - 2 * t); }
-  function mix(a, b, t) { return a + (b - a) * t; }
-
-  var BARVA_OCEL = [0.80, 0.88, 0.96];
-  var BARVA_NUZ  = [0.55, 0.78, 0.96];
-
-  var STRAN = 10, KRUH_C = [], KRUH_S = [];
-  (function () {
-    for (var j = 0; j < STRAN; j++) {
-      KRUH_C.push(Math.cos(j / STRAN * Math.PI * 2));
-      KRUH_S.push(Math.sin(j / STRAN * Math.PI * 2));
-    }
-  }());
-
-  /**
-   * Zúžená osmiboká trubka mezi dvěma body.
-   *
-   * Normály míří paprskovitě od osy, takže se díl stínuje oble. Poloměr
-   * se po délce mění (stehno je u kyčle širší než u kolena) a `kz`
-   * průřez zplošťuje — hruď je širší než hlubší, nůž brusle skoro
-   * plochý. Zapisuje rovnou do světových souřadnic.
-   *
-   * @param {Array}  a    Začátek v souřadnicích postavy.
-   * @param {Array}  b    Konec.
-   * @param {number} ra   Poloměr u začátku.
-   * @param {number} rb   Poloměr u konce.
-   * @param {number} kz   Zploštění průřezu (1 = kruhový).
-   * @param {Array}  c    Barva.
-   * @param {Float32Array} m Umístění postavy (jen otočení a posun).
-   * @param {Object} out  Kam zapisovat.
-   * @param {number} i    Zápisová pozice.
-   * @return {number} Nová zápisová pozice.
-   */
-  function trubka(a, b, ra, rb, kz, c, m, out, i) {
-    var ux = b[0] - a[0], uy = b[1] - a[1], uz = b[2] - a[2];
-    var d = Math.hypot(ux, uy, uz) || 1e-4;
-    ux /= d; uy /= d; uz /= d;
-
-    var hx = 0, hz = 1;
-    if (Math.abs(uz) > 0.9) { hz = 0; hx = 1; }
-    var px = -hz * uy, py = hz * ux - hx * uz, pz = hx * uy;
-    var e = Math.hypot(px, py, pz) || 1;
-    px /= e; py /= e; pz /= e;
-    var qx = uy * pz - uz * py, qy = uz * px - ux * pz, qz = ux * py - uy * px;
-
-    // Paprsky průřezu a jejich normály.
-    var DX = [], DY = [], DZ = [], NX = [], NY = [], NZ = [];
-    for (var j = 0; j < STRAN; j++) {
-      var dx = px * KRUH_C[j] + qx * KRUH_S[j] * kz;
-      var dy = py * KRUH_C[j] + qy * KRUH_S[j] * kz;
-      var dz = pz * KRUH_C[j] + qz * KRUH_S[j] * kz;
-      DX.push(dx); DY.push(dy); DZ.push(dz);
-      var n = Math.hypot(dx, dy, dz) || 1;
-      NX.push(dx / n); NY.push(dy / n); NZ.push(dz / n);
-    }
-
-    function w(x, y, z, nx, ny, nz) {
-      out[i++] = m[0] * x + m[4] * y + m[8] * z + m[12];
-      out[i++] = m[1] * x + m[5] * y + m[9] * z + m[13];
-      out[i++] = m[2] * x + m[6] * y + m[10] * z + m[14];
-      out[i++] = m[0] * nx + m[4] * ny + m[8] * nz;
-      out[i++] = m[1] * nx + m[5] * ny + m[9] * nz;
-      out[i++] = m[2] * nx + m[6] * ny + m[10] * nz;
-      out[i++] = c[0]; out[i++] = c[1]; out[i++] = c[2];
-    }
-
-    for (j = 0; j < STRAN; j++) {
-      var k = (j + 1) % STRAN;
-      var a1x = a[0] + DX[j] * ra, a1y = a[1] + DY[j] * ra, a1z = a[2] + DZ[j] * ra;
-      var b1x = b[0] + DX[j] * rb, b1y = b[1] + DY[j] * rb, b1z = b[2] + DZ[j] * rb;
-      var a2x = a[0] + DX[k] * ra, a2y = a[1] + DY[k] * ra, a2z = a[2] + DZ[k] * ra;
-      var b2x = b[0] + DX[k] * rb, b2y = b[1] + DY[k] * rb, b2z = b[2] + DZ[k] * rb;
-
-      w(a1x, a1y, a1z, NX[j], NY[j], NZ[j]);
-      w(b1x, b1y, b1z, NX[j], NY[j], NZ[j]);
-      w(b2x, b2y, b2z, NX[k], NY[k], NZ[k]);
-      w(a1x, a1y, a1z, NX[j], NY[j], NZ[j]);
-      w(b2x, b2y, b2z, NX[k], NY[k], NZ[k]);
-      w(a2x, a2y, a2z, NX[k], NY[k], NZ[k]);
-
-      // víčka na koncích
-      w(a[0], a[1], a[2], -ux, -uy, -uz);
-      w(a2x, a2y, a2z, -ux, -uy, -uz);
-      w(a1x, a1y, a1z, -ux, -uy, -uz);
-      w(b[0], b[1], b[2], ux, uy, uz);
-      w(b1x, b1y, b1z, ux, uy, uz);
-      w(b2x, b2y, b2z, ux, uy, uz);
-    }
-    return i;
-  }
-
-  /**
-   * Koule — klouby, hlava, kapuce. Kreslí se jako kulový pás
-   * s paprskovitými normálami, `ks` ji zplošťuje do elipsoidu.
-   *
-   * @param {Array}  st  Střed v souřadnicích postavy.
-   * @param {number} r   Poloměr.
-   * @param {number} ks  Zploštění v ose z (1 = koule).
-   * @param {Array}  c   Barva.
-   * @param {Float32Array} m Umístění postavy.
-   * @param {Object} out Kam zapisovat.
-   * @param {number} i   Zápisová pozice.
-   * @return {number} Nová zápisová pozice.
-   */
-  function koule(st, r, ks, c, m, out, i) {
-    var R = 4, S = 8;
-
-    function w(dx, dy, dz) {
-      var x = st[0] + dx * r, y = st[1] + dy * r, z = st[2] + dz * r * ks;
-      var n = Math.hypot(dx, dy, dz / (ks || 1)) || 1;
-      var nx = dx / n, ny = dy / n, nz = (dz / (ks || 1)) / n;
-      out[i++] = m[0] * x + m[4] * y + m[8] * z + m[12];
-      out[i++] = m[1] * x + m[5] * y + m[9] * z + m[13];
-      out[i++] = m[2] * x + m[6] * y + m[10] * z + m[14];
-      out[i++] = m[0] * nx + m[4] * ny + m[8] * nz;
-      out[i++] = m[1] * nx + m[5] * ny + m[9] * nz;
-      out[i++] = m[2] * nx + m[6] * ny + m[10] * nz;
-      out[i++] = c[0]; out[i++] = c[1]; out[i++] = c[2];
-    }
-
-    for (var a = 0; a < R; a++) {
-      var t1 = a / R * Math.PI - Math.PI / 2, t2 = (a + 1) / R * Math.PI - Math.PI / 2;
-      var c1 = Math.cos(t1), s1 = Math.sin(t1), c2 = Math.cos(t2), s2 = Math.sin(t2);
-      for (var b = 0; b < S; b++) {
-        var p1 = b / S * 2 * Math.PI, p2 = (b + 1) / S * 2 * Math.PI;
-        var A = [c1 * Math.cos(p1), s1, c1 * Math.sin(p1)];
-        var B = [c1 * Math.cos(p2), s1, c1 * Math.sin(p2)];
-        var C = [c2 * Math.cos(p2), s2, c2 * Math.sin(p2)];
-        var D = [c2 * Math.cos(p1), s2, c2 * Math.sin(p1)];
-        w(A[0], A[1], A[2]); w(B[0], B[1], B[2]); w(C[0], C[1], C[2]);
-        w(A[0], A[1], A[2]); w(C[0], C[1], C[2]); w(D[0], D[1], D[2]);
-      }
-    }
-    return i;
-  }
-
-  /**
-   * Mezikloub dvoukostní končetiny — loket nebo koleno.
-   *
-   * Konce a délky obou kostí jsou dané, poloha mezikloubu se dopočítá;
-   * náznak (hx, hy, hz) říká, na kterou stranu se končetina ohýbá.
-   * Cíl se drží v dosahu, takže se končetina nikdy nenatáhne přes
-   * svou délku — přesně to dřív v zatáčkách lámalo lokty.
-   */
-  function mezikloub(a, b, l1, l2, hx, hy, hz) {
-    var ux = b[0] - a[0], uy = b[1] - a[1], uz = b[2] - a[2];
-    var dd = Math.hypot(ux, uy, uz) || 1e-4;
-    ux /= dd; uy /= dd; uz /= dd;
-    var d = Math.min(dd, (l1 + l2) * 0.99);
-
-    var cos = (l1 * l1 + d * d - l2 * l2) / (2 * l1 * d);
-    var uhel = Math.acos(Math.min(Math.max(cos, -1), 1));
-
-    var s = hx * ux + hy * uy + hz * uz;
-    hx -= ux * s; hy -= uy * s; hz -= uz * s;
-    var e = Math.hypot(hx, hy, hz) || 1;
-    hx /= e; hy /= e; hz /= e;
-
-    var c = Math.cos(uhel) * l1, t = Math.sin(uhel) * l1;
-    return [a[0] + ux * c + hx * t, a[1] + uy * c + hy * t, a[2] + uz * c + hz * t];
-  }
-
-  /** Koleno mezi kyčlí a chodidlem — ohýbá se dopředu a mírně ven. */
-  function koleno(kycel, chodidlo, stehno, lytko, ven) {
-    return mezikloub(kycel, chodidlo, stehno, lytko, 1, 0.35, ven);
-  }
-
-  var KYCEL_Y = 0.75, STEHNO = 0.44, LYTKO = 0.44, LED = 0.10;
-  var NADLOKTI = 0.29, PREDLOKTI = 0.29;
-
-  /**
-   * Zapíše postavu v dané fázi dvojkroku.
-   *
-   * @param {number} faze 0..1, jeden dvojkrok.
-   * @param {Array}  dres Barva dresu.
-   * @param {number} zat  0..1, jak hluboko je bruslař v zatáčce.
-   * @param {Float32Array} m Umístění ve světě.
-   * @param {Object} out  Kam zapisovat.
-   * @param {number} i    Zápisová pozice.
-   * @return {number} Nová zápisová pozice.
-   */
-  function postava(faze, dres, zat, m, out, i) {
-    var cyk = faze * Math.PI * 2;
-
-    var houp = 0.11 * Math.cos((faze - 0.15) * Math.PI * 2);
-    var kycleY = KYCEL_Y - 0.05 + 0.035 * Math.abs(Math.sin((faze - 0.31) * Math.PI * 2));
-
-    var kycle  = [-0.02, kycleY, houp];
-    var ramena = [0.40, kycleY + 0.31, houp * 0.4];
-
-    /* ── Trup: klenutá páteř po křivce, pánev a ramena zakulacené ── */
-    var stredZad = [(kycle[0] + ramena[0]) / 2 - 0.02, (kycle[1] + ramena[1]) / 2 + 0.10, houp * 0.7];
-    function pater(t) {
-      var a = (1 - t) * (1 - t), b = 2 * (1 - t) * t, c = t * t;
-      return [a * kycle[0] + b * stredZad[0] + c * ramena[0],
-              a * kycle[1] + b * stredZad[1] + c * ramena[1],
-              a * kycle[2] + b * stredZad[2] + c * ramena[2]];
-    }
-    var pR = [0.145, 0.165, 0.15, 0.115];
-    for (var u = 0; u < 3; u++) {
-      i = trubka(pater(u / 3), pater((u + 1) / 3), pR[u], pR[u + 1], 1.5, dres, m, out, i);
-    }
-    i = koule(kycle, 0.135, 1.45, dres, m, out, i);
-
-    /* ── Krk, obličej, kapuce kombinézy, brýle ── */
-    var krk   = [ramena[0] + 0.06, ramena[1] + 0.04, ramena[2]];
-    var hlava = [ramena[0] + 0.20, ramena[1] + 0.16, ramena[2]];
-    i = trubka(krk, [hlava[0] - 0.05, hlava[1] - 0.05, hlava[2]], 0.05, 0.06, 1, dres, m, out, i);
-    i = koule([hlava[0] + 0.03, hlava[1] - 0.005, hlava[2]], 0.088, 1, dres, m, out, i);
-    i = koule([hlava[0] - 0.025, hlava[1] + 0.012, hlava[2]], 0.105, 1.02, dres, m, out, i);
-    i = trubka([hlava[0] + 0.075, hlava[1] + 0.02, hlava[2] - 0.062],
-               [hlava[0] + 0.075, hlava[1] + 0.02, hlava[2] + 0.062], 0.03, 0.03, 1.5, dres, m, out, i);
-
-    /* ── Paže ──
-       Levá složená na kříži, pravá v zatáčce švihá kyvadlem počítaným
-       dopředně v kloubech: rameno je čep, loket pant — dole ohnutý,
-       na krajích švihu propnutý. Koule vyhlazují ramena i lokty,
-       dlaně jsou rukavice. */
-    var svihF = Math.sin(cyk + 2.1);
-    [-1, 1].forEach(function (strana) {
-      var rameno = [ramena[0] - 0.02, ramena[1] - 0.04, ramena[2] + strana * 0.16];
-
-      var ruka  = [kycle[0] - 0.10, kycle[1] + 0.12 + (strana > 0 ? 0.03 : 0), kycle[2] * 0.7 + strana * 0.05];
-      var loket = mezikloub(rameno, ruka, NADLOKTI, PREDLOKTI, -0.1, 0.4, strana);
-
-      if (strana > 0 && zat > 0.02) {
-        var theta = -0.25 + 1.15 * svihF;
-        var beta = 0.95 - 0.55 * Math.abs(svihF);
-        var vybok = 0.32;
-
-        var ux = Math.sin(theta), uy = -Math.cos(theta), uz = strana * vybok;
-        var un = Math.hypot(ux, uy, uz); ux /= un; uy /= un; uz /= un;
-        var loketS = [rameno[0] + ux * NADLOKTI, rameno[1] + uy * NADLOKTI, rameno[2] + uz * NADLOKTI];
-
-        var fi = theta + beta;
-        var fx = Math.sin(fi), fy = -Math.cos(fi), fz = strana * vybok;
-        var fn = Math.hypot(fx, fy, fz); fx /= fn; fy /= fn; fz /= fn;
-        var rukaS = [loketS[0] + fx * PREDLOKTI, loketS[1] + fy * PREDLOKTI, loketS[2] + fz * PREDLOKTI];
-
-        var oblouk = Math.sin(zat * Math.PI) * 0.14;
-        loket = [mix(loket[0], loketS[0], zat), mix(loket[1], loketS[1], zat), mix(loket[2], loketS[2], zat) + oblouk * 0.6];
-        ruka  = [mix(ruka[0], rukaS[0], zat), mix(ruka[1], rukaS[1], zat), mix(ruka[2], rukaS[2], zat) + oblouk];
-      }
-
-      i = koule(rameno, 0.068, 1, dres, m, out, i);
-      i = trubka(rameno, loket, 0.052, 0.045, 1, dres, m, out, i);
-      i = koule(loket, 0.048, 1, dres, m, out, i);
-      i = trubka(loket, ruka, 0.042, 0.036, 1, dres, m, out, i);
-      i = koule(ruka, 0.046, 1, dres, m, out, i);
-
-      // červené prošití na nadloktí
-      i = trubka([rameno[0], rameno[1], rameno[2] + strana * 0.035],
-                 [loket[0], loket[1], loket[2] + strana * 0.032], 0.026, 0.022, 1, dres, m, out, i);
-    });
-
-    /* ── Nohy ── */
-    [1, -1].forEach(function (strana, idx) {
-      var q = (faze + (idx ? 0.5 : 0)) % 1;
-      var chodidlo, naLedu = false, vytoc = 0;
-
-      if (q < 0.30) {
-        var g = hladce(q / 0.30);
-        chodidlo = [mix(0.18, 0.08, g), LED, strana * 0.12];
-        naLedu = true; vytoc = 0.05;
-      } else if (q < 0.62) {
-        var t = hladce((q - 0.30) / 0.32);
-        var zdvih = Math.max(0, (t - 0.85) / 0.15);
-        chodidlo = [mix(0.08, -0.40, t), LED + zdvih * zdvih * 0.08, strana * mix(0.12, 0.48, t)];
-        naLedu = t < 0.85; vytoc = 0.05 + t * 0.30;
-      } else {
-        var v = hladce((q - 0.62) / 0.38);
-        chodidlo = [mix(-0.40, 0.18, v), LED + (1 - v) * 0.08 + Math.sin(v * Math.PI) * 0.10, strana * mix(0.48, 0.12, v)];
-        vytoc = 0.35 * (1 - v);
-      }
-
-      var kycelB = [kycle[0], kycle[1] - 0.05, kycle[2] + strana * 0.10];
-
-      var vx = chodidlo[0] - kycelB[0], vy2 = chodidlo[1] - kycelB[1], vz = chodidlo[2] - kycelB[2];
-      var dosah = (STEHNO + LYTKO) * 0.98 - 0.06;
-      var vd = Math.hypot(vx, vy2, vz);
-      if (vd > dosah) {
-        var zk = dosah / vd;
-        chodidlo = [kycelB[0] + vx * zk, kycelB[1] + vy2 * zk, kycelB[2] + vz * zk];
-      }
-
-      var kolenoB = koleno(kycelB, chodidlo, STEHNO, LYTKO, strana * 0.18);
-      var kotnik  = [chodidlo[0], chodidlo[1] + 0.05, chodidlo[2]];
-
-      i = koule(kycelB, 0.088, 1, dres, m, out, i);
-      i = trubka(kycelB, kolenoB, 0.085, 0.062, 1.1, dres, m, out, i);
-      i = koule(kolenoB, 0.064, 1, dres, m, out, i);
-      i = trubka(kolenoB, kotnik, 0.058, 0.042, 1, dres, m, out, i);
-      i = koule(kotnik, 0.045, 1, dres, m, out, i);
-
-      // červené prošití po vnějším stehně
-      i = trubka([kycelB[0], kycelB[1], kycelB[2] + strana * 0.062],
-                 [kolenoB[0], kolenoB[1], kolenoB[2] + strana * 0.048], 0.024, 0.02, 1, dres, m, out, i);
-
-      // Bota, klapačkové můstky a nůž — při odrazu vytočené špičkou ven.
-      var cf = Math.cos(vytoc), sf = Math.sin(vytoc) * strana;
-      i = trubka([chodidlo[0] - 0.07 * cf, chodidlo[1] + 0.03, chodidlo[2] - 0.07 * sf],
-                 [chodidlo[0] + 0.15 * cf, chodidlo[1] + 0.005, chodidlo[2] + 0.15 * sf],
-                 0.05, 0.038, 0.85, dres, m, out, i);
-      i = trubka([chodidlo[0] - 0.04 * cf, chodidlo[1] + 0.01, chodidlo[2] - 0.04 * sf],
-                 [chodidlo[0] - 0.04 * cf, chodidlo[1] - 0.045, chodidlo[2] - 0.04 * sf],
-                 0.014, 0.012, 0.6, BARVA_OCEL, m, out, i);
-      i = trubka([chodidlo[0] + 0.12 * cf, chodidlo[1] + 0.005, chodidlo[2] + 0.12 * sf],
-                 [chodidlo[0] + 0.12 * cf, chodidlo[1] - 0.045, chodidlo[2] + 0.12 * sf],
-                 0.014, 0.012, 0.6, BARVA_OCEL, m, out, i);
-      i = trubka([chodidlo[0] - 0.13 * cf, chodidlo[1] - 0.05, chodidlo[2] - 0.13 * sf],
-                 [chodidlo[0] + 0.23 * cf, chodidlo[1] - 0.05, chodidlo[2] + 0.23 * sf],
-                 0.021, 0.021, 0.22, naLedu ? BARVA_NUZ : BARVA_OCEL, m, out, i);
-    });
-
-    return i;
-  }
-
-  /* ══════════════ Dráha a stopy ══════════════ */
+  /* ══════════════ Statická dráha ══════════════ */
   var caryPole = [];
-  function vrchol(x, z, r, g, b, a) { caryPole.push(x, 0.01, z, r, g, b, a); }
-  function pridejPas(x1, z1, x2, z2, polovina, r, g, b, a) {
+  function vrchol(pole, x, y, z, r, g, b, a) { pole.push(x, y, z, r, g, b, a); }
+  function pridejPas(pole, x1, z1, x2, z2, pol, r, g, b, a) {
     var dx = x2 - x1, dz = z2 - z1, d = Math.hypot(dx, dz);
     if (!d) { return; }
-    var nx = -dz / d * polovina, nz = dx / d * polovina;
-    vrchol(x1-nx, z1-nz, r,g,b,a); vrchol(x1+nx, z1+nz, r,g,b,a); vrchol(x2-nx, z2-nz, r,g,b,a);
-    vrchol(x2-nx, z2-nz, r,g,b,a); vrchol(x1+nx, z1+nz, r,g,b,a); vrchol(x2+nx, z2+nz, r,g,b,a);
+    var nx = -dz / d * pol, nz = dx / d * pol;
+    vrchol(pole, x1-nx, 0.01, z1-nz, r,g,b,a); vrchol(pole, x1+nx, 0.01, z1+nz, r,g,b,a); vrchol(pole, x2-nx, 0.01, z2-nz, r,g,b,a);
+    vrchol(pole, x2-nx, 0.01, z2-nz, r,g,b,a); vrchol(pole, x1+nx, 0.01, z1+nz, r,g,b,a); vrchol(pole, x2+nx, 0.01, z2+nz, r,g,b,a);
   }
-  [[0, .34, .55], [4, .26, .40], [-3.4, .18, .26]].forEach(function (par) {
+  [[0, .34, .5], [4, .26, .36], [-3.4, .18, .24]].forEach(function (par) {
     var krok = OKRUH / 220, predchozi = null;
     for (var s = 0; s <= OKRUH + krok; s += krok) {
       var bod = naOvalu(s, par[0]);
-      if (predchozi) { pridejPas(predchozi.x, predchozi.z, bod.x, bod.z, par[1], .42, .74, .95, par[2]); }
+      if (predchozi) { pridejPas(caryPole, predchozi.x, predchozi.z, bod.x, bod.z, par[1], .42, .74, .95, par[2]); }
       predchozi = bod;
     }
   });
-  for (var m = 0; m < 40; m++) {
-    var a1 = naOvalu(OKRUH * m / 40, -3.4), a2 = naOvalu(OKRUH * m / 40, 4);
-    var vyrazna = m % 10 === 0;
-    pridejPas(a1.x, a1.z, a2.x, a2.z, vyrazna ? .30 : .16, .42, .74, .95, vyrazna ? .5 : .13);
+  for (var m0 = 0; m0 < 40; m0++) {
+    var a1 = naOvalu(OKRUH * m0 / 40, -3.4), a2 = naOvalu(OKRUH * m0 / 40, 4);
+    var vyrazna = m0 % 10 === 0;
+    pridejPas(caryPole, a1.x, a1.z, a2.x, a2.z, vyrazna ? .30 : .16, .42, .74, .95, vyrazna ? .45 : .12);
   }
   var caryBuf = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, caryBuf);
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(caryPole), gl.STATIC_DRAW);
   var caryPocet = caryPole.length / 7;
 
-  // V siluetě je barva dresu barvou zářícího obrysu i stopy.
+  /* ══════════════ Bruslaři — komety ══════════════ */
   var DRESY = [
     [0.34, 0.62, 0.98],   // ledová modř
     [0.92, 0.94, 0.99],   // bílá
@@ -515,67 +134,59 @@
     [0.95, 0.24, 0.27],   // červená
     [0.52, 0.80, 0.98]    // světlý led
   ];
-  var STOPA_DELKA = 44;
+  var STOPA_DELKA = 44;   // bodů dlouhé stopy
+  var ZAREZU = 26;        // kolik zářezů nožů si každý pamatuje
 
   var bruslari = DRESY.map(function (dres, i) {
     return {
       dres: dres,
+      jadro: [dres[0] * 0.35 + 0.62, dres[1] * 0.35 + 0.63, dres[2] * 0.35 + 0.64],
       s: OKRUH * (i / DRESY.length) + i * 3,
       odsazeni: -1.8 + i * 1.6,
       rychlost: 10.6 + i * 0.55,
-      krok: Math.random(),
-      zat: 0,
-      /*
-       * Stopa musí být světlá: plátno se do stránky skládá normálně,
-       * takže tmavý pás by pozadí ztmavil a vypadal jako stín, ne záře.
-       */
-      stopa: [dres[0] * 0.35 + 0.42, dres[1] * 0.35 + 0.55, dres[2] * 0.35 + 0.62],
-      historie: []
+      ujeto: 0,            // vzdálenost od posledního zářezu
+      strana: i % 2 ? 1 : -1,
+      historie: [],
+      zarezy: []
     };
   });
 
-  var pasyBuf = gl.createBuffer();
-  var pasyPole = new Float32Array(bruslari.length * STOPA_DELKA * 2 * 7);
-  var teloBuf = gl.createBuffer();
-  // Kolik čísel zabere jedna postava, se změří na zkušebním zápisu —
-  // topologie je stálá, mění se jen souřadnice.
-  var DELKA_FIGURY = postava(0, DRESY[0], 0, jednotka(), [], 0);
-  var teloPole = new Float32Array(bruslari.length * DELKA_FIGURY);
+  var dynBuf = gl.createBuffer();
+  var dynPole = new Float32Array(40000);
 
-  /* ══════════════ Kamera ══════════════
-     Záběry se střídají, mezi nimi se plynule přejíždí. */
+  /* ══════════════ Kamera ══════════════ */
   var ZABERY = [
     function (t, v) {                                   // za zády vedoucího
-      var z = naOvalu(v.s - 6.2, v.odsazeni), c = naOvalu(v.s + 7, v.odsazeni);
-      return { oko: [z.x, 1.9, z.z], cil: [c.x, 0.9, c.z], fov: 1.0 };
+      var z = naOvalu(v.s - 7, v.odsazeni), c = naOvalu(v.s + 6, v.odsazeni);
+      return { oko: [z.x, 1.5, z.z], cil: [c.x, 0.35, c.z], fov: 1.0 };
     },
-    function (t, v) {                                   // od mantinelu, těsně u dráhy
+    function (t, v) {                                   // od mantinelu
       var c = naOvalu(v.s, v.odsazeni);
       var b = naOvalu(v.s + 15, 9.5);
-      return { oko: [b.x, 1.25, b.z], cil: [c.x, 0.85, c.z], fov: 0.95 };
+      return { oko: [b.x, 1.0, b.z], cil: [c.x, 0.3, c.z], fov: 0.95 };
     },
-    function (t, v) {                                   // zepředu, bruslař najíždí
+    function (t, v) {                                   // zepředu, kometa najíždí
       var p = naOvalu(v.s + 11, v.odsazeni - 1.2);
       var c = naOvalu(v.s, v.odsazeni);
-      return { oko: [p.x, 1.5, p.z], cil: [c.x, 0.95, c.z], fov: 0.9 };
+      return { oko: [p.x, 1.1, p.z], cil: [c.x, 0.3, c.z], fov: 0.9 };
     },
-    function (t, v) {                                   // zevnitř zatáčky, nízko
+    function (t, v) {                                   // zevnitř zatáčky
       var c = naOvalu(v.s, v.odsazeni);
       var vnitr = naOvalu(v.s + 4, -11);
-      return { oko: [vnitr.x, 1.1, vnitr.z], cil: [c.x, 0.85, c.z], fov: 1.05 };
+      return { oko: [vnitr.x, 0.9, vnitr.z], cil: [c.x, 0.3, c.z], fov: 1.05 };
     },
-    function (t, v) {                                   // šikmo shora, letí s ním
-      var b = naOvalu(v.s - 3, v.odsazeni + 7);
+    function (t, v) {                                   // šikmo shora, letí s ní
+      var b = naOvalu(v.s - 4, v.odsazeni + 8);
       var c = naOvalu(v.s + 3, v.odsazeni);
-      return { oko: [b.x, 5.2, b.z], cil: [c.x, 0.8, c.z], fov: 0.95 };
+      return { oko: [b.x, 5.5, b.z], cil: [c.x, 0.2, c.z], fov: 0.95 };
     },
-    function (t, v) {                                   // odjezd: dráha ubíhá do dálky
+    function (t, v) {                                   // odjezd: celý ovál
       var u = Math.PI / 2 + Math.sin(t * 0.09) * 0.22;
       return { oko: [Math.sin(u) * 141, 34, Math.cos(u) * 141], cil: [0, 2, 0], fov: 0.85 };
     }
   ];
   var ZABER_DELKA = 6.5, PREJEZD = 1.3;
-
+  function hladce(t) { t = Math.min(Math.max(t, 0), 1); return t * t * (3 - 2 * t); }
   function kamera(t, vedouci) {
     var poradi = Math.floor(t / ZABER_DELKA);
     var uvnitr = t - poradi * ZABER_DELKA;
@@ -613,19 +224,27 @@
     zmerZmen();
     if (!sirka || !vyska) { requestAnimationFrame(snimek); return; }
 
-    /* — pohyb bruslařů — */
-    var i = 0, t = 0;
+    /* — pohyb — */
     bruslari.forEach(function (b) {
       var bod = naOvalu(b.s, b.odsazeni);
       var tempo = bod.k ? 0.9 : 1.1;
-      b.s += b.rychlost * tempo * dt;
-      // Frekvence kroků: celý dvojkrok trvá bezmála dvě sekundy.
-      b.krok = (b.krok + dt * (0.42 + b.rychlost * 0.012)) % 1;
-      // Do zatáčky se najíždí plynule — náklon ani švih paže nesmí skočit.
-      b.zat += (bod.k - b.zat) * Math.min(1, dt * 2.2);
+      var ds = b.rychlost * tempo * dt;
+      b.s += ds; b.ujeto += ds;
       b.bod = bod;
-      b.historie.unshift({ x: bod.x, z: bod.z, tx: bod.tx, tz: bod.tz, k: bod.k });
+
+      b.historie.unshift({ x: bod.x, z: bod.z, tx: bod.tx, tz: bod.tz });
       if (b.historie.length > STOPA_DELKA) { b.historie.length = STOPA_DELKA; }
+
+      // Zářez nože: šikmý řez střídavě vlevo a vpravo, jak vede krok.
+      if (b.ujeto > 1.15) {
+        b.ujeto = 0;
+        b.strana = -b.strana;
+        var uh = Math.atan2(bod.tz, bod.tx) + b.strana * 0.33;
+        // Zářez leží vedle osy jízdy — kroky jdou střídavě vlevo a vpravo.
+        var ox = -bod.tz * b.strana * 0.16, oz = bod.tx * b.strana * 0.16;
+        b.zarezy.unshift({ x: bod.x + ox, z: bod.z + oz, dx: Math.cos(uh), dz: Math.sin(uh), zrozen: cas });
+        if (b.zarezy.length > ZAREZU) { b.zarezy.length = ZAREZU; }
+      }
     });
 
     var vedouci = bruslari[0];
@@ -633,87 +252,80 @@
     var mvp = nasob(perspektiva(k.fov, sirka / vyska, 0.4, 900), pohled(k.oko, k.cil));
 
     gl.clearColor(0, 0, 0, 0);
-    gl.clearDepth(1);
-    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-
-    /* — postavy: plné, se světlem — */
-    gl.useProgram(progTelo);
-    gl.uniformMatrix4fv(teloLoc.mvp, false, mvp);
-    gl.enable(gl.DEPTH_TEST);
-    gl.depthMask(true);
-    gl.disable(gl.BLEND);
-    gl.disable(gl.CULL_FACE);
-
-    i = 0;
-    bruslari.forEach(function (b) {
-      var smer = Math.atan2(-b.bod.tz, b.bod.tx);
-      var naklon = b.zat * 0.34;
-      var svet = nasob(nasob(posun(b.bod.x, Math.sin(naklon) * 0.12, b.bod.z), otocY(smer)), otocX(naklon));
-      i = postava(b.krok, b.dres, b.zat, svet, teloPole, i);
-    });
-    gl.bindBuffer(gl.ARRAY_BUFFER, teloBuf);
-    gl.bufferData(gl.ARRAY_BUFFER, teloPole, gl.DYNAMIC_DRAW);
-    gl.vertexAttribPointer(teloLoc.pos, 3, gl.FLOAT, false, 36, 0);
-    gl.vertexAttribPointer(teloLoc.nor, 3, gl.FLOAT, false, 36, 12);
-    gl.vertexAttribPointer(teloLoc.col, 3, gl.FLOAT, false, 36, 24);
-    gl.enableVertexAttribArray(teloLoc.pos);
-    gl.enableVertexAttribArray(teloLoc.nor);
-    gl.enableVertexAttribArray(teloLoc.col);
-    gl.drawArrays(gl.TRIANGLES, 0, i / 9);
-
-    /* — dráha a stopy: sčítají se, hloubku jen čtou — */
-    gl.useProgram(progSvit);
-    gl.uniformMatrix4fv(svitLoc.mvp, false, mvp);
-    gl.disable(gl.CULL_FACE);
-    gl.depthMask(false);
+    gl.clear(gl.COLOR_BUFFER_BIT);
     gl.enable(gl.BLEND);
-    /*
-     * Skládání s přednásobenou barvou. Čisté sčítání tu nefunguje:
-     * plátno leží na stránce a prohlížeč o zapsanou alfu ztlumí pozadí,
-     * takže slabá stopa vrhala stín místo světla — a bez zápisu alfy
-     * zase přednásobené plátno barvu ořízne úplně.
-     */
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    gl.uniformMatrix4fv(uMVP, false, mvp);
 
-    gl.bindBuffer(gl.ARRAY_BUFFER, caryBuf);
-    gl.vertexAttribPointer(svitLoc.pos, 3, gl.FLOAT, false, 28, 0);
-    gl.vertexAttribPointer(svitLoc.col, 4, gl.FLOAT, false, 28, 12);
-    gl.enableVertexAttribArray(svitLoc.pos);
-    gl.enableVertexAttribArray(svitLoc.col);
-    gl.drawArrays(gl.TRIANGLES, 0, caryPocet);
-
-    t = 0;
-    bruslari.forEach(function (b) {
-      for (var n = 0; n < STOPA_DELKA; n++) {
-        var h = b.historie[Math.min(n, b.historie.length - 1)];
-        var podil = 1 - n / STOPA_DELKA;
-
-        /*
-         * Pohled podél pásu stopu ztlumí. Při pohledu zezadu se všechny
-         * dílky pásu promítnou na sebe, jejich průhlednosti se poskládají
-         * skoro na jedničku a slabá barva to nedožene — místo záře byl
-         * na obrazovce tmavý kvádr.
-         */
-        var vx = h.x - k.oko[0], vz = h.z - k.oko[2];
-        var vd = Math.hypot(vx, vz) || 1;
-        var bokem = Math.abs(vx * h.tz - vz * h.tx) / vd;
-
-        var sila = podil * podil * 0.5 * (0.02 + 0.98 * bokem);
-        var w = 0.08 + podil * 0.12;
-        var nx = -h.tz * w, nz = h.tx * w;
-        pasyPole[t++] = h.x - nx; pasyPole[t++] = 0.02; pasyPole[t++] = h.z - nz;
-        pasyPole[t++] = b.stopa[0]; pasyPole[t++] = b.stopa[1]; pasyPole[t++] = b.stopa[2]; pasyPole[t++] = sila;
-        pasyPole[t++] = h.x + nx; pasyPole[t++] = 0.02; pasyPole[t++] = h.z + nz;
-        pasyPole[t++] = b.stopa[0]; pasyPole[t++] = b.stopa[1]; pasyPole[t++] = b.stopa[2]; pasyPole[t++] = sila;
-      }
-    });
-    gl.bindBuffer(gl.ARRAY_BUFFER, pasyBuf);
-    gl.bufferData(gl.ARRAY_BUFFER, pasyPole, gl.DYNAMIC_DRAW);
-    gl.vertexAttribPointer(svitLoc.pos, 3, gl.FLOAT, false, 28, 0);
-    gl.vertexAttribPointer(svitLoc.col, 4, gl.FLOAT, false, 28, 12);
-    for (var j = 0; j < bruslari.length; j++) {
-      gl.drawArrays(gl.TRIANGLE_STRIP, j * STOPA_DELKA * 2, STOPA_DELKA * 2);
+    function kresli(buf, pole, pocet, dynamicke) {
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      if (dynamicke) { gl.bufferData(gl.ARRAY_BUFFER, pole, gl.DYNAMIC_DRAW); }
+      gl.vertexAttribPointer(aPos, 3, gl.FLOAT, false, 28, 0);
+      gl.vertexAttribPointer(aCol, 4, gl.FLOAT, false, 28, 12);
+      gl.enableVertexAttribArray(aPos);
+      gl.enableVertexAttribArray(aCol);
+      gl.drawArrays(gl.TRIANGLES, 0, pocet);
     }
+
+    kresli(caryBuf, null, caryPocet, false);
+
+    /* — dynamická záře: zářezy, stopy, komety — */
+    var d = [];
+    function quad(x1, z1, x2, z2, pol, y, c, a1q, a2q) {
+      var dx = x2 - x1, dz = z2 - z1, dd = Math.hypot(dx, dz);
+      if (!dd) { return; }
+      var nx = -dz / dd * pol, nz = dx / dd * pol;
+      vrchol(d, x1-nx, y, z1-nz, c[0], c[1], c[2], a1q); vrchol(d, x1+nx, y, z1+nz, c[0], c[1], c[2], a1q); vrchol(d, x2-nx, y, z2-nz, c[0], c[1], c[2], a2q);
+      vrchol(d, x2-nx, y, z2-nz, c[0], c[1], c[2], a2q); vrchol(d, x1+nx, y, z1+nz, c[0], c[1], c[2], a1q); vrchol(d, x2+nx, y, z2+nz, c[0], c[1], c[2], a2q);
+    }
+
+    bruslari.forEach(function (b) {
+      // Zářezy nožů: krátké šikmé řezy, blednou několik sekund.
+      b.zarezy.forEach(function (zr) {
+        var stari = cas - zr.zrozen;
+        var sila = Math.max(0, 1 - stari / 7) * 0.65;
+        if (sila <= 0.01) { return; }
+        quad(zr.x - zr.dx * 0.42, zr.z - zr.dz * 0.42,
+             zr.x + zr.dx * 0.42, zr.z + zr.dz * 0.42, 0.055, 0.015, b.dres, sila * 0.4, sila);
+      });
+
+      // Dlouhá stopa: pás blednoucí dozadu; při pohledu podél délky
+      // pohasíná, jinak by se dílky naskládaly na sebe.
+      for (var n = 0; n < STOPA_DELKA - 1 && n < b.historie.length - 1; n++) {
+        var h1 = b.historie[n], h2 = b.historie[n + 1];
+        var p1 = 1 - n / STOPA_DELKA, p2 = 1 - (n + 1) / STOPA_DELKA;
+        var vx = h1.x - k.oko[0], vz = h1.z - k.oko[2];
+        var vd = Math.hypot(vx, vz) || 1;
+        var bokem = Math.abs(vx * h1.tz - vz * h1.tx) / vd;
+        var f = 0.02 + 0.98 * bokem;
+        quad(h1.x, h1.z, h2.x, h2.z, 0.06 + p1 * 0.10, 0.02, b.dres,
+             p1 * p1 * 0.7 * f, p2 * p2 * 0.7 * f);
+      }
+
+      // Kometa: horké protáhlé jádro těsně nad ledem…
+      var bd = b.bod;
+      for (var q2 = 0; q2 < 8; q2++) {
+        var t1 = q2 / 8, t2 = (q2 + 1) / 8;
+        quad(bd.x - bd.tx * t1 * 2.2, bd.z - bd.tz * t1 * 2.2,
+             bd.x - bd.tx * t2 * 2.2, bd.z - bd.tz * t2 * 2.2,
+             0.18 * (1 - t1 * 0.8), 0.05, b.jadro,
+             (1 - t1) * (1 - t1), (1 - t2) * (1 - t2));
+      }
+      // …svislý plamínek přes směr jízdy, ať je vidět i zepředu a zezadu…
+      var px = -bd.tz, pz = bd.tx;
+      vrchol(d, bd.x - px * 0.26, 0.0, bd.z - pz * 0.26, b.jadro[0], b.jadro[1], b.jadro[2], 0.75);
+      vrchol(d, bd.x + px * 0.26, 0.0, bd.z + pz * 0.26, b.jadro[0], b.jadro[1], b.jadro[2], 0.75);
+      vrchol(d, bd.x - bd.tx * 0.5 - px * 0.05, 1.0, bd.z - bd.tz * 0.5 - pz * 0.05, b.jadro[0], b.jadro[1], b.jadro[2], 0);
+      vrchol(d, bd.x + px * 0.26, 0.0, bd.z + pz * 0.26, b.jadro[0], b.jadro[1], b.jadro[2], 0.75);
+      vrchol(d, bd.x - bd.tx * 0.5 + px * 0.05, 1.0, bd.z - bd.tz * 0.5 + pz * 0.05, b.jadro[0], b.jadro[1], b.jadro[2], 0);
+      vrchol(d, bd.x - bd.tx * 0.5 - px * 0.05, 1.0, bd.z - bd.tz * 0.5 - pz * 0.05, b.jadro[0], b.jadro[1], b.jadro[2], 0);
+      // …a měkká kaluž světla na ledě pod ní.
+      quad(bd.x - bd.tx * 0.5, bd.z - bd.tz * 0.5,
+           bd.x + bd.tx * 0.7, bd.z + bd.tz * 0.7, 0.55, 0.005, b.dres, 0.0, 0.3);
+    });
+
+    var dyn = new Float32Array(d);
+    kresli(dynBuf, dyn, d.length / 7, true);
 
     requestAnimationFrame(snimek);
   }
