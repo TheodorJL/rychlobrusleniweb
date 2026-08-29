@@ -332,25 +332,28 @@
                [hlavaB[0] - 0.01, hlavaB[1] - 0.005, hlavaB[2] + 0.07], 0.032, 0.032, 1.6, BARVA_BRYLE, m, out, i);
 
     /* ── Paže ──
-       Cíl vede dlaň a loket dopočítá mezikloub. Na rovince obě ruce
-       odpočívají na kříži, v zatáčce švihají střídavě do rytmu kroků —
-       vnější naplno, vnitřní o čtvrtinu méně. */
+       Cíl vede dlaň a loket dopočítá mezikloub. Levá zůstává složená
+       na kříži pořád — v zatáčce švihá jen pravá, kyvadlem podél boku,
+       nikdy ne přes tělo. */
     var svihF = Math.sin(cyk + 2.0);
     [-1, 1].forEach(function (strana) {
       var rameno = [ramena[0] - 0.02, ramena[1] - 0.04, ramena[2] + strana * 0.16];
 
-      var klidR = [kycle[0] - 0.10, kycle[1] + 0.12 + (strana > 0 ? 0.03 : 0), kycle[2] * 0.7 + strana * 0.05];
-      var klidN = [-0.1, 0.4, strana];
+      var ruka   = [kycle[0] - 0.10, kycle[1] + 0.12 + (strana > 0 ? 0.03 : 0), kycle[2] * 0.7 + strana * 0.05];
+      var naznak = [-0.1, 0.4, strana];
 
-      var f = (strana > 0 ? svihF : -svihF) * (strana > 0 ? 1 : 0.75);
-      var svihR = [rameno[0] - 0.02 + f * 0.28,
-                   rameno[1] - 0.31 + f * 0.03,
-                   rameno[2] + strana * (0.02 - f * 0.13)];
-      var svihN = [-0.2, -1, strana * 0.5];
+      if (strana > 0 && zat > 0.02) {
+        // Kyvadlo v rovině jízdy: vpřed a vzad, výš na krajích švihu,
+        // z boku pořád stejně daleko od těla.
+        var svihR = [rameno[0] - 0.02 + svihF * 0.32,
+                     rameno[1] - 0.34 + svihF * svihF * 0.10,
+                     rameno[2] + 0.06];
+        var svihN = [-0.4, -0.9, 0.5];
+        ruka   = [mix(ruka[0], svihR[0], zat), mix(ruka[1], svihR[1], zat), mix(ruka[2], svihR[2], zat)];
+        naznak = [mix(naznak[0], svihN[0], zat), mix(naznak[1], svihN[1], zat), mix(naznak[2], svihN[2], zat)];
+      }
 
-      var ruka   = [mix(klidR[0], svihR[0], zat), mix(klidR[1], svihR[1], zat), mix(klidR[2], svihR[2], zat)];
-      var naznak = [mix(klidN[0], svihN[0], zat), mix(klidN[1], svihN[1], zat), mix(klidN[2], svihN[2], zat)];
-      var loket  = mezikloub(rameno, ruka, NADLOKTI, PREDLOKTI, naznak[0], naznak[1], naznak[2]);
+      var loket = mezikloub(rameno, ruka, NADLOKTI, PREDLOKTI, naznak[0], naznak[1], naznak[2]);
 
       i = trubka(rameno, loket, 0.052, 0.045, 1, dres, m, out, i);
       i = trubka(loket, ruka, 0.042, 0.036, 1, dres, m, out, i);
@@ -362,42 +365,50 @@
                  0.035, 0.026, 1.15, BARVA_KUZE, m, out, i);
     });
 
-    /* ── Nohy ── */
+    /* ── Nohy ──
+       Každá fáze začíná i končí nulovou rychlostí chodidla, takže na
+       přechodech nic neškubne — dřív odraz končil v plné rychlosti
+       a dokončení na ni nenavazovalo. */
     [1, -1].forEach(function (strana, idx) {
       var q = (faze + (idx ? 0.5 : 0)) % 1;
       var chodidlo, naLedu = false, vytoc = 0;
 
       if (q < 0.30) {
-        // Skluz: brusle stojí na ledě a tělo ji přejíždí — vůči bokům
-        // proto couvá. Tohle dělá z pohybu bruslení.
-        var g = q / 0.30;
+        // Skluz: brusle stojí na ledě a tělo ji přejíždí.
+        var g = hladce(q / 0.30);
         chodidlo = [mix(0.18, 0.08, g), LED, strana * 0.12];
         naLedu = true; vytoc = 0.05;
-      } else if (q < 0.56) {
-        // Odraz: zrychlující tlak dozadu a ven do plného propnutí.
-        var t = (q - 0.30) / 0.26; var tt = t * t;
-        chodidlo = [mix(0.08, -0.52, tt), LED, strana * mix(0.12, 0.62, tt)];
-        naLedu = true; vytoc = 0.05 + t * 0.30;
-      } else if (q < 0.64) {
-        // Dokončení: špička dojíždí a opouští led.
-        var o = (q - 0.56) / 0.08;
-        chodidlo = [mix(-0.52, -0.58, o), LED + o * o * 0.10, strana * mix(0.62, 0.64, o)];
-        vytoc = 0.35;
+      } else if (q < 0.62) {
+        // Odraz dozadu a ven do propnutí; ke konci se zvedá špička.
+        var t = hladce((q - 0.30) / 0.32);
+        var zdvih = Math.max(0, (t - 0.85) / 0.15);
+        chodidlo = [mix(0.08, -0.40, t), LED + zdvih * zdvih * 0.08, strana * mix(0.12, 0.48, t)];
+        naLedu = t < 0.85; vytoc = 0.05 + t * 0.30;
       } else {
-        // Návrat: nízkým obloukem zpátky pod tělo k dalšímu dopadu.
-        var u = hladce((q - 0.64) / 0.36);
-        chodidlo = [mix(-0.58, 0.18, u), LED + Math.sin(u * Math.PI) * 0.14, strana * mix(0.64, 0.12, u)];
+        // Návrat nízkým obloukem zpátky pod tělo.
+        var u = hladce((q - 0.62) / 0.38);
+        chodidlo = [mix(-0.40, 0.18, u), LED + (1 - u) * 0.08 + Math.sin(u * Math.PI) * 0.10, strana * mix(0.48, 0.12, u)];
         vytoc = 0.35 * (1 - u);
       }
 
-      var kycelB  = [kycle[0], kycle[1] - 0.05, kycle[2] + strana * 0.10];
+      var kycelB = [kycle[0], kycle[1] - 0.05, kycle[2] + strana * 0.10];
+
+      // Cíl se drží v dosahu nohy — jinak koleno narazí na doraz
+      // a bota s nožem se utrhnou od lýtka.
+      var vx = chodidlo[0] - kycelB[0], vy = chodidlo[1] - kycelB[1], vz = chodidlo[2] - kycelB[2];
+      var dosah = (STEHNO + LYTKO) * 0.98 - 0.06;
+      var vd = Math.hypot(vx, vy, vz);
+      if (vd > dosah) {
+        var zk = dosah / vd;
+        chodidlo = [kycelB[0] + vx * zk, kycelB[1] + vy * zk, kycelB[2] + vz * zk];
+      }
+
       var kolenoB = koleno(kycelB, chodidlo, STEHNO, LYTKO, strana * 0.35);
       var kotnik  = [chodidlo[0], chodidlo[1] + 0.05, chodidlo[2]];
 
       i = trubka(kycelB, kolenoB, 0.085, 0.062, 1.1, dres, m, out, i);
       i = trubka(kolenoB, kotnik, 0.058, 0.042, 1, dres, m, out, i);
 
-      // Bota i nůž se při odrazu vytáčejí špičkou ven.
       var cf = Math.cos(vytoc), sf = Math.sin(vytoc) * strana;
       i = trubka([chodidlo[0] - 0.07 * cf, chodidlo[1] + 0.03, chodidlo[2] - 0.07 * sf],
                  [chodidlo[0] + 0.15 * cf, chodidlo[1] + 0.005, chodidlo[2] + 0.15 * sf],
