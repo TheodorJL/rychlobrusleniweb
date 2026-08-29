@@ -271,12 +271,23 @@
 
     /* — dynamická záře: zářezy, stopy, komety — */
     var d = [];
+
+    /*
+     * Měkký pás světla: uprostřed plná barva, k bočním okrajům do
+     * ztracena. Pás s tvrdými hranami vypadal jako papírový proužek,
+     * ne jako záře.
+     */
     function quad(x1, z1, x2, z2, pol, y, c, a1q, a2q) {
       var dx = x2 - x1, dz = z2 - z1, dd = Math.hypot(dx, dz);
       if (!dd) { return; }
       var nx = -dz / dd * pol, nz = dx / dd * pol;
-      vrchol(d, x1-nx, y, z1-nz, c[0], c[1], c[2], a1q); vrchol(d, x1+nx, y, z1+nz, c[0], c[1], c[2], a1q); vrchol(d, x2-nx, y, z2-nz, c[0], c[1], c[2], a2q);
-      vrchol(d, x2-nx, y, z2-nz, c[0], c[1], c[2], a2q); vrchol(d, x1+nx, y, z1+nz, c[0], c[1], c[2], a1q); vrchol(d, x2+nx, y, z2+nz, c[0], c[1], c[2], a2q);
+      var r = c[0], g = c[1], bb = c[2];
+      // levá polovina: okraj (alfa 0) → střed
+      vrchol(d, x1-nx, y, z1-nz, r, g, bb, 0);   vrchol(d, x1, y, z1, r, g, bb, a1q);      vrchol(d, x2-nx, y, z2-nz, r, g, bb, 0);
+      vrchol(d, x2-nx, y, z2-nz, r, g, bb, 0);   vrchol(d, x1, y, z1, r, g, bb, a1q);      vrchol(d, x2, y, z2, r, g, bb, a2q);
+      // pravá polovina: střed → okraj (alfa 0)
+      vrchol(d, x1, y, z1, r, g, bb, a1q);       vrchol(d, x1+nx, y, z1+nz, r, g, bb, 0);  vrchol(d, x2, y, z2, r, g, bb, a2q);
+      vrchol(d, x2, y, z2, r, g, bb, a2q);       vrchol(d, x1+nx, y, z1+nz, r, g, bb, 0);  vrchol(d, x2+nx, y, z2+nz, r, g, bb, 0);
     }
 
     bruslari.forEach(function (b) {
@@ -286,7 +297,7 @@
         var sila = Math.max(0, 1 - stari / 7) * 0.65;
         if (sila <= 0.01) { return; }
         quad(zr.x - zr.dx * 0.42, zr.z - zr.dz * 0.42,
-             zr.x + zr.dx * 0.42, zr.z + zr.dz * 0.42, 0.055, 0.015, b.dres, sila * 0.4, sila);
+             zr.x + zr.dx * 0.42, zr.z + zr.dz * 0.42, 0.08, 0.015, b.dres, sila * 0.4, sila);
       });
 
       // Dlouhá stopa: pás blednoucí dozadu; při pohledu podél délky
@@ -298,30 +309,25 @@
         var vd = Math.hypot(vx, vz) || 1;
         var bokem = Math.abs(vx * h1.tz - vz * h1.tx) / vd;
         var f = 0.02 + 0.98 * bokem;
-        quad(h1.x, h1.z, h2.x, h2.z, 0.06 + p1 * 0.10, 0.02, b.dres,
+        quad(h1.x, h1.z, h2.x, h2.z, 0.09 + p1 * 0.14, 0.02, b.dres,
              p1 * p1 * 0.7 * f, p2 * p2 * 0.7 * f);
       }
 
-      // Kometa: horké protáhlé jádro těsně nad ledem…
+      // Světlo bez těla: protáhlé žhavé jádro těsně nad ledem…
       var bd = b.bod;
       for (var q2 = 0; q2 < 8; q2++) {
         var t1 = q2 / 8, t2 = (q2 + 1) / 8;
-        quad(bd.x - bd.tx * t1 * 2.2, bd.z - bd.tz * t1 * 2.2,
-             bd.x - bd.tx * t2 * 2.2, bd.z - bd.tz * t2 * 2.2,
-             0.18 * (1 - t1 * 0.8), 0.05, b.jadro,
+        quad(bd.x - bd.tx * t1 * 2.4, bd.z - bd.tz * t1 * 2.4,
+             bd.x - bd.tx * t2 * 2.4, bd.z - bd.tz * t2 * 2.4,
+             0.26 * (1 - t1 * 0.75), 0.04, b.jadro,
              (1 - t1) * (1 - t1), (1 - t2) * (1 - t2));
       }
-      // …svislý plamínek přes směr jízdy, ať je vidět i zepředu a zezadu…
-      var px = -bd.tz, pz = bd.tx;
-      vrchol(d, bd.x - px * 0.26, 0.0, bd.z - pz * 0.26, b.jadro[0], b.jadro[1], b.jadro[2], 0.75);
-      vrchol(d, bd.x + px * 0.26, 0.0, bd.z + pz * 0.26, b.jadro[0], b.jadro[1], b.jadro[2], 0.75);
-      vrchol(d, bd.x - bd.tx * 0.5 - px * 0.05, 1.0, bd.z - bd.tz * 0.5 - pz * 0.05, b.jadro[0], b.jadro[1], b.jadro[2], 0);
-      vrchol(d, bd.x + px * 0.26, 0.0, bd.z + pz * 0.26, b.jadro[0], b.jadro[1], b.jadro[2], 0.75);
-      vrchol(d, bd.x - bd.tx * 0.5 + px * 0.05, 1.0, bd.z - bd.tz * 0.5 + pz * 0.05, b.jadro[0], b.jadro[1], b.jadro[2], 0);
-      vrchol(d, bd.x - bd.tx * 0.5 - px * 0.05, 1.0, bd.z - bd.tz * 0.5 - pz * 0.05, b.jadro[0], b.jadro[1], b.jadro[2], 0);
-      // …a měkká kaluž světla na ledě pod ní.
-      quad(bd.x - bd.tx * 0.5, bd.z - bd.tz * 0.5,
-           bd.x + bd.tx * 0.7, bd.z + bd.tz * 0.7, 0.55, 0.005, b.dres, 0.0, 0.3);
+      // …bíle horká skvrna přímo pod čelem…
+      quad(bd.x - bd.tx * 0.35, bd.z - bd.tz * 0.35,
+           bd.x + bd.tx * 0.35, bd.z + bd.tz * 0.35, 0.24, 0.03, b.jadro, 0.55, 1.0);
+      // …a měkká kaluž světla kolem, ať je vidět z každého úhlu.
+      quad(bd.x - bd.tx * 1.0, bd.z - bd.tz * 1.0, bd.x, bd.z, 0.8, 0.005, b.dres, 0.0, 0.45);
+      quad(bd.x, bd.z, bd.x + bd.tx * 0.8, bd.z + bd.tz * 0.8, 0.75, 0.005, b.dres, 0.45, 0.0);
     });
 
     var dyn = new Float32Array(d);
