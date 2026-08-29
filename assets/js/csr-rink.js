@@ -107,13 +107,15 @@
 
   var FS_TELO =
     'precision mediump float; varying vec3 vNor; varying vec3 vCol; varying vec3 vSmer;' +
-    // Hlavní světlo shora, dosvit z protisměru — bez něj byla záda
-    // bruslaře při pohledu zezadu jen tmavá deska.
+    // Silueta: skoro černá hmota se zářícím obrysem v barvě dresu
+    // a ledovým nádechem. Detaily uvnitř tvaru zmizí — zůstane jen
+    // čistá, světlem obkreslená postava.
     'void main(){ vec3 n = normalize(vNor);' +
     ' float d = max(dot(n, normalize(vec3(0.42, 0.86, 0.30))), 0.0);' +
-    ' float f = max(dot(n, normalize(vec3(-0.55, 0.30, -0.60))), 0.0);' +
-    ' float obrys = pow(1.0 - abs(dot(n, normalize(vSmer))), 2.2);' +
-    ' vec3 c = vCol * (0.34 + 0.70 * d + 0.30 * f) + vec3(0.36, 0.68, 0.95) * obrys * 0.6;' +
+    ' float obrys = pow(1.0 - abs(dot(n, normalize(vSmer))), 1.8);' +
+    ' vec3 c = vCol * (0.05 + 0.09 * d)' +
+    '        + vCol * obrys * 1.5' +
+    '        + vec3(0.36, 0.68, 0.95) * obrys * 0.4;' +
     ' gl_FragColor = vec4(c, 1.0); }';
 
   // Dráha a stopy: ploché, sčítají se.
@@ -163,13 +165,8 @@
   function hladce(t) { t = Math.min(Math.max(t, 0), 1); return t * t * (3 - 2 * t); }
   function mix(a, b, t) { return a + (b - a) * t; }
 
-  var BARVA_KUZE  = [0.86, 0.70, 0.58];
-  var BARVA_OCEL  = [0.80, 0.88, 0.96];
-  var BARVA_NUZ   = [0.55, 0.78, 0.96];
-  var BARVA_BOTA  = [0.05, 0.06, 0.09];
-  var BARVA_BRYLE = [0.08, 0.10, 0.14];
-  var BARVA_PRUH  = [0.84, 0.12, 0.16];
-  var BARVA_RUKAVICE = [0.90, 0.91, 0.94];
+  var BARVA_OCEL = [0.80, 0.88, 0.96];
+  var BARVA_NUZ  = [0.55, 0.78, 0.96];
 
   var STRAN = 10, KRUH_C = [], KRUH_S = [];
   (function () {
@@ -373,10 +370,10 @@
     var krk   = [ramena[0] + 0.06, ramena[1] + 0.04, ramena[2]];
     var hlava = [ramena[0] + 0.20, ramena[1] + 0.16, ramena[2]];
     i = trubka(krk, [hlava[0] - 0.05, hlava[1] - 0.05, hlava[2]], 0.05, 0.06, 1, dres, m, out, i);
-    i = koule([hlava[0] + 0.03, hlava[1] - 0.005, hlava[2]], 0.088, 1, BARVA_KUZE, m, out, i);
+    i = koule([hlava[0] + 0.03, hlava[1] - 0.005, hlava[2]], 0.088, 1, dres, m, out, i);
     i = koule([hlava[0] - 0.025, hlava[1] + 0.012, hlava[2]], 0.105, 1.02, dres, m, out, i);
     i = trubka([hlava[0] + 0.075, hlava[1] + 0.02, hlava[2] - 0.062],
-               [hlava[0] + 0.075, hlava[1] + 0.02, hlava[2] + 0.062], 0.03, 0.03, 1.5, BARVA_BRYLE, m, out, i);
+               [hlava[0] + 0.075, hlava[1] + 0.02, hlava[2] + 0.062], 0.03, 0.03, 1.5, dres, m, out, i);
 
     /* ── Paže ──
        Levá složená na kříži, pravá v zatáčce švihá kyvadlem počítaným
@@ -413,11 +410,11 @@
       i = trubka(rameno, loket, 0.052, 0.045, 1, dres, m, out, i);
       i = koule(loket, 0.048, 1, dres, m, out, i);
       i = trubka(loket, ruka, 0.042, 0.036, 1, dres, m, out, i);
-      i = koule(ruka, 0.046, 1, BARVA_RUKAVICE, m, out, i);
+      i = koule(ruka, 0.046, 1, dres, m, out, i);
 
       // červené prošití na nadloktí
       i = trubka([rameno[0], rameno[1], rameno[2] + strana * 0.035],
-                 [loket[0], loket[1], loket[2] + strana * 0.032], 0.026, 0.022, 1, BARVA_PRUH, m, out, i);
+                 [loket[0], loket[1], loket[2] + strana * 0.032], 0.026, 0.022, 1, dres, m, out, i);
     });
 
     /* ── Nohy ── */
@@ -457,17 +454,17 @@
       i = trubka(kycelB, kolenoB, 0.085, 0.062, 1.1, dres, m, out, i);
       i = koule(kolenoB, 0.064, 1, dres, m, out, i);
       i = trubka(kolenoB, kotnik, 0.058, 0.042, 1, dres, m, out, i);
-      i = koule(kotnik, 0.045, 1, BARVA_BOTA, m, out, i);
+      i = koule(kotnik, 0.045, 1, dres, m, out, i);
 
       // červené prošití po vnějším stehně
       i = trubka([kycelB[0], kycelB[1], kycelB[2] + strana * 0.062],
-                 [kolenoB[0], kolenoB[1], kolenoB[2] + strana * 0.048], 0.024, 0.02, 1, BARVA_PRUH, m, out, i);
+                 [kolenoB[0], kolenoB[1], kolenoB[2] + strana * 0.048], 0.024, 0.02, 1, dres, m, out, i);
 
       // Bota, klapačkové můstky a nůž — při odrazu vytočené špičkou ven.
       var cf = Math.cos(vytoc), sf = Math.sin(vytoc) * strana;
       i = trubka([chodidlo[0] - 0.07 * cf, chodidlo[1] + 0.03, chodidlo[2] - 0.07 * sf],
                  [chodidlo[0] + 0.15 * cf, chodidlo[1] + 0.005, chodidlo[2] + 0.15 * sf],
-                 0.05, 0.038, 0.85, BARVA_BOTA, m, out, i);
+                 0.05, 0.038, 0.85, dres, m, out, i);
       i = trubka([chodidlo[0] - 0.04 * cf, chodidlo[1] + 0.01, chodidlo[2] - 0.04 * sf],
                  [chodidlo[0] - 0.04 * cf, chodidlo[1] - 0.045, chodidlo[2] - 0.04 * sf],
                  0.014, 0.012, 0.6, BARVA_OCEL, m, out, i);
@@ -510,9 +507,13 @@
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(caryPole), gl.STATIC_DRAW);
   var caryPocet = caryPole.length / 7;
 
+  // V siluetě je barva dresu barvou zářícího obrysu i stopy.
   var DRESY = [
-    [0.09, 0.22, 0.42], [0.80, 0.12, 0.15], [0.86, 0.62, 0.16],
-    [0.14, 0.42, 0.58], [0.72, 0.74, 0.80]
+    [0.34, 0.62, 0.98],   // ledová modř
+    [0.92, 0.94, 0.99],   // bílá
+    [0.95, 0.72, 0.25],   // zlatá
+    [0.95, 0.24, 0.27],   // červená
+    [0.52, 0.80, 0.98]    // světlý led
   ];
   var STOPA_DELKA = 44;
 
