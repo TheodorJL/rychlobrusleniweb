@@ -182,7 +182,7 @@ function csr_settings_registry() {
 				),
 				'value'   => array( 'type' => 'number', 'label' => '%d. číslo — vlastní hodnota', 'desc' => 'Platí jen při volbě „Vlastní hodnota". Prázdné nebo nula číslo skryje.', 'min' => 0, 'max' => 100000 ),
 				'suffix'  => array( 'type' => 'text', 'label' => '%d. číslo — přípona', 'desc' => 'Např. „+" nebo „×".' ),
-				'label'   => array( 'type' => 'text', 'label' => '%d. číslo — popisek' ),
+				'label'   => array( 'type' => 'text', 'label' => '%d. číslo — popisek', 'desc' => 'U vlastní hodnoty je nutný — bez popisku se číslo nezobrazí. U spočítaného zdroje se doplní sám.' ),
 				'nogroup' => array( 'type' => 'checkbox', 'label' => '%d. číslo — nedělit tisíce', 'desc' => 'Zapněte u letopočtů, ať se nezobrazí „1 993".' ),
 			),
 			array(

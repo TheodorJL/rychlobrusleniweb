@@ -24,7 +24,7 @@ function csr_stat_sources() {
 	return array(
 		''          => array( 'Vlastní hodnota (napíšu ji sám)', null, '' ),
 		'kluby'     => array( 'Počet klubů', 'csr_count_clubs', 'Registrovaných klubů' ),
-		'zavodnici' => array( 'Počet reprezentantů', 'csr_count_athletes', 'Reprezentantů' ),
+		'zavodnici' => array( 'Počet reprezentantů v aktuální sezóně', 'csr_count_athletes', 'Reprezentantů' ),
 		'kluby_kraje' => array( 'Počet krajů s klubem', 'csr_count_regions', 'Krajů s klubem' ),
 		'dokumenty' => array( 'Počet dokumentů', 'csr_count_documents', 'Dokumentů ke stažení' ),
 		'alba'      => array( 'Počet fotoalb', 'csr_count_albums', 'Fotoalb' ),
@@ -53,10 +53,39 @@ function csr_count_clubs() {
 	return $p ? (int) $p->publish : 0;
 }
 
-/** @return int Počet zveřejněných reprezentantů. */
+/** @return int Počet reprezentantů v nejnovější sezóně, každý člověk jednou. */
 function csr_count_athletes() {
-	$p = wp_count_posts( CSR_CPT_ATHLETE );
-	return $p ? (int) $p->publish : 0;
+	if ( ! taxonomy_exists( CSR_TAX_SEASON ) ) {
+		return 0;
+	}
+
+	/*
+	 * Jeden záznam reprezentanta platí pro jednu sezónu a tým, takže
+	 * prostý součet příspěvků by tutéž osobu počítal za každou sezónu
+	 * (a při startu na obou drahách i za každou dráhu) znovu.
+	 */
+	$sezony = get_terms( array( 'taxonomy' => CSR_TAX_SEASON, 'hide_empty' => true, 'fields' => 'names' ) );
+	if ( is_wp_error( $sezony ) || ! $sezony ) {
+		return 0;
+	}
+	rsort( $sezony );
+
+	$zaznamy = get_posts( array(
+		'post_type'   => CSR_CPT_ATHLETE,
+		'numberposts' => -1,
+		'fields'      => 'ids',
+		'tax_query'   => array( array(
+			'taxonomy' => CSR_TAX_SEASON,
+			'field'    => 'name',
+			'terms'    => $sezony[0],
+		) ),
+	) );
+
+	$jmena = array();
+	foreach ( $zaznamy as $id ) {
+		$jmena[ trim( (string) get_the_title( $id ) ) ] = true;
+	}
+	return count( $jmena );
 }
 
 /** @return int Počet krajů, ve kterých je aspoň jeden klub. */
