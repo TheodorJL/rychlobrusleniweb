@@ -12,16 +12,18 @@
 # Vložení se pozná podle jména i orgánu, takže se nepřepíšou navzájem.
 #
 # Poslední sloupec „ano“ = kontaktní osoba svazu. Jen tihle lidé se
-# vypíšou na stránce Kontakty pod nadpisem „Na koho se obrátit“;
-# sekretariát nepatří do žádného orgánu, proto má orgán prázdný.
+# vypíšou na stránce Kontakty pod nadpisem „Na koho se obrátit“, a to
+# v pořadí, v jakém jsou tady. Sekretariát nepatří do žádného orgánu,
+# proto má orgán prázdný.
 
-Jindřich Pařík||generální sekretář|||info@speedskating.cz|+420 730 132 001|ano
-
-Marcela Valt|predsednictvo|předsedkyně|||marcela@speedskating.cz|+420 603 495 327
+Marcela Valt|predsednictvo|předsedkyně svazu|||marcela@speedskating.cz|+420 602 495 327|ano
 Jan Létal|predsednictvo|místopředseda|||letal.jan@email.cz|+420 777 922 381
 Pavel Kulma|predsednictvo|místopředseda|||kulma.pavel@gmail.com|+420 731 616 474
 Matěj Krupka|predsednictvo|člen|||matej.krupka@gmail.com|+420 603 939 747
 Kateřina Novotná|predsednictvo|člen|||novotnaka84@gmail.com|+420 723 771 118
+
+# Sekretariát
+Jindřich Pařík||generální sekretář|||info@speedskating.cz|+420 730 132 001|ano
 
 Ondřej Jílek|kontrolni-komise|předseda|||ondrej.jilek@gmail.com|+420 602 190 206
 Michal Chmel|kontrolni-komise|člen|||mchmel26@gmail.com|+420 734 876 815

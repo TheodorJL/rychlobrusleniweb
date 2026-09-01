@@ -742,6 +742,88 @@ function csr_people_autofill() {
 add_action( 'admin_init', 'csr_people_autofill' );
 
 /**
+ * Srovná údaje kontaktních osob svazu s připravenými daty.
+ *
+ * Hromadné doplnění zásadně nepřepisuje, co už je vyplněné — u kontaktů
+ * na svaz to ale nestačí: telefon předsedkyně byl na starém webu na dvou
+ * místech dvakrát jinak a rozhoduje jen ten správný. Tahle funkce proto
+ * u lidí označených v datech jako kontakt přepíše funkci, e-mail
+ * i telefon. Neběží pořád dokola — jen když se ta data změní, takže
+ * ruční úprava v administraci vydrží.
+ */
+function csr_kontakty_oprava() {
+	$data = csr_import_seed( 'lide' );
+	if ( '' === $data ) {
+		return;
+	}
+
+	$kontakty = array();
+	foreach ( preg_split( '/\R/', $data ) as $radek ) {
+		$osoba = csr_parse_person_line( $radek );
+		if ( $osoba && $osoba['contact'] ) {
+			$kontakty[] = $osoba;
+		}
+	}
+	if ( ! $kontakty ) {
+		return;
+	}
+
+	$otisk = md5( (string) wp_json_encode( $kontakty ) );
+	if ( get_option( 'csr_kontakty_otisk' ) === $otisk ) {
+		return;
+	}
+	update_option( 'csr_kontakty_otisk', $otisk, false );
+
+	csr_seed_bodies();
+
+	foreach ( $kontakty as $poradi => $osoba ) {
+		$body = csr_body_slug( $osoba['body'] );
+		$id   = csr_find_person( $osoba['name'], $body );
+		if ( ! $id ) {
+			$id = csr_find_person_by_surname( $osoba['name'], $body );
+		}
+
+		if ( ! $id ) {
+			$id = wp_insert_post(
+				array(
+					'post_type'   => 'csr_person',
+					'post_title'  => sanitize_text_field( $osoba['name'] ),
+					'post_status' => 'publish',
+				)
+			);
+			if ( is_wp_error( $id ) || ! $id ) {
+				continue;
+			}
+		}
+
+		foreach ( array( 'role', 'email', 'phone' ) as $klic ) {
+			$hodnota = 'email' === $klic ? sanitize_email( $osoba[ $klic ] ) : sanitize_text_field( $osoba[ $klic ] );
+			if ( '' !== $hodnota ) {
+				update_post_meta( $id, '_csr_person_' . $klic, $hodnota );
+			}
+		}
+
+		/*
+		 * Pořadí na kontaktech drží záporné číslo — lidé se řadí podle
+		 * něj a všichni ostatní mají nulu, takže by kontakty jinak
+		 * skončily až za nimi. Předsedkyně tím zároveň stojí v čele
+		 * předsednictva místo abecedně uprostřed.
+		 */
+		wp_update_post(
+			array(
+				'ID'         => $id,
+				'menu_order' => $poradi - count( $kontakty ),
+			)
+		);
+		if ( $body ) {
+			wp_set_object_terms( $id, $body, 'csr_body' );
+		}
+		csr_person_set_contact( $id, true );
+	}
+}
+add_action( 'admin_init', 'csr_kontakty_oprava' );
+
+/**
  * Slug orgánu z názvu i ze zkratky.
  *
  * @param string $nazev Zapsaný orgán.
