@@ -59,6 +59,9 @@ require_once __DIR__ . '/csr-stats.php';
 // Hledání a detail závodu.
 require_once __DIR__ . '/csr-search.php';
 
+// Kalendář akcí — hromadné vložení termínů sezóny.
+require_once __DIR__ . '/csr-events.php';
+
 const CSR_HOME_TEMPLATE   = 'page-csr-home.php';
 const CSR_ROSTER_TEMPLATE = 'page-csr-roster.php';
 const CSR_EVENTS_TEMPLATE = 'page-csr-events.php';
@@ -717,9 +720,10 @@ function csr_import_seed( $jmeno ) {
  * Vysvětlivka nad předvyplněným formulářem.
  *
  * @param string $jmeno Název souboru bez přípony.
+ * @param string $zdroj Odkud data jsou, v druhém pádě.
  * @return string HTML, nebo prázdný řetězec.
  */
-function csr_import_seed_note( $jmeno ) {
+function csr_import_seed_note( $jmeno, $zdroj = 'ze starého webu' ) {
 	$data = csr_import_seed( $jmeno );
 	if ( '' === $data ) {
 		return '';
@@ -736,7 +740,7 @@ function csr_import_seed_note( $jmeno ) {
 		return '';
 	}
 
-	return '<div class="notice notice-info inline"><p>Pole je předvyplněné daty ze starého webu — <strong>'
+	return '<div class="notice notice-info inline"><p>Pole je předvyplněné daty ' . esc_html( $zdroj ) . ' — <strong>'
 		. (int) $radku . '</strong> ' . ( 1 === $radku ? 'položka' : ( $radku < 5 ? 'položky' : 'položek' ) )
 		. '. Stačí kliknout na tlačítko pod ním. Vložení jde pustit i opakovaně, jen doplní, co chybí.</p></div>';
 }

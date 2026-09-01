@@ -157,6 +157,12 @@ function csr_person_metabox_render( $post ) {
 		);
 	}
 	echo '</select><p>Rozděluje předsedy klubů na dvě skupiny.</p></div>';
+
+	printf(
+		'<div><label for="csr_person_contact"><input type="checkbox" id="csr_person_contact" name="csr_person_contact" value="1"%s> Kontaktní osoba svazu</label>'
+			. '<p>Jen zaškrtnutí lidé se vypíšou na stránce Kontakty pod nadpisem „Na koho se obrátit". Ostatní zůstanou ve struktuře svazu.</p></div>',
+		checked( '1', get_post_meta( $post->ID, '_csr_person_contact', true ), false )
+	);
 	echo '</div>';
 	echo '<p style="margin-top:1rem"><strong>Fotka</strong> se nastavuje vpravo jako náhledový obrázek. Nejlépe vypadá portrét na výšku, ideálně <em>bez jména vypsaného v obrázku</em> — jméno vypíše šablona jako text.</p>';
 }
@@ -191,6 +197,8 @@ function csr_person_save( $post_id ) {
 		$track = sanitize_key( wp_unslash( $_POST['csr_person_track'] ) );
 		update_post_meta( $post_id, '_csr_person_track', array_key_exists( $track, csr_tracks() ) ? $track : '' );
 	}
+
+	csr_person_set_contact( $post_id, isset( $_POST['csr_person_contact'] ) );
 }
 add_action( 'save_post_csr_person', 'csr_person_save' );
 
@@ -278,14 +286,46 @@ function csr_parse_person_line( $line ) {
 		return null;
 	}
 	return array(
-		'name'  => $parts[0],
-		'body'  => isset( $parts[1] ) ? $parts[1] : '',
-		'role'  => isset( $parts[2] ) ? $parts[2] : '',
-		'track' => isset( $parts[3] ) ? $parts[3] : '',
-		'club'  => isset( $parts[4] ) ? $parts[4] : '',
-		'email' => isset( $parts[5] ) ? $parts[5] : '',
-		'phone' => isset( $parts[6] ) ? $parts[6] : '',
+		'name'    => $parts[0],
+		'body'    => isset( $parts[1] ) ? $parts[1] : '',
+		'role'    => isset( $parts[2] ) ? $parts[2] : '',
+		'track'   => isset( $parts[3] ) ? $parts[3] : '',
+		'club'    => isset( $parts[4] ) ? $parts[4] : '',
+		'email'   => isset( $parts[5] ) ? $parts[5] : '',
+		'phone'   => isset( $parts[6] ) ? $parts[6] : '',
+		'contact' => isset( $parts[7] ) ? csr_je_ano( $parts[7] ) : false,
 	);
+}
+
+/**
+ * Bere „ano", „kontakt", „1" i „x" jako zaškrtnuto.
+ *
+ * @param string $text Zápis od uživatele.
+ * @return bool
+ */
+function csr_je_ano( $text ) {
+	$text = strtolower( trim( (string) $text ) );
+	return in_array( $text, array( '1', 'ano', 'x', 'kontakt', 'ano.', 'true' ), true );
+}
+
+/**
+ * Označí člověka jako kontaktní osobu svazu.
+ *
+ * Na stránce Kontakty stálo pod nadpisem „Na koho se obrátit" všech
+ * dvaadvacet lidí, kteří mají někde vyplněný e-mail — celé předsednictvo,
+ * kontrolní komise i předsedové klubů. Návštěvník, který chce jen napsat
+ * na svaz, si z toho nevybere. Do výpisu proto patří jen ti, kdo mají
+ * tuhle značku.
+ *
+ * @param int  $post_id ID člověka.
+ * @param bool $je      Zapnout, nebo vypnout.
+ */
+function csr_person_set_contact( $post_id, $je ) {
+	if ( $je ) {
+		update_post_meta( $post_id, '_csr_person_contact', '1' );
+	} else {
+		delete_post_meta( $post_id, '_csr_person_contact' );
+	}
 }
 
 /**
@@ -468,6 +508,9 @@ function csr_people_import_render() {
 			if ( '' !== $track && '' === (string) get_post_meta( $post_id, '_csr_person_track', true ) ) {
 				update_post_meta( $post_id, '_csr_person_track', $track );
 			}
+			if ( $person['contact'] ) {
+				csr_person_set_contact( $post_id, true );
+			}
 			if ( $body ) {
 				wp_set_object_terms( $post_id, $body, 'csr_body' );
 			}
@@ -485,9 +528,10 @@ function csr_people_import_render() {
 		<?php endif; ?>
 
 		<p>Jeden člověk na řádek, údaje oddělené svislítkem <code>|</code>:</p>
-		<p><code>jméno | orgán | funkce | dráha | klub | e-mail | telefon</code></p>
+		<p><code>jméno | orgán | funkce | dráha | klub | e-mail | telefon | kontakt</code></p>
 		<p><strong>Orgán</strong>: <code>predsednictvo</code>, <code>kontrolni-komise</code> nebo <code>predsedove</code>.<br>
-			<strong>Dráha</strong> se vyplňuje jen u předsedů: <code>dlouhá</code> nebo <code>krátká</code>. Ostatní pole jsou nepovinná.</p>
+			<strong>Dráha</strong> se vyplňuje jen u předsedů: <code>dlouhá</code> nebo <code>krátká</code>.<br>
+			<strong>Kontakt</strong>: napište <code>ano</code> u toho, kdo se má vypsat na stránce Kontakty pod „Na koho se obrátit". Ostatní pole jsou nepovinná.</p>
 
 		<form method="post">
 			<?php wp_nonce_field( 'csr_people_import', 'csr_people_import_nonce' ); ?>
@@ -643,8 +687,31 @@ function csr_people_autofill() {
 			$id = csr_find_person_by_club( $osoba['club'], $body );
 		}
 
+		/*
+		 * Jinak tahle funkce nikoho nezakládá — jen doplňuje. Výjimkou je
+		 * kontaktní osoba svazu: bez ní by na stránce Kontakty nebyl nikdo,
+		 * na koho se obrátit, a generální sekretář v databázi lidí chyběl.
+		 */
+		if ( ! $id && $osoba['contact'] ) {
+			$id = wp_insert_post(
+				array(
+					'post_type'   => 'csr_person',
+					'post_title'  => sanitize_text_field( $osoba['name'] ),
+					'post_status' => 'publish',
+				)
+			);
+			if ( is_wp_error( $id ) || ! $id ) {
+				continue;
+			}
+			$doplneno++;
+		}
+
 		if ( ! $id ) {
 			continue;
+		}
+
+		if ( $osoba['contact'] ) {
+			csr_person_set_contact( $id, true );
 		}
 
 		$zmena = false;

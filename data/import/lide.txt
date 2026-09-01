@@ -1,5 +1,5 @@
 # Vložte do: Lidé ve svazu → Hromadné přidání
-# Formát řádku: Jméno|orgán|funkce|dráha|klub|e-mail|telefon
+# Formát řádku: Jméno|orgán|funkce|dráha|klub|e-mail|telefon|kontakt
 # Řádky s mřížkou se přeskočí, můžete je vložit i s nimi.
 #
 # Orgán: predsednictvo | kontrolni-komise | predsedove
@@ -10,6 +10,12 @@
 #
 # Jeden člověk může být ve dvou orgánech (Jílek, Macháček, Kulma).
 # Vložení se pozná podle jména i orgánu, takže se nepřepíšou navzájem.
+#
+# Poslední sloupec „ano“ = kontaktní osoba svazu. Jen tihle lidé se
+# vypíšou na stránce Kontakty pod nadpisem „Na koho se obrátit“;
+# sekretariát nepatří do žádného orgánu, proto má orgán prázdný.
+
+Jindřich Pařík||generální sekretář|||info@speedskating.cz|+420 730 132 001|ano
 
 Marcela Valt|predsednictvo|předsedkyně|||marcela@speedskating.cz|+420 603 495 327
 Jan Létal|predsednictvo|místopředseda|||letal.jan@email.cz|+420 777 922 381

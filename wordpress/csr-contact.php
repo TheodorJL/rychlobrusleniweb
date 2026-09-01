@@ -62,7 +62,13 @@ function csr_has_markdown( $text ) {
 }
 
 /**
- * Lidé, kteří mají vyplněný kontakt.
+ * Lidé pro výpis „Na koho se obrátit".
+ *
+ * Dřív se braly všichni, kdo mají vyplněný e-mail nebo telefon — a to je
+ * celé předsednictvo, kontrolní komise i všichni předsedové klubů, tedy
+ * dvaadvacet jmen včetně dvojích záznamů jednoho člověka. Kdo chce jen
+ * napsat na svaz, si z takového seznamu nevybere. Vypisují se proto jen
+ * lidé označení u sebe jako kontaktní osoba svazu.
  *
  * @param string $body Zkratka orgánu, nebo prázdno pro všechny.
  * @return WP_Post[]
@@ -79,16 +85,30 @@ function csr_contact_people( $body = '' ) {
 		);
 	}
 
+	$lide = get_posts( $args );
+
 	// Do kontaktů patří jen ten, na koho se dá opravdu obrátit.
-	return array_values(
+	$maji_spojeni = array_values(
 		array_filter(
-			get_posts( $args ),
+			$lide,
 			static function ( $person ) {
 				return get_post_meta( $person->ID, '_csr_person_email', true )
 					|| get_post_meta( $person->ID, '_csr_person_phone', true );
 			}
 		)
 	);
+
+	$oznaceni = array_values(
+		array_filter(
+			$maji_spojeni,
+			static function ( $person ) {
+				return '1' === (string) get_post_meta( $person->ID, '_csr_person_contact', true );
+			}
+		)
+	);
+
+	// Dokud není označený nikdo, je lepší ukázat všechny než prázdno.
+	return $oznaceni ? $oznaceni : $maji_spojeni;
 }
 
 /**
