@@ -1,0 +1,19 @@
+/*
+Theme Name:  Český svaz rychlobruslení
+Theme URI:   https://speedskating.cz/
+Description: Potomkovská šablona pro GeneratePress. Vzhled a šablony stránek
+             svazového webu. Vlastní styly jsou v assets/css/csr-home.css,
+             tenhle soubor slouží hlavně jako hlavička šablony — ale co sem
+             dopíšete, na webu se projeví.
+Author:      Theodor Létal
+Template:    generatepress
+Version:     1.0.48
+Text Domain: csr-child
+Requires PHP: 7.4
+
+GitHub Theme URI: https://github.com/TheodorJL/rychlobrusleniweb
+Primary Branch:   main
+Release Asset:    true
+*/
+
+/* Sem patří drobné úpravy. Většina vzhledu je v assets/css/csr-home.css. */
