@@ -124,8 +124,8 @@ if ( csr_page_locked() ) {
 			<?php endif; ?>
 
 			<h1 class="csr-hero__title">
-				<span class="csr-hero__line"><i><?php echo esc_html( csr_opt( 'csr_hero_line1' ) ); ?></i></span>
-				<span class="csr-hero__line"><i><?php echo esc_html( csr_opt( 'csr_hero_line2' ) ); ?></i></span>
+				<?php // První dvě části stojí na jednom řádku: „Rychlost má". ?>
+				<span class="csr-hero__line"><i><?php echo esc_html( trim( csr_opt( 'csr_hero_line1' ) . ' ' . csr_opt( 'csr_hero_line2' ) ) ); ?></i></span>
 				<span class="csr-hero__line"><span class="csr-grad"><?php echo esc_html( csr_opt( 'csr_hero_line3' ) ); ?></span></span>
 			</h1>
 

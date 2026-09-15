@@ -62,6 +62,9 @@ require_once __DIR__ . '/csr-search.php';
 // Kalendář akcí — hromadné vložení termínů sezóny.
 require_once __DIR__ . '/csr-events.php';
 
+// Výřez náhledu — co z fotky zůstane vidět po ořezu.
+require_once __DIR__ . '/csr-focus.php';
+
 const CSR_HOME_TEMPLATE   = 'page-csr-home.php';
 const CSR_ROSTER_TEMPLATE = 'page-csr-roster.php';
 const CSR_EVENTS_TEMPLATE = 'page-csr-events.php';
@@ -407,7 +410,12 @@ function csr_render_article_card( $post, $is_lead = false ) {
 	$id    = $post->ID;
 	$cats  = get_the_category( $id );
 	$first = ! empty( $cats ) ? $cats[0] : null;
-	$thumb = get_the_post_thumbnail(
+	/*
+	 * Ne get_the_post_thumbnail(): na webu svazu je plugin, který náhled
+	 * nevkládá do článku, a ta funkce kvůli němu vrací prázdno — karty pak
+	 * ukazovaly zástupnou grafiku, i když náhled článek má.
+	 */
+	$thumb = csr_thumb_html(
 		$id,
 		$is_lead ? 'large' : 'medium_large',
 		array(
@@ -422,7 +430,7 @@ function csr_render_article_card( $post, $is_lead = false ) {
 		<div class="csr-card">
 			<div class="csr-card__media">
 				<?php if ( $thumb ) : ?>
-					<?php echo $thumb; // phpcs:ignore WordPress.Security.EscapeOutput — výstup get_the_post_thumbnail je bezpečný ?>
+					<?php echo $thumb; // phpcs:ignore WordPress.Security.EscapeOutput — sestaveno v csr_thumb_html() ?>
 				<?php else : ?>
 					<div class="csr-thumb-ph csr-thumb-ph--<?php echo (int) ( $id % 8 ) + 1; ?>" aria-hidden="true">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M4 17c5 1.6 10.5.4 14-3s5-9 4.6-13"/><path d="M5 20h13"/></svg>
@@ -604,6 +612,7 @@ function csr_nav_menu( $ul_class = 'csr-nav__list' ) {
 	}
 
 	$zaloha = csr_detach_menu_filters();
+	add_filter( 'nav_menu_item_title', 'csr_nav_item_title', 10, 4 );
 
 	wp_nav_menu(
 		array(
@@ -618,7 +627,35 @@ function csr_nav_menu( $ul_class = 'csr-nav__list' ) {
 		)
 	);
 
+	remove_filter( 'nav_menu_item_title', 'csr_nav_item_title', 10 );
 	csr_reattach_menu_filters( $zaloha );
+}
+
+/**
+ * Pročistí názvy hlubokých položek menu.
+ *
+ * Soupisky se v menu jmenují „SS – .Junioři." — tečky kolem slova zůstaly
+ * po rozlišení stránek se stejným názvem a zkratka disciplíny se opakuje,
+ * protože hned nad položkou stojí „Speed skating". Ve velkém panelu i
+ * v mobilním menu je tak vidět jen „Junioři". Stránky samotné se nemění.
+ *
+ * @param string   $title Název položky.
+ * @param WP_Post  $item  Položka menu.
+ * @param stdClass $args  Nastavení menu.
+ * @param int      $depth Hloubka, první úroveň je 0.
+ * @return string
+ */
+function csr_nav_item_title( $title, $item, $args, $depth ) {
+	if ( $depth < 2 ) {
+		return $title;
+	}
+	$text  = html_entity_decode( wp_strip_all_tags( (string) $title ), ENT_QUOTES, 'UTF-8' );
+	$cisty = preg_replace( '/^\s*(?:SS|ST)\s*[–—-]\s*/u', '', $text );
+	$cisty = trim( (string) $cisty, " .\t" );
+	if ( '' === $cisty || $cisty === $text ) {
+		return $title;
+	}
+	return esc_html( $cisty );
 }
 
 /**
@@ -761,6 +798,13 @@ function csr_import_seed_note( $jmeno, $zdroj = 'ze starého webu' ) {
  */
 function csr_thumb_html( $post_id, $velikost = 'medium', $atributy = array(), $nahradni = '' ) {
 	$atributy = wp_parse_args( $atributy, array( 'alt' => '', 'loading' => 'lazy', 'decoding' => 'async' ) );
+
+	// Výřez nastavený u příspěvku: při ořezu zůstane vidět zvolené místo.
+	$vyrez = csr_focus_css( $post_id );
+	if ( $vyrez ) {
+		$styl              = isset( $atributy['style'] ) ? rtrim( (string) $atributy['style'], '; ' ) . '; ' : '';
+		$atributy['style'] = $styl . 'object-position: ' . $vyrez;
+	}
 
 	$thumb = (int) get_post_thumbnail_id( $post_id );
 	if ( $thumb ) {

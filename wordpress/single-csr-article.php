@@ -27,6 +27,7 @@ while ( have_posts() ) :
 	$csr_portrait = ! empty( $csr_meta['height'] ) && ! empty( $csr_meta['width'] )
 		&& $csr_meta['height'] > $csr_meta['width'];
 	$csr_backdrop = $csr_thumb ? wp_get_attachment_image_url( $csr_thumb, 'large' ) : '';
+	$csr_vyrez    = csr_focus_css( $csr_id );
 	?>
 
 <main id="obsah">
@@ -36,7 +37,7 @@ while ( have_posts() ) :
 
 	<header class="csr-pagehead csr-pagehead--article<?php echo $csr_backdrop ? ' csr-pagehead--photo' : ''; ?>">
 		<?php if ( $csr_backdrop ) : ?>
-			<div class="csr-pagehead__backdrop" style="background-image:url(<?php echo esc_url( $csr_backdrop ); ?>)" aria-hidden="true"></div>
+			<div class="csr-pagehead__backdrop" style="background-image:url(<?php echo esc_url( $csr_backdrop ); ?>)<?php echo $csr_vyrez ? ';background-position:' . esc_attr( $csr_vyrez ) : ''; ?>" aria-hidden="true"></div>
 		<?php endif; ?>
 		<div class="csr-pagehead__glow" aria-hidden="true"></div>
 

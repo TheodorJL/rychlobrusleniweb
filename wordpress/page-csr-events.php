@@ -175,7 +175,7 @@ if ( $csr_has_tec ) {
 
 				$csr_venue = function_exists( 'tribe_get_venue' ) ? tribe_get_venue( $csr_ev->ID ) : '';
 				$csr_cats  = get_the_terms( $csr_ev->ID, 'tribe_events_cat' );
-				$csr_thumb = get_the_post_thumbnail( $csr_ev->ID, 'medium', array( 'loading' => 'lazy', 'alt' => '' ) );
+				$csr_thumb = csr_thumb_html( $csr_ev->ID, 'medium', array( 'alt' => '' ) );
 				?>
 
 				<article class="csr-calevent<?php echo $csr_past ? ' csr-calevent--past' : ''; ?> csr-reveal">

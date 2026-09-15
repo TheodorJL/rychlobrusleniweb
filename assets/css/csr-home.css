@@ -451,17 +451,27 @@ html { scroll-behavior: smooth; }
 
 .csr-header {
   position: sticky; top: 0; z-index: 1000;
-  background: rgba(6, 14, 26, .72);
+  /* Světlá lišta. Logo svazu je tmavě modré s červenou a na tmavém skle
+     splývalo; převod na bílou by zase smazal červenou. Barvy podnabídek
+     se berou z těchhle tokenů, takže panely jsou světlé i v tmavém režimu. */
+  --csr-surface: #ffffff;
+  --csr-border: #dde6ef;
+  --csr-text-soft: #3b4d63;
+  --csr-accent-soft: #eaf3fa;
+  --csr-accent-text: #00457b;
+  --csr-shadow-lg: 0 14px 30px rgba(6, 14, 26, .10), 0 36px 80px rgba(6, 14, 26, .18);
+  background: rgba(255, 255, 255, .94);
+  color: #0b1728;
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border-bottom: 1px solid rgba(255, 255, 255, .09);
+  border-bottom: 1px solid rgba(11, 23, 40, .08);
   transition: background-color var(--csr-t) var(--csr-ease),
               box-shadow var(--csr-t) var(--csr-ease),
               border-color var(--csr-t) var(--csr-ease);
 }
 .csr-header.is-stuck {
-  background: rgba(6, 14, 26, .93);
-  box-shadow: 0 10px 34px rgba(0, 0, 0, .34);
+  background: rgba(255, 255, 255, .985);
+  box-shadow: 0 6px 26px rgba(6, 14, 26, .16);
 }
 /* Hlavička se skryje při scrollu dolů, vrátí se při scrollu nahoru */
 .csr-header.is-hidden { transform: translateY(-100%); }
@@ -494,17 +504,30 @@ html { scroll-behavior: smooth; }
 }
 @media (max-width: 420px) { .csr-brand__txt { display: none; } }
 
-/* Navigace — desktop */
-.csr-nav { margin-inline-start: auto; }
+/* Na světlé liště a v horní části mobilní zásuvky je značka tmavá */
+.csr-header .csr-brand,
+.csr-header .csr-brand__name,
+.csr-drawer__top .csr-brand,
+.csr-drawer__top .csr-brand__name { color: #0b1728; }
+.csr-header .csr-brand__sub,
+.csr-drawer__top .csr-brand__sub { color: #0a5e8c; }
+
+/* Navigace — desktop.
+   Položky první úrovně sahají přes celou výšku lišty. Podnabídka tak začíná
+   přesně pod nimi a myš cestou dolů nepřejíždí přes mezeru, ve které by
+   se panel zavřel. */
+.csr-nav { margin-inline-start: auto; align-self: stretch; display: flex; }
 .csr-nav__list { display: flex; align-items: center; gap: .12rem; }
 .csr-nav__list > li { position: relative; }
+.csr-nav > .csr-nav__list { align-items: stretch; }
+.csr-nav > .csr-nav__list > li { display: flex; align-items: center; }
 
 .csr-nav a {
   display: flex; align-items: center; gap: .34rem;
   padding: .62rem .74rem;
   border-radius: var(--csr-r-sm);
-  color: rgba(255, 255, 255, .85);
-  font-size: .875rem; font-weight: 550; letter-spacing: .005em;
+  color: #1b2c42;
+  font-size: .875rem; font-weight: 600; letter-spacing: .005em;
   text-decoration: none; white-space: nowrap;
   transition: color var(--csr-t-fast) var(--csr-ease), background-color var(--csr-t-fast) var(--csr-ease);
 }
@@ -515,9 +538,14 @@ html { scroll-behavior: smooth; }
   transform: scaleX(0); transform-origin: 0 50%;
   transition: transform var(--csr-t) var(--csr-ease);
 }
-.csr-nav a:hover { color: #fff; background: rgba(255, 255, 255, .08); }
-.csr-nav > .csr-nav__list > li:hover > a::after,
+.csr-nav a:hover { color: #00457b; background: rgba(0, 69, 123, .06); }
+.csr-nav > .csr-nav__list > li.is-open > a,
+.csr-nav > .csr-nav__list > li.current-menu-item > a,
+.csr-nav > .csr-nav__list > li.current-menu-ancestor > a { color: #00457b; }
+.csr-nav:not(.is-enhanced) > .csr-nav__list > li:hover > a::after,
+.csr-nav > .csr-nav__list > li.is-open > a::after,
 .csr-nav > .csr-nav__list > li.current-menu-item > a::after,
+.csr-nav > .csr-nav__list > li.current-menu-ancestor > a::after,
 .csr-nav > .csr-nav__list > li:focus-within > a::after { transform: scaleX(1); }
 
 /* Šipka u položek s podnabídkou */
@@ -530,11 +558,12 @@ html { scroll-behavior: smooth; }
   opacity: .65;
   transition: transform var(--csr-t) var(--csr-ease);
 }
-.csr-nav .menu-item-has-children:hover > a::before { transform: translateY(0) rotate(225deg); }
+.csr-nav:not(.is-enhanced) .menu-item-has-children:hover > a::before,
+.csr-nav .menu-item-has-children.is-open > a::before { transform: translateY(0) rotate(225deg); }
 
 /* Rozbalovací panely */
 .csr-nav .sub-menu {
-  position: absolute; top: calc(100% + .35rem); left: 0;
+  position: absolute; top: 100%; left: 0;
   min-width: 236px;
   padding: .55rem;
   background: var(--csr-surface);
@@ -542,14 +571,18 @@ html { scroll-behavior: smooth; }
   border-radius: var(--csr-r);
   box-shadow: var(--csr-shadow-lg);
   opacity: 0; visibility: hidden;
-  transform: translateY(10px);
+  transform: translateY(8px);
   transition: opacity var(--csr-t) var(--csr-ease),
               transform var(--csr-t) var(--csr-ease),
               visibility var(--csr-t);
   z-index: 40;
 }
-.csr-nav li:hover > .sub-menu,
-.csr-nav li:focus-within > .sub-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+/* Otevírá JavaScript se zpožděným zavřením (třída is-open). Bez skriptu
+   zůstává obyčejné :hover. Klávesnice otevírá přes :focus-visible, aby
+   panel po kliknutí myší nezůstal viset otevřený jen kvůli fokusu. */
+.csr-nav:not(.is-enhanced) li:hover > .sub-menu,
+.csr-nav li.is-open > .sub-menu,
+.csr-nav li:has(:focus-visible) > .sub-menu { opacity: 1; visibility: visible; transform: translateY(0); }
 
 .csr-nav .sub-menu a {
   color: var(--csr-text-soft);
@@ -558,15 +591,96 @@ html { scroll-behavior: smooth; }
   border-radius: var(--csr-r-sm);
 }
 .csr-nav .sub-menu a:hover { background: var(--csr-accent-soft); color: var(--csr-accent-text); }
+.csr-nav .sub-menu .current-menu-item > a { color: var(--csr-accent-text); font-weight: 650; }
 
-/* Třetí úroveň vyjíždí do strany */
+/* Třetí úroveň vyjíždí do strany. Neviditelný můstek překlene odsazení
+   rodičovského panelu, jinak by se cestou do strany zavřela. */
 .csr-nav .sub-menu .sub-menu { top: -.55rem; left: calc(100% + .35rem); }
+.csr-nav .sub-menu .sub-menu::before {
+  content: ""; position: absolute; top: 0; bottom: 0; right: 100%; width: 1rem;
+}
 .csr-nav .sub-menu .menu-item-has-children > a::before { transform: rotate(-45deg); margin-left: auto; }
-.csr-nav .sub-menu .menu-item-has-children:hover > a::before { transform: rotate(-45deg); }
+.csr-nav .sub-menu .menu-item-has-children.is-open > a::before,
+.csr-nav:not(.is-enhanced) .sub-menu .menu-item-has-children:hover > a::before { transform: rotate(-45deg); }
 
 /* Poslední položky otevírají panel doleva, aby nevypadly z obrazovky */
 .csr-nav__list > li:nth-last-child(-n+3) > .sub-menu { left: auto; right: 0; }
 .csr-nav__list > li:nth-last-child(-n+3) .sub-menu .sub-menu { left: auto; right: calc(100% + .35rem); }
+.csr-nav__list > li:nth-last-child(-n+3) .sub-menu .sub-menu::before { right: auto; left: 100%; }
+
+/* ---- Velký panel pro hluboké položky ----
+   Výsledky a Reprezentace mají tři a čtyři úrovně (sezóna → disciplína →
+   soupiska). Vyjíždění do strany chtělo držet myš na úzké cestě přes tři
+   panely a každé zakolísání vše zavřelo. Tady se celý strom ukáže najednou
+   v jednom panelu po sloupcích — stačí jedno najetí. */
+.csr-nav > .csr-nav__list > li:has(> .sub-menu .sub-menu) { position: static; }
+.csr-nav > .csr-nav__list > li:has(> .sub-menu .sub-menu) > .sub-menu {
+  left: 50%; right: auto;
+  width: min(1120px, calc(100vw - 2 * var(--csr-gutter)));
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  align-items: start;
+  padding: 1.15rem 1rem 1.3rem;
+  border-top: 0;
+  border-radius: 0 0 var(--csr-r-lg, 18px) var(--csr-r-lg, 18px);
+  transform: translate(-50%, 8px);
+}
+.csr-nav:not(.is-enhanced) > .csr-nav__list > li:has(> .sub-menu .sub-menu):hover > .sub-menu,
+.csr-nav > .csr-nav__list > li:has(> .sub-menu .sub-menu).is-open > .sub-menu,
+.csr-nav > .csr-nav__list > li:has(> .sub-menu .sub-menu):has(:focus-visible) > .sub-menu {
+  transform: translate(-50%, 0);
+}
+/* Sloupec = položka druhé úrovně (sezóna, České rekordy).
+   Selektory začínají až u první úrovně lišty: sezóna sama má taky
+   vnořené seznamy a obecné pravidlo by sloupce kreslilo i uvnitř ní. */
+.csr-nav > .csr-nav__list > li:has(> .sub-menu .sub-menu) > .sub-menu > li {
+  padding: 0 .55rem;
+  border-left: 1px solid var(--csr-border);
+  min-width: 0;
+}
+.csr-nav > .csr-nav__list > li:has(> .sub-menu .sub-menu) > .sub-menu > li:first-child { border-left: 0; }
+.csr-nav > .csr-nav__list > li:has(> .sub-menu .sub-menu) > .sub-menu > li > a {
+  font-family: var(--csr-font-display);
+  font-size: .95rem; font-weight: 700; letter-spacing: .01em;
+  text-transform: uppercase;
+  color: #0b1728;
+  padding: .4rem .5rem .5rem;
+  white-space: normal;
+}
+/* Vnořené seznamy v panelu jsou vidět rovnou, bez dalšího najíždění */
+.csr-nav > .csr-nav__list > li:has(> .sub-menu .sub-menu) > .sub-menu .sub-menu {
+  position: static;
+  min-width: 0; padding: 0; margin: 0;
+  background: none; border: 0; border-radius: 0; box-shadow: none;
+  opacity: 1; visibility: inherit; transform: none; transition: none;
+}
+.csr-nav > .csr-nav__list > li:has(> .sub-menu .sub-menu) > .sub-menu .sub-menu::before,
+.csr-nav > .csr-nav__list > li:has(> .sub-menu .sub-menu) > .sub-menu a::before { content: none; }
+.csr-nav > .csr-nav__list > li:has(> .sub-menu .sub-menu) > .sub-menu .sub-menu a {
+  padding: .34rem .5rem;
+  white-space: normal;
+}
+/* Třetí úroveň s vlastními položkami = mezititulek disciplíny */
+.csr-nav > .csr-nav__list > li:has(> .sub-menu .sub-menu) > .sub-menu > li > .sub-menu > li.menu-item-has-children > a {
+  margin-top: .35rem;
+  padding: .3rem .5rem .2rem;
+  font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #6a7d92;
+}
+
+/* Tlačítka v liště */
+.csr-header .csr-iconbtn,
+.csr-drawer__top .csr-iconbtn {
+  color: #0b1728;
+  border-color: rgba(11, 23, 40, .14);
+  background: rgba(11, 23, 40, .035);
+}
+.csr-header .csr-iconbtn:hover,
+.csr-drawer__top .csr-iconbtn:hover {
+  border-color: rgba(0, 69, 123, .38);
+  background: rgba(0, 69, 123, .08);
+}
 
 /* Akce v hlavičce */
 .csr-header__actions { display: flex; align-items: center; gap: .4rem; flex: none; }
@@ -603,6 +717,8 @@ html { scroll-behavior: smooth; }
 @media (max-width: 1180px) {
   .csr-nav { display: none; }
   .csr-burger { display: inline-grid; }
+  /* Bez navigace nic neodtlačí tlačítka k pravému okraji — stála hned za logem. */
+  .csr-header__actions { margin-inline-start: auto; }
 }
 
 /* Vyhledávání v hlavičce */
@@ -655,7 +771,8 @@ html { scroll-behavior: smooth; }
   display: flex; align-items: center; justify-content: space-between;
   gap: 1rem; min-height: var(--csr-header-h);
   padding-inline: var(--csr-gutter);
-  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  background: #fff;
+  border-bottom: 1px solid rgba(11, 23, 40, .08);
 }
 .csr-drawer__body { overflow-y: auto; padding: 1.25rem var(--csr-gutter) 3rem; }
 
@@ -684,7 +801,8 @@ html { scroll-behavior: smooth; }
 .csr-drawer .sub-menu a:hover { color: var(--csr-ice-300); background: none; }
 
 .csr-drawer .menu-item-has-children > a::before {
-  content: ""; width: 9px; height: 9px; margin: 0;
+  /* Šipka patří za název; bez pořadí stála vlevo a název odjel doprava. */
+  content: ""; order: 2; width: 9px; height: 9px; margin: 0;
   border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
   transform: rotate(45deg) translate(-2px, -2px);
   transition: transform var(--csr-t) var(--csr-ease);
@@ -1623,8 +1741,19 @@ body { margin: 0; background: var(--csr-bg); }
 /* Tmavé logo by na tmavé hlavičce zaniklo. Zapíná se v nastavení a platí
    jen pro jednobarevná loga — barevné logo by se převedlo na bílou plochu. */
 .csr-brand--invert .csr-brand__logo { filter: brightness(0) invert(1); }
+.csr-header .csr-brand--invert .csr-brand__logo,
+.csr-drawer__top .csr-brand--invert .csr-brand__logo { filter: none; }
 
-.csr-page .csr-footer__brand .csr-brand__logo { height: calc(var(--csr-logo-h, 60px) * 1.15); }
+/* V tmavé patičce by tmavě modré logo zaniklo stejně jako v liště — dostane
+   světlou destičku. Převod na bílou tu nedává smysl, bílé na bílé by zmizelo. */
+.csr-page .csr-footer__brand .csr-brand__logo {
+  height: calc(var(--csr-logo-h, 60px) * 1.15);
+  box-sizing: content-box;
+  padding: .6rem .85rem;
+  background: #fff;
+  border-radius: 12px;
+  filter: none;
+}
 
 @media (max-width: 480px) {
   .csr-page .csr-brand__logo { height: calc(var(--csr-logo-h, 60px) * .85); max-width: 46vw; }

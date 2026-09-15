@@ -801,6 +801,102 @@
     });
   }
 
+  /* ---- Otevírání podnabídek s prodlevou ----
+     Na čistém :hover se panel zavřel v okamžiku, kdy kurzor na zlomek
+     vteřiny vyjel mimo položku — přes okraj panelu nebo cestou šikmo do
+     vedlejšího sloupce. U čtyřúrovňového menu svazu se na hlubší odkazy
+     nedalo trefit. Panel se proto zavírá až po krátké prodlevě; přejetí
+     na sousední položku ho přepne hned.
+
+     Na dotykovém displeji (tablet na šířku) první klepnutí panel otevře
+     a teprve druhé přejde na odkaz. */
+  function initNavHover() {
+    var nav = $('.csr-nav');
+    var seznam = nav && $('.csr-nav__list', nav);
+    if (!nav || !seznam) return;
+
+    var PRODLEVA = 320;
+    var ukazatel = 'mouse';
+
+    function horniPolozka(li) {
+      while (li && li.parentElement !== seznam) {
+        li = li.parentElement ? li.parentElement.closest('li') : null;
+      }
+      return li;
+    }
+    // Uvnitř velkého panelu (Výsledky, Reprezentace) jsou vnořené seznamy
+    // vidět rovnou, ty se neotevírají.
+    function veVelkemPanelu(li) {
+      var horni = horniPolozka(li);
+      return !!horni && horni !== li && !!horni.querySelector(':scope > ul ul');
+    }
+
+    function zavri(li) {
+      clearTimeout(li._csrZavrit);
+      li.classList.remove('is-open');
+      Array.prototype.forEach.call(li.querySelectorAll('li.is-open'), function (d) {
+        clearTimeout(d._csrZavrit);
+        d.classList.remove('is-open');
+      });
+      var a = li.querySelector(':scope > a');
+      if (a) a.setAttribute('aria-expanded', 'false');
+    }
+    function otevri(li) {
+      clearTimeout(li._csrZavrit);
+      Array.prototype.forEach.call(li.parentElement.querySelectorAll(':scope > li.is-open'), function (s) {
+        if (s !== li) zavri(s);
+      });
+      li.classList.add('is-open');
+      var a = li.querySelector(':scope > a');
+      if (a) a.setAttribute('aria-expanded', 'true');
+    }
+
+    var polozky = Array.prototype.filter.call(nav.querySelectorAll('li'), function (li) {
+      return !!li.querySelector(':scope > ul') && !veVelkemPanelu(li);
+    });
+    if (!polozky.length) return;
+
+    nav.classList.add('is-enhanced');
+
+    polozky.forEach(function (li) {
+      var a = li.querySelector(':scope > a');
+      if (a) a.setAttribute('aria-expanded', 'false');
+
+      li.addEventListener('pointerenter', function (e) {
+        if (e.pointerType === 'touch') return;
+        otevri(li);
+      });
+      li.addEventListener('pointerleave', function (e) {
+        if (e.pointerType === 'touch') return;
+        clearTimeout(li._csrZavrit);
+        li._csrZavrit = setTimeout(function () { zavri(li); }, PRODLEVA);
+      });
+
+      if (a) {
+        a.addEventListener('click', function (e) {
+          if (ukazatel === 'mouse') return;
+          if (!li.classList.contains('is-open')) {
+            e.preventDefault();
+            otevri(li);
+          }
+        });
+      }
+    });
+
+    nav.addEventListener('pointerdown', function (e) {
+      ukazatel = e.pointerType || 'mouse';
+    }, true);
+
+    document.addEventListener('pointerdown', function (e) {
+      if (nav.contains(e.target)) return;
+      Array.prototype.forEach.call(seznam.querySelectorAll(':scope > li.is-open'), zavri);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      Array.prototype.forEach.call(seznam.querySelectorAll(':scope > li.is-open'), zavri);
+    });
+  }
+
   /* ---- Podnabídky, které by vylezly z obrazovky ----
      Menu svazu je čtyřúrovňové a každá další úroveň se otevírá vedle té
      předchozí. U položky uprostřed lišty čtvrtá úroveň přeteče vpravo ven.
@@ -811,10 +907,19 @@
   function initNavEdges() {
     var nav = $('.csr-nav');
     if (!nav) return;
+    var seznam = $('.csr-nav__list', nav);
 
     $$('li', nav).forEach(function (li) {
       var sub = li.querySelector('ul');
       if (!sub || sub.parentElement !== li) return;
+
+      // Velký panel se centruje pod lištou a jeho vnořené seznamy
+      // nevyjíždějí do strany — není co překlápět.
+      var horni = li;
+      while (horni && horni.parentElement !== seznam) {
+        horni = horni.parentElement ? horni.parentElement.closest('li') : null;
+      }
+      if (horni && horni.querySelector(':scope > ul ul')) return;
 
       function zmer() {
         li.classList.remove('csr-flip');
@@ -866,6 +971,7 @@
       empty: '[data-csr-recempty]'
     });
     initTables();
+    initNavHover();
     initNavEdges();
     initLightbox();
     initAlbums();

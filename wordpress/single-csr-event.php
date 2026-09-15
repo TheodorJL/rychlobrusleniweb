@@ -70,9 +70,10 @@ if ( $csr_akce['start'] ) {
 		<div class="csr-event">
 
 			<div class="csr-event__main">
-				<?php if ( has_post_thumbnail() ) : ?>
+				<?php $csr_foto = csr_thumb_html( get_the_ID(), 'large', array( 'alt' => '', 'loading' => 'eager' ) ); ?>
+				<?php if ( $csr_foto ) : ?>
 					<figure class="csr-event__photo">
-						<?php the_post_thumbnail( 'large', array( 'alt' => '' ) ); ?>
+						<?php echo $csr_foto; // phpcs:ignore WordPress.Security.EscapeOutput — sestaveno v csr_thumb_html() ?>
 					</figure>
 				<?php endif; ?>
 

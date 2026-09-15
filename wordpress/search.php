@@ -72,7 +72,7 @@ $csr_pocet = (int) $GLOBALS['wp_query']->found_posts;
 				while ( have_posts() ) :
 					the_post();
 					$csr_druh  = csr_search_kind( get_post() );
-					$csr_thumb = has_post_thumbnail() ? get_the_post_thumbnail( get_the_ID(), 'medium', array( 'alt' => '', 'loading' => 'lazy' ) ) : '';
+					$csr_thumb = csr_thumb_html( get_the_ID(), 'medium', array( 'alt' => '' ) );
 					?>
 					<li class="csr-result csr-reveal">
 						<a class="csr-result__link" href="<?php the_permalink(); ?>">

@@ -21,7 +21,8 @@ $csr_brand_class = 'csr-brand' . ( $csr_logo_invert ? ' csr-brand--invert' : '' 
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<meta name="theme-color" content="<?php echo esc_attr( csr_opt( 'csr_color_dark' ) ); ?>">
+	<?php // Lišta je světlá, tak ať s ní splývá i horní pruh prohlížeče na mobilu. ?>
+	<meta name="theme-color" content="#ffffff">
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
