@@ -104,8 +104,13 @@ function csr_newest_roster_url() {
 			$podle_id[ (int) $polozka->ID ] = $polozka;
 		}
 
+		/*
+		 * Šablona soupisky se nekontroluje: nové stránky sezóny 2026-2027
+		 * ji v administraci přiřazenou nemají, a přesto jsou to soupisky,
+		 * na které vede i menu. Stačí, že jde o stránku pod sezónou.
+		 */
 		foreach ( $polozky as $polozka ) {
-			if ( 'page' !== $polozka->object || CSR_ROSTER_TEMPLATE !== get_page_template_slug( (int) $polozka->object_id ) ) {
+			if ( 'page' !== $polozka->object ) {
 				continue;
 			}
 			$rodic = isset( $podle_id[ (int) $polozka->menu_item_parent ] ) ? $podle_id[ (int) $polozka->menu_item_parent ] : null;
@@ -142,10 +147,17 @@ function csr_stat_url( $i, $prefix = 'stat' ) {
 
 	$zdroj = (string) csr_opt( "csr_{$prefix}{$i}_source" );
 	if ( '' === $zdroj ) {
-		return '';
+		/*
+		 * U vlastní hodnoty se zdroj nezná — číslo „36 Reprezentantů" je
+		 * napsané ručně. Kam má vést, se pozná z popisku.
+		 */
+		$zdroj = csr_stat_source_from_label( csr_stat_label( $i, $prefix ) );
+		if ( '' === $zdroj ) {
+			return '';
+		}
 	}
 
-	$mapa = get_transient( 'csr_stat_odkazy' );
+	$mapa = get_transient( 'csr_stat_odkazy_v2' );
 	if ( ! is_array( $mapa ) ) {
 		$mapa = array();
 	}
@@ -158,16 +170,46 @@ function csr_stat_url( $i, $prefix = 'stat' ) {
 		} else {
 			$mapa[ $zdroj ] = '';
 		}
-		set_transient( 'csr_stat_odkazy', $mapa, 12 * HOUR_IN_SECONDS );
+		set_transient( 'csr_stat_odkazy_v2', $mapa, 12 * HOUR_IN_SECONDS );
 	}
 	return (string) $mapa[ $zdroj ];
+}
+
+/**
+ * Odhadne zdroj čísla z jeho popisku.
+ *
+ * @param string $popisek Třeba „Registrovaných klubů".
+ * @return string Klíč zdroje, nebo prázdno.
+ */
+function csr_stat_source_from_label( $popisek ) {
+	$text = function_exists( 'mb_strtolower' ) ? mb_strtolower( (string) $popisek, 'UTF-8' ) : strtolower( (string) $popisek );
+	$slova = array(
+		'reprezent' => 'zavodnici',
+		'závodník'  => 'zavodnici',
+		'kraj'      => 'kluby_kraje',
+		'klub'      => 'kluby',
+		'oddíl'     => 'kluby',
+		'fotoalb'   => 'alba',
+		'alb'       => 'alba',
+		'fot'       => 'fotky',
+		'dokument'  => 'dokumenty',
+		'rekord'    => 'rekordy',
+		'článk'     => 'clanky',
+		'novink'    => 'clanky',
+	);
+	foreach ( $slova as $koren => $zdroj ) {
+		if ( false !== strpos( $text, $koren ) ) {
+			return $zdroj;
+		}
+	}
+	return '';
 }
 
 /**
  * Po úpravě stránky, menu nebo nastavení může odkaz vést jinam — zapomenout ho.
  */
 function csr_stat_urls_flush() {
-	delete_transient( 'csr_stat_odkazy' );
+	delete_transient( 'csr_stat_odkazy_v2' );
 }
 add_action( 'save_post_page', 'csr_stat_urls_flush' );
 add_action( 'wp_update_nav_menu', 'csr_stat_urls_flush' );
