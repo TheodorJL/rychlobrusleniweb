@@ -153,17 +153,25 @@ if ( csr_page_locked() ) {
 					if ( null === $csr_value || ! $csr_label ) {
 						continue;
 					}
+					$csr_url = csr_stat_url( $i );
 					?>
-					<div class="csr-hero__stat">
+					<?php if ( $csr_url ) : ?>
+						<a class="csr-hero__stat csr-hero__stat--link" href="<?php echo esc_url( $csr_url ); ?>">
+					<?php else : ?>
+						<div class="csr-hero__stat">
+					<?php endif; ?>
 						<b><span data-csr-count="<?php echo esc_attr( $csr_value ); ?>"<?php echo csr_opt( "csr_stat{$i}_nogroup" ) ? ' data-csr-nogroup' : ''; ?>><?php echo esc_html( $csr_value ); ?></span><?php echo esc_html( csr_opt( "csr_stat{$i}_suffix" ) ); ?></b>
 						<span><?php echo esc_html( $csr_label ); ?></span>
-					</div>
+					<?php if ( $csr_url ) : ?>
+							<svg class="csr-hero__stat-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+						</a>
+					<?php else : ?>
+						</div>
+					<?php endif; ?>
 				<?php endfor; ?>
 			</div>
 		<?php endif; ?>
 	</div>
-
-	<a class="csr-hero__scroll" href="#rychle"><span>Scroll</span><i aria-hidden="true"></i></a>
 </section>
 
 <!-- ══════════ INFO LIŠTA ══════════ -->

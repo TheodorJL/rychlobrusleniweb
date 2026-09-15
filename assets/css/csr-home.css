@@ -984,31 +984,6 @@ body.csr-locked { overflow: hidden; }
   to   { transform: none; opacity: 1; }
 }
 
-/* Ukazatel scrollu */
-.csr-hero__scroll {
-  position: absolute; left: 50%; bottom: 1.1rem;
-  transform: translateX(-50%);
-  display: grid; justify-items: center; gap: .5rem;
-  color: rgba(255, 255, 255, .55);
-  font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
-  text-decoration: none;
-  animation: csr-fadeup 1s var(--csr-ease-out) 1.1s both;
-}
-.csr-hero__scroll:hover { color: #fff; }
-.csr-hero__scroll i {
-  width: 1px; height: 34px; background: linear-gradient(to bottom, currentColor, transparent);
-  position: relative; overflow: hidden;
-}
-.csr-hero__scroll i::after {
-  content: ""; position: absolute; inset: 0; background: var(--csr-ice-300);
-  animation: csr-scrolldot 2.1s var(--csr-ease) infinite;
-}
-@keyframes csr-scrolldot {
-  0%   { transform: translateY(-100%); }
-  60%, 100% { transform: translateY(100%); }
-}
-@media (max-width: 720px) { .csr-hero__scroll { display: none; } }
-
 /* Statistiky v patě hera */
 .csr-hero__stats {
   display: grid;
@@ -1040,6 +1015,26 @@ body.csr-locked { overflow: hidden; }
   color: rgba(255, 255, 255, .62);
   letter-spacing: .04em;
 }
+
+/* Číslo s odkazem: celá dlaždice je klikací, šipka v rohu to napoví */
+.csr-hero__stat--link {
+  position: relative;
+  display: block;
+  color: inherit; text-decoration: none;
+  transition: background-color var(--csr-t) var(--csr-ease);
+}
+.csr-hero__stat--link:hover { background: rgba(16, 35, 60, .78); }
+.csr-hero__stat--link:hover > span { color: rgba(255, 255, 255, .88); }
+.csr-hero__stat--link:focus-visible { outline: 2px solid var(--csr-ice-300); outline-offset: -2px; }
+.csr-hero__stat-go {
+  position: absolute; top: 1rem; right: 1rem;
+  width: 18px; height: 18px;
+  color: var(--csr-ice-300);
+  opacity: .45;
+  transition: opacity var(--csr-t) var(--csr-ease), transform var(--csr-t) var(--csr-ease);
+}
+.csr-hero__stat--link:hover .csr-hero__stat-go,
+.csr-hero__stat--link:focus-visible .csr-hero__stat-go { opacity: 1; transform: translate(2px, -2px); }
 
 /* --------------------------------------------------------------------------
    7. INFO LIŠTA (běžící text)
@@ -1687,7 +1682,7 @@ body.csr-locked { overflow: hidden; }
 
 @media print {
   .csr-header, .csr-drawer, .csr-search, .csr-top, .csr-ticker,
-  .csr-hero__scroll, .csr-progress, .csr-partners { display: none !important; }
+  .csr-progress, .csr-partners { display: none !important; }
   .csr-page { background: #fff; color: #000; }
   .csr-hero { min-height: auto; color: #000; }
   .csr-card, .csr-event { break-inside: avoid; border-color: #999; }
