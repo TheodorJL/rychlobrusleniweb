@@ -59,20 +59,25 @@
   var OKRUH = 2 * L + 2 * Math.PI * R;
 
   /** Bod na oválu: poloha, směr jízdy a znaménko zatáčky. */
+  /*
+   * Bod na oválu ve vzdálenosti s. S rostoucím s se jede proti směru
+   * hodinových ručiček při pohledu shora — rychlobruslaři zatáčejí doleva.
+   * Dřív byla osa z obráceně a světla jezdila po směru hodinových ručiček.
+   */
   function naOvalu(s, odsazeni) {
     s = ((s % OKRUH) + OKRUH) % OKRUH;
     var r = R + odsazeni, zatacka = Math.PI * R;
-    if (s < L) { return { x: -L / 2 + s, z: -r, tx: 1, tz: 0, k: 0 }; }
+    if (s < L) { return { x: -L / 2 + s, z: r, tx: 1, tz: 0, k: 0 }; }
     s -= L;
     if (s < zatacka) {
       var a = s / R;
-      return { x: L / 2 + r * Math.sin(a), z: -r * Math.cos(a), tx: Math.cos(a), tz: Math.sin(a), k: 1 };
+      return { x: L / 2 + r * Math.sin(a), z: r * Math.cos(a), tx: Math.cos(a), tz: -Math.sin(a), k: 1 };
     }
     s -= zatacka;
-    if (s < L) { return { x: L / 2 - s, z: r, tx: -1, tz: 0, k: 0 }; }
+    if (s < L) { return { x: L / 2 - s, z: -r, tx: -1, tz: 0, k: 0 }; }
     s -= L;
     var b = s / R;
-    return { x: -L / 2 - r * Math.sin(b), z: r * Math.cos(b), tx: -Math.cos(b), tz: -Math.sin(b), k: 1 };
+    return { x: -L / 2 - r * Math.sin(b), z: -r * Math.cos(b), tx: -Math.cos(b), tz: Math.sin(b), k: 1 };
   }
 
   /* ══════════════ Program ══════════════ */
