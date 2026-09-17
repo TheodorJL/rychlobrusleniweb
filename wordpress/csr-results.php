@@ -225,15 +225,25 @@ function csr_results_guess_scope( $page_id ) {
 	$season = '';
 	$sport  = '';
 
+	$hledany = '';
 	if ( preg_match( '/(\d{4})\s*[-–—\/]\s*(\d{4})/u', $nazev, $shoda ) ) {
 		$hledany = $shoda[1] . '-' . $shoda[2];
-		$term    = get_term_by( 'slug', $hledany, CSR_TAX_SEASON );
+	}
+	// Nejstarší stránky se jmenují jen „Speed Skating" — sezóna je v menu nad nimi.
+	if ( '' === $hledany ) {
+		$hledany = csr_menu_season_text( $page_id );
+	}
+	if ( '' !== $hledany ) {
+		$term = get_term_by( 'slug', $hledany, CSR_TAX_SEASON );
 		if ( ! $term ) {
 			$term = get_term_by( 'name', $hledany, CSR_TAX_SEASON );
 		}
-		if ( $term && ! is_wp_error( $term ) ) {
-			$season = $term->slug;
-		}
+		/*
+		 * Sezóna, ke které zatím není ani jedna tabulka, nemá termín.
+		 * Zůstane jako text: nic nenajde a stránka ukáže prázdný stav.
+		 * Prázdná sezóna by jinak znamenala výsledky všech sezón najednou.
+		 */
+		$season = ( $term && ! is_wp_error( $term ) ) ? $term->slug : $hledany;
 	}
 
 	if ( false !== strpos( $nazev, 'short track' ) || preg_match( '/(^|[^a-z])st([^a-z]|$)/u', $nazev ) ) {
@@ -880,7 +890,7 @@ function csr_results_page_metabox_render( $post ) {
 	printf(
 		'<option value=""%s>%s</option>',
 		selected( get_post_meta( $post->ID, '_csr_results_season', true ), '', false ),
-		$odhad[0] ? esc_html( 'Podle názvu stránky — ' . $odhad[0] ) : 'Podle názvu stránky'
+		$odhad[0] ? esc_html( 'Automaticky — ' . $odhad[0] ) : 'Automaticky (z názvu stránky nebo menu)'
 	);
 	echo '<option value="-">Všechny sezóny</option>';
 	if ( ! is_wp_error( $terms ) ) {
@@ -901,7 +911,7 @@ function csr_results_page_metabox_render( $post ) {
 	printf(
 		'<option value=""%s>%s</option>',
 		selected( get_post_meta( $post->ID, '_csr_results_sport', true ), '', false ),
-		$odhad[1] ? esc_html( 'Podle názvu stránky — ' . $sporty[ $odhad[1] ] ) : 'Podle názvu stránky'
+		$odhad[1] ? esc_html( 'Automaticky — ' . $sporty[ $odhad[1] ] ) : 'Automaticky (z názvu stránky)'
 	);
 	echo '<option value="-">Obě disciplíny</option>';
 	foreach ( csr_result_sports() as $key => $label ) {

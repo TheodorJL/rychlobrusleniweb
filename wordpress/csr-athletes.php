@@ -1029,38 +1029,57 @@ function csr_find_roster_entry( $jmeno, $season, $squad ) {
  * @return int ID termínu sezóny, nebo 0.
  */
 function csr_roster_guess_season( $page_id ) {
-    $menus = wp_get_nav_menus();
-    if ( is_wp_error( $menus ) || ! $menus ) {
-        return 0;
+    $sezona = csr_menu_season_text( $page_id );
+    return '' !== $sezona ? csr_season_term_id( $sezona ) : 0;
+}
+
+/**
+ * Sezóna, pod kterou stránka visí v menu, jako text „2025-2026".
+ *
+ * Používají ji soupisky i výsledky: nejstarší výsledkové stránky se
+ * jmenují jen „Speed Skating" a sezónu mají stejně jako soupisky jen
+ * v menu nad sebou. Položky menu se načtou jednou za požadavek — výpis
+ * výsledků se ptá za každou stránku sezóny.
+ *
+ * @param int $page_id ID stránky.
+ * @return string Prázdno, když stránka v menu pod žádnou sezónou není.
+ */
+function csr_menu_season_text( $page_id ) {
+    static $vsechna_menu = null;
+    if ( null === $vsechna_menu ) {
+        $vsechna_menu = array();
+        $menus        = wp_get_nav_menus();
+        foreach ( is_wp_error( $menus ) ? array() : $menus as $menu ) {
+            $polozky = wp_get_nav_menu_items( $menu->term_id );
+            if ( $polozky ) {
+                $vsechna_menu[] = $polozky;
+            }
+        }
     }
 
-    foreach ( $menus as $menu ) {
-        $polozky = wp_get_nav_menu_items( $menu->term_id );
-        if ( ! $polozky ) {
-            continue;
-        }
-
+    foreach ( $vsechna_menu as $polozky ) {
         $podle_id = array();
         foreach ( $polozky as $polozka ) {
             $podle_id[ (int) $polozka->ID ] = $polozka;
         }
 
         foreach ( $polozky as $polozka ) {
-            if ( (int) $polozka->object_id !== (int) $page_id ) {
+            // Jen odkazy na stránky — rubrika může mít stejné číselné ID.
+            if ( 'post_type' !== $polozka->type || (int) $polozka->object_id !== (int) $page_id ) {
                 continue;
             }
 
             $rodic = isset( $podle_id[ (int) $polozka->menu_item_parent ] ) ? $podle_id[ (int) $polozka->menu_item_parent ] : null;
             while ( $rodic ) {
                 if ( preg_match( '#(20\d{2})\s*[-–—/]\s*(20\d{2})#u', $rodic->title, $shoda ) ) {
-                    return csr_season_term_id( $shoda[1] . '-' . $shoda[2] );
+                    return $shoda[1] . '-' . $shoda[2];
                 }
                 $rodic = isset( $podle_id[ (int) $rodic->menu_item_parent ] ) ? $podle_id[ (int) $rodic->menu_item_parent ] : null;
             }
         }
     }
 
-    return 0;
+    return '';
 }
 
 /**
