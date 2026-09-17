@@ -1,0 +1,2344 @@
+# Vložte do: Výsledkové tabulky → Hromadné přidání
+# Vytaženo z PDF žebříčků, které byly na starých stránkách vložené přes Google Viewer.
+#
+# Formát: řádek „=== sezóna | disciplína | název | poznámka" zakládá novou
+# tabulku (poznámka je nepovinná a vypíše se pod tabulkou),
+# další řádky jsou její obsah oddělený tabulátory. Prázdný řádek nevadí.
+# Disciplína: ss = speed skating (dlouhá dráha), st = short track.
+#
+# Data jsou přepsaná ze zdroje beze změny, jen datum je převedené
+# z amerického zápisu (1/16/2000) na český (16. 1. 2000).
+#
+=== 2021-2022 | st | Muži 111 m | Žebříček 2021/2022, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Moroz Nicolas	JF	KSB Benátky	21.824	Benátky	2. 10. 2021
+
+=== 2021-2022 | st | Muži 222 m | Žebříček 2021/2022, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Muchka František	JE	KSB Benátky	25.96	Celje	12. 12. 2021
+2.	Hradský David	JE	KSB Benátky	26.115	Benátky	3. 10. 2021
+3.	Moroz Nicolas	JF	KSB Benátky	41.543	Budapest	4. 12. 2021
+4.	Šulc Samuel	JD	KSB Benátky	26.703		
+5.	Kamenský Václav	JD	KSB Benátky	28.826		
+6.	Kotrch Matěj	JE	STC Zďár	29.579		
+
+=== 2021-2022 | st | Muži 333 m | Žebříček 2021/2022, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Šulc Samuel	JD	KSB Benátky	33.39	Spišská N.Ves	29. 8. 2021
+2.	Kamenský Václav	JD	KSB Benátky	34.87	Spišská N.Ves	29. 8. 2021
+3.	Muchka Jan	JD	KSB Benátky	36.53	Spišská N.Ves	29. 8. 2021
+4.	Hradský David	JE	KSB Benátky	36.589	Szeged	13. 3. 2022
+5.	Kraj Tadeáš	JC	KSB Benátky	38.01	Spišská N.Ves	29. 8. 2021
+6.	Muchka  František	JE	KSB Benátky	38.151	Szeged	13. 3. 2022
+7.	Moroz Nicolas	JF	KSB Benátky	63.207	Benátky	2. 10. 2021
+
+=== 2021-2022 | st | Muži 500 m | Žebříček 2021/2022, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Fajkus Radek	S	KSB Benátky	41.345	Montreal	9. 4. 2022
+2.	Sejpal Zdeněk	S	KSB Benátky	42.5	Montreal	9. 4. 2022
+3.	Popl Matěj	JB	BZK Praha	44.328	Vuokatti	22. 3. 2022
+4.	Šulc Samuel	JD	KSB Benátky	47.862	Celje	11. 12. 2021
+5.	Kamenský Václav	JD	KSB Benátky	48.65	Szeged	13. 3. 2022
+6.	Muchka Jan	JD	KSB Benátky	49.841	Szeged	13. 3. 2022
+7.	Jílek Filip	JD	BZK Praha	53.025	Budapest	4. 12. 2021
+8.	Hradský David	JE	KSB Benátky	54.571	Szeged	13. 3. 2022
+9.	Kraj Tadeáš	JC	KSB Benátky	54.652	Budapest	17. 9. 2021
+10.	Muchka František	JE	KSB Benátky	56.565	Szeged	13. 3. 2022
+12.	Moroz Nikolas	JF	KSB Benátky	85.383	Budapest	4. 12. 2021
+13.	Prokop Michal	S	KSB Benátky	45.807		
+
+=== 2021-2022 | st | Muži 777 m | Žebříček 2021/2022, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Šulc Samuel	JD	KSB Benátky	1:13.345	Budapest	20. 2. 2022
+2.	Kamenský Václav	JD	KSB Benátky	1:16.840	Szeged	13. 3. 2022
+3.	Muchka Jan	JD	KSB Benátky	1:17.894	Szeged	13. 3. 2022
+4.	Jílek Filip	JD	BZK Praha	1:21.861	Budapest	4. 12. 2021
+5.	Hradský David	JE	KSB Benátky	1:26.303	Szeged	13. 3. 3022
+6.	Muchka František	JE	KSB Benátky	1:29.789	Budapest	4. 12. 2021
+7.	Koubek Václav	JD	BZK Praha	1:36.336	Benátky	3. 10. 2021
+8.	Popl Matěj	JB	BZK Praha	1:17.206		
+
+=== 2021-2022 | st | Muži 1000 m | Žebříček 2021/2022, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Fajkus Radek	S	KSB Benátky	1:26.696	Budapest	9. 1. 2022
+2.	Sejpal Zdeněk	S	KSB Benátky	1:27.669	Montreal	9. 4. 2022
+3.	Popl Matěj	JB	BZK Praha	1:28.125	Spišská N.Ves	22. 7. 2021
+4.	Šulc Samuel	JD	KSB Benátky	1:35.853	Budapest	20. 2. 2022
+5.	Muchka Jan	JD	KSB Benátky	1:40.627	Szeged	13. 3. 2022
+6.	Kamenský Václav	JD	KSB Benátky	1:45.034	Szeged	13. 3. 2022
+7.	Jílek Filip	JD	BZK Praha	1:53.059	Budapest	4. 12. 2021
+8.	KraJ Tadeáš	JC	KSB Benátky	1:53.411	Celje	12. 12. 2021
+9.	Prokop Michal	S	KSB Benátky	1:32.492		
+
+=== 2021-2022 | st | Muži 1500 m | Žebříček 2021/2022, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Fajkus Radek	S	KSB Benátky	2:17.496	Montreal	9. 4. 2022	2:15.503
+2.	Sejpal Zdeněk	S	KSB Benátky	2:21.708	Peking	21. 10. 2021	2:18.687
+3.	Popl Matěj	JB	BZK Praha	2:28.408	Budapest	9. 1. 2022
+4.	Kraj Tadeáš	JC	KSB Benátky	2:49.488	Spišská N.Ves	3. 9. 2021
+5.	Prokop Michal	S	BZK Praha	2:25.046		
+
+=== 2021-2022 | st | Ženy 111 m | Žebříček 2021/2022, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Nevřelová Laura	JE	KSB Benátky	26.706	Benátky	2. 10. 2021
+2.	Pňovská Julie	JE	KSB Benátky	26.854	Benátky	2. 10. 2021
+3.	Sejpalová Šárka	JE	KSB Benátky	27.433	Benátky	2. 10. 2021
+4.	Morozová Mia	JF	KSB Benátky	28.379	Szeged	13. 3. 2022
+5.	Zbořilová Barbora	JF	KSB Benátky	29.24	Budapest	4. 12. 2021
+6.	Chládková Anna	JE	KSB Benátky	32.616	Benátky	2. 10. 2021
+7.	Papoušková Marta	JD	STC Žďár	25.795		
+8.	Kotrchová Monika	JD	STC Žďár	26.358		
+
+=== 2021-2022 | st | Ženy 222 m | Žebříček 2021/2022, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Papoušková Marta	JD	STC Žďár	36.051	Spišská N.Ves	29. 8. 2021
+2.	Blahová Eva	JC	STC Žďár	36.223	Spišská N.Ves	29. 8. 2021
+3.	Pňovská Anna	JD	KSB Benátky	36.331	Spišská N.Ves	29. 8. 2021
+4.	Kotrchová Monika	JD	STC Žďár	36.6	Spišská N.Ves	29. 8. 2021
+5.	Nevřelová Laura	JE	KSB Benátky	36.853	Szeged	13. 3. 2022
+6.	Pňovská Julie	JE	KSB Benátky	38.264	Jaszbereny	29. 1. 2022
+7.	Sejpalová Šárka	JE	KSB Benátky	39.779	Benátky	3. 10. 2021
+8.	Morozová Mia	JF	KSB Benátky	41.345	Szeged	13. 3. 2022
+9.	Zbořilová Barbora	JF	KSB Benátky	42.668	Budapest	4. 12. 2021
+
+=== 2021-2022 | st | Ženy 500 m | Žebříček 2021/2022, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+17.	Simandlová Dominika	JA	KSB Benátky	1:54,57	Spišská N.Ves	29. 8. 2021	1:37,778
+18.	Kunstmullerová Nina	JC	STC Žďár	1:58.631	Celje	10. 4. 2022
+19.	Kudláčková  Eliška	JC	STC Žďár	1:44.000		
+1.	Morozová Mia	JF	KSB Benátky	16.329	Benátky	2. 10. 2021
+2.	Zbořilová Barbora	JF	KSB Benátky	16.692	Benátky	2. 10. 2021
+3.	Papoušková Marta	JE	STC Žďár	15.158		
+
+=== 2021-2022 | st | Ženy 666 m | Žebříček 2021/2022, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+3.	Papoušková Marta	JD	STC Žďár	1:22.214	Benátky	3. 10. 2021
+4.	Blahová Eva	JD	STC Žďár	1:25.282	Spišská N.Ves	5. 9. 2021	1:24.038
+5.	Nevřelová Laura	JE	KSB Benátky	1:29.061	Szeged	13. 3. 2022
+6.	Sejpalová Šárka	JE	KSB Benátky	1:31.791	Debrecen	23. 10. 2021
+7.	Pňovská Julie	JE	KSB Benátky	1:33.139	Debrecen	23. 10. 2021
+8.	Kudláčková Kristýna	JB	STC Žďár	1:34.523	Spišská N.Ves	22. 7. 2021
+9.	Kudláčková Eliška	JC	STC Žďár	1:18.879		
+1.	Kuncířová M. Sejpalová M.	juniorky	4:20,089	Innsbruck	1/27/2017	
+1.	Pfeiferová T. Kunciřová M.	seniorky	4:13,879	Dresden	2/1/2019	
+2.	Novotná K. Kuncířová M.	seniorky	4:17,292	Dresden	2/5/2016	
+3.	Pfeiferova T.Vaňková P.	seniorky	4:18,357	Dresden	2/8/2020	
+4.	Pfeiferová T. Simandlová D. Fajkusová M.	3:09.595	Sanok	1/17/2016		
+4.	Hrůzová Eliška	JD	KSB Benátky	17.055		
+5.	Sejpalová Šárka	JE	KSB Benátky	17.678		
+6.	Nevřelová Laura	JE	KSB Benátky	18.392		
+7.	Mišechová Tereza	JF	KSB Benátky	19.982		
+
+=== 2021-2022 | st | Ženy 777 m | Žebříček 2021/2022, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Vaňková Petra	S	BZK Praha	44.213	Peking	22. 10. 2021
+2.	Hrůzová Michaela	S	KSB Benátky	45.025	Montreal	9. 4. 2022	44.938
+3.	Pfeiferová Tereza	S	BZK Praha	45.692	Spišská N.Ves	4. 9. 2021	44.371
+
+=== 2021-2022 | st | Ženy 1000 m | Žebříček 2021/2022, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+6.	Blahová Eva	JC	STC Žďár	2:41.348	Budapest	9. 1. 2022
+7.	Bílková Karolina	JB	STC Žďár	2:44.916	Benátky	1. 10. 2021	2:42.771
+8.	Strnadová Klára	JB	STC Žďár	2:44.953	Budapest	9. 1. 2022	2:42.749
+9.	Papoušková Marta	JD	STC Žďár	2:45.955	Sanok	8. 10. 2021
+10.	Kotrchová Monika	JD	STC Žďár	2:46.137	Sanok	8. 10. 2021
+11.	Simandlová Dominika	JA	KSB Benátky	2:47.214	Spišská N.Ves	3. 9. 2021	2:37.754
+12.	Manychová Carine	JB	BK Náchod	2:48.331	Sanok	8. 10. 2021
+13.	Poplová Michaela	JB	BZK Praha	2:48.505	Spišská N.Ves	12. 2. 2022	2:32.590
+14.	Hlůšková Sára	JC	BK Náchod	2:54.658	Benátky	1. 10. 2021
+15.	Kudláčková Kristýna	JB	STC Žďár	2:55.106	Spišská N.Ves	3. 9. 2021	2:41.739
+16.	Hlušková Sára	JC	BK Náchod	3:01.784	Gdaňsk	24. 9. 2021
+17.	Kunstmullerová Nina	JC	STC Žďár	3:11.311	Celje	10. 4. 2022
+18.	Mazancová Anna	JC	KSB Benátky	3:28.910	Benátky	1. 10. 2021
+1.	Hrůzová Michaela	S	KSB Benátky	2:21.278	Peking	16. 2. 2022
+2.	Vaňková Petra	S	BZK Praha	2:22.888	Montreal	9. 4. 2022
+3.	Pfeiferová Tereza	S	BZK Praha	2:28.971	Dordrecht	26. 11. 2021	2:27.649
+4.	Gáková Barbora	JB	STC Žďár	2:29.575	Spišská N.Ves	12. 2. 2022
+
+=== 2021-2022 | st | Ženy 1500 m | Žebříček 2021/2022, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Pňovská Anna	JD	KSB Benátky	1:17.503	Budapest	4. 12. 2021
+2.	Kotrchová Monika	JD	STC Žďár	1:20.291	Szeged	13. 3. 2022
+
+=== 2021-2022 | st | Ženy 3000 m | Žebříček 2021/2022, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+4.	Gáková Barbora	JB	STC Žďár	48.287	Voukatti	22. 3. 2022
+5.	Simandlová Diminika	JA	KSB Benátky	48.630	Spišská N.Ves	29. 8. 2021	47.210
+6.	Pňovská Anna	JD	KSB Benátky	48.712	Celje	11. 12. 2021
+7.	Poplová Michaela	JB	BZK Praha	48.949	Spišská N.Ves	22. 7. 2021	47.332
+8.	Bílková Karolina	JB	STC Žďár	49.49	Budapest	19. 2. 2022
+9.	Strnadová Klára	JB	STC Žďár	49.561	Budapest	9. 1. 2022
+10.	Blahová Eva	JC	STC Žďár	49.636	Celje	10. 4. 2022
+11.	Hromasová Majda	JB	BZK Praha	49.858	Sanok	9. 10. 2021	49.593
+12.	Manychová Karin	JB	BK Náchod	50.686	Sanok	9. 10. 2021	50.606
+13.	Kotrchová Monika	JD	STC Žďár	51.137	Szeged	13. 3. 2022
+14.	Papoušková Marta	JD	STC Žďár	51.833	Budapest	4. 12. 2021
+15.	Malíková Jana	S	BK Náchod	52.204	Oberstdorf	7. 8. 2021	51.741
+16.	Kudláčková Eliška	JC	STC Žďár	52.965	Spišská N.Ves	22. 7. 2021	49.712
+17.	Hlušková Sára	JC	BK Náchod	52.984	Gdaňsk	25. 9. 2021
+18.	Kudláčková Kristýna	JB	STC Žďár	53.647	Spišská N.Ves	4. 9. 2021	51,245
+19.	Nevřelová Laura	JE	KSB Benátky	54.871	Szeged	13. 3. 2022
+20.	Pňovská  Julie	JE	KSB Benátky	55.863	Budapest	4. 12. 2021
+21.	Kunstmullerová Nina	JC	STC Žďár	57.098	Szeged	13. 3. 2022
+22.	Sejpalová Šárka	JE	KSB Benátky	59.083	Debrecen	24. 10. 2021
+23.	Zbořilová Barbora	JF	KSB Benátky	63.395	Budapest	4. 12. 2021
+24.	Morozová Mia	JF	KSB Benátky	62.884	Szeged	13. 3. 2022
+25.	Chládková Anna	JE	KSB Benátky	73.552	Benátky	1. 10. 2021
+
+=== 2022-2023 | st | Muži 111 m | Žebříček 2022/2023, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Moroz Nicolas	JE	KSB Benátky	18.447	Budapest	22. 1. 2023
+
+=== 2022-2023 | st | Muži 222 m | Žebříček 2022/2023, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Moroz Nicolas	JE	KSB Benátky	32.867	Budapest	10. 12. 2022
+2.	Muchka František	JD	KSB Benátky	25.96		
+3.	Hradský David	JD	KSB Benátky	26.115		
+4.	Šulc Samuel	JC	KSB Benátky	26.703		
+5.	Kamenský Václav	JC	KSB Benátky	28.826		
+6.	Kotrch Matěj	JD	STC Zďár	29.579		
+
+=== 2022-2023 | st | Muži 333 m | Žebříček 2022/2023, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Jílek Filip	JD	BZK Praha	32.789	Dresden	20. 11. 2022
+2.	Muchka  František	JD	KSB Benátky	34.092	Dresden	20. 11. 2022	38.151
+3.	Hradský David	JD	KSB Benátky	35.918	Dresden	20. 11. 2022	36.589
+4.	Moroz Nicolas	JE	KSB Benátky	47.425	Budapest	10. 12. 2022
+5.	Šulc Samuel	JC	KSB Benátky	33.39		
+6.	Kamenský Václav	JC	KSB Benátky	34.87		
+7.	Muchka Jan	JC	KSB Benátky	36.53		
+9.	Kraj Tadeáš	JC	KSB Benátky	38.01		
+
+=== 2022-2023 | st | Muži 500 m | Žebříček 2022/2023, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Fajkus Radek	S	KSB Benátky	41.007	Dresden	4. 2. 2023
+2.	Sejpal Zdeněk	S	KSB Benátky	42.881	Dresden	20. 11. 2022	42.5
+3.	Popl Matěj	JB	BZK Praha	43.72	Dresden	25. 9. 2022
+4.	Procházka Marek	JB	BZK Praha	45.204	Dresden	28. 1. 2023
+5.	Šulc Samuel	JC	KSB Benátky	45.004	Torino	25. 3. 2023
+6.	Muchka Jan	JC	KSB Benátky	46.665	Dresden	16. 10. 2022
+7.	Kamenský Václav	JC	KSB Benátky	47.087	Dresden	19. 11. 2022
+8.	Jílek Filip	JD	BZK Praha	48.289	Dresden	19. 11. 2022
+9.	Kraj Tadeáš	JC	KSB Benátky	49.622	Rostock	5. 3. 2023
+10.	Muchka František	JD	KSB Benátky	49.857	Torino	25. 3. 2023
+11.	Hradský David	JD	KSB Benátky	50.136	Budapest	21. 1. 2023
+12.	Moroz Nikolas	JF	KSB Benátky	63.541	Budapest	10. 12. 2022
+
+=== 2022-2023 | st | Muži 777 m | Žebříček 2022/2023, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Šulc Samuel	JC	KSB Benátky	1:11.933	Dresden	19. 11. 2022
+2.	Jílek Filip	JD	BZK Praha	1:14.332	Budapest	11. 12. 2022
+3.	Kamenský Václav	JC	KSB Benátky	1:14.358	Dresden	19. 11. 2022
+4.	Muchka Jan	JC	KSB Benátky	1:16.351	Rostock	5. 3. 2023
+5.	Muchka František	JD	KSB Benátky	1:18.440	Torino	25. 3. 2023
+6.	Hradský David	JD	KSB Benátky	1:20.197	Bergamo	18. 2. 2023
+7.	Kraj Tadeáš	JC	KSB Benátky	1:21.705	Rostock	5. 3. 2023
+
+=== 2022-2023 | st | Muži 1000 m | Žebříček 2022/2023, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Fajkus Radek	S	KSB Benátky	1:25.660	Dresden	16. 10. 2022
+2.	Sejpal Zdeněk	S	KSB Benátky	1:27.688	Dordrecht	11. 2. 2023	1:27.669
+3.	Popl Matěj	JB	BZK Praha	1:29.502	Spišská N.Ves	10. 9. 2022	1:28.125
+4.	Procházka Marek	JB	BZK Praha	1:31.929	Rostock	5. 3. 2023
+5.	Šulc Samuel	JC	KSB Benátky	1:33.394	Dresden	19. 11. 2022
+6.	Muchka Jan	JC	KSB Benátky	1:36.391	Dresden	16. 10. 2022
+7.	Kamenský Václav	JC	KSB Benátky	1:39.332	Rostock	5. 3. 2023
+8.	Jílek Filip	JD	BZK Praha	1:40.820	Budapest	11. 12. 2022
+9.	Muchka František	JD	KSB Benátky	1:45.071	Torino	25. 3. 2023
+10.	KraJ Tadeáš	JC	KSB Benátky	1:46.880	Rostock	5. 3. 2023
+11.	Hradský David	JD	KSB Benátky	1:48.863	Budapest	21. 1. 2023
+
+=== 2022-2023 | st | Muži 1500 m | Žebříček 2022/2023, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Fajkus Radek	S	KSB Benátky	2:14.599	Almaty	9. 12. 2022
+2.	Sejpal Zdeněk	S	KSB Benátky	2:14.973	Dresden	16. 10. 2022
+3.	Procházka Karel	JB	BZK Praha	2:20.930	Rostock	5. 3. 3023
+4.	Popl Matěj	JB	BZK Praha	2:24.113	Bialystok	19. 11. 2022
+5.	Kamenský Václav	JC	KSB Benátky	2:32.242	Rostock	6. 11. 2022
+6.	Šulc Samuel	JC	KSB Benátky	2:32.342	Bormio	13. 11. 2022
+7.	Muchka Jan	JC	KSB Benátky	2:32.680	Dresden	16. 10. 2022
+8.	Kraj Tadeáš	JC	KSB Benátky	2:49.488		
+
+=== 2022-2023 | st | Ženy 111 m | Žebříček 2022/2023, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+6.	Zbořilová Barbora	JE	KSB Benátky	28.53	Dresden	19. 11. 2022
+7.	Nevřelová Laura	JD	KSB Benátky	26.706		
+8.	Papoušková Marta	JD	STC Žďár	25.795		
+10.	Kotrchová Monika	JC	STC Žďár	26.358		
+
+=== 2022-2023 | st | Ženy 222 m | Žebříček 2022/2023, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Nevřelová Laura	JD	KSB Benátky	34.972	Dresden	19. 11. 2022
+2.	Kratochvílová Pavla	JC	KSB Benátky	35.151	Dresden	20. 11. 2022
+3.	Pňovská Anna	JC	KSB Benátky	35.841	Benátky	9. 10. 2022
+4.	Pňovská Julie	JE	KSB Benátky	36.175	Budapest	9. 12. 2022
+5.	Šimková Tereza	JC	BZK Praha	36.711	Dresden	20. 11. 2022
+6.	Sejpalová Šárka	JD	KSB Benátky	36.928	Dresden	19. 11. 2022
+7.	Morozová Mia	JE	KSB Benátky	40.098	Budapest	9. 12. 2022
+8.	Zbořilová Barbora	JE	KSB Benátky	41.806	Dresden	19. 11. 2022
+9.	Papoušková Marta	JD	STC Žďár	36.051		
+11.	Kotrchová Monika	JC	STC Žďár	36.6		
+
+=== 2022-2023 | st | Ženy 500 m | Žebříček 2022/2023, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+16.	Malíková Jana	S	BK Náchod	1:53.846	Oberstdorf	6. 8. 2022	1:47.919
+17.	Sejpalová Šárka	JD	KSB Benátky	1:54.758	Budapest	17. 9. 2022
+18.	Bílková Karolina	JA	STC Žďár	1:56.408	Spišská N.Ves	2. 8. 2022	1:44.056
+19.	Kunstmullerová Nina	JC	STC Žďár	1:57.129	Budapest	9. 12. 2022
+20.	Kudláčková  Eliška	JB	STC Žďár	1:57.662	Budapest	9. 12. 2022	1:44.000
+21.	Brázdilová Eliška	JD	KSB Benátky	2:06.049	Benátky	7. 10. 2022
+22.	Morozová Mia	JE	KSB Benátky	2:13.383	Dresden	16. 10. 2022
+23.	Kristová Denisa	JD	STC Žďár	2:27.127	Budapest	9. 12. 2022
+24.	Hrůzová Michaela	S	KSB Benátky	1:28,750		
+25.	Pfeiferová Tereza	S	BZK Praha	1:33.234		
+26.	Strnadová Klára	JA	STC Žďár	1:42.126		
+27.	Kudláčková Kristýna	JA	STC Žďár	1:43.995		
+1.	Kratochvílová Pavla	JC	KSB Benátky	24.461	Dresden	19. 11. 2022
+2.	Šimková Tereza	JC	BZK Praha	24.789	Dresden	19. 11. 2022
+3.	Pňovská Julie	JE	KSB Benátky	24.847	Benátky	8. 10. 2022
+4.	Sejpalová Šárka	JD	KSB Benátky	27.104	Dresden	19. 11. 2022
+5.	Morozová Mia	JE	KSB Benátky	27.871	Dresden	19. 11. 2022
+
+=== 2022-2023 | st | Ženy 666 m | Žebříček 2022/2023, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Pňovská Anna	JC	KSB Benátky	1:13.755	Dresden	19. 11. 2022
+2.	Gáková Barbora	STC Žďár	1:14.845	Rostock	3/5/2023	
+3.	Vaňková Petra	S	BZK Praha	1:15.924	Dresden	19. 11. 2022
+4.	Papoušková Marta	JD	STC Žďár	1:16.702	Torino	25. 3. 2023
+5.	Nevřelová Laura	JD	KSB Benátky	1:17.782	Budapest	10. 12. 2022
+6.	Pňovská Julie	JE	KSB Benátky	1:22.876	Rostock	6. 11. 2022
+7.	Blahová Eva	JC	STC Žďár	1:25.282	Spišská N.Ves	5. 9. 2021	1:24.038
+8.	Sejpalová Šárka	JD	KSB Benátky	1:31.682	Budapest	21. 1. 2023
+9.	Morozová Mia	JE	KSB Benátky	1:31.815	Budapest	22. 1. 2023
+10.	Brázdilová Eliška	JD	KSB Benátky	1:37.751	Benátky	9. 10. 2022
+11.	Zbořilová Barbora	JD	KSB Benátky	1:39.187	Budapest	22. 1. 2023
+12.	Kristová denisa	JD	STC Žďár	1:49.194	Budapest	10. 12. 2022
+
+=== 2022-2023 | st | Ženy 777 m | Žebříček 2022/2023, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Kuncířová M. Sejpalová M.	juniorky	4:20,089	Innsbruck	1/27/2017	
+1.	Pfeiferová T. Kunciřová M.	seniorky	4:13,879	Dresden	2/1/2019	
+2.	Novotná K. Kuncířová M.	seniorky	4:17,292	Dresden	2/5/2016	
+3.	Pfeiferova T.Vaňková P.	seniorky	4:18,357	Dresden	2/8/2020	
+4.	Pfeiferová T. Simandlová D. Fajkusová M.	3:09.595	Sanok	1/17/2016		
+1.	Papoušková Marta	JD	STC Žďár	15.158		
+2.	Morozová Mia	JE	KSB Benátky	16.329		
+3.	Zbořilová Barbora	JE	KSB Benátky	16.692		
+4.	Sejpalová Šárka	JD	KSB Benátky	17.678		
+5.	Nevřelová Laura	JD	KSB Benátky	18.392		
+
+=== 2022-2023 | st | Ženy 1000 m | Žebříček 2022/2023, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Gáková Barbora	JB	STC Žďár	2:31.083	Bialystok	19. 11. 2022	2:29.575
+2.	Vaňková Petra	S	BZK Praha	2:31.833	Dresden	25. 9. 2022	2:22.888
+3.	Poplová Michaela	JB	BZK Praha	2:34.145	Bialystok	19. 11. 2020	2:32.590
+4.	Pňovská Anna	JC	KSB Benátky	2:34.621	Torino	25. 3. 2023
+5.	Blahová Eva	JC	STC Žďár	2:36.863	Ponteba	24. 1. 2023
+6.	Prachárová Monika	JB	BZK Praha	2:42.170	Budapest	10. 12. 2022
+7.	Hlušková Sára	JC	BK Náchod	2:44.849	Sanok	16. 10. 2022
+8.	Prachárová Johana	JB	BZK Praha	2:47.630	Budapest	9. 12. 2022
+9.	Kotrchová Monika	JC	STC Žďár	2:50.272	Budapest	17. 12. 2022	2:46.137
+10.	Kratochvílová Pavla	JC	BZK Praha	2:50.450	Budapest	9. 12. 2022
+11.	Šimková Tereza	JC	BZK Praha	2:52.889	Benátky	7. 10. 2022
+12.	Kunstmullerová Nina	JC	STC Žďár	2:59.148	Budapest	9. 12. 2022
+13.	Kudláčková Eliška	JB	STC Žďár	3:02.072	Budapest	9. 12. 2022
+14.	Manychová Carine	JA	BK Náchod	2:48.331		
+15.	Pfeiferová Tereza	S	BZK Praha	2:27.649		
+16.	Hrůzová Michaela	S	KSB Benátky	2:21.278		
+17.	Strnadová Klára	JA	STC Žďár	2:42.749		
+19.	Bílková Karolina	JA	STC Žďár	2:42.771		
+20.	Papoušková Marta	JD	STC Žďár	2:45.955		
+
+=== 2022-2023 | st | Ženy 1500 m | Žebříček 2022/2023, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Vaňková Petra	S	BZK Praha	44.247	Dresden	20. 11. 2022	44.213
+2.	Pňovská Anna	JC	KSB Benátky	47.6	Rostock	5. 3. 2023
+3.	Poplová Michaela	JB	BZK Praha	47.724	Dresden	25. 9. 2022	47.332
+4.	Gáková Barbora	JB	STC Žďár	47.785	Dresden	28. 1. 2023
+5.	Blahová Eva	JC	STC Žďár	48.62	Budapest	17. 12. 2022
+6.	Papoušková Marta	JD	STC Žďár	49.049	Torino	25. 3. 2023
+7.	Bílková Karolina	JA	STC Žďár	49.621	Spišská N.Ves	2. 8. 2022	49,49
+8.	Kotrchová Monika	JC	STC Žďár	49.657	Budapest	17. 9. 2022
+9.	Nevřelová Laura	JD	KSB Benátky	50.468	Budapest	21. 1. 2023
+10.	Prachárová Monika	JB	BZK Praha	50.656	Budapest	9. 12. 2022
+11.	Kratochvílová Pavla	JC	KSB Benátky	51.011	Budapest	21. 1. 2023
+12.	Hlušková Sára	JC	BK Náchod	51.023	Benátky	8. 10. 2022
+13.	Prachárová Johana	JB	BZK Praha	51.31	Budapest	9. 12. 2022
+14.	Manychová Carine	JA	BK Náchod	52.521	Spišská N.Ves	2. 8. 2022	50.606
+15.	Šimková Tereza	JC	BZK Praha	52.54	Dresden	19. 11. 2022
+16.	Pňovská  Julie	JE	KSB Benátky	52.651	Dresden	16. 10. 2022
+
+=== 2022-2023 | st | Ženy 3000 m | Žebříček 2022/2023, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+17.	Kudláčková Eliška	JB	STC Žďár	52.68	Budapest	9. 12. 2022	49.712
+18.	Strnadová Klára	JA	STC Žďár	53.203	Spišská N.Ves	2. 8. 2022	49.561
+19.	Malíková Jana	S	BK Náchod	54.22	Oberstdorf	6. 8. 2022	51.741
+20.	Kunstmullerová Nina	JC	STC Žďár	55.01	Budapest	9. 12. 2022
+21.	Sejpalová Šárka	JD	KSB Benátky	56.353	Dresden	19. 11. 2022
+22.	Zbořilová Barbora	JE	KSB Benátky	58.266	Budapest	9. 12. 2022
+23.	Morozová Mia	JE	KSB Benátky	58.938	Budapest	22. 1. 2023
+24.	Brázdilová Eliška	JD	KSB Benátky	61.630	Benátky	8. 10. 2022
+25.	Kristová Denisa	JD	STC Žďár	70.404	Budapest	9. 12. 2022
+26.	Pfeiferová Tereza	S	BZK Praha	44.371		
+27.	Hrůzová Michaela	S	KSB Benátky	44.938		
+28.	Kudláčková Kristýna	JA	STC Žďár	51,245		
+
+=== 2023-2024 | st | Muži 111 m | Žebříček 2023/2024, poř. č. 11
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Trnka Vojtěch	JF	KSB Benátky	18.665	Benátky	6. 10. 2023
+2.	Švarc Ota	JF	KSB Benátky	19.114	Benátky	6. 10. 2023
+3.	Kovanič Anton	JF	KSB Benátky	22.384	Benátky	6. 10. 2023
+
+=== 2023-2024 | st | Muži 222 m | Žebříček 2023/2024, poř. č. 11
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Trnka Vojtěch	JF	KSB Benátky	34.907	Benátky	7. 10. 2023
+2.	Švarc Ota	JF	KSB Benátky	35.594	Benátky	7. 10. 2023
+3.	Kovanič Anton	JF	KSB Benátky	41.437	Benátky	7. 10. 2023
+
+=== 2023-2024 | st | Muži 333 m | Žebříček 2023/2024, poř. č. 11
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Trnka Vojtěch	JF	KSB Benátky	54.521	Benátky	6. 10. 2023
+2.	Švarc Ota	JF	KSB Benátky	55.154	Benátky	6. 10. 2023
+3.	Kovanič Anton	JF	KSB Benátky	71.304	Benátky	6. 10. 2023
+
+=== 2023-2024 | st | Muži 500 m | Žebříček 2023/2024, poř. č. 11
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Fajkus Radek	S	KSB Benátky	41.111	Peking	10. 12. 2023	41.007
+2.	Procházka Marek	B2	BZK Praha	43.063	Budapest	6. 1. 2024
+3.	Šulc Samuel	C2	KSB Benátky	43.698	Budapest	7. 1. 2024
+4.	Sejpal Zdeněk	S	KSB Benátky	43.741	Bormio	30. 9. 2023	42.5
+5.	Popl Matěj	A1	BZK Praha	43.745	Leeuwarden	2. 12. 2023	43.72
+6.	Muchka Jan	C2	KSB Benátky	44.444	Bormio	12. 11. 2023
+7.	Kamenský Václav	C2	KSB Benátky	44.545	Bormio	12. 11. 2023
+8.	Jílek Filip	C1	BZK Praha	45.812	Spišská N.Ves	17. 12. 2023
+9.	Kraj Tadeáš	B1	KSB Benátky	47.485	Dresden	20. 1. 2024
+10.	Hradský David	D2	KSB Benátky	47.721	Ponteba	1. 3. 2024
+11.	Muchka František	D2	KSB Benátky	47.845	Bormio	12. 11. 2023
+12.	Koťátko Michal	D2	KSB Benátky	56.719	Budapest	28. 10. 2023
+13.	Šír Jakub	D1	STC Žďár	71.346	Prešov	26. 11. 2023
+14.	Švarc Ota	F1	KSB Benátky	71.674	Budapest	10. 12. 2023
+
+=== 2023-2024 | st | Muži 777 m | Žebříček 2023/2024, poř. č. 11
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Šulc Samuel Oliver	C2	KSB Benátky	1:11.948	Rostock	22. 10. 2023
+2.	Kamenský Václav	C2	KSB Benátky	1:12.528	Rostock	22. 10. 2023
+3.	Muchka Jan	C2	KSB Benátky	1:13.191	Rostock	22. 10. 2023
+4.	Jílek Filip	C1	BZK Praha	1:15.406	Rostock	22. 10. 2023
+5.	Hradský David	D2	KSB Benátky	1:15.452	Bormio	12. 11. 2023
+6.	Kraj Tadeáš	B1	KSB Benátky	1:17.239	Dresden	21. 1. 2024
+7.	Muchka František	D2	KSB Benátky	1:17.374	Spišská N.Ves	17. 12. 2023
+8.	Koťátko Michal	D2	KSB Benátky	1:28.925	Budapest	28. 10. 2023
+9.	Šír Jakub	D1	STC Žďár	1:53.653	Prešov	26. 11. 2023
+
+=== 2023-2024 | st | Muži 1000 m | Žebříček 2023/2024, poř. č. 11
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Fajkus Radek	S	KSB Benátky	1:25.181	Dresden	11. 2. 2024
+2.	Sejpal Zdeněk	S	KSB Benátky	1:25.765	Dresden	11. 2. 2024
+3.	Procházka Marek	B2	BZK Praha	1:30.077	Dresden	24. 9. 2023
+4.	Šulc Samuel	C2	KSB Benátky	1:31.062	Dresden	21. 1. 2024
+5.	Muchka Jan	C2	KSB Benátky	1:31.568	Bormio	12. 11. 2023
+6.	Popl Matěj	A1	BZK Praha	1:31.864	Dresden	24. 9. 2023	1:28.125
+7.	Kamenský Václav	C2	KSB Benátky	1:32.235	Spišská N.Ves	17. 12. 2023
+8.	Jílek Filip	C1	BZK Praha	1:33.886	Spišská N.Ves	17. 12. 2023
+9.	Hradský David	D2	KSB Benátky	1:40.089	Ponteba	1. 3. 2024
+10.	KraJ Tadeáš	B1	KSB Benátky	1:40.833	Budapest	10. 12. 2023
+11.	Muchka František	D2	KSB Benátky	1:42.135	Bormio	12. 11. 2023
+12.	Koťátko Michal	D2	KSB Benátky	2:04.788	Benátky	6. 10. 2023
+13.	Šir Jakub	D1	STC Žďár	2:28.728	Prešov	26. 11. 2023
+
+=== 2023-2024 | st | Muži 1500 m | Žebříček 2023/2024, poř. č. 11
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Sejpal Zdeněk	S	KSB Benátky	2:17.527	Peking	9. 12. 2023	2:14.973
+2.	Procházka Marek	B2	BZK Praha	2:19.587	Dresden	23. 9. 2023
+3.	Popl Matěj	A1	BZK Praha	2:25.093	Benátky	6. 10. 2023	2:24.113
+4.	Fajkus Radek	S	KSB Benátky	2:25.364	Bormio	30. 9. 2023	2:14.599
+5.	Šulc Samuel	C2	KSB Benátky	2:25.894	Budapest	9. 12. 2023
+6.	Jílek Filip	C1	BZK Praha	2:26.041	Spišská N.Ves	17. 12. 2023
+7.	Muchka Jan	C2	KSB Benátky	2:26.468	Dresden	20. 1. 2024
+8.	Kamenský Václav	C2	KSB Benátky	2:26.748	Budapest	9. 12. 2023
+9.	Kraj Tadeáš	B1	KSB Benátky	2:34.319	Budapest	9. 12. 2023
+10.	Hradský David	D2	KSB Benátky	2:36.582	Dresden	20. 1. 2024
+
+=== 2023-2024 | st | Ženy 111 m | Žebříček 2023/2024, poř. č. 11
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Zbořilová Barbora	E2	KSB Benátky	27.157	Benátky	7. 10. 2023
+2.	Kovačičová Lucia	JE	KSB Benátky	29.403	Benátky	7. 10. 2023
+3.	Dobřenská Adéla	JF	KSB Benátky	30.233	Budapest	9. 12. 2023
+4.	Zedníková Beata	JE	KSB Benátky	31.229	Benátky	7. 10. 2023
+
+=== 2023-2024 | st | Ženy 222 m | Žebříček 2023/2024, poř. č. 11
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Sejpalová Šárka	D2	KSB Benátky	36.645	Dresden	20. 1. 2024
+2.	Zbořilová Barbora	E2	KSB Benátky	38.295	Budapest	9. 12. 2023
+3.	Kovačičová Lucia	JE	KSB Benátky	40.837	Jaszbereny	21. 1. 2024
+4.	Zedníková Beata	JE	KSB Benátky	42.016	Jaszbereny	21. 1. 2024
+5.	Dobřenská Adéla	JF	KSB Benátky	45.555	Budapest	9. 12. 2023
+
+=== 2023-2024 | st | Ženy 500 m | Žebříček 2023/2024, poř. č. 11
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Nevřelová Laura	D2	KSB Benátky	1:16.167	Bormio	12. 11. 2023
+2.	Pňovská Anna	C2	KSB Benátky	1:16.831	Rostock	22. 10. 2023	1:13.755
+3.	Šimková Tereza	B1	KSB Benátky	1:18.639	Dresden	21. 1. 2024
+
+=== 2023-2024 | st | Ženy 666 m | Žebříček 2023/2024, poř. č. 11
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+4.	Pňovská Julie	D1	KSB Benátky	1:19.368	Bormio	12. 11. 2023
+5.	Kratochvílová Pavla	C2	KSB Benátky	1:21.878	Rostock	22. 10. 2023
+6.	Sejpalová Šárka	D2	KSB Benátky	1:26.915	Spišská N.Ves	17. 12. 2023
+7.	Brázdilová Eliška	D2	KSB Benátky	1:33.074	Benátky	8. 10. 2023
+8.	Weissová Natálie	D1	BK Náchod	1:35.445	Benátky	8. 10. 2023
+9.	Kovaničová Lucia	JE	KSB Benátky	1:39.235	Dresden	20. 1. 2024
+10.	Zedníková  Beata	JE	KSB Benátky	1:40.077	Dresden	20. 1. 2024
+11.	Gáková Barbora	A1	BZK Praha	Rostock	3/5/2023	1:14.845
+12.	Papoušková Marta	C1	STC Žďár	Torino	3/25/2023	1:16.702
+13.	Morozová Mia	E2	KSB Benátky	Budapest	1/22/2023	1:31.815
+14.	Zbořilová Barbora	E2	KSB Benátky	Budapest	1/22/2023	1:30.189
+1.	Kuncířová M. Sejpalová M.	juniorky	4:20,089	Innsbruck	1/27/2017	
+1.	Pfeiferová T. Kunciřová M.	seniorky	4:13,879	Dresden	2/1/2019	
+2.	Novotná K. Kuncířová M.	seniorky	4:17,292	Dresden	2/5/2016	
+3.	Pfeiferova T.Vaňková P.	seniorky	4:18,357	Dresden	2/8/2020	
+
+=== 2023-2024 | st | Ženy 1000 m | Žebříček 2023/2024, poř. č. 11
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+2.	Poplová Michaela	A1	BZK Praha	46.452	Leeuwarden	3. 12. 2024
+3.	Pňovská Anna	C2	KSB Benátky	47.141	Oberstdorf	19. 11. 2023
+4.	Gáková Barbora	A1	BZK Praha	47.204	Dresden	20. 1. 2024
+5.	Papoušková Marta	C1	STC Žďár	47.646	Benátky	7. 10. 2023
+6.	Blahová Eva	B1	STC Žďár	47.996	Gangwon	22. 1. 2024
+7.	Kotrchová Monika	C2	STC Žďár	48.258	Jaszbereny	21. 1. 2024
+8.	Nevřelová Laura	D1	KSB Benátky	48.828	Spišská N.Ves	17. 12. 2023
+9.	Kudláčková Eliška	B2	STC Žďár	48.954	Spišská N.Ves	15. 12. 2023
+10.	Šimková Tereza	B1	KSB Benátky	49.092	Rostock	22. 10. 2023
+11.	Pňovská  Julie	D1	KSB Benátky	50.144	Bormio	12. 11. 2023
+12.	Kratochvílová Pavla	C2	KSB Benátky	50.581	Benátky	7. 10. 2023
+13.	Hlušková Sára	B1	BK Náchod	51.008	Opole	3. 2. 2024
+14.	Malíková Jana	S	BK Náchod	51.38	Oberstdorf	4. 8. 2023
+15.	Sejpalová Šárka	D2	KSB Benátky	54.936	Dresden	21. 1. 2024
+16.	Kunstmullerová Nina	B1	STC Žďár	55.01	Budapest	10. 12. 2023
+17.	Zbořilová Barbora	E2	KSB Benátky	56.569	Budapest	9. 12. 2023
+18.	Brázdilová Eliška	D2	KSB Benátky	57.333	Budapest	28. 10. 2023
+19.	Weissová Natálie	D1	BK Náchod	59.564	Benátky	7. 10. 2023
+20.	Křišťová Denisa	C1	STC Žďár	60.118	Benátky	7. 10. 2023
+21.	Kovaničová Lucia	JE	KSB Benátky	60.336	Jaszbereny	21. 1. 2024
+22.	Zedníková Beata	JE	KSB Benátky	63.499	Jaszbereny	21. 1. 2024
+23.	Prachárová Monika	B1	BZK Praha	Budapest	12/9/2022	50.656
+24.	Prachárová Johana	B2	BZK Praha	Budapest	12/9/2022	51.31
+25.	Morozová Mia	E2	KSB Benátky	Budapest	1/22/2023	58.938
+
+=== 2023-2024 | st | Ženy 1500 m | Žebříček 2023/2024, poř. č. 11
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+8.	Nevřelová Laura	D2	KSB Benátky	1:42.833	Bormio	12. 11. 2023
+9.	Kotrchová Monika	C2	STC Žďár	1:42.975	Benátky	8. 10. 2023
+10.	Šimková Tereza	B1	KSB Benátky	1:43,215	Budapest	28. 10. 2023
+11.	Kratochvílová Pavla	C2	BZK Praha	1:44.605	Budapest	30. 9. 2023
+12.	Pňovská Julie	D1	KSB Benátky	1:46.367	Spišská N,Ves	17. 12. 2023
+13.	Hlušková Sára	B1	BK Náchod	1:46.470	Bialystok	9. 3. 2024	1:45.830
+14.	Malíková Jana	S	BK Náchod	1:49.746	Oberstdorf	4. 8. 2023	1:47.919
+15.	Sejpalová Šárka	D2	KSB Benátky	1:54.768	Spišská N,Ves	17. 12. 2023	1:54.758
+16.	Kunstmullerová Nina	B1	STC Žďár	1:55.844	Budapest	30. 9. 2023
+17.	Brázdilová Eliška	D2	KSB Benátky	2:00.402	Benátky	6. 10. 2023
+18.	Křišťová Denisa	C1	STC Žďár	2:07.498	Benátky	8. 10. 2023
+19.	Weissová Natálie	D1	BK Náchod	2:11.349	Benátky	6. 10. 2023
+20.	Prachárová Johana	B2	BZK Praha	Budapest	12/9/2022	1:45.818
+21.	Prachárová Monika	B2	BZK Praha	Budapest	1/21/2023	1:48.654
+22.	Morozová Mia	E2	KSB Benátky	Dresden	10/16/2022	2:13.383
+1.	Dobřenská Adéla	JF	KSB Benátky	18.914	Benátky	7. 10. 2023
+
+=== 2023-2024 | st | Ženy 3000 m | Žebříček 2023/2024, poř. č. 11
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Vaňková Petra	S	BZK Praha	2:23.568	Montreal	27. 10. 2023	2:22.888
+2.	Gáková Barbora	A1	BZK Praha	2:28.763	Spišská N.Ves	1. 9. 2023
+3.	Poplová Michaela	A1	BZK Praha	2:31.346	Spišská N.Ves	1. 9. 2023
+4.	Pňovská Anna	C2	KSB Benátky	2:33.880	Bormio	12. 11. 2023
+5.	Blahová Eva	B1	STC Žďár	2:35.861	Benátky	6. 10. 2023
+6.	Kudláčková Eliška	B2	STC Žďár	2:39.562	Benátky	6. 10. 2023
+7.	Papoušková Marta	C1	STC Žďár	2:41.518	Prešov	26. 11. 2023
+8.	Šimková Tereza	B1	KSB Benátky	2:42.193	Rostock	22. 10. 2023
+9.	Kratochvílová Pavla	C2	KSB Benátky	2:51.143	Benátky	6. 10. 2023	2:50.450
+10.	Kunstmullerová Nina	B1	STC Žďár	2:59.148	Budapest	9. 12. 2023
+11.	Pňovská Julie	D1	KSB Benátky	2:49.530	Dresden	20. 1. 2024
+12.	Hlušková Sára	B1	BK Náchod	2:46.874	Opole	2. 2. 2024	2:44.849
+13.	Kotrchová Monika	C2	STC Žďár	2:43.482	Prešov	26. 11. 2023
+14.	Křišťová Denisa	C1	STC Žďár	3:20.451	Trnava	24. 9. 2023
+15.	Prachárová Monika	B2	BZK Praha	Budapest	12/10/2022	2:42.170
+16.	Prachárová Johana	B2	BZK Praha	Budapest	12/9/2022	2:47.630
+
+=== 2024-2025 | st | Ženy 111 m | Žebříček 2024/2025, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+14.	Šulová Daniela	F1	STC Žďár	43.575	Benátky	12. 1. 2025
+15.	Švarcová Anna	F1	KSB Benátky	44.937	Benátky	30. 11. 2024
+
+=== 2024-2025 | st | Ženy 222 m | Žebříček 2024/2025, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+16.	Šulová Daniela	F1	STC Žďár	66.311	Benátky	12. 1. 2025
+17.	Košová Jana	F2	STC Žďár	72.633	Benátky	12. 1. 2025
+18.	Švarcová Anna	F1	KSB Benátky	79.019	Benátky	12. 1. 2025
+1.	Nevřelová Laura	C1	KSB Benátky	33.749	Dresden	9. 2. 2025
+2.	Brazdilová Eliška	C1	KSB Benátky	35.639	Benátky	30. 11. 2024
+3.	Sejpalová Šárka	C1	KSB Benátky	36.157	Dresden	9. 2. 2025
+4.	Zbořilová Barbora	D1	KSB Benátky	36.844	Benátky	30. 11. 2024
+5.	Zedníková Beata	E2	KSB Benátky	37.179	Szeged	1. 3. 2025
+6.	Kovačičová Lucia	D1	KSB Benátky	37.952	Benátky	30. 11. 2024
+7.	Dobřenská Adéla	F1	KSB Benátky	40.183	Szeged	1. 3. 2025
+8.	Štěpánová Emma	E2	KSB Benátky	41.082	Benátky	12. 1. 2025
+9.	Koudelková Kateřina	E2	KSB Benátky	42.175	Benátky	12. 1. 2025
+10.	Koudelková Anna	F1	KSB Benátky	45.533	Szeged	1. 3. 2025
+11.	Zbořilová Kateřina	F1	KSB Benátky	46.936	Szeged	1. 3. 2025
+12.	Havrylets Sofia	F1	KSB Benátky	50.661	Benátky	12. 1. 2025
+13.	Štástná Zuzana	E1	KSB Benátky	53.649	Benátky	30. 11. 2024
+14.	Benešová Matylda	G	KSB Benátky	61.078	Benátky	30. 11. 2024
+
+=== 2024-2025 | st | Ženy 500 m | Žebříček 2024/2025, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Poplová Michaela	A2	BZK Praha	1:14.537	Dresden	9. 2. 2025
+2.	Blahová Eva	B2	STC Žďár	1:15.016	Dresden	9. 2. 2025
+3.	Nevřelová Laura	C1	KSB Benátky	1:15.723	Dresden	5. 10. 2024
+4.	Pňovská Julie	D1	KSB Benátky	1:19.039	Bormio	24. 11. 2024
+5.	Prachárová Monika	A1	BZK Praha	1:23.476	Benárky	12. 1. 2025
+6.	Zbořilová Barbora	D1	KSB Benátky	1:24.151	Budapest	8. 12. 2024
+7.	Sejpalová Šárka	C1	KSB Benátky	1:25.415	Dresden	5. 10. 2024
+8.	Prachárová Johana	A1	BZK Praha	1:26.050	Benátky	12. 1. 2025
+9.	Zedníková  Beata	E2	KSB Benátky	1:26.422	Szeged	1. 3. 2025
+10.	Brázdilová Eliška	C1	KSB Benátky	1:27.431	Benátky	30. 11. 2024
+
+=== 2024-2025 | st | Ženy 666 m | Žebříček 2024/2025, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+11.	Kovaničová Lucia	D1	KSB Benátky	1:30.376	Benátky	12. 1. 2025	1:28.824
+12.	Štěpánová Emma	E2	KSB Benátky	1:39.932	Budapest	8. 12. 2024
+13.	Koudelková Kateřina	E2	KSB Benátky	1:55.404	Szegad	1. 3. 2025
+1.	Kuncířová M. Sejpalová M.	juniorky	4:20,089	Innsbruck	1/27/2017	
+2.	Kuncířová M. Sejpalová M.	juniorky	4:24,931	Shanghai	12/11/2015	
+1.	Pfeiferová T. Kunciřová M.	seniorky	4:13,879	Dresden	2/1/2019	
+2.	Novotná K. Kuncířová M.	seniorky	4:17,292	Dresden	2/5/2016	
+3.	Pfeiferova T.Vaňková P.	seniorky	4:18,357	Dresden	2/8/2020	
+1.	Dobřenská Adéla	F1	KSB Benátky	16.496	Szeged	22. 3. 2024
+2.	Švarcová Ema	G	KSB Benátky	21.428	Benátky	12. 1. 2025
+3.	Košová Jana	F2	STC Žďár	23.013	Benátky	12. 1. 2025
+4.	Junová Aneta	F1	STC Žďár	23.188	Benátky	12. 1. 2025
+5.	Šulová Daniela	F1	STC Žďár	23.322	Benátky	12. 1. 2025
+6.	Švarcová Anna	F1	KSB Benátky	23.763	Benátky	12. 1. 2025
+
+=== 2024-2025 | st | Ženy 1000 m | Žebříček 2024/2025, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+7.	Blahová Eva	B2	STC Žďár	47.765	Dresden	9. 2. 2025
+8.	Pňovská  Julie	D1	KSB Benátky	49.107	Bormio	22. 11. 2024
+9.	Prachárová Johana	A1	BZK Praha	50.709	Benátky	30. 11. 2024
+10.	Prachárová Monika	A1	BZK Praha	50.796	Benátky	12. 1. 2025
+11.	Hlušková Sára	B2	BK Náchod	51.008	Opole	3. 2. 2024
+12.	Kudláčková Eliška	A1	STC Žďár	51.59	Benátky	30. 11. 2024	48.954
+13.	Brázdilová Eliška	C1	KSB Benátky	52.587	Szeged	1. 3. 2025
+14.	Sejpalová Šárka	C1	KSB Benátky	53.723	Benátky	30. 11. 2024
+15.	Malíková Jana	S	BK Náchod	54.211	Oberstdorf	10. 8. 2024	51.38
+16.	Zbořilová Barbora	D1	KSB Benátky	53.655	Heereveen	22. 2. 2025
+17.	Zedníková Beata	E1	KSB Benátky	54.991	Szeged	1. 3. 2025
+18.	Kovaničová Lucia	D1	KSB Benátky	55.516	Budapest	8. 12. 2024
+19.	Štěpánová Ema	E2	KSB Benátky	61.404	Benátky	12. 1. 2024
+20.	Dobřenská Adéla	F1	KSB Benátky	61.481	Jaszbereny	9. 2. 2025
+21.	Koudelková Kateřina	E2	KSB Benátky	71.291	Benátky	30. 11. 2024
+22.	Koudelková Anna	F1	KSB Benátky	72.018	Szeged	1. 3. 2025
+23.	Zbořilová Kateřina	F1	KSB Benátky	75.495	Budapest	8. 12. 2024
+24.	Havrylets Sofia	F1	KSB Benátky	77.040	Benátky	12. 1. 2025
+25.	Šťastná Zuzana	E1	KSB Benátky	84.996	Benátky	30. 11. 2024
+26.	Benešová Matylda	G	KSB Benátky	90.071	Benátky	30. 11. 2024
+27.	Švarcová Ema	G	KSB Benátky	109.594	Benátky	30. 11. 2024
+
+=== 2024-2025 | st | Ženy 1500 m | Žebříček 2024/2025, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+6.	Nevřelová Laura	C1	KSB Benátky	1:40.343	Dresden	5. 10. 2024
+7.	Blahová Eva	B2	STC Žďár	1:40.941	Dresden	22. 9. 2024	1:38.424
+8.	Pňovská Julie	D1	KSB Benátky	1:44.237	Budapest	8. 12. 2024
+9.	Prachárová Johana	A1	BZK Praha	1:44,698	Benátky	30. 11. 2024
+10.	Hlušková Sára	B2	BK Náchod	1:46.470	Opole	4. 2. 2024	1:45.830
+11.	Kudláčková  Eliška	A1	STC Žďár	1:46.658	Benátky	30. 11. 2024	1:42.096
+12.	Prachárová Monika	A1	BZK Praha	1:47.661	Benátky	12. 1. 2025
+13.	Zbořilová Barbora	D1	KSB Benátky	1:49.314	Szeged	28. 2. 2025
+14.	Sejpalová Šárka	C1	KSB Benátky	1:52.389	Rostock	10. 11. 2024
+15.	Brázdilová Eliška	C1	KSB Benátky	1:54.811	Benátky	12. 1. 2025
+16.	Malíková Jana	S	BK Náchod	1:57.226	Oberstdorf	10. 8. 2024	1:47.919
+17.	Kovaničová Lucia	D1	KSB Benátky	1:57.449	Budapest	8. 12. 2024
+18.	Zedníková Beata	E2	KSB Benátky	2:03.374	Rostock	10. 11. 2024
+1.	Kovačičová Lucia	D1	KSB Benátky	26.3	Dresden	5. 10. 2924
+2.	Zedníková Beata	E2	KSB Benátky	26.617	Dresden	5. 10. 2024
+3.	Dobřenská Adéla	F1	KSB Benátky	27.365	Jaszbereny	9. 2. 2025
+4.	Štěpánová Ema	E2	KSB Benátky	28.46	Benátky	12. 1. 2025
+5.	Koudelková Kateřina	E2	KSB Benátky	31.058	Benátky	30. 11. 2024
+6.	Koudelková Anna	F1	KSB Benátky	31.568	Szeged	1. 3. 2025
+7.	Zbořilová Kateřina	F1	KSB Benátky	32.186	Szeged	1. 3. 2025
+8.	Havrylets Sofia	F1	KSB Benátky	33.965	Benátky	30. 11. 2024
+9.	Šťastná Zuzana	E1	KSB Benátky	36.046	Benátky	30. 11. 2024
+10.	Švarcová Ema	G	KSB Benátky	39.196	Benátky	12. 1. 2025
+11.	Benešová Matylda	G	KSB Benátky	39.315	Benátky	30. 11. 2024
+12.	Junová Aneta	F1	STC Žďár	42.746	Benátky	12. 1. 2025
+13.	Košová Jana	F2	STC Žďár	43.546	Benátky	12. 1. 2025
+
+=== 2024-2025 | st | Ženy 3000 m | Žebříček 2024/2025, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Vaňková Petra	S	BZK Praha	2:22.920	Peking	14. 3. 2025	2:22.888
+2.	Gáková Barbora	A2	BZK Praha	2:23.798	Calgary	28. 2. 2025
+3.	Pňovská Anna	B1	KSB Benátky	2:28.155	Dresden	21. 9. 2024
+4.	Poplová Michaela	A2	BZK Praha	2:33.034	Calgary	28. 2. 2025	2:31.346
+5.	Blahová Eva	B2	STC Žďár	2:33.260	Dresden	21. 9. 2024
+6.	Prachárová Monika	A1	BZK Praha	2:38.917	Benátky	30. 11. 2024
+7.	Pňovská Julie	D1	KSB Benátky	2:39.186	Benátky	30. 11. 2024
+8.	Kotrchová Monika	B1	STC Žďár	2:39.468	Bormio	22. 11. 2024
+9.	Nevřelová Laura	C1	KSB Benátky	2:39.734	Heerenveen	22. 2. 2025
+10.	Kudláčková Eliška	A1	STC Žďár	2:46.059	Benátky	30. 11. 2024	2:39.562
+11.	Hlušková Sára	B2	BK Náchod	2:46.874	Opole	4. 2. 2024	2:44.849
+12.	Sejpalová Šárka	C1	KSB Benátky	2:53.360	Szeged	28. 2. 2025
+13.	Brázdilová Eliška	C1	KSB Benátky	2:58.579	Szeged	28. 2. 2026
+
+=== 2024-2025 | st | Muži 111 m | Žebříček 2024/2025, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Trnka Miroslav	F1	KSB Benátky	21.191	Benátky	12. 1. 2025
+2.	Švarc Jakub	G	KSB Benátky	27.009	Benátky	30. 11. 2024
+
+=== 2024-2025 | st | Muži 222 m | Žebříček 2024/2025, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Fuhrmann Daniel	D1	BZK Praha	28.073	Benátky	30. 11. 2024
+2.	Martinec Oliver	D1	KSB Benátky	28.2	Benátky	30. 11. 2024
+3.	Šír Jakub	D2	STC Žďár	28.534	Benátky	12. 1. 2025
+4.	Švarc Ota	F1	KSB Benátky	30.569	Budapest	8. 12. 2024
+5.	Trnka Vojtěch	F1	KSB Benátky	30.739	Benátky	30. 11. 2024
+6.	Souček Petr	D2	BK Náchod	30.907	Benátky	12. 1. 2025
+7.	Kovanič Anton	F1	KSB Benátky	33.249	Benátky	12. 1. 2025
+8.	Altan Ochir Buyandari	E1	BK Náchod	33.531	Benátky	12. 1. 2025
+9.	Šír Mikuláš	E2	STC Žďár	34.457	Benátky	12. 1. 2025
+10.	Jokl Štěpán	F1	STC Žďár	36.515	Benátky	12. 1. 2025
+11.	Syrotiuk David	F1	KSB Benátky	38.523	Benátky	12. 1. 2025
+12.	Trnka Miroslav	G	KSB Benátky	41.498	Benátky	12. 1. 2025
+13.	Švarc Jakub	G	KSB Benátky	53.316	Benátky	30. 11. 2024
+
+=== 2024-2025 | st | Muži 333 m | Žebříček 2024/2025, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Kalamar Matěj	JD	KSB Benátky	34.483	Dresden	9. 2. 2025
+2.	Koťátko Michal	D2	KSB Benátky	35.791	Benátky	30. 11. 2024
+3.	Kraml Matyáš	C1	BK Náchod	39.576	Benátkky	12. 1. 2025
+4.	Souček Viktor	C1	BK Náchod	39.591	Benátky	12. 1. 2025
+5.	Šír Jakub	D2	STC Žďár	41.173	Benátky	30. 11. 2024
+6.	Martinec Oliver	D1	KSB Benátky	42.741	Benátky	30. 11. 2024
+7.	Fuhrmann Daniel	D1	BZK Praha	44.189	Benátky	12. 1. 2025
+8.	Švarc Ota	F1	KSB Benátky	44.433	Benátky	12. 1. 2025
+9.	Souček Petr	D2	BK Náchod	45.503	Benátky	12. 1. 2025
+10.	Trnka Vojtěch	F1	KSB Benátky	47.022	Benátky	30. 11. 2024
+11.	Kovanič Anton	F1	KSB Benátky	48.43	Benátky	12. 1. 2025
+12.	Jokl Štěpán	F1	STC Žďár	50.858	Benátky	12. 1. 2025
+13.	Šír Mikuláš	E2	STC Žďár	51.621	Benátky	12. 1. 2025
+14.	Altan Ochir Buyandari	E1	BK Náchod	52.854	Benátky	12. 1. 2025
+15.	Syrotiuk David	F1	KSB Benátky	56.088	Benátky	12. 1. 2025
+16.	Trnka Miroslav	G	KSB Benátky	62.398	Benátky	12. 1. 2025
+
+=== 2024-2025 | st | Muži 500 m | Žebříček 2024/2025, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Popl Matěj	A2	BZK Praha	41.887	Calgary	1. 3. 2025
+2.	Fajkus Radek	S	KSB Benátky	41.902	Dresden	19. 1. 2025	41.007
+3.	Sejpal Zdeněk	S	KSB Benátky	42.137	Montreal	2. 11. 2024
+4.	Šulc Samuel Oliver	B1	KSB Benátky	42.561	Calgary	1. 3. 2025
+5.	Procházka Marek	A1	BZK Praha	43.242	Bormio	16. 11. 2024	43.063
+6.	Muchka Jan	B1	KSB Benátky	43.501	Budapest	8. 12. 2024
+7.	Jílek Filip	C2	BZK Praha	43.658	Benátky	30. 11. 2023
+8.	Kamenský Václav	B1	KSB Benátky	44.698	Dresden	21. 9. 2024	44.545
+9.	Kraj Tadeáš	B2	KSB Benátky	46.398	Dresden	9. 2. 2025
+10.	Hradský David	C1	KSB Benátky	46.398	Dresden	9. 2. 2025
+11.	Muchka František	C1	KSB Benátky	46.633	Budapest	8. 12. 2024
+12.	Smorodskyi Maks.	D2	UKR	47.907	Benátky	30. 11. 2024
+13.	Pouzar Karel	B1	BZK Praha	49.513	Benátky	30. 11. 2024
+14.	Kalamar Matěj	D2	KSB Benátky	51.062	Benátky	12. 1. 2025
+15.	Koťátko Michal	D2	KSB Benátky	52.023	Dresden	9. 2. 2025
+16.	Souček Viktor	C1	BK Náchod	59.326	Benátky	12. 1. 2025
+17.	Kraml Matyaš	C1	BK Náchod	60.214	Benátky	12. 1. 2025
+18.	Švarc Ota	F1	KSB Benátky	60.682	Budapest	8. 12. 2024
+19.	Fuhrmann Daniel	D1	BZK Praha	61.098	Benátky	12. 1. 2025
+20.	Trnka Vojtěch	F1	KSB Benátky	62.084	Benátky	12. 1. 2025
+21.	Souček Petr	D2	BK Náchod	65.035	Benátky	12. 1. 2025
+22.	Šír Jakub	D2	STC Žďár	65.233	Benátky	30. 11. 2024
+23.	Kovanič Anton	F1	KSB Benátky	72.263	Benátky	12. 1. 2025
+24.	Martinec Oliver	D1	KSB Benátky	72.407	Benátky	30. 11. 2024
+26.	Jokl Štěpán	F1	STC Žďár	75.7	Benátky	12. 1. 2025
+27.	Šír Mikuláš	E2	STC Žďár	78.084	Benátky	30. 11. 2024
+28.	Altan Ochir Buyandari	E1	BK Náchod	78.373	Benátky	12. 1. 2025
+29.	Syrotiuk David	F1	KSB Benátky	88.601	Benátky	12. 1. 2025
+
+=== 2024-2025 | st | Muži 777 m | Žebříček 2024/2025, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Popl Matěj	A2	BZK Praha	1:07.851	Dresden	9. 2. 2025
+2.	Jílek Filip	C2	BZK Praha	1:10.540	Rostock	13. 10. 2024
+3.	Kraj Tadeáš	B2	KSB Benátky	1:12.320	Dresden	9. 2. 2025
+4.	Muchka František	C1	KSB Benátky	1:13.149	Rostock	13. 10. 2024
+5.	Kamenský Václav	B1	KSB Benátky	1:13.342	Dresden	9. 2. 2025
+6.	Smorodskyi Maksim	D2	UKR	1:14.365	Dresden	9. 2. 2025
+7.	Hradský David	D2	KSB Benátky	1:15.446	Dresden	9. 2. 2025
+8.	Kalamar Matěj	D2	KSB Benátky	1:21.515	Szeged	1. 3. 2025
+9.	Koťátko Michal	D2	KSB Benátky	1:25.234	Benátky	12. 1. 2025
+10.	Souček Viktor	C1	BK Náchod	1:31.622	Benátky	12. 1. 2025
+11.	Kraml Matyáš	C1	BK Náchod	1:31.734	Benátky	12. 1. 2025
+
+=== 2024-2025 | st | Muži 1000 m | Žebříček 2024/2025, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Fajkus Radek	S	KSB Benátky	1:24.942	Dresden	19. 1. 2025
+2.	Sejpal Zdeněk	S	KSB Benátky	1:25.189	Peking	15. 3. 2025
+3.	Jílek Filip	C2	BZK Praha	1:28.679	Dresden	5. 10. 2024
+4.	Šulc Samuel Oliver	B1	KSB Benátky	1:28.843	Calgary	2. 3. 2025
+5.	Popl Matěj	A2	BZK Praha	1:29.277	Bormio	16. 11. 2024	1:28.125
+6.	Muchka Jan	B1	KSB Benátky	1:29.308	Budapest	8. 12. 2024
+7.	Procházka Marek	A1	BZK Praha	1:30.660	Dresden	22. 9. 2024	1:30.077
+8.	KraJ Tadeáš	B2	KSB Benátky	1:34.825	Budapest	8. 12. 2024
+9.	Kamenský Václav	B1	KSB Benátky	1:34.919	Dresden	22. 9. 2024	1:32.235
+10.	Muchka František	C1	KSB Benátky	1:35.417	Bormio	22. 11. 2024
+11.	Smorodskyi Maks.	D2	UKR	1:35.979	Dresden	9. 2. 2025
+12.	Hradský David	C1	KSB Benátky	1:39.601	Dresden	5. 10. 2024
+13.	Pouzar Karel	B1	BZK Praha	1:42.841	Benátky	30. 11. 2024
+14.	Kalamar Matěj	D2	KSB Benátky	1:45.519	Dresden	9. 2. 2025
+15.	Koťátko Michal	D2	KSB Benátky	1:50.827	Dresden	9. 2. 2025
+
+=== 2024-2025 | st | Muži 1500 m | Žebříček 2024/2025, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Fajkus Radek	S	KSB Benátky	2:13.757	Bormio	5. 10. 2024
+2.	Sejpal Zdeněk	S	KSB Benátky	2:15.222	Milano	15. 2. 2025	2:14.973
+3.	Jílek Filip	C2	BZK Praha	2:16.366	Dresden	5. 10. 2024
+4.	Šulc Samuel Oliver	B1	KSB Benátky	2:18.322	Dresden	21. 9. 2024
+5.	Procházka Marek	B2	BZK Praha	2:21.116	Dresden	21. 9. 2024	2:19.587
+6.	Popl Matěj	A1	BZK Praha	2:22.125	Dresden	19. 1. 2025
+7.	Muchka Jan	B1	KSB Benátky	2:25.747	Benátky	30. 11. 2024
+8.	Kamenský Václav	B1	KSB Benátky	2:27.086	Dresden	21. 9. 2024	2:26.748
+9.	Kraj Tadeáš	B1	KSB Benátky	2:32.213	Benátky	12. 1. 2025
+10.	Hradský David	D2	KSB Benátky	2:33.889	Heerenveen	22. 2. 2025
+11.	Muchka František	C1	KSB Benátky	2:37.654	Rostock	10. 11. 2024
+12.	Pouzar Karel	B1	BZK Praha	2:41.630	Benátky	12. 1. 2025
+13.	Smorodskiy Maksim	D2	UKR	2:43.103	Benátky	30. 11. 2024
+14.	Koťátko Michal	D2	KSB Benátky	2:53.193	Szeged	28. 2. 2025
+
+=== 2025-2026 | st | Ženy 111 m | Žebříček 2025/2026, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Dobřenská Adéla	F2	KSB Benátky	14,827	Trnava	13. 12. 2025
+2.	Koudelková Anna	F2	KSB Benátky	16,717	Benátky	2. 11. 2025
+3.	Havrylets Sofia	F2	KSB Benátky	16,729	Benátky	2. 11. 2025
+4.	Šulová Daniela	F2	STC Žďár	16,791	Benátky	8. 3. 2026
+5.	Šťastná Zuzana	E2	KSB Benátky	17,436	Benátky	2. 11. 2025
+6.	Zbořilová Kateřina	F2	KSB Benátky	17,455	Benátky	2. 11. 2025
+7.	Švarcová Ema	F1	KSB Benátky	17,574	Benátky	8. 3. 2026
+8.	Benešová Matylda	F1	KSB Benátky	17,825	Benátky	8. 3. 2026
+9.	Junová Aneta	F2	STC Žďár	18,142	Benátky	8. 3. 2026
+10.	Okseněnko Vanesa	F1	KSB Benátky	18,276	Benátky	8. 3. 2026
+11.	Vajdišová Emma	JG	STC Žďár	18,506	Benátky	8. 3. 2026
+12.	Mahelová Veronika	JF	STC Žďár	18,638	Benátky	8. 3. 2025
+13.	Štěpánová Nela	JF	KSB Benátky	20,043	Benátky	8. 3. 2026
+14.	Krupková Stella	JG	KSBM Praha	22,03	Benátky	2. 11. 2025
+15.	Košová Jana	E1	STC Žďár	Benátky	1/12/2025	23,013
+16.	Švarcová Anna	F2	KSB Benátky	Benátky	1/12/2025	23,763
+1.	Pfeiferová T. Kunciřová M.	seniorky	4:13,879	Dresden	2/1/2019	
+2.	Novotná K. Kuncířová M.	seniorky	4:17,292	Dresden	2/5/2016	
+3.	Pfeiferova T.Vaňková P.	seniorky	4:18,357	Dresden	2/8/2020	
+1.	Kuncířová M. Sejpalová M.	juniorky	4:20,089	Innsbruck	1/27/2017	
+2.	Kuncířová M. Sejpalová M.	juniorky	4:24,931	Shanghai	12/11/2015	
+
+=== 2025-2026 | st | Ženy 222 m | Žebříček 2025/2026, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Dobřenská Adéla	F2	KSB Benátky	26,109	Budapest	6. 12. 2025
+2.	Koudelková Kateřina	F1	KSB Benátky	27,717	Benátky	8. 3. 2026
+3.	Koudelková Anna	F2	KSB Benátky	27,934	Benátky	8. 3. 2026
+4.	Šťastná Zuzana	E2	KSB Benátky	28,399	Benátky	8. 3. 2026
+5.	Havrylets Sofia	F2	KSB Benátky	29,391	Benátky	8. 3. 2026
+6.	Šulová Daniela	F2	STC Žďár	30,802	Benátky	8. 3. 2026
+7.	Zbořilová Kateřina	F2	KSB Benátky	31,961	Dresden	8. 11. 2025
+8.	Švarcová Ema	G	KSB Benátky	32,236	Benátky	8. 3. 2026
+9.	Benešová Matylda	F1	KSB Benátky	32,815	Benátky	8. 3. 2026
+10.	Junová Aneta	F2	STC Žďár	32,815	Benátky	8. 3. 2026
+11.	Mahelová Veronika	JF	STC Žďár	34,145	Benátky	8. 3. 2026
+12.	Vajdišová Emma	JG	STC Žďár	35,26	Benátky	8. 3. 2026
+13.	Štěpánová Nela	JF	KSB Benátky	36,661	Benátky	8. 3. 2026
+14.	Oksenenko Vanesa	F1	KSB Benátky	38,15	Benátky	8. 3. 2026
+15.	Krupková Stella	JG	KSBM Praha	38,812	Benátky	2. 11. 2025
+16.	Štěpánová Ema	F1	KSB Benátky	Benátky	1/12/2025	28,46
+17.	Košová Jana	E1	STC Žďár	Benátky	1/12/2025	43,546
+
+=== 2025-2026 | st | Ženy 333 m | Žebříček 2025/2026, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Sejpalová Šárka	C2	KSB Benátky	34,904	Dresden	24. 1. 2026
+2.	Kovaničová Lucia	D2	KSB Benátky	34,982	Dresden	8. 11. 2025
+3.	Zedníková Beata	D1	KSB Benátky	35,031	Dresden	8. 11. 2025
+4.	Zbořilová Barbora	D2	KSB Benátky	36,118	Benátky	8. 3. 2026
+5.	Brazdilová Eliška	C2	KSB Benátky	36,153	Benátky	2. 11. 2025	35,639
+6.	Štěpánová Emma	D1	KSB Benátky	36,617	Dresden	24. 1. 2026
+7.	Blahová Andrea	D2	STC Žďár	36,652	Benátky	10. 1. 2026
+8.	Dobřenská Adéla	F2	KSB Benátky	37,172	Dresden	24. 1. 2026
+9.	Koudelková Anna	F2	KSB Benátky	40,552	Benátky	8. 2. 2026
+10.	Koudelková Kateřina	D1	KSB Benátky	40,69	Benátky	8. 3. 2026
+11.	Štástná Zuzana	E2	KSB Benátky	41,293	Benátky	8. 3. 2026
+12.	Havrylets Sofia	F2	KSB Benátky	43,623	Benátky	8. 3. 2026
+13.	Zbořilová Kateřina	F2	KSB Benátky	44,87	Benátky	10. 1. 2026
+14.	Švarcová Ema	G	KSB Benátky	46,765	Benátky	8. 3. 2026
+15.	Šulová Daniela	F2	STC Žďár	47,171	Benátky	8. 3. 2026
+16.	Benešová Matylda	F1	KSB Benátky	48,646	Benátky	8. 3. 2026
+17.	Junová Aneta	F2	STC Žďár	48,989	Benátky	8. 3. 2026
+18.	Mahelová Veronika	JF	STC Žďár	48,995	Benátky	8. 3. 2026
+19.	Oksenenko Vanesa	F1	KSB Benátky	50,904	Benátky	8. 3. 2026
+20.	Vajdišová Emma	JG	STC Žďár	51,584	Benátky	8. 3. 2026
+21.	Štěpánová Nela	JF	KSB Benátky	55,923	Benátky	8. 3. 2026
+22.	Krupková Stella	JG	KSBM Praha	60,38	Benátky	2. 11. 2025
+23.	Nevřelová Laura	C2	KSB Benátky	Dresden	2/9/2025	33,749
+24.	Košová Jana	E1	STC Žďár	Benátky	1/12/2025	72,633
+25.	Švarcová Anna	F2	KSB Benátky	Benátky	1/12/2025	79,019
+
+=== 2025-2026 | st | Ženy 500 m | Žebříček 2025/2026, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Vaňková Petra	S	BZK Praha	44,258	Montreal	18. 10. 2025	44,213
+2.	Poplová Michaela	S	BZK Praha	44,964	Bormio	29. 11. 2025
+3.	Gáková Barbora	S	BZK Praha	45,65	Bormio	29. 11. 2025	44,893
+4.	Nevřelová Laura	C2	KSB Benátky	46,592	Dresden	6. 9. 2025
+5.	Pňovská Anna	B2	KSB Benátky	46,601	SLC	30. 1. 2026
+6.	Kotrchová Monika	B2	STC Žďár	47,76	Benátky	2. 11. 2025	47,348
+7.	Pňovská  Julie	C1	KSB Benátky	48,084	Benátky	8. 3. 2026
+8.	Prachárová Monika	A2	BZK Praha	49,365	Benátky	10. 1. 2026
+9.	Zedníková Beata	D1	KSB Benátky	50,856	Dresden	9. 11. 2025
+10.	Kovaničová Lucia	D2	KSB Benátky	51,434	Dresden	9. 11. 2025
+11.	Sejpalová Šárka	C2	KSB Benátky	51,545	Dresden	24. 1. 2026
+12.	Brázdilová Eliška	C2	KSB Benátky	52,653	Dresden	27. 9. 2025	52,587
+13.	Zbořilová Barbora	D2	KSB Benátky	53,274	Benátky	10. 1. 2026
+14.	Štěpánová Emma	D1	KSB Benátky	53,729	Dresden	24. 1. 2025
+15.	Malíková Jana	S	BK Náchod	54,241	Oberstdorf	9. 8. 2025	51,38
+16.	Blahová Andrea	D2	STC Žďár	54,886	Benátky	10. 1. 2026
+17.	Dobřenská Adéla	F2	KSB Benátky	55,038	Benátky	8. 3. 2026
+18.	Koudelková Anna	F2	KSB Benátky	61,146	Benátky	8. 3. 2026
+19.	Koudelková Kateřina	D1	KSB Benátky	61,377	Benatky	8. 3. 2026
+20.	Šťastná Zuzana	E2	KSB Benátky	61,814	Benatky	8. 3. 2026
+21.	Havrylets Sofia	F2	KSB Benátky	63,884	Dresden	8. 2. 2026
+22.	Zbořilová Kateřina	F2	KSB Benátky	70,321	Budapest	6. 12. 2025
+
+=== 2025-2026 | st | Ženy 777 m | Žebříček 2025/2026, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Nevřelová Laura	C2	KSB Benátky	1:14.521	Dresden	7. 9. 2025
+2.	Prachárová Monika	A2	BZK Praha	1:19.161	Benátky	10. 1. 2026
+3.	Pňovská Julie	D1	KSB Benátky	1:19.521	Dresden	7. 9. 2025	1:19.039
+4.	Zedníková  Beata	D1	KSB Benátky	1:20.556	Dresden	8. 2. 2026
+5.	Kovaničová Lucia	D2	KSB Benátky	1:20.714	Dresden	8. 2. 2026
+6.	Kotrchová Monika	B2	STC Žďár	1:20.777	Benatky	8. 3. 2026
+7.	Sejpalová Šárka	C2	KSB Benátky	1:23.000	Benátky	8. 3. 2026
+8.	Štěpánová Ema	D1	KSB Benátky	1:23.348	Dresden	8. 2. 2026
+9.	Zbořilová Barbora	D2	KSB Benátky	1:23.551	Benátky	8. 3. 2026
+10.	Brázdilová Eliška	C2	KSB Benátky	1:26.379	Benátky	2. 11. 2025
+11.	Malíková Jana	S	BK Náchod	1:26.648	Oberstdorf	9. 8. 2025
+12.	Štěpánová Emma	D1	KSB Benátky	1:26.810	Budapest	6. 12. 2025
+13.	Blahová Andrea	D1	STC Žďár	1:28.272	Trnava	14. 12. 2025
+14.	Dobřenská Adéla	F2	KSB Benátky	1:29.893	Dresden	24. 1. 2026
+15.	Šťastná Zuzana	E2	KSB Benátky	1:50.554	Budapest	6. 12. 2025
+16.	Poplová Michaela	S	BZK Praha	Dresden	2/9/2025	1:14.537
+17.	Blahová Eva	A1	STC Žďár	Dresden	2/9/2025	1:15.016
+18.	Prachárová Johana	A2	BZK Praha	Benátky	1/12/2025	1:26.050
+19.	Koudelková Kateřina	D1	KSB Benátky	Szeged	3/1/2025	1:55.404
+
+=== 2025-2026 | st | Ženy 1000 m | Žebříček 2025/2026, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Vaňková Petra	S	BZK Praha	1:30.645	Salt Lake City	10. 8. 2025	1:29.471
+2.	Gáková Barbora	S	BZK Praha	1:33.876	Montreal	15. 3. 2026	1:32.104
+3.	Poplová Michaela	S	BZK Praha	1:33.942	Dresden	28. 9. 2025
+5.	Nevřelová Laura	C2	KSB Benátky	1:37.033	Dresden	28. 9. 2025
+6.	Kotrchová Monika	B2	STC Žďár	1:38.616	Benátky	2. 11. 2025
+7.	Pňovská Julie	C1	KSB Benátky	1:43.068	Bormio	29. 11. 2025
+8.	Zedníková Beata	D1	KSB Benátky	1:46.388	Trnava	14. 12. 2025
+9.	Kovaničová Lucia	D2	KSB Benátky	1:46.673	Dresden	7. 2. 2026
+10.	Prachárová Monika	A2	BZK Praha	1:46.826	Benátky	10. 1. 2026
+11.	Sejpalová Šárka	C2	KSB Benátky	1:48.963	Benátky	8. 3. 2026
+12.	Brázdilová Eliška	C1	KSB Benátky	1:51.341	Sanok	12. 10. 2025
+13.	Zbořilová Barbora	D2	KSB Benátky	1:52.628	Benátky	10. 1. 2026	1:49.314
+14.	Štěpánová Ema	D1	KSB Benátky	1:53.892	Benátky	10. 2. 2026
+15.	Malíková Jana	S	BK Náchod	1:54.905	Oberstdorf	9. 8. 2025	1:47.919
+16.	Blahová Andrea	D2	STC Žďár	1:56.510	Trnava	14. 12. 2025
+
+=== 2025-2026 | st | Ženy 1500 m | Žebříček 2025/2026, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Gáková Barbora	S	BZK Praha	2:18.986	Dresden	7. 2. 2026
+3.	Pňovská Anna	B2	KSB Benátky	2:25.708	SLC	1. 2. 2026
+4.	Nevřelová Laura	C2	KSB Benátky	2:30.951	Dresden	27. 9. 2025
+5.	Poplová Michaela	S	BZK Praha	2:33.034	Calgary	28. 2. 2025	2:31.346
+6.	Kotrchová Monika	B2	STC	Žď	ár	2:34.239	Rostock
+7.	Pňovská Julie	D2	KSB Benátky	2:39.175	Dresden	27. 9. 2025
+8.	Zedníková Beata	D1	KSB Benátky	2:45.264	Rostock	23. 11. 2025
+9.	Kovaničová Lucia	D1	KSB Benátky	2:48.158	Rostock	23. 11. 2025
+10.	Sejpalová Šárka	C2	KSB Benátky	2:57.809	Trnava	13. 12. 2025	2:53.360
+11.	Brázdilová Eliška	C2	KSB Benátky	2:58.222	Sanok	11. 10. 2025
+
+=== 2025-2026 | st | Muži 111 m | Žebříček 2025/2026, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Jokl  Štěpán	F2	STC Žďár	15,797	Trnava	14. 12. 2025
+2.	Trnkka Vojtěch	F2	KSB Benátky	15,883	Benátky	2. 11. 2025
+3.	Šír Mikuláš	F1	STC Žďár	17,174	Benátky	2. 11. 2025
+4.	Trnka Miroslav	F1	KSB Benátky	17,249	Benátky	8. 3. 2026
+5.	Syrotiuk David	F2	KSB Benátky	17,511	Benátky	8. 3. 2026
+6.	Souček Daniel	JF	BK Náchod	18,269	Benátky	10. 1. 2026
+7.	Pajtl Antonín	JF	STC Žďár	19,12	Benátky	10. 1. 2026
+8.	Švarc Jakub	F1	KSB Benátky	21,634	Benátky	8. 3. 2026
+
+=== 2025-2026 | st | Muži 222 m | Žebříček 2025/2026, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Šír Jakub	C1	STC Žďár	28,029	Benátky	2. 11. 2025
+2.	Jokl Štěpán	F2	STC Žďár	28,543	Benátky	8. 3. 2026
+3.	Švarc Ota	F2	KSB Benátky	28,644	Benátky	8. 3. 2026
+4.	Trnka Vojtěch	F2	KSB Benátky	29,433	Benátky	2. 11. 2025
+5.	Šír Mikuláš	F1	STC Žďár	30,893	Benátky	2. 11. 2025
+6.	Trnka Miroslav	F1	KSB Benátky	32,532	Benátky	8. 3. 2026
+7.	Souček Daniel	JF	BK Náchod	32,963	Benátky	10. 1. 2026
+8.	Syrotiuk David	F2	KSB Benátky	34,391	Benátky	10. 1. 2026
+9.	Pajtl Antonín	JF	STC Žďár	35,933	Benátky	10. 1. 2026
+10.	Švarc Jakub	F1	KSB Benátky	41,62	Dresden	8. 11. 2025
+11.	Souček Petr	C1	BK Náchod	Benátky	1/12/2025	30,907
+12.	Kovanič Anton	F2	KSB Benátky	Benátky	1/12/2025	33,249
+13.	Altan Ochir Buyandari	E2	BK Náchod	Benátky	1/12/2025	33,531
+
+=== 2025-2026 | st | Muži 333 m | Žebříček 2025/2026, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Fuhrmann Daniel	D1	BZK Praha	37,906	Benátky	2. 11. 2025
+2.	Martinec Oliver	D1	KSB Benátky	39,162	Benátky	10. 1. 2026
+3.	Šír Jakub	C1	STC Žďár	39,21	Benátky	2. 11. 2025
+4.	Seknička Matěi	JC	STC Žďár	40,654	Benátky	8. 3. 2026
+5.	Švarc Ota	F2	KSB Benátky	40,817	Benátky	8. 3. 2026
+6.	Souček Petr	D2	BK Náchod	41,517	Benátky	10. 1. 2026
+7.	Jokl Štěpán	F1	STC Žďár	42,846	Trnava	13. 12. 2025
+8.	Trnka Miroslav	G	KSB Benátky	43,35	Dresdem	8. 2. 2026
+9.	Trnka Vojtěch	F1	KSB Benátky	43,542	Benátky	2. 11. 2025
+10.	Šír Mikuláš	E2	STC Žďár	44,423	Benátky	2. 11. 2025
+11.	Syrotiuk David	F1	KSB Benátky	47,857	Benátky	8. 3. 2026
+12.	Pajtl Antonín	JF	STC Žďár	51,96	Benátky	10. 1. 2026
+13.	Souček Daniel	JF	BK Náchod	52,55	Benátky	10. 1. 2026
+14.	Švarc Jakub	F1	KSB Benátky	62,129	Benátky	8. 3. 2026
+15.	Kalamar Matěj	JD	KSB Benátky	Dresden	2/9/2025	34,483
+16.	Kraml Matyáš	C1	BK Náchod	Benátkky	1/12/2025	39,576
+17.	Souček Viktor	C1	BK Náchod	Benátky	1/12/2025	39,591
+18.	Kovanič Anton	F1	KSB Benátky	Benátky	1/12/2025	48,43
+19.	Altan Ochir Buyandari	E1	BK Náchod	Benátky	1/12/2025	52,854
+
+=== 2025-2026 | st | Muži 500 m | Žebříček 2025/2026, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Fajkus Radek	S	KSB Benátky	41,121	Bormio	21. 9. 2025	41,007
+2.	Šulc Samuel Oliver	B2	KSB Benátky	42,32	SLC	31. 1. 2026
+3.	Popl Matěj	S	BZK Praha	42,537	Bormio	21. 9. 2025	41,887
+4.	Sejpal Zdeněk	S	KSB Benátky	42,573	Bormio	21. 9. 2025	42,137
+5.	Procházka Marek	A2	BZK Praha	42,685	Bormio	29. 11. 2025
+6.	Kamenský Václav	B2	KSB Benátky	42,82	Dresden	7. 2. 2026
+7.	Muchka Jan	B2	KSB Benátky	43,073	Dresden	27. 9. 2025
+8.	Jílek Filip	B1	BZK Praha	44,69	Ventspils	9. 8. 2025	43,658
+9.	Muchka František	C2	KSB Benátky	45,115	Trnava	13. 12. 2025
+10.	Hradský David	C2	KSB Benátky	45,286	Dresden	24. 1. 2026
+11.	Smorodskyi Maks.	C1	UKR	45,331	Bialystok	21. 2. 2026
+12.	Kraj Tadeáš	A1	KSB Benátky	45,717	Benátky	2. 11. 2025
+13.	Pouzar Karel	B2	BZK Praha	46,72	Ventspils	9. 1. 2026
+14.	Kalamar Matěj	C1	KSB Benátky	48,462	Dresden	24. 1. 2026
+15.	Koťátko Michal	C2	KSB Benátky	49,992	Dresden	7. 2. 2026
+16.	Fuhrmann Daniel	D2	BZK Praha	56,7	Ventspils	9. 1. 2026
+17.	Martinec Oliver	D1	BK Náchod	57,649	Benátky	10. 1. 2026
+18.	Šír Jakub	C1	STC Žďár	57,863	Benátky	2. 11. 2025
+19.	Seknička Matěj	JC	STC Žďár	59,952	Benátky	8. 3. 2026
+20.	Souček Petr	C1	BK Náchod	61,242	Benátky	10. 1. 2026
+21.	Švarc Oto	F2	KSB Benátky	61,849	Benátky	8. 3. 2026	60,682
+22.	Jokl Štěpán	F2	STC Žďár	66,295	Benátky	8. 3. 2026
+23.	Trnka Vojtěch	F2	KSB Benátky	66,423	Benátky	8. 3. 2026	62,084
+24.	Souček Viktor	C2	BK Náchod	Benátky	1/12/2025	59,326
+26.	Kraml Matyaš	C2	BK Náchod	Benátky	1/12/2025	60,214
+27.	Kovanič Anton	F2	KSB Benátky	Benátky	1/12/2025	72,263
+28.	Altan Ochir Buyandari	E2	BK Náchod	Benátky	1/12/2025	78,373
+29.	Syrotiuk David	F2	KSB Benátky	Benátky	1/12/2025	88,601
+
+=== 2025-2026 | st | Muži 1000 m | Žebříček 2025/2026, poř. č. 12
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Sejpal Zdeněk	S	KSB Benátky	1:27.110	Bormio	21. 9. 2025	1:25.189
+2.	Procházka Marek	A2	BZK Praha	1:27.287	Sal Lake City	1. 2. 2026
+3.	Fajkus Radek	S	KSB Benátky	1:27.293	Montreal	12. 10. 2025	1:24.942
+4.	Muchka Jan	B2	KSB Benátky	1:27.753	Salt Lake City	10. 8. 2025
+6.	Fuhrmann Daniel	D2	BZK Praha	1:28.109	Benátky	2. 11. 2025
+7.	Šír Jakub	C1	STC Žďár	1:31.080	Benátky	10. 1. 2026
+8.	Martinec Oliver	D1	BK Náchod	1:32.117	Benátky	10. 1. 2026
+9.	Sekmička Matěj	JC	STC Žďár	1:33.291	Benátky	8. 3. 2026
+10.	Souček Viktor	C2	BK Náchod	1:38.111	Benátky	10. 1. 2026	1:31.622
+11.	Popl Matěj	S	BZK Praha	Dresden	2/9/2025	1:07.851
+12.	Kamenský Václav	B2	KSB Benátky	Dresden	2/9/2025	1:13.342
+13.	Kraml Matyáš	C2	BK Náchod	Benátky	1/12/2025	1:31.734
+
+=== 2020-2021 | ss | Muži 500 m | Žebříček 2020/2021, poř. č. 13
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Briešťanský Sebastien	S	KRS Svratka	38.31	Inzell	9. 1. 2021
+2.	Stodola Prokop	JA	KSBM Modřany	38.31	Inzell	21. 2. 2021
+3.	Steklý Lukáš	JB	KSB Hodonín	38.97	Inzell	2. 1. 2021
+4.	Kočí Jakub	JB	KSB Hodonín	39.46	Inzell	10. 1. 2021
+5.	Semeniuk Matěj	JB	Kometa Brno	40.74	Inzell	30. 10. 2020
+6.	Popl Matěj	JC	BZK Praha	44.33	Tomaszow	24. 8. 2020
+7.	Baier Max	JC2	45.95	Dresden	12/5/2020	44.92
+8.	Kačálek Vojtěch	JC	RK Chrudim	47.20	Zakopane	18. 12. 2020
+9.	Kurš Marek	JD	KSB Hodonín	52.14	Inzell	27. 2. 2021
+10.	Strnad Matouš	JD	KSB Hodonín	53.78	Inzell	26. 2. 2021	52.43
+11.	Balák Denis	JF	KSB Hodonín	55.68	Inzell	7. 11. 2020
+12.	Krušina David	JC	RK Skuteč	62.12	Zakopane	18. 12. 2020
+
+=== 2020-2021 | ss | Muži 1000 m | Žebříček 2020/2021, poř. č. 13
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Briešťanský Sebastien	S	KRS Svratka	1:14.68	Inzell	9. 1. 2021
+2.	Steklý Lukáš	JB	KSB Hodonín	1:15.05	Inzell	13. 12. 2020
+3.	Stodola Prokop	JA	KSBM Modřany	1:15.88	Inzell	20. 2. 2021
+4.	Kočí Jakub	JB	KSB Hodonín	1:16.81	Inzell	2. 1. 2021	1:16.40
+5.	Semeniuk Matěj	JB	Kometa Brno	1:23.33	Inzell	16. 10. 2020
+6.	Baier Max	JC2	1:34.69	Dresden	12/5/2020	1:31.33
+7.	Kačálek  Vojtěch	JC	RK Chrudim	1:40.23	Zakopane	19. 12. 2020
+8.	Kurš Marek	JD	KSB Hodonín	1:44.08	Inzell	28. 2. 2021
+9.	Strnad Matouš	JD	KSB Hodonín	1:53.09	Inzell	28. 2. 2021
+10.	Balák Denis	JF	KSB Hodonín	1:58.62	Inzell	7. 11. 2020
+11.	Krušina David	JC	RK Skuteč	2:08.08	Zakopane	19. 12. 2020
+12.	Popl Matěj	JC	BZK Praha	1:35.56		
+
+=== 2020-2021 | ss | Muži 1500 m | Žebříček 2020/2021, poř. č. 13
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Steklý Lukáš	JB	KSB Hodonín	1:53.50	Inzell	30. 1. 2021
+2.	Stodola Prokop	JA	KSBM Modřany	1:55.57	Inzell	27. 2. 2021
+3.	Briešťanský Sebastien	S	KRS Svratka	1:55.87	Inzell	25. 10. 2020
+4.	Kočí Jakub	JB	KSB Hodonín	1:56.65	Inzell	10. 1. 2021
+5.	Semeniuk Matěj	JB	Kometa Brno	2:05.49	Inzell	25. 10. 2020
+6.	Dohnalík Pavel	S	Kometa Brno	2:27.08	Tomaszow	24. 8. 2020
+7.	Baier Max	JC2	2:29.04	Dresden	12/6/2020	2:23.66
+8.	Kurš Marek	JD	KSB Hodonín	2:38.77	Inzell	27. 2. 2021
+9.	Kačálek Vojtěch	JC	RK Chrudim	2:40.53	Zakopane	18. 12. 2020	2:39.97
+10.	Strnad Matouš	JD	KSB Hodonín	2:50.64	Inzell	12. 12. 2020
+11.	Krušina David	JC	RK Skuteč	3:30.23	Zakopane	18. 12. 2020
+12.	Popl Matěj	JC	BZK Praha	2:33.000		
+
+=== 2020-2021 | ss | Muži 3000 m | Žebříček 2020/2021, poř. č. 13
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Steklý Lukáš	JB	KSB Hodonín	3:52.57	Inzell	12. 13. 2020
+2.	Stodola Prokop	JA	KSBM Modřany	4:08.59	Inzell	2. 6. 2021
+3.	Kočí Jakub	JB	KSB Hodonín	4:14.92	Inzell	10. 24. 2020	4:11.94
+4.	Briešťanský Sebastien	S	KRS Svratka	4:21.20	Collalbo	1. 23. 2021	4:09.55
+5.	Semeniuk Matěj	JB	Kometa Brno	4:33.30	Inzell	10. 17. 2020	4:33.30
+6.	Popl Matěj	JC	BZK Praha	4:59.05	Tomaszow	8. 24. 2020
+7.	Kačálek Vojtěch	JC	RK Chrudim	5:57.26	Zakopane	12. 19. 2020
+
+=== 2020-2021 | ss | Muži 5000 m | Žebříček 2020/2021, poř. č. 13
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Steklý Lukáš	JB	KSB Hodonín	6:38.18	Inzell	21. 11. 2020
+2.	Kočí Jakub	JB	KSB Hodonín	7:49.51	Collalbo	22. 1. 2020
+3.	Briešťanský Sebastien	S	KRS Svratka	7:31.98		
+
+=== 2020-2021 | ss | Muži 10000 m | Žebříček 2020/2021, poř. č. 13
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Steklý Lukáš	J	KSB Hodonín	13:52.32	Inzell	6. 2. 2021
+
+=== 2021-2022 | ss | Muži 500 m | Žebříček 2021/2022, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Stodola Prokop	JA	KSBM Modřany	37.95	Inzell	5. 12. 2021
+2.	Briešťanský Sebastien	S	KRS Svratka	38.26	Inzell	5. 12. 2021
+3.	Kočí Jakub	JA	KRS Svratka	38.57	Inzell	28. 11. 2021
+4.	Bohumský  Tomáš	S	KSBM Modřany	38.92	Tomaszow	19. 12. 2021
+5.	Steklý Lukáš	JA	KSB Hodonín	39.02	Inzell	30. 12. 2021
+6.	Semeniuk Matěj	JA	SKP Kometa Brno	39.22	Inzell	5. 12. 2021
+7.	Procházka Tadeáš	S	SKR Hlinsko	40.21	Inzell	19. 2. 2022
+8.	Baier Max	JB	41.05	Inzell	1/9/2022	
+9.	Jílek Metoděj	JB	BZK Praha	44.91	Tomaszow	19. 12. 2021
+10.	Kacálek Vojtěch	JB	RK Chrudim	45.01	Tomaszow	19. 12. 2021
+11.	Javora Petr	JA	SKP Kometa Brno	45.06	Tomaszow	19. 12. 2021
+12.	Šulc Samuel	JD	KSB Benátky	46.36	Tomaszow	19. 12. 2021
+13.	Kurš Marek	JC	KSB Hodonín	50.45	Inzell	31. 7. 2021
+14.	Anděl Jakub	JD	BOJ Žďár	50.58	Inzell	15. 1. 2022
+15.	Chmel Filip	JE	BOJ Žďár	51.52	Inzell	15. 1. 2022
+16.	Cermák Jakub	S	ASK Blansko	54.43	Tomaszow	19. 12. 2021
+17.	Binder Martin	JD	RK Chrudim	54.93	Tomaszow	19. 12. 2021
+18.	Tomšík Ondřej	JE	BOJ Žďár	58.12	Tomaszow	19. 12. 2021
+19.	Shalamov Maxmilián	JE	BOJ Žďár	60.13	Inzell	21. 11. 2021
+20.	Žilka Maxim	JE	SKP Kometa Brno	61.87	Inzell	7. 11. 2021
+21.	Anděl Marek	JF	BOJ Žďár	61.90	Inzell	20. 11. 2021
+22.	Kozák Matouš	JF	BOJ Žďár	69.54	Tomasazow	19. 12. 2021
+23.	Bůžička Adam	JF	BOJ Žďár	72.93	Tomaszow	19. 12. 2021
+24.	Meduna Kryštof	JF	SKP Kometa Brno	76.42	Tomaszow	19. 12. 2021
+
+=== 2021-2022 | ss | Muži 1000 m | Žebříček 2021/2022, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Steklý Lukáš	JA	KSB Hodonín	1:14.90	Calgary	19. 3. 2022
+2.	Stodola Prokop	JA	KSBM Modřany	1:15.36	Inzell	31. 7. 2021
+3.	Kočí Jakub	JA	KRS Svratka	1:15.36	Inzell	15. 10. 2021
+4.	Briešťanský Sebastien	S	KRS Svratka	1:15.54	Inzell	22. 10. 2021
+5.	Semeniuk Matěj	JA	SKP Kometa Brno	1:18.48	Inzell	4. 12. 2021
+6.	Bohumský Tomáš	S	KSBM Praha	1:19.25	Tomaszow	19. 12. 2021
+7.	Procházka Tadeáš	S	SKR Hlinsko	1:23.07	Collalbo	15. 1. 2022
+8.	Baier Max	JB	1:24.74	Erfurt	11/21/2021	
+9.	Kacálek  Vojtěch	JB	RK Chrudim	1:29.88	Collalbo	15. 1. 2022
+10.	Jílek Metoděj	JB	BZK Praha	1:30.92	Tomaszow	19. 12. 2021
+11.	Šulc Samuel	JD	KSB Benátky	1:37.88	Tomaszow	19. 12. 2021
+12.	Javora Petr	JA	SKP Kometa Brno	1:39.09	Tomaszow	19. 12. 2021
+13.	Kurš Marek	JC	KSB Hodonín	1:40.83	Inzell	6. 8. 2021
+14.	Anděl Jakub	JD	BOJ Žďár	1:44.60	Inzell	15. 1. 2022
+15.	Jílek Filip	JD	BZK Praha	1:44.92	Tomaszow	19. 12. 2021
+16.	Chmel Filip	JE	BOJ Žďár	1:48.91	Inzell	15. 1. 2022
+17.	Sáblík Martin	JD	BK Žďár	1:52.26	Erfurt	7. 11. 2021
+18.	Binder Martin	JD	RK Chrudim	1:59.40	Tomaszow	19. 12. 2021
+19.	Tomšík Ondřej	JE	BOJ Žďár	2:08.57	Tomaszow	19. 12. 2021
+20.	Žilka Max	JE	SKP Kometa Brno	2:09.28	Tomaszow	19. 12. 2021
+21.	Shalamanov Maxmilián	JE	BOJ Žďár	2:12.98	Tomaszow	19. 12. 2021
+22.	Čermák Jakub	S	ASK Blansko	2:55.75	Tomaszow	19. 12. 2021
+
+=== 2021-2022 | ss | Muži 1500 m | Žebříček 2021/2022, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Steklý Lukáš	JA	KSB Hodonín	1:51.72	Calgary	20. 3. 2022
+2.	Stodola Prokop	JA	KSBM Modřany	1:53.69	Inzell	28. 11. 2021
+3.	Kočí Jakub	JA	KRS Svratka	1:54.71	Inzell	28. 11. 2021
+4.	Briešťanský Sebastien	S	KRS Svratka	1:55.35	Inzell	5. 12. 2021
+5.	Semeniuk Matěj	JA	SKP Kometa Brno	2:02.56	Inzell	5. 12. 2021
+6.	Procházka Tadeáš	S	SKR Hlinsko	2:03.99	Inzell	20. 2. 2022
+7.	Bohumský Tomáš	S	KSBM Modřany	2:06.32	Tomaszow	19. 12. 2021
+8.	Baier Max	JB	2:07.22	Inzell	1/9/2022	
+9.	Jílek Matoděj	JB	BZK Praha	2:18.24	Tomaszow	19. 12. 2021
+10.	Kacálek Vojtěch	JB	RK Chrudim	2:19.64	Collalbo	15. 1. 2022
+11.	Kurš Marek	JC	KSB Hodonín	2:36.56	Inzell	7. 8. 2021
+12.	Čermák Jakub	JA	ASK B lansko	2:47.86	Tomaszow	19. 12. 2021
+13.	Javora Petr	JA	SKP Kometa Brno	2:49.14	Tomaszow	19. 12. 2021
+
+=== 2021-2022 | ss | Muži 3000 m | Žebříček 2021/2022, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Steklý Lukáš	JA	KSB Hodonín	3:55.22	Inzell	2. 25. 2022
+2.	Kočí Jakub	JA	KRS Svratka	3:59.98	Inzell	12. 4. 2021
+3.	Stodola Prokop	JA	KSBM Modřany	4:00.95	Inzell	7. 31. 2021
+4.	Procházka Tadeáš	S	SKR Hlinsko	4:23.22	Inzell	2. 19. 2022
+5.	Bohumský Tomáš	S	KSBM Modřany	4:25.56	Heereveen	10. 24. 2021
+6.	Briešťanský Sebastien	S	KRS Svratka	4:26.05	Tomaszow	12. 19. 2021
+7.	Baier Max	JB	4:42.62	Erfurt	21/11/2021	
+8.	Semeniuk Matěj	JA	SKP Kometa Brno	4:47.74	Tomaszow	19.12.201
+9.	Jílek Metoděj	JB	BZK Praha	4:53.12	Tomaszow	12. 19. 2021
+10.	Kacálek Vojtěch	JB	RK Chrudim	5:09.98	Tomaszow	12. 19. 2021
+11.	Čermák Jakub	JA	ASK Blansko	5:52.93	Tomaszow	12. 19. 2021
+12.	Javora Petr	JA	SKP Kometa Brno	6:16.07	Tomaszow	12. 19. 2021
+
+=== 2021-2022 | ss | Muži 5000 m | Žebříček 2021/2022, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Steklý Lukáš	JA	KSB Hodonín	6:32.12	Calgary	18. 3. 2022
+2.	Stodola Prokop	JA	KSBM Praha	7:09.00	Inzell	26. 2. 2022
+3.	Kočí Jakub	JA	KRS Svratka	7:28.00	Innsbruck	29. 1. 2022
+4.	Briešťanský Sebastien	S	KRS Svratka	7:52.01	Erfurt	7. 11. 2021
+
+=== 2021-2022 | ss | Ženy 500 m | Žebříček 2021/2022, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+6.	Korvasová Lucie	JA	SKR Hlinsko	2:10.55	Inzell	27. 2. 2022
+7.	Kainová Kateřina	JA	KSBM Modřany	2:11.65	Inzell	27. 2. 2022
+8.	Petrusová Adéla	JA	SKR Hlinsko	2:14.62	Inzell	5. 12. 2021
+9.	Macháčková Kateřina	JB	KRS Svratka	2:21.45	Inzell	20.2.2022
+10.	Horká Stella	JB	KSB Hodonín	2:22.06	Hamar	19. 2. 2022
+11.	Macháčková Monika	JC	KRS Svratka	2:28.28	Erfurt	7. 10. 2021
+12.	Fakenbergerová Eliška	JB	RK Skuteč	2:28.56	Collalbo	15. 1. 2022
+13.	Stodolová Zuzana	JB	KSBM Praha	2:28.63	Tomaszow	19. 12. 2021
+14.	Hlušková Sára	JC	BK Náchod	2:29.71	Tomaszow	19. 12. 2021
+15.	Krejčová Adéla	JC	KRS Svratka	2:29.85	Inzell	20. 2. 2022
+16.	Slámová Barbora	JC	KRS Svratka	2:34.66	Inzell	20. 2. 2022
+17.	Stodolová Johana	JB	KSBM Modřany	2:35.16	Tomaszow	19. 12. 2021
+18.	Bohumská Jana	JA	KSBM Praha	2:36.01	Tomaszow	19. 12. 2021
+19.	Němcová Kristýna	JC	KRS Svratka	2:37.41	Inzell	15. 1. 2022
+1.	Zdráhalová Nikola	S	KRS Svratka	1:53.48	Salt Lake City	5. 12. 2021
+2.	Sáblíková Martina	S	KRS Svratka	1:57.28	Hamar	6. 3. 2022
+3.	Kuršová Zuzana	JA	KRS Svratka	1:59.80	Calgary	12. 12. 2021
+4.	Antošová Veronika	S	KRS Svratka	2:03.52	Inzell	5. 12. 2021
+
+=== 2021-2022 | ss | Ženy 1000 m | Žebříček 2021/2022, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+24.	Horáková Karoline	JC	52.27	Enschede	10/16/2021	
+25.	Kopečková Sophia	JE	BK Žďár	53.20	Inzell	7. 11. 2021
+26.	Šiklová Kateřina	JB	KRS Svratka	54.26	Inzell	19. 2. 2022
+27.	Shalamová Zlatina	JD	BOJ Žďár	54.56	Inzell	21. 11. 2021
+28.	Doležalová Tereza	JD	BK Žďár	55.45	Inzell	7. 11. 2021
+29.	Dostálová Lea	JA	RK Skuteč	56.21	Collalbo	15. 1. 2022
+30.	Geierová Anna	JC	Kometa Brno	58.42	Inzell	7. 11. 2021
+31.	Vlková Natálie	JE	SKP Kometa Brno	59.27	Tomaszow	19. 12. 2021
+32.	Lai Emily	JE	ASK Blansko	65.91	Tomaszow	19. 12. 2021
+33.	Vašková Lucie	JF	BOJ Žďár	72.43	Tomaszow	19. 12. 2021
+34.	Kelecseny Laura	JA	ASK Blansko	76.49	Inzell	7. 11. 2021
+35.	Sedláčková Martina	JE	SKP Kometa Brno	76.91	Tomaszow	19. 12. 2021
+36.	Chmelová Klára	JF	BOJ Žďár	77.87	Tomaszow	19. 12. 2021
+37.	Geierová Ema	JE	SKP Kometa Brno	81.71	Tomaszow	19. 12. 2021
+38.	Němcová Zuzana	JF	BOJ Žďár	91.46	Tomaszow	19. 12. 2021
+
+=== 2021-2022 | ss | Ženy 1500 m | Žebříček 2021/2022, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+3.	Kuršová Zuzana	JA	KRS Svratka	1:20.46	Heerenveen	9. 1. 2022
+4.	Antošová Veronika	S	KRS Svratka	1:20.75	Inzell	4. 12. 2021
+5.	Nepokojová Nikol	JA	SKR Hlinsko	1:24.41	Inzell	27. 11. 2021
+6.	Korvasová Lucie	JA	SKR Hlinsko	1:24.65	Inzell	25. 2. 2022
+7.	Petrusová Adéla	JA	SKR Hlinsko	1:26.05	Inzell	4. 12. 2021
+8.	Kainová Kateřina	JA	KSBM Modřany	1:26.79	Erfurt	29. 12. 2021
+9.	Horká Stella	JB	KSB Hodonín	1:31.05	Hamar	6. 8. 2021
+10.	Stodolová Zuzana	JB	KSBM Modřany	1:33.57	Tomaszow	19. 12. 2021
+11.	Macháčková Monika	JC	KRS Svratka	1:34.29	Erfurt	7. 11. 2021
+12.	Fakenbergrova Eliška	JB	RK Skuteč	1:34.49	Collalbo	15. 1. 2022
+13.	Pňovská Anna	JD	KSB Benátky	1:35.85	Tomaszow	19. 12. 2021
+14.	Stodolová Johana	JB	KSBM Modřany	1:36.33	Tomaszow	7. 11. 2021
+15.	Krejčová Adéla	JC	KRS Svratka	1:36.76	Inzell	20. 11. 2021
+16.	Doležalová Tereza	JD	BK Žďár	1:37.66	Inzell	7. 11. 2021
+16.	Hluškova Sara	JC	BK Náchod	1:37.90	Tomaszow	21. 11. 2021
+18.	Stodolová Magdalena	S	KSBM Praha	1:38.09	Tomaszow	19. 12. 2021
+19.	Bohumská Jana	JA	KSBM Praha	1:39.52	Tomaszow	19. 12. 2021
+20.	Němcová Kristýna	JC	KRS Svratka	1:39.65	Collalbo	15. 1. 2022
+21.	Slámová Barbora	JC	KRS Svratka	1:40.65	Collalbo	15. 1. 2022
+22.	Schneiderová Ema	JB	KRS Svratka	1:42.55	Inzell	6. 8. 2021
+23.	Sáblíková Barbora	JD	BK Žďár	1:49.75	Erfurt	7. 11. 2021
+24.	Kopečková Sophia	JE	BK Žďár	1:50.09	Inzell	7. 11. 2021
+25.	Dostálová Lea	JB	RK Skuteč	1:57.16	Tomaszow	19. 12. 2021
+26.	Shalamová Zlatina	JD	BOJ Žďár	1:57.66	Inzell	20. 11. 2021
+27.	Geierová Anna	JC	SKP Kometa Brno	1:57.72	Tomaszow	19. 12. 2021
+28.	Vlková  Natálie	JE	SKP Kometa Brno	2:02.72	Tomaszow	19. 12. 2021
+29.	Lai Emily	JE	SKP Kometa Brno	2:26.23	Tomaszow	19. 12. 2021
+39.	Geierová Ema	JE	SKP Kometa Brno	2:45.69	Tomaszow	19. 12. 2021
+31.	Sedláčková Martina	JE	SKP Kometa Brno	2:48.54	Tomaszow	19. 12. 2021
+
+=== 2021-2022 | ss | Ženy 3000 m | Žebříček 2021/2022, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+20.	Schneiderová Ema	JB	KRS Svratka	2:41.89	Inzell	7. 8. 2010
+21.	Dostálová Lea	JA	RK Skuteč	2:57.58	Tomaszow	19. 12. 2021
+22.	Geierová Anna	JC	SKP Kometa Brno	3:06.12	Tomaszow	19. 12. 2021
+
+=== 2021-2022 | ss | Ženy 5000 m | Žebříček 2021/2022, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Sáblíková Martina	S	KRS Svratka	3:55,50	Calgary	10. 12. 2021
+2.	Zdráhalová Nikola	S	KRS Svratka	3:59,66	Calgary	5. 12. 2021
+3.	Kuršová Zuzana	JA	KRS Svratka	4:15,42	Calgary	10. 12. 2021
+4.	Antošová Veronika	S	KRS Svratka	4:17,75	Inzell	4. 12. 2021
+5.	Korvasová Lucie	JA	SKR Hlinsko	4:34,24	Inzell	26. 2. 2022
+6.	Petrusová Adéla	JA	SKR Hlinsko	4:40,49	Inzell	4. 12. 2021
+7.	Kainová Kateřina	JA	KSBM Praha	4:42,00	Erfurt	29. 12. 2021
+8.	Nepokojová Nikol	JA	SKR Hlinsko	4:48,21	Inzell	27. 11. 2021
+9.	Horká Stella	JB	KSB Hodonín	5:07,89	Hamar	7. 8. 2021
+10.	Stodolová Magdalena	S	KSBM Praha	5:16,06	Tomaszow	19. 12. 2021
+11.	Stodolová Zuzana	JB	KSBM Praha	5:22,45	Tomaszow	19. 12. 2021
+12.	Fakenbergerová Eliška	JB	RK Skuteč	5:22,46	Tomaszow	19. 12. 2021
+13.	Macháčková Monika	JC	KRS Svratka	5:24,53	Inzell	19. 2. 2022
+14.	Krejčová Adéla	JC	KRS Svratka	5:25,85	Inzell	19. 2. 2022
+15.	Stodolová Johana	JB	KSBM Praha	5:26,43	Tomaszow	19. 12. 2021
+16.	Slámová Barbora	JC	KRS Svratka	5:32,57	Inzell	19. 2. 2022
+17.	Bohumská Jana	JA	KSBM Praha	5:40,95	Tomaszow	19. 12. 2021
+18.	Hlušková Sára	JC	BK Náchod	5:43,49	Tomaszow	19. 12. 2021
+19.	Němcová Kristýna	JC	KRS Svratka	5:47,97	Tomaszow	19. 12. 2021
+20.	Schneiderová Ema	JB	KRS Svratka	6:02,00	Tomaszow	19. 12. 2021
+21.	Dostálová Lea	JA	RK Skuteč	6:26,05	Tomaszow	19. 12. 2021
+22.	Geierová Anna	JC	SKP Kometa Brno	6:37,49	Tomaszow	19. 12. 2021
+
+=== 2021-2022 | ss | Ženy 10000 m | Žebříček 2021/2022, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Sáblíková Martina	S	KRS Svratka	6:50.09	Peking	10. 2. 2022
+2.	Zdráhalová Nikola	S	KRS Svratka	7:12.89	Stavanger	20. 11. 2021
+3.	Antošová Veronika	S	KSB Hodonín	7:38.79	Inzell	20. 2. 2022
+
+=== 2022-2023 | ss | Muži 500 m | Žebříček 2022/2023, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Bohumský  Tomáš	S	KSBM Praha	37.68	Inzell	5. 2. 2023
+2.	Kočí Jakub	JA	KRS Svratka	38.15	Calgary	2. 12. 2022
+3.	Briešťanský Sebastien	S	KRS Svratka	38.73	Inzell	19. 2. 2023	38.26
+4.	Stodola Prokop	JA	KSBM Praha	38.77	Inzell	15. 7. 2022	37.95
+5.	Procházka Tadeáš	S	SKR Hlinsko	39.1	Inzell	24. 2. 2023
+6.	Steklý Lukáš	JA	KSB Hodonín	39.56	Inzell	28. 1. 2023	38.97
+7.	Semeniuk Matěj	JA	SKP Kometa Brno	39.58	Inzell	24. 2. 2023	39.22
+8.	Jílek Metoděj	JB	BZK Praha	39.79	Inzell	8. 1. 2023
+9.	Kacálek Vojtěch	JB	RK Chrudim	43.63	Tomaszow	5. 3. 2022
+10.	Krupka Matěj	S	KSBM Praha	44.16	Tomaszow	18. 12. 2022
+11.	Javora Petr	JA	SKP Kometa Brno	44.53	Tomaszow	18. 12. 2022	42.52
+12.	Kurš Marek	JC	KSB Hodonín	46.31	Inzell	28. 1. 2023
+13.	Jílek Filip	JD	BZK Praha	46.81	Tomaszow	18. 12. 2022
+14.	Vrbenský Roman	JB	RK Skuteč	47.27	Tomaszow	26. 11. 2022
+15.	Dohnalík Pavel	S	SKP Kometa Brno	47.41	Inzell	10. 12. 2022
+16.	Chmel Matěj	JD	BOJ Žďár	47.97	Inzell	19. 2. 2023
+17.	Chmel Filip	JE	BOJ Žďár	48.91	Inzell	19. 2. 2023
+18.	Čermák Jakub	S	ASK Blansko	50.01	Inzell	13. 11. 2022
+19.	Anděl Jakub	JD	BOJ Žďár	50.09	Inzell	28. 1. 2023
+20.	Žilka Maxim	JD	SKP Kometa Brno	50.78	Inzell	9. 1. 2023
+21.	Binder Martin	JD	RK Chrudim	51.13	Tomaszow	18. 12. 2022
+22.	Shalamov Maxmilián	JE	BOJ Žďár	52.90	Inzell	19. 2. 2023
+23.	Tomšík Ondřej	JD	BOJ Žďár	53.98	Inzell	19. 2. 2023
+24.	Kozák Jakub Matouš	JF	BOJ Žďár	54.69	Inzell	19. 2. 2023
+25.	Sáblík Martin	JD	BK Ždár	53.33	Inzell	18. 2. 2023
+26.	Duraja Vojtěch	JC	KRS Svratka	57.39	Tomaszow	18. 12. 2022
+27.	Suchý Václav	JE	SKP Kometa Brno	58.76	Inzell	8. 1. 2023
+28.	Anděl Marek	JF	BOJ Žďár	59.19	Inzell	28. 1. 2023
+29.	Duraja Vít	JE	KRS Svratka	64.60	Tomaszow	18. 12. 2022
+30.	Meduna Kryštof	JF	SKP Kometa Brno	65.48	Inzell	19. 2. 2023
+31.	Růžička Adam	JF	BOJ Žďár	74.81	Tomaszow	18. 12. 2022
+32.	Krutiš Vojtěch	JF	ASK Blansko	87.69	Inzell	10. 12. 2022
+
+=== 2022-2023 | ss | Muži 1000 m | Žebříček 2022/2023, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Kočí Jakub	JA	KRS Svratka	1:14.02	Inzell	24. 2. 2023
+2.	Stodola Prokop	S	KSBM Praha	1:16.27	Inzell	5. 2. 2023	1:15.36
+3.	Procházka Tadeáš	S	SKR Hlinsko	1:16.40	Inzell	24. 2. 2023
+4.	Steklý Lukáš	JA	KSB Hodonín	1:16.68	Inzell	22. 10. 2022	1:14.90
+5.	Bohumský Tomáš	S	KSBM Praha	1:16.58	Heerenveen	18. 2. 2023
+6.	Briešťanský Sebastien	S	KRS Svratka	1:18.27	Inzell	19. 2. 2023	1:14.68
+7.	Semeniuk Matěj	JA	SKP Kometa Brno	1:20.36	Inzell	19. 2. 2023	1:18.48
+8.	Jílek Metoděj	JB	BZK Praha	1:20.39	Tomaszow	18. 12. 2022
+9.	Krupka Matěj	S	KSBM Praha	1:26.05	Tomaszow	19. 12. 2022
+10.	Šnajdr Petr	JB	KSBM Praha	1:31.07	Tomaszow	18. 12. 2022
+11.	Kurš Marek	JC	KSB Hodonín	1:32.01	Inzell	28. 1. 2023
+12.	Jílek Filip	JD	BZK Praha	1:34.63	Tomaszow	18. 12. 2022
+13.	Vrbenský Roman	JB	RK Skuteč	1:34.81	Tomaszow	18. 12. 2022
+14.	Dohnalík Pavel	S	SKP Kometa Brno	1:35.53	Inzell	8. 1. 2023
+15.	Javora Petr	JA	SKP Kometa Brno	1:35.61	Tomaszow	18. 12. 2022	1:31.43
+16.	Čermák Jakub	JA	ASK Blansko	1:39.45	Inzell	13. 11. 2022
+17.	Chmel Matěj	JD	BOJ Žďár	1:42.30	Inzell	19. 2. 2023
+18.	Chmel Filip	JE	BOJ Žďár	1:43.26	Inzell	3. 12. 2022
+19.	Anděl Jakub	JD	BOJ Žďár	1:44.64	Inzell	3. 12. 2022	1:44.60
+20.	Žilka Max	JD	SKP Kometa Brno	1:46.69	Inzell	13. 11. 2022
+21.	Shalamanov Maxmilián	JE	BOJ Žďár	1:49.33	Inzell	19. 2. 2023
+22.	Binder Martin	JD	RK Chrudim	1:49.77	Tomaszow	18. 12. 2022
+23.	Duraja Vojtěch	JC	KRS Svratka	1:49.88	Tomaszow	18. 12. 2022
+24.	Sáblík Martin	JD	BK Žďár	1:51.23	Inzell	19. 2. 2023
+25.	Tomšík Ondřej	JD	BOJ Žďár	1:57.78	Inzell	8. 1. 2023
+26.	Suchý Václav	JE	ASK Blansko	2:02.48	Inzell	8. 1. 2023
+27.	Duraja Vít	JE	KRS Svratka	2:12.74	Tomaszow	18. 12. 2022
+28.	Meduna Kryštof	JF	SKP Kometa Brno	2:24.54	Inzell	19. 2. 2023
+
+=== 2022-2023 | ss | Muži 1500 m | Žebříček 2022/2023, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Steklý Lukáš	JA	KSB Hodonín	1:52.75	Inzell	5. 2. 2023	1:51.72
+2.	Kočí Jakub	JA	KRS Svratka	1:53.99	Inzell	11. 2. 2023
+3.	Procházka Tadeáš	S	SKR Hlinsko	1:56.29	Inzell	26. 2. 2023
+4.	Stodola Prokop	S	KSBM Praha	1:57.51	Inzell	5. 2. 2022	1:53.69
+5.	Jílek Metoděj	JB	BZK Praha	1:59.04	Inzell	8. 1. 2023
+6.	Briešťanský Sebastien	S	KRS Svratka	2:04.83	Inzell	5. 11. 2022	1:55.35
+7.	Semeniuk Matěj	JA	SKP Kometa Brno	2:07.22	Inzell	8. 1. 2023	2:02.56
+8.	Krupka Matěj	S	KSBM Praha	2:14.03	Tomaszow	18. 12. 2022
+9.	Šnajdr Petr	JB	KSBM Praha	2:21.92	Tomaszow	18. 12. 2021
+10.	Kurš Marek	JC	KSB Hodonín	2:21.98	Inzell	13. 11. 2022
+11.	Dohnalík Pavel	S	SKP Kometa Brno	2:27.31	Inzell	10. 12. 2022	2:24.82
+12.	Vrbenský Roman	JB	RK Skuteč	2:34.60	Tomaszow	18. 12. 2022
+13.	Chmel Filip	JE	BOJ Žďár	2:41.20	Inzell	19. 2. 2023
+14.	Anděl Jakub	JD	BOJ Žďár	2:42.00	Inzell	28. 1. 2023
+15.	Binder Martin	JC	RK Chrudim	2:43.44	Tomaszow	18. 12. 2022
+16.	Žilka Max	JD	SKP Kometa Brno	2:43.68	Inzell	8. 1. 2023
+17.	Sáblík Martin	JD	BK Ždár	2:51.34	Inzell	19. 2. 2023
+18.	Duraja Vojtěch	JC	KRS Svratka	2:54.60	Tomaszow	18. 12. 2022
+
+=== 2022-2023 | ss | Muži 3000 m | Žebříček 2022/2023, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Steklý Lukáš	JA	KSB Hodonín	3:51.01	Inzell	2. 5. 2023
+2.	Jílek Metoděj	JB	BZK Praha	3:56.12	Inzell	2. 5. 2023
+3.	Stodola Prokop	S	KSBM Praha	4:04.09	Inzell	2. 5. 2023	4:00.95
+4.	Kočí Jakub	JA	KRS Svratka	4:04.71	Inzell	2. 25. 2023	3:59.98
+5.	Procházka Tadeáš	S	SKR Hlinsko	4:11.12	Inzell	2. 19. 2023
+6.	Krupka Matěj	S	KSBM Praha	4:39.60	Tomaszow	12. 18. 2022
+7.	Semeniuk Matěj	JA	SKP Kometa Brno	4:48.02	Tomaszow	12. 18. 2022	4:33.30
+8.	Kurš Marek	JC	KSB Hodonín	4:57.53	Inzell	2. 19. 2023
+9.	Šnajdr Petr	JB	KSBM Praha	5:03.00	Tomaszow	12. 18. 2022
+10.	Duraja Vojtěch	JC	KRS Svratka	5:57.86	Tomaszow	12. 18. 2022
+
+=== 2022-2023 | ss | Muži 5000 m | Žebříček 2022/2023, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Steklý Lukáš	JA	KSB Hodonín	6:31.66	Inzell	11. 2. 2023
+2.	Jílek Metoděj	JB	BZK Praha	6:44.60	Inzell	11. 2. 2023
+3.	Kočí Jakub	JA	KRS Svratka	6:59.08	Tomaszow	11. 2. 2023
+4.	Procházka Tadeáš	S	SKR Hlinsko	7:16.31	Inzell	25. 2. 2023
+5.	Stodola Prokop	S	KSBM Praha	7:23.86	Inzell	30. 9. 2022	7:09.00
+
+=== 2022-2023 | ss | Muži 10000 m | Žebříček 2022/2023, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Steklý Lukáš	JA	KSB Hodonín	Inzell	2/6/2021	13:52.320
+
+=== 2022-2023 | ss | Ženy 500 m | Žebříček 2022/2023, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Sáblíková Martina	S	KRS Svratka	40.39	Calgary	2. 12. 2022	39.23
+2.	Antošová Veronika	S	KRS Svratka	40.81	Inzell	5. 2. 2023
+3.	Nepokojová Nikol	S	SKR Hlinsko	41.59	Inzell	5. 2. 2023	41.16
+4.	Kuršová Zuzana	JA	KRS Svratka	42.63	Calgary	2. 12. 2022	42.22
+5.	Kainová Kateřina	S	KSBM Praha	43.45	Inzell	18. 2. 2023
+6.	Petrusová Adéla	JA	SKR Hlinsko	43.63	Inzell	5. 11. 2022	43.37
+7.	Korvasová Lucie	S	SKR Hlinsko	43.65	Inzell	19. 2. 2023
+8.	Macháčková Kateřina	JB	KRS Svratka	43.73	Inzell	19. 2. 2023
+9.	Horká Stella	JB	KSB Hodonín	44.32	Inzell	10. 12. 2022
+10.	Krejčová Adéla	JC	KRS Svratka	45.51	Inzell	18. 2. 2023
+11.	Schneiderová Ema	JB	KRS Svratka	46.18	Inzell	18. 2. 2023
+12.	Hlušková Sára	JC	BK Náchod	46.6	Heerenveen	10. 3. 2023
+13.	Doležalová Tereza	JD	BK Žďár	46.75	Inzell	18. 2. 2023
+14.	Fakenbergrová Eliška	JB	RK Skuteč	46.88	Inzell	28. 1. 2023	46.56
+15.	Sáblíková Barbora	JD	BK Žďár	47.65	Inzell	18. 2. 2023
+16.	Macháčková  Monika	JC	KRS Svratka	47.84	Inzell	8. 1. 2023	46.85
+17.	Lokvencová Andrea	S	KSBM Praha	47.87	Tomaszow	18. 12. 2022
+18.	Slámová Barbora	JC	KRS Svratka	49.21	Inzell	28. 1. 2023	46.31
+19.	Ondrušková Celestýna	JE	KSB Hodonín	50.07	Inzell	18. 2. 2023
+20.	Geierová Anna	JC	SKP Kometa Brno	50.16	Inzell	13. 11. 2022
+21.	Vlková Natálie	JE	SKP Kometa Brno	51.14	Tomaszow	18. 12. 2022
+22.	Kopečková Sophia	JE	BK Žďár	51.17	Tomaszow	18. 12. 2022
+23.	Shalamová Zlatina	JD	BOJ Žďár	51.36	Inzell	18. 2. 2023
+24.	Lai Emily	JE	ASK Blansko	54.68	Inzell	10. 12. 2022
+25.	Fišarová Karolina	JD	BOJ Žďár	56.27	Inzell	20. 11. 2022
+26.	Šímová Adéla	JA	SKP Kometa Brno	57.04	Inzell	5. 11. 2022	51.88
+27.	Procházková Anděla	JF	BOJ Žďár	57.53	Inzell	18. 2. 2023
+28.	Samsonová Melissa	JB	SKP Kometa Brno	57.9	Inzell	18. 2. 2023
+29.	Vašková Lucie	JF	BOJ Žďár	58.53	Inzell	18. 2. 2023
+30.	Sedláčková Martina	JE	SKP Kometa Brno	59.98	Inzell	8. 1. 2023
+31.	Kelecseny Laura	JA	ASK Blansko	60.74	Inzell	12. 12. 2022
+32.	Khomová Antonie	JD	RK Chrudim	64.92	Tomaszow	18. 12. 2022
+33.	Chmelová Klára	JF	BOJ Žďár	66.47	Tomaszow	18. 12. 2022
+34.	Porada Sviatoslava	JF	BOJ Žďár	67.99	Tomaszow	18. 12. 2022
+35.	Krutišová Jasmína	JE	SKP Kometa Brno	68.5	Inzell	8. 1. 2023
+36.	Geierová Ema	JE	SKP Kometa Brno	68.58	Tomaszow	18. 12. 2022
+37.	Hundová Eliška	JF	ASK Blansko	70.28	Tomaszow	18. 12. 2022
+38.	Žilková Amélie	JF	SKP Kometa Brno	80.67	Tomaszow	18. 12. 2022
+
+=== 2022-2023 | ss | Ženy 1000 m | Žebříček 2022/2023, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Sáblíková Martina	S	KRS Svratka	1:19.70	Calgary	2. 12. 2022	1:18.09
+2.	Antošová Veronika	S	KRS Svratka	1:19.89	Inzell	4. 2. 2023
+3.	Kuršová Zuzana	JA	KRS Svratka	1:22.48	Calgary	2. 12. 2022	1:20.46
+4.	Korvasová Lucie	S	SKR Hlinsko	1:24.03	Inzell	4. 2. 2023
+5.	Nepokojová Nikol	S	SKR Hlinsko	1:24.32	Inzell	4. 2. 2023
+6.	Kainová Kateřina	S	KSBM Praha	1:26.23	Tomaszow	18. 12. 2022
+7.	Macháčková Kateřina	JA	KRS Svratka	1:27.03	Inzell	19. 2. 2023	1:26.63
+8.	Petrusová Adéla	JA	SKR Hlinsko	1:28.20	Inzell	22. 10. 2022	1:26.05
+9.	Horká Stella	JB	KSB Hodonín	1:28.82	Tomaszow	18. 12. 2022	1:26.63
+10.	Hluškova Sara	JC	BK Náchod	1:33.04	Heerenveen	10. 3. 2023
+11.	Krejčová Adéla	JC	KRS Svratka	1:33.73	Inzell	18. 2. 2023
+12.	Macháčková Monika	JC	KRS Svratka	1:34.88	Inzell	9. 12. 2023	1:34.29
+13.	Lokvencová Andrea	S	KSBM Praha	1:36.63	Tomaszow	18. 12. 2022
+14.	Doležalová Tereza	JD	BK Žďár	1:36.88	Inzell	3. 12. 2022
+15.	Schneiderová Ema	JB	KRS Svratka	1:37.07	Tomaszow	18. 12. 2022
+16.	Sáblíková Barbora	JD	BK Žďár	1:40.01	Inzell	18. 2. 2023
+17.	Fakenbergrova Eliška	JB	RK Skuteč	1:41.03	Tomaszow	18. 12. 2022	1:34.49
+18.	Slámová Barbora	JC	KRS Svratka	1:43.89	Inzell	20. 11. 2022	1:35.35
+19.	Geierová Anna	JC	SKP Kometa Brno	1:44.94	Inzell	13. 11. 2022
+21.	Shalamová Zlatina	JD	BOJ Žďár	1:46.48	Inzell	18. 2. 2023
+22.	Kopečková Sophia	JE	BK Žďár	1:49.49	Tomaszow	18. 12. 2022
+23.	Vlková  Natálie	JE	SKP Kometa Brno	1:51.20	Tomaszow	18. 12. 2022
+24.	Lai Emily	JE	SKP Kometa Brno	1:56.02	Inzell	13. 11. 2022
+25.	Šímová Adéla	JA	SKP Kometa Brno	2:01.05	Inzell	5. 11. 2022
+26.	Sedláčková Martina	JE	SKP Kometa Brno	2:03.21	Inzell	18. 2. 2023
+27.	Fišarová Karolina	JD	BOJ Žďár	2:04.67	Inzell	5. 11. 2022
+28.	Samsonová Melissa	JB	SKP Kometa Brno	2:05.62	Tomaszow	18. 12. 2022
+29.	Kelesceny Laura	JA	SKP Kometa Brno	2:08.25	Tomaszow	18. 12. 2022
+39.	Khomová Antonie	JD	RK Crudim	2:16.86	Tomaszow	18. 12. 2022
+31.	Geierová Ema	JE	SKP Kometa Brno	2:21.45	Inzell	18. 2. 2023
+32.	Hundová Eliška	JE	ASK Blansko	2:25.87	Tomaszow	18. 12. 2022
+
+=== 2022-2023 | ss | Ženy 1500 m | Žebříček 2022/2023, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Sáblíková Martina	S	KRS Svratka	2:00.22	Tomaszow	11. 2. 2023	1:53.44
+2.	Antošová Veronika	S	KRS Svratka	2:02.57	Inzell	5. 2. 2023
+3.	Kuršová Zuzana	JA	KRS Svratka	2:04.19	Heerenveen	19. 11. 2022	1:59.80
+4.	Korvasová Lucie	S	SKR Hlinsko	2:06.20	Inzell	5. 2. 2023
+5.	Horká Stella	JB	KSB Hodonín	2:14.49	Inzell	10. 12. 2022
+6.	Petrusová Adéla	JA	SKR Hlinsko	2:15.59	Inzell	23. 10. 2022	2:14.62
+7.	Macháčková Kateřina	JA	KRS Svratka	2:15.83	Inzell	30. 9. 2022	2:14.19
+8.	Nepokojová Nikol	S	SKR Hlinsko	2:16.04	Inzell	23. 10. 2022	2:07.85
+9.	Kainová Kateřina	S	KSBM Praha	2:17.12	Inzell	30. 9. 2022	2:11.65
+10.	Hlušková Sára	JC	BK Náchod	2:21.34	Heerenveen	10. 3. 2023
+11.	Macháčková Monika	JC	KRS Svratka	2:26.50	Inzell	19. 2. 2023
+12.	Fakenbergerová Eliška	JB	RK Skuteč	2:27.40	Inzell	28. 1. 2022
+13.	Krejčová Adéla	JC	KRS Svratka	2:30.25	Inzell	19. 2. 2023	2:28.65
+14.	Lokvencová Andrea	S	KSBM Praha	2:32.07	Tomaszow	18. 12. 2022
+15.	Schneiderová Ema	JB	KRS Svratka	2:34.03	Inzell	19. 2. 2023	2:24.75
+16.	Doležalová Tereza	JC	BK Žďár	2:35.54	Tomaszow	18. 12. 2022
+17.	Sáblíková Barbora	JD	BK Žďár	2:36.88	Inzell	19. 2. 2023
+18.	Geierová Anna	JC	SKP Kometa Brno	2:42.99	Inzell	19. 2. 2023
+19.	Slámová Barbora	JC	KRS Svratka	2:43.68	Inzell	20. 11. 2022	2:34.66
+20.	Kopečková Sophia	JE	BK Žďár	2:59.09	Inzell	19. 2. 2023
+21.	Lai   Emily	JE	SKP Kometa Brno	3:00.92	Inzell	8. 1. 2023
+
+=== 2022-2023 | ss | Ženy 3000 m | Žebříček 2022/2023, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Sáblíková Martina	S	KRS Svratka	3:58,35	Heerenveen	3. 3. 2023	3:52,02
+2.	Kuršová Zuzana	JA	KRS Svratka	4:19.37	Calgary	9. 12. 2022	4:15,42
+3.	Antošová Veronika	S	KRS Svratka	4:25,39	Heerenveen	20. 11. 2022	4:17,75
+4.	Korvasová Lucie	S	SKR Hlinsko	4:28,65	Inzell	4. 2. 2023
+5.	Kainová Kateřina	S	KSBM Praha	4:35,12	Inzell	30. 9. 2022
+6.	Petrusová Adéla	JA	SKR Hlinsko	4:43,57	Inzell	11. 2. 2923	4:40,49
+7.	Horká Stella	JB	KSB Hodonín	4:49,72	Inzell	30. 9. 2022
+8.	Macháčková Kateřina	JA	KRS Svratka	4:50,87	Inzell	23. 10. 2022	4:35,84
+9.	Nepokojová Nikol	S	SKR Hlinsko	4:53,75	Inzell	5. 11. 2022	4:48,21
+10.	Hlušková Sára	JC	BK Náchod	5:15,76	Inzell	25. 2. 2023
+11.	Macháčková Monika	JC	KRS Svratka	5:20,54	Tomaszow	19. 2. 2023
+12.	Lokvencová  Andrea	S	KSBM Praha	5:22,93	Tomaszow	18. 12. 2022
+13.	Schneiderová Ema	JB	KRS Svratka	5:38,75	Tomaszow	18. 12. 2022
+14.	Krejčová Adéla	JC	KRS Svratka	5:42,15	Inzell	3. 12. 2022	5:25,85
+15.	Geierová Anna	JC	SKP Kometa Brno	5:50,55	Tomaszow	18. 12. 2022
+16.	Doležalová Tereza	JC	BK Žďár	5:56,90	Tomaszow	18. 12. 2022
+
+=== 2022-2023 | ss | Ženy 5000 m | Žebříček 2022/2023, poř. č. 10
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Sáblíková Martina	S	KRS Svratka	6:47.78	Heerenveen	5. 3. 2023	6:41,18
+2.	Kuršová Zuzana	JA	KRS Svratka	7:30.93	Calgary	17. 12. 2022
+
+=== 2023-2024 | ss | Muži 500 m | Žebříček 2023/2024, poř. č. 14
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Bohumský  Tomáš	S	KSBM Praha	37.15	Inzell	10. 12. 2023
+2.	Stodola Prokop	S	KSBM Praha	37.93	Inzell	21. 10. 2023
+3.	Kočí Jakub	S	KRS Svratka	38.62	Hmar	24. 2. 2024	38.15
+4.	Vajanský Adrian	A1	( nově SVK)	38.72	Inzell	10. 2. 2024
+5.	Steklý Lukáš	S	KSB Hodonín	39.19	Inzell	17. 2. 2024	38.97
+6.	Procházka Tadeáš	S	SKR Hlinsko	39.24	Inzell	21. 10. 2023	39.1
+7.	Semeniuk Matěj	S	SKP Kometa Brno	39.61	Inzell	21. 10. 2023	39.22
+8.	Kurš Marek	B1	KSB Hodonín	42.92	Inzell	17. 2. 2024
+9.	Šnajdr Petr	A1	KSBM Praha	43.42	Tomaszow	15. 12. 2023
+10.	Hlocman Josef	44.47	Dresden	12/20/2023		
+11.	Chmel Matěj	C1	BOJ Žďár	44.92	Inzell	10. 2. 2024
+12.	Krupka Matěj	S	KSBM Praha	45.32	Inzell	21. 10. 2023	44.16
+13.	Maleček Patrik	A2	KSBM Praha	46.02	Tomaszow	15. 12. 2023
+14.	Sochr Tadeaš	S	KSBM Praha	46.52	Inzell	21. 10. 2023
+15.	Anděl Jakub	C1	BOJ Žďár	47.81	Inzell	18. 11. 2023
+16.	Chmel Filip	D1	BOJ Žďár	48.32	Inzell	10. 2. 2024
+17.	Žilka Maxim	D2	SKP Kometa Brno	49.26	Tomaszow	15. 12. 2023
+18.	Shalamov Maxmilián	D1	BOJ Žďár	50.31	Collalbo	13. 1. 2024
+19.	Sáblík Martin	C1	BK Ždár	51.03	Inzell	4. 11. 2023
+20.	Suchý Václav	D1	SKP Kometa Brno	51.77	Inzell	7. 1. 2024
+21.	Kyncl Michal	B1	KRS Svratka	52.4	Inzell	10. 2. 2024
+22.	Kozák Jakub Matouš	F2	BOJ Žďár	52.55	Inzell	10. 2. 2024
+23.	Tomšík Ondřej	D2	BOJ Žďár	53.87	Inzell	4. 11. 2023
+24.	Anděl Marek	E1	BOJ Žďár	54.77	Inzell	10. 2. 2024
+25.	Suchý Jan	E1	ASK Blansko	62.29	Tomaszow	15. 12. 2023
+26.	Meduna Kryštof	E1	SKP Kometa Brno	62.3	Inzell	11. 11. 2023
+27.	Briešťanský Sebastien	S	KRS Svratka	38.26		
+28.	Jílek Metoděj	A1	BZK Praha	Erfurt	1/8/2023	39.79
+29.	Kacálek Vojtěch	A1	RK Chrudim	Tomaszow	3/5/2022	43.63
+30.	Javora Petr	S	SKP Kometa Brno	42.52		
+31.	Jílek Filip	C1	BZK Praha	Tomaszow	12/18/2022	46.81
+32.	Vrbenský Roman	B2	RK Skuteč	Tomaszow	11/26/2022	47.27
+33.	Dohnalík Pavel	S	SKP Kometa Brno	Inzell	12/10/2022	47.41
+34.	Čermák Jakub	S	ASK Blansko	Inzell	11/13/2022	50.01
+35.	Binder Martin	C2	RK Chrudim	Tomaszow	12/18/2022	51.13
+36.	Duraja Vojtěch	C2	KRS Svratka	Tomaszow	12/18/2022	57.39
+37.	Duraja Vít	D1	KRS Svratka	Tomaszow	12/18/2022	64.60
+38.	Růžička Adam	F2	BOJ Žďár	Tomaszow	12/18/2022	74.81
+39.	Krutiš Vojtěch	F2	ASK Blansko	Inzell	12/10/2022	87.69
+
+=== 2023-2024 | ss | Muži 1000 m | Žebříček 2023/2024, poř. č. 14
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Jílek Metoděj	A1	BZK Praha	1:14.26	Inzell	21. 10. 2023	os.rekord
+2.	Stodola Prokop	S	KSBM Praha	1:14.29	Inzell	21. 10. 2023	1.
+3.	Bohumský Tomáš	S	KSBM Praha	1:14.37	Inzell	9. 12. 2023	2.
+4.	Kočí Jakub	S	KRS Svratka	1:15.32	Inzell	21. 10. 2023	1:14.02
+5.	Steklý Lukáš	S	KSB Hodonín	1:15.98	Inzell	6. 1. 2024	1:14.90
+6.	Procházka Tadeáš	S	SKR Hlinsko	1:16.04	Inzell	21. 10. 2023
+5.	Procházka Tadeáš	S	SKR Hlinsko	1:56.68	Inzell	25. 2. 2024	1:56.29
+7.	Vajanský Adrian	A1	(nově SVK)	1:17.88	Inzell	10. 2. 2024
+6.	Bohumský Tadeáš	S	KSBM Praha	1:58.18	Inzell	22. 10. 2023
+8.	Semeniuk Matěj	S	SKP Kometa Brno	1:19.49	Inzell	7. 1. 2024	1:18.48
+7.	Vajanský Adrian	A1	BZK Praha	2:01.60	Inzell	6. 1. 2024
+9.	Kurš Marek	B1	KSB Hodonín	1:23.26	Inzell	10. 2. 2024
+8.	Semeniuk Matěj	S	SKP Kometa Brno	2:04.65	Inzell	6. 1. 2024	2:02.56
+10.	Šnajdr Petr	A1	KSBM Praha	1:24.99	Tomaszow	15. 12. 2023
+9.	Kurš Marek	B1	KSB Hodonín	2:06.21	Inzell	25. 2. 2024
+11.	Krupka Matěj	S	KSBM Praha	1:25.46	Inzell	21. 10. 2023
+10.	Šnajdr Petr	A1	KSBM Praha	2:07.90	Tomaszow	15. 12. 2023
+12.	Maleček Patrik	A2	KSBM Praha	1:28.52	Tomaszow	15. 12. 2023
+11.	Krupka Matěj	S	KSBM Praha	2:13.95	Tomaszow	22. 10. 2023
+13.	Sochr Tadeáš	S	KSBM Praha	1:29.16	Inzell	21. 10. 2023
+12.	Maleček  Patrik	A2	KSBM Praha	2:15.83	Tomaszow	15. 12. 2023
+14.	Jílek Filip	C1	BZK Praha	1:29.98	Erfurt	5. 11. 2023
+13.	Sochr Tadeáš	S	KSBM Praha	2:19.29	Inzell	22. 10. 2023
+15.	Chmel Matěj	C1	BOJ Žďár	1:31.55	Inzell	19. 11. 2023
+16.	Anděl Jakub	C1	BOJ Žďár	1:38.57	Inzell	10. 2. 2024
+17.	Chmel Filip	D1	BOJ Žďár	1:41.07	Inzell	14. 1. 2024
+18.	Shalamanov Maxmilián	D1	BOJ Žďár	1:43.73	Inzell	14. 1. 2024
+19.	Žilka Maxim	D2	SKP Kometa Brno	1:44.17	Inzell	11. 11. 2023
+20.	Suchý Václav	D1	ASK Blansko	1:48.79	Tomaszow	6. 1. 2023
+21.	Kozák Jakub Matouš	F2	BOJ Žďár	1:50.10	Inzell	10. 2. 2024
+22.	Anděl Marek	E1	BOJ Žďár	1:50.57	Inzell	10. 2. 2024
+23.	Sáblík Martin	C1	BK Žďár	1:51.18	Tomaszow	15. 12. 2023
+24.	Tomšík Ondřej	D1	BOJ Žďár	2:01.25	Tomaszow	15. 12. 2023	1:57.78
+25.	Kyncl Michal	B1	KRS Svratka	2:06.26	Inzell	13. 1. 2024
+26.	Meduna Kryštof	E1	SKP Kometa Brno	2:16.09	Inzell	11. 11. 2023
+27.	Briešťanský Sebastien	S	KRS Svratka	1:14.68		
+28.	Javora Petr	S	SKP Kometa Brno	1:31.43		
+29.	Vrbenský Roman	B2	RK Skuteč	Tomaszow	12/18/2022	1:34.81
+30.	Dohnalík Pavel	S	SKP Kometa Brno	Inzell	1/8/2023	1:35.53
+31.	Čermák Jakub	S	ASK Blansko	Inzell	11/13/2022	1:39.45
+32.	Binder Martin	C2	RK Chrudim	Tomaszow	12/18/2022	1:49.77
+33.	Duraja Vojtěch	C2	KRS Svratka	Tomaszow	12/18/2022	1:49.88
+34.	Duraja Vít	D1	KRS Svratka	Tomaszow	12/18/2022	2:12.74
+
+=== 2023-2024 | ss | Muži 1500 m | Žebříček 2023/2024, poř. č. 14
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+14.	Chmel Filip	D1	BOJ Žďár	2:27.82	Collalbo	13. 1. 2024
+15.	Chmel Matěj	C1	BOJ Žďár	2:28.53	Tomaszow	15. 12. 2023
+16.	Čermák Jakub	S	ASK Blansko	2:32.25	Inzell	22. 10. 2023
+17.	Anděl Jakub	C1	BOJ Žďár	2:33.51	Inzell	18. 11. 2023
+18.	Sáblík Martin	C1	BK Ždár	2:46.35	Inzell	2. 12. 2023
+19.	Kyncl Michal	B1	KRS Svratka	3:09.85	Tomaszow	15. 12. 2023
+20.	Briešťanský Sebastien	S	KRS Svratka	1:55.35		
+21.	Vrbenský Roman	B2	RK Skuteč	Tomaszow	12/18/2022	2:34.60
+22.	Binder Martin	C2	RK Chrudim	Tomaszow	12/18/2022	2:43.44
+23.	Žilka Max	D2	SKP Kometa Brno	Inzell	1/8/2023	2:43.68
+24.	Duraja Vojtěch	C2	KRS Svratka	Tomaszow	12/18/2022	2:54.60
+
+=== 2023-2024 | ss | Muži 3000 m | Žebříček 2023/2024, poř. č. 14
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Jílek Metoděj	A1	BZK Praha	3:46.58	Hachinohe	2. 3. 2024
+2.	Steklý Lukáš	S	KSB Hodonín	4:00.67	Inzell	1. 6. 2024	3:51.01
+3.	Procházka Tadeáš	S	SKR Hlinsko	4:08.01	Inzell	2. 17. 2024
+4.	Stodola Prokop	S	KSBM Praha	4:12.84	Baselga	11. 25. 2023	4:00.95
+5.	Kurš Marek	B1	KSB Hodonín	4:31.42	Inzell	2. 10. 2024
+6.	Šnajdr Petr	A1	KSBM Praha	4:33.59	Tomaszow	12. 15. 2023
+7.	Vajanský Adrian	A1	BZK Praha	4:33.73	Tomaszow	12. 15. 2023
+8.	Semeniuk Matěj	S	SKP Kometa Brno	4:44.55	Inzell	10. 21. 2023	4:33.30
+9.	Jílek Filip	C1	BZK Praha	4:46.82	Erfurt	11. 5. 2023
+10.	Maleček Patrik	A2	KSBM Praha	4:48.31	Tomaszow	15.12.20233
+11.	Chmel  Matěj	C1	BOJ Žďár	5:07.05	Inzell	2. 10. 2024
+12.	Čermák Jakub	S	ASK Blansko	5:29.18	Inzell	10. 21. 2023
+13.	Anděl Jakub	C1	BOJ Žďár	5:37.76	Tomaszow	1. 15. 2023
+14.	Sáblík Martin	C1	BK Žďár	6:03.35	Tomaszow	12. 15. 2023
+15.	Kyncl Michal	B1	KRS Svratka	6:56.77	Tomaszow	12. 15. 2023
+16.	Kočí Jakub	S	KRS Svratka	3:59.98		
+17.	Krupka Matěj	S	KSBM Praha	Tomaszow	18/12/2022	4:39.60
+18.	Duraja Vojtěch	C2	KRS Svratka	Tomaszow	18/12/2022	5:57.86
+
+=== 2023-2024 | ss | Muži 5000 m | Žebříček 2023/2024, poř. č. 14
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Jílek Metoděj	A1	BZK Praha	6:19.60	Hachinohe	10. 2. 2024
+2.	Procházka Tadeáš	S	SKR Hlinsko	7:01.37	Inzell	24. 2. 2024
+3.	Kočí Jakub	S	KRS Svratka	7:06.69	Inzell	16. 12. 2023	6:59.08
+4.	Stodola Prokop	S	KSBM Praha	7:10.46	Inzell	21. 10. 2023	7:09.00
+5.	Krupka Matěj	S	KSBM Praha	8:08.20	Inzell	21. 10. 2023
+6.	Sochr Tadeáš	S	KSBM Praha	8.28,78	Inzell	21. 10. 2023
+7.	Steklý Lukáš	S	KSB Hodonín	6:31.66		
+
+=== 2023-2024 | ss | Muži 10000 m | Žebříček 2023/2024, poř. č. 14
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Steklý Lukáš	JA	KSB Hodonín	13:52.32		
+
+=== 2023-2024 | ss | Ženy 500 m | Žebříček 2023/2024, poř. č. 14
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Sáblíková Martina	S	KRS Svratka	1:58.39	Inzell	22. 10. 2023	1:53.44
+2.	Kuršová Zuzana	S	KRS Svratka	2:00.71	SLC	27. 1. 2024	1:59.80
+3.	Korvasová Lucie	S	SKR Hlinsko	2:04.91	Quebec	4. 2. 2024
+23.	Krejčí Nela	D2	KSBM Praha	1:42.74	Tomaszow	14. 12. 2023
+24.	Shalamová Zlatina	C1	BOJ Žďár	1:44.22	Inzell	4. 11. 2023
+25.	Syrotiuková Veronika	C1	KSBM Praha	1:45.84	Tomaszow	14. 12. 2023
+26.	Sedláčková Martina	D1	SKP Kometa Brno	1:47.98	Inzell	17. 2. 2024
+27.	Pecová Lucie	B2	SKP Kometa Brno	1:48.15	Inzell	10. 2. 2024
+
+=== 2023-2024 | ss | Ženy 1000 m | Žebříček 2023/2024, poř. č. 14
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+47.	Krutišová Jasmína	D1	SKP Kometa Brno	Inzell	1/8/2023	68.5
+48.	Hundová Eliška	D1	ASK Blansko	Tomaszow	12/18/2022	70.28
+1.	Sáblíková Martina	S	KRS Svratka	4:03.62	SLC	26. 1. 2024	3:52,02
+2.	Kuršová Zuzana	S	KRS Svratka	4:11.98	SLC	26. 1. 2024
+3.	Korvasová Lucie	S	SKR Hlinsko	4:16.28	SLC	26. 1. 2024
+4.	Kainová Kateřina	S	KSBM Praha	4:35.14	Inzell	21. 10. 2023	4:35,12
+5.	Antošová Veronika	S	KRS Svratka	4:39.84	Inzell	21. 10. 2023	4:17,75
+6.	Macháčková Kateřina	A2	KRS Svratka	4:45.01	Inzell	14. 10. 2023	4:35,84
+7.	Forstová Jesika	A1	BZK Praha	4:47.08	Inzell	24. 2. 2024
+8.	Nepokojová Nikol	S	SKR Hlinsko	4:50.22	Inzell	21. 10. 2023	4:48,21
+9.	Petrusová Adéla	S	SKR Hlinsko	4:50.43	Inzell	15. 10. 2023	4:40,49
+10.	Prachárová Monika	B2	BZK Praha	4:53.43	Erfurt	1. 3. 2024
+11.	Hlušková Sára	B1	BK Náchod	4:58.59	Inzell	6. 1. 2024
+
+=== 2023-2024 | ss | Ženy 1500 m | Žebříček 2023/2024, poř. č. 14
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+28.	Procházková Anděla	F2	BOJ Žďár	1:50.53	Inzell	10. 2. 2024
+29.	Lai Emily	D1	SKP Kometa Brno	1:53.46	Inzell	10. 2. 2024
+39.	Geierová Ema	D1	SKP Kometa Brno	2:01.70	Inzell	10. 2. 2024
+31.	Samsonová Melissa	B2	SKP Kometa Brno	2:03.00	Inzell	17. 2. 2024
+32.	Khomová Antonie	D2	RK Chrudim	2:10.44	Tomaszow	14. 12. 2023
+33.	Chmelová Klára	E1	BOJ Žďár	2:25.93	Tomaszow	14. 12. 2023
+34.	Khomová Antonie	D2	RK Crudim	2:38.00	Tomaszow	15. 12. 2023	2:16.86
+35.	Slámová Barbora	B1	KRS Svratka	1:35.35		
+36.	Geierová Anna	B1	SKP Kometa Brno	Inzell	11/13/2022	1:44.94
+37.	Vlková  Natálie	D2	SKP Kometa Brno	Tomaszow	12/18/2022	1:51.20
+38.	Šímová Adéla	A2	SKP Kometa Brno	Inzell	11/5/2022	2:01.05
+39.	Fišarová Karolina	C1	BOJ Žďár	Inzell	11/5/2022	2:04.67
+40.	Kelesceny Laura	A2	SKP Kometa Brno	Tomaszow	12/18/2022	2:08.25
+41.	Hundová Eliška	D1	ASK Blansko	Tomaszow	12/18/2022	2:25.87
+1.	Sáblíková Martina	S	KRS Svratka	1:19.06	Inzell	21. 10. 2023	1:18.09
+2.	Kuršová Zuzana	S	KRS Svratka	1:21.36	Inzell	21. 10. 2023	1:20.46
+3.	Antošová Veronika	S	KRS Svratka	1:22.40	Inzell	15.102023	1:19.89
+4.	Korvasová Lucie	S	SKR Hlinsko	1:22.46	Inzell	21. 10. 2023
+5.	Nepokojová Nikol	S	SKR Hlinsko	1:23.64	Inzell	21. 10. 2023
+6.	Kainová Kateřina	S	KSBM Praha	1:23.76	Inzell	10. 2. 2024
+7.	Macháčková Kateřina	A2	KRS Svratka	1:25.18	Inzell	23. 2. 2024
+8.	Horká Stella	A1	KSB Hodonín	1:27.81	Stavanger	4. 11. 2023	1:26.63
+9.	Petrusová Adéla	S	SKR Hlinsko	1:28.00	Inzell	15. 10. 2023	1:26.05
+10.	Forstová Jesika	A1	BZK Praha	1:28.08	Inzell	23. 2. 2024
+11.	Krejčová Adéla	B1	KRS Svratka	1:30.90	Inzell	23. 2. 2024
+12.	Macháčková Monika	B2	KRS Svratka	1:31.24	Inzell	23. 2. 2024
+13.	Hluškova Sara	B1	BK Náchod	1:31.38	Tomaszow	14. 12. 2023
+14.	Lokvencová Andrea	S	KSBM Praha	1:31.96	Inzell	21. 10. 2023
+15.	Prachárová Monika	B2	BZK Praha	1:32.26	Erfurt	1. 3. 2024
+16.	Prachárová Johana	B2	BZK Praha	1:32.54	Tomaszow	14. 12. 2023
+17.	Sáblíková Barbora	C1	BK Žďár	1:32.91	Tomaszow	14. 12. 2023
+18.	Schneiderová Ema	A1	KRS Svratka	1:34.68	Inzell	10. 2. 2024
+19.	Doležalová Tereza	C2	BK Žďár	1:35.07	Inzell	15. 10. 2023
+20.	Fakenbergrová Eliška	A1	RK Skuteč	1:38.69	Tomaszow	14. 12. 2023	1:34.49
+21.	Kopečková Sophia	D2	BK Žďár	1:38.88	Tomaszow	14. 12. 2023
+
+=== 2023-2024 | ss | Ženy 3000 m | Žebříček 2023/2024, poř. č. 14
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+4.	Kainová Kateřina	S	KSBM Praha	2:10.37	Inzell	22. 10. 2023
+5.	Antošová Veronika	S	KRS Svratka	2:11.20	Baselga	26. 11. 2023	2:02.57
+6.	Nepokojová Nikol	S	SKR Hlinsko	2:11.31	Inzell	22. 10. 2023	2:07.85
+7.	Macháčková Kateřina	A2	KRS Svratka	2:13.61	Inzell	25,2,2024
+8.	Horká Stella	A1	KSB Hodonín	2:15.78	Stavanger	5. 11. 2023	2:14.49
+9.	Forstová Jesika	A1	BZK Praha	2:16.15	Inzell	25. 2. 2024
+10.	Petrusová Adéla	S	SKR Hlinsko	2:16.94	Inzell	22. 10. 2023	2:14.62
+11.	Hlušková Sára	B1	BK Náchod	2:17.45	Inzell	11. 11. 2023
+12.	Prachárová Monika	B2	BZK Praha	2:18.69	Erfurt	2. 3. 2024
+13.	Krejčová Adéla	B1	KRS Svratka	2:22.61	Inzell	25. 2. 2024
+14.	Macháčková Monika	B2	KRS Svratka	2:22.90	Inzell	25. 2. 2024
+15.	Prachárová Johana	B2	BZK Praha	2:23.69	Erfgurt	2. 3. 2024
+16.	Lokvencová Andrea	S	KSBM Praha	2:26.37	Inzell	22. 10. 2023
+17.	Sáblíková Barbora	C1	BK Žďár	2:27.99	Tomaszow	14. 12. 2023
+18.	Schneiderová Ema	A1	KRS Svratka	2:32.22	Inzell	4. 11. 2023	2:24.75
+19.	Doležalová Tereza	C2	BK Žďár	2:36.08	Tomaszow	14. 12. 2023	2:35.54
+20.	Syrotiuková Veronika	C1	KSBM Praha	2:38.82	Tomaszow	14. 12. 2023
+21.	Kopečková Sophia	D2	BK Žďár	2:39.21	Inzell	2. 12. 2023
+22.	Shalamová Zlatina	C1	BOJ Žďár	2:45.76	Inzell	18. 11. 2023
+23.	Sedláčková Martina	D1	SKP Kometa Brno	2:47.50	Inzell	7. 1. 2024
+24.	Fakenbergerová Eliška	A1	RK Skuteč	Inzell	1/28/2022	2:27.40
+25.	Geierová Anna	B1	SKP Kometa Brno	Inzell	2/19/2023	2:42.99
+26.	Slámová Barbora	B1	KRS Svratka	2:34.66		
+27.	Lai   Emily	D1	SKP Kometa Brno	Inzell	1/8/2023	3:00.92
+
+=== 2023-2024 | ss | Ženy 5000 m | Žebříček 2023/2024, poř. č. 14
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+12.	Prachárová Johana	B2	BZK Praha	5:02.22	Erfurt	1. 3. 2024
+13.	Horká Stella	A1	KSB Hodonín	5:04.60	Baselga	25. 11. 2023	4:49,72
+14.	Sáblíková Barbora	C1	BK Žďár	5:08.00	Inzell	2. 12. 2023
+15.	Lokvencová  Andrea	S	KSBM Praha	5:13.03	Inzell	21. 10. 2023
+16.	Fakenbergrová Eliška	A1	RK Skuteč	5:23,09	Tomaszow	14. 12. 2023
+17.	Krejčová Adéla	B1	KRS Svratka	5:24.32	Tomaszow	14. 12. 2023
+18.	Doležalová Tereza	C2	BK Žďár	5:31.65	Inzell	2. 12. 2023
+19.	Syrotiuková Veronika	C1	KSBM Praha	5:45,41	Tomaszow	14. 12. 2023
+20.	Macháčková Monika	B2	KRS Svratka	Inzell	2/18/2023	5:20,54
+21.	Schneiderová Ema	A1	KRS Svratka	Tomaszow	12/18/2022	5:38,75
+22.	Geierová Anna	B1	SKP Kometa Brno	Tomaszow	12/18/2022	5:50,55
+
+=== 2023-2024 | ss | Ženy 10000 m | Žebříček 2023/2024, poř. č. 14
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Sáblíková Martina	S	KRS Svratka	6:51.88	Calgary	18. 2. 2024	6:41,18
+2.	Kuršová Zuzana	S	KRS Svratka	Calgary	12/17/2022	7:30,93
+
+=== 2024-2025 | ss | Muži 500 m | Žebříček 2024/2025, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Bohumský  Tomáš	S	SKR Hlinsko	36.75	Inzell	26. 10. 2024
+2.	Stodola Prokop	S	KSBM Praha	37.16	Inzell	26. 10. 2024
+3.	Jílek Metoděj	A2	BZK Praha	37.6	Inzell	18. 10. 2024
+4.	Kočí Jakub	S	KRS Svratka	37.87	Inzell	28. 2. 2025
+5.	Briešťanský Sebastien	S	KRS Svratka	38.07	Inzell	22. 12. 2024
+6.	Procházka Tadeáš	S	SKR Hlinsko	39.04	Inzell	28. 2. 2024
+7.	Semeniuk Matěj	S	SKP Kometa Brno	39.44	Inzell	27. 8. 2024	39.22
+8.	Kovařík Jakub	A2	SKR Hlinsko	40.48	Erfurt	22. 2. 2025
+9.	Jílek Filip	C2	BZK Praha	41.06	Erfurt	22. 2. 2025
+10.	Podlipský Jáchym	B2	KSBM Praha	41.45	Erfurt	22. 2. 2025
+11.	Vystrčil Břetislav	?	41.54	Inzell	2/15/2025	
+12.	Kurš Marek	B2	KSB Hodonín	42.55	Inzell	13. 10. 2024
+13.	Chmel Matěj	C2	BOJ Žďár	42.56	Inzell	4. 1. 2025
+14.	Brejcha Antonín	B2	KSBM Praha	43.85	Erfurt	22. 2. 2025
+15.	Pouzar Karel	C2	BZK Praha	45.35	Erfurt	22. 2. 2025
+16.	Vrba Vojtěch	B1	KSBM Praha	45.41	Erfurt	22. 2. 2025
+17.	Žilka Maxim	C1	SKP Kometa Brno	45.72	Inzell	24. 11. 2024
+18.	Chmel Filip	D2	BOJ Žďár	46.23	Inzell	4. 1. 2025
+19.	Sáblík Martin	C2	BK Ždár	46.25	Erfurt	22. 2. 2025
+20.	Holubec David	C2	KSBM Praha	46.53	Collalbo	19. 1. 2025
+21.	Anděl Jakub	C2	BOJ Žďár	47.65	Erfurt	22. 2. 2025
+22.	Shalamov Maxmilián	D2	BOJ Žďár	48.51	Inzell	9. 11. 2024
+23.	Kyncl Michal	B2	KRS Svratka	49,27	Inzell	5. 1. 2025
+24.	Suchý Václav	D2	SKP Kometa Brno	49.58	Inzell	15. 2. 2025
+25.	Kozák Jakub Matouš	E1	BOJ Žďár	50.19	Erfurt	22. 2. 2025
+26.	Čermák Jakub	S	ASK Blansko	50.69	Erfurt	2. 11. 2024	50.01
+27.	Meduna Kryštof	E2	SKP Kometa Brno	55.23	Inzell	23. 2. 2025
+28.	Anděl Marek	E2	BOJ Žďár	Inzell	2/10/2024	54.77
+
+=== 2024-2025 | ss | Muži 1000 m | Žebříček 2024/2025, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Jílek Metoděj	A2	BZK Praha	1:11.36	Inzell	18. 10. 2024
+2.	Stodola Prokop	S	KSBM Praha	1:12.30	Inzell	26. 10. 2024
+3.	Bohumský Tomáš	S	SKR Hlinsko	1:13.53	Inzell	28. 2. 2025
+4.	Kočí Jakub	S	KRS Svratka	1:13.87	Inzell	28. 2. 2025
+5.	Procházka Tadeáš	S	SKR Hlinsko	1:15.65	Inzell	18. 10. 2024
+6.	Briešťanský Sebastien	S	KRS Svratka	1:17.10	Inzell	22. 12. 2024	1:14.68
+7.	Kovařík Jakub	A2	SKR Hlinsko	1:18.89	Erfurt	23. 2. 2025
+8.	Podlipský Jáchym	B2	KSBM Praha	1:19.99	Inzell	7. 12. 2024
+9.	Semeniuk Matěj	S	SKP Kometa Brno	1:20.23	Inzell	27. 8. 2024	1:18.48
+11.	Semeniuk Matěj	S	SKP Kometa Brno	2:13.76	Erfurt	2. 11. 2024	2:02.56
+12.	Brejcha Antonín	B2	KSBM Praha	2:14.17	Erfurt	22. 2. 2025
+13.	Chmel Matěj	C2	BOJ Žďár	2:18.78	Inzell	5. 1. 2025
+14.	Vrba Vojtěch	B1	KSBM Praha	2:20.53	Erfurt	2. 11. 2024
+15.	Pouzar Karel	C2	BZK Praha	2:21.00	Erfurt	22. 2. 2025
+16.	Žilka Maxim	C1	SKP Kometa Brno	2:21.61	Inzell	5. 1. 2025
+17.	Holubec David	C2	KSBM Praha	2:21.63	Collalbo	18. 1. 2025
+18.	Chmel Filip	D2	BOJ Žďár	2:27.57	Inzell	5. 1. 2025
+19.	Sáblík Martin	C2	BK Ždár	2:30.60	Erfurt	22. 2. 2025
+20.	Anděl Jakub	C2	BOJ Žďár	2:31.12	Erfurt	22. 2. 2025
+21.	Kyncl Michal	B2	KRS Svratka	2:45.20	Erfurt	22. 2. 2025
+22.	Suchý Václav	D2	ASK Blansko	2:49.37	Inzell	7. 12. 2024
+23.	Čermák Jakub	S	ASK Blansko	2:53.78	Erfurt	2. 11. 2024	2:32.25
+24.	Meduna Kryštof	E2	SKP Kometa Brno	3:09.20	Inzell	23. 2. 2025
+1.	Jílek Metoděj	A2	BZK Praha	1:44.98	Calgary	24. 1. 2025
+2.	Stodola Prokop	S	KSBM Praha	1:51.14	Inzell	26. 10. 2024
+3.	Procházka Tadeáš	S	SKR Hlinsko	1:52.65	Inzell	26. 10. 2024
+4.	Kočí Jakub	S	KRS Svratka	1:54.63	Inzell	26. 10. 2024	1:53.99
+5.	Bohumský Tadeáš	S	SKR Hlinsko	1:55.20	Inzell	26. 10. 2024
+6.	Briešťanský Sebastien	S	KRS Svratka	1:57.74	Inzell	22. 12. 2024	1:55.35
+7.	Kovařík Jakub	A2	SKR Hlinsko	1:59.20	Inzell	11. 1. 2025
+8.	Jílek Filip	C2	BZK Praha	2:03.91	Erfurt	22. 2. 2025
+9.	Podlipský Jáchym	B2	KSBM Praha	2:06.04	Erfurt	22. 2. 2025
+10.	Kurš Marek	B2	KSB Hodonín	2:06.60		
+10.	Jílek Filip	C2	BZK Praha	1:20.58	Erfurt	3. 11. 2024
+11.	Kurš Marek	B2	KSB Hodonín	1:22.20	Inzell	2. 11. 2024
+12.	Vystrčil Břetislav	?	1:24.68	Inzell	2/15/2025	
+13.	Chmel Matěj	C2	BOJ Žďár	1:26.79	Inzell	24. 11. 2024
+14.	Brejcha Antonín	B2	KSBM Praha	1:26.90	Inzell	7. 12. 2024
+15.	Pouzar Karel	C2	BZK Praha	1:29.03	Erfurt	23. 2. 2025
+16.	Vrba Vojtěch	B1	KSBM Praha	1:32.08	Erfurt	23. 2. 2025
+17.	Žilka Maxim	C1	SKP Kometa Brno	1:32.89	Inzell	23. 2. 2025
+18.	Krupka Matěj	S	KSBM Praha	1:33.84	Inzell	22. 12. 2024	1:25.46
+19.	Holubec David	C2	KSBM Praha	1:34.50	Collalbo	19. 1. 2025
+20.	Chmel Filip	D2	BOJ Žďár	1:34.98	Collalbo	19. 1. 2025
+21.	Sáblík Martin	C2	BK Žďár	1:35.94	Erfurt	23.2.20215
+22.	Anděl Jakub	C2	BOJ Žďár	1:38.59	Erfurt	23. 2. 2025	1:38.57
+23.	Kyncl Michal	B2	KRS Svratka	1:39.33	Inzell	9. 11. 2024
+24.	Shalamanov Maxmilián	D2	BOJ Žďár	1:39.57	Inzell	9. 11. 2024
+25.	Kozák Jakub Matouš	E1	BOJ Žďár	1:42.79	Inzell	9. 11. 2024
+26.	Suchý Václav	D2	ASK Blansko	1:43.49	Inzell	9. 11. 2024
+27.	Čermák Jakub	S	ASK Blansko	1:48.39	Erfurt	3. 11. 2024	1:39.45
+28.	Meduna Kryštof	E2	SKP Kometa Brno	2:01.10	Inzell	5. 1. 2025
+29.	Anděl Marek	E2	BOJ Žďár	Inzell	2/10/2024	1:50.57
+
+=== 2024-2025 | ss | Muži 1500 m | Žebříček 2024/2025, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+5.	Bohumský Tomáš	S	SKR Hlinsko	8:00.10	Erfurt	3. 11. 2024
+6.	Briešťanský Sebastien	S	KRS Svratka	8:11.20	Erfurt	3. 11. 2024
+
+=== 2024-2025 | ss | Muži 3000 m | Žebříček 2024/2025, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Jílek Metoděj	A2	BZK Praha	12:37.81	Calgary	25. 1. 2025
+1.	Jílek Metoděj	A2	BZK Praha	3:38.80	Calgary	1. 18. 2025
+2.	Stodola Prokop	S	KSBM Praha	4:02.28	Inzell	3. 1. 2025	4:00.95
+3.	Procházka Tadeáš	S	SKR Hlinsko	4:04.47	Inzell	8. 27. 2024
+4.	Kovařík Jakub	A2	SKR Hlinsko	4:12.84	Inzell	1. 11. 2025
+5.	Podlipský Jáchym	B2	KSBM Praha	4:18.07	Inzell	12. 7. 2024
+6.	Jílek Filip	C2	BZK Praha	4:21.12	Erfurt	2. 23. 2025
+7.	Kurš Marek	B2	KSB Hodonín	4:23.20	Inzell	2. 1. 2025
+8.	Brejcha Antonín	B2	KSBM Praha	4:40.30	Inzell	12. 7. 2024
+9.	Chmel  Matěj	C2	BOJ Žďár	4:52.56	Inzell	11. 16. 2024
+10.	Vrba Vojtěch	B1	KSBM Praha	4:54.09	Erfurt	2. 23. 2025
+11.	Žilka Mxim	C1	SKP Kometa Brno	4:55.37	Erfurt	2. 23. 2025
+12.	Pouzar Karel	C2	BZK Praha	4:59.38	Erfurt	2. 23. 2025
+13.	Holubec David	C2	KSBM Praha	5:01.79	Erfurt	2. 23. 2025
+14.	Chmel Filip	D2	BOJ Žďár	5:17.43	Inzell	1. 11. 2025
+15.	Anděl Jakub	C2	BOJ Žďár	5:22.85	Erfurt	2. 23. 2025
+16.	Sáblík Martin	C2	BK Žďár	5:23.54	Erfurt	1. 25. 2025
+17.	Kyncl Michal	B2	KRS Svratka	6:07.00	Erfurt	2. 23. 2025
+
+=== 2024-2025 | ss | Muži 5000 m | Žebříček 2024/2025, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Jílek Metoděj	A2	BZK Praha	6:12.99	Peking	11. 30. 2024
+2.	Kočí Jakub	S	KRS Svratka	6:50.12	Inzell	1. 3. 2025
+3.	Procházka Tadeáš	S	SKR Hlinsko	6:50.38	Inzell	26. 10. 2024
+4.	Stodola Prokop	S	KSBM Praha	6:53.47		
+
+=== 2024-2025 | ss | Ženy 500 m | Žebříček 2024/2025, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Zdráhalová Nikola	S	KRS Svratka	1:54.79	Calgary	25. 1. 2025	1:53.48
+2.	Sáblíková Martina	S	KRS Svratka	1:55.50	Calgary	25. 1. 2025	1:53.44
+3.	Kuršová Zuzana	S	KRS Svratka	2:02.53	Inzell	26. 10. 2024	1:59.80
+4.	Korvasová Lucie	S	SKR Hlinsko	2:02.77	Inzell	26. 10. 2024
+5.	Antošová Veronika	S	KRS Svratka	2:03.72	Inzell	26. 10. 2024	2:02.57
+6.	Kainová Kateřina	S	KSBM Praha	2:07.16	Inzell	26. 10. 2024
+7.	Forstová Jesika	A1	KRS Svratka	2:08.23	Inzell	26. 10. 2024
+8.	Macháčková Kateřina	S	KRS Svratka	2:09.76	Inzell	26. 10. 2024
+9.	Hlušková Sára	B1	BK Náchod	2:10.86	Heerenveen	7. 3. 2025
+10.	Prachárová Monika	A1	BZK Praha	2:12.74	Inzell	22. 12. 2024
+11.	Macháčková Monika	B2	KRS Svratka	2:16.47	Inzell	5. 1. 2025
+
+=== 2024-2025 | ss | Ženy 1000 m | Žebříček 2024/2025, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+32.	Porada Sviatoslava	E1	BOJ Žďár	58.03	Inzell	15. 2. 2025
+33.	Dvořáčková Zuzana	C1	SKP Kometa Brno	59.18	Inzell	27. 8. 2024
+34.	Doležalová Karolina	E	SKP Kometa Brno	59.75	Erfurt	23. 2. 2025
+35.	Žilková Amélie	F2	SKP Kometa Brno	59.76	Inzell	5. 1. 2025
+36.	Khomová Antonie	C1	RK Chrudim	60.18	Erfurt	22. 12. 2025	60.12
+37.	Chmelová Klára	E2	BOJ Žďár	60.95	Inzell	11. 1. 2025
+38.	Zvolánková Ester	F2	RK Chrudim	81.38	Erfurt	22. 2. 2025
+39.	Krupková Stella	G	KSBM Praha	87.38	Erfurt	22. 2. 2025
+40.	Vojtová Sofie	F2	RK Chrudim	97.94	Erfurt	22. 2. 2025
+41.	Ondrušková Celestýna	D2	KSB Hodonín	Inzell	2/17/2024	47.82
+
+=== 2024-2025 | ss | Ženy 1500 m | Žebříček 2024/2025, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+37.	Samsonová Melissa	A1	SKP Kometa Brno	Inzell	2/17/2024	2:03.00
+1.	Zdráhalová Nikola	S	KRS Svratka	1:15.26	Calgary	24. 1. 2025	1:13.83
+2.	Sáblíková Martina	S	KRS Svratka	1:18.72	Inzell	13. 10. 2024	1:18.09
+3.	Antošová Veronika	S	KRS Svratka	1:20.64	Inzell	26. 10. 2024	1:19.89
+4.	Kuršová Zuzana	S	KRS Svratka	1:21.70	Inzell	26. 10. 2024	1:20.46
+5.	Korvasová Lucie	S	SKR Hlinsko	1:21.94	Inzell	26. 10. 2024
+6.	Kainová Kateřina	S	KSBM Praha	1:22.99	Inzell	28. 2. 2025
+7.	Forstová Jesika	A2	KRS Svratka	1:24.10	Inzell	28. 2. 2025
+8.	Nepokojová Nikol	S	SKR Hlinsko	1:24.96	Inzell	18. 10. 2024	1:23.64
+9.	Macháčková Kateřina	S	KRS Svratka	1:24.98	Inzell	4. 1. 2025
+10.	Hluškova Sara	B2	BK Náchod	1:26.64	Heerenveen	8. 3. 2025
+11.	Prachárová Monika	A1	BZK Praha	1:26.83	Inzell	22. 12. 2024
+12.	Macháčková Monika	B2	KRS Svratka	1:27.16	Inzell	22. 12. 2024
+13.	Krejčová Adéla	B2	KRS Svratka	1:27.62	Inzell	22. 12. 2024
+14.	Prachárová Johana	A1	BZK Praha	1:29.88	Inzell	22. 12. 2024
+15.	Papoušková Marta	C2	KRS Svratka	1:30.20	Inzell	16. 11. 2024
+16.	Sáblíková Barbora	C2	BK Žďár	1:30.69	Inzell	16. 11. 2024
+17.	Dykastová Veronika	B2	KSBM Praha	1:31.18	Inzell	1. 2. 2025
+18.	Kopečková Sophia	C1	BK Žďár	1:32.39	Inzell	25. 1. 2025
+19.	Syrotiuková Veronika	C2	KSBM Praha	1:32.86	Collalbo	19. 1. 2025
+20.	Petrusová Adéla	S	SKR Hlinsko	1:34.98	Erfurt	3. 11. 2024	1:26.05
+21.	Krejčí Nela	C1	KSBM Praha	1:35.86	Erfurt	2. 11. 2024
+22.	Geierová Anna	B2	SKP Kometa Brno	1:37.89	Inzell	4. 1. 2025
+23.	Sedláčková Martina	D1	SKP Kometa Brno	1:39.11	Inzell	22. 2. 2025
+24.	Pecová Lucie	A1	SKP Kometa Brno	1:39.78	Inzell	22. 2. 2025
+25.	Vystrčilová Kateřina	A1	KSB Hodonín	1:41.15	Inzell	18. 10. 2024
+26.	Lai Emily	D1	SKP Kometa Brno	1:42.31	Inzell	22. 2. 2025
+27.	Vrbová Anežka	D2	KSBM Praha	1:45.15	Erfurt	22. 2. 2025
+28.	Procházková Anděla	F2	BOJ Žďár	1:50.53	Inzell	10. 2. 2025
+29.	Geierová Ema	D1	SKP Kometa Brno	1:55.98	Inzell	7. 12. 2024
+39.	Vašková Lucie	E1	BOJ Žďár	1:57.25	Inzell	9. 11. 2024
+31.	Žilková Amélie	F2	SKP Kometa Brno	2:05.16	Inzell	5. 1. 2025
+32.	Porada Sviatoslava	E1	BOJ Žďár	2:05.96	Erfurt	23. 2. 2025
+33.	Chmelová Klára	E1	BOJ Žďár	2:12.48	Inzell	5. 1. 2025
+34.	Doležalová Karolina	E	SKP Kometa Brno	3:29.00	Erfurt	23. 2. 2025
+35.	Schneiderová Ema	A2	KRS Svratka	Inzell	2/10/2024	1:34.68
+1.	Sáblíková Martina	S	KRS Svratka	6:49.01	Calgary	24. 1. 2025	6:41,18
+2.	Zdráhalová Nikola	S	KRS Svratka	7:05.59	Calgary	24. 1. 2025
+1.	Sáblíková Martina	S	KRS Svratka	4:00.57	Hamar	13. 3. 2025	3:52,02
+2.	Zdráhalová Nikola	S	KRS Svratka	4:05,09	Hamar	13. 3. 2025	4:03,48
+3.	Kuršová Zuzana	S	KRS Svratka	4:14.71	Inzell	26. 10. 2024	4:11.98
+4.	Korvasová Lucie	S	SKR Hlinsko	4:16.36	Nagano	22. 11. 2024	4:16.28
+5.	Kainová Kateřina	S	KSBM Praha	4:21.54	Inzell	19. 10. 2024
+6.	Forstová Jesika	A2	KRS Svratka	4:30.95	Inzell	26. 10. 2024
+7.	Macháčková Kateřina	S	KRS Svratka	4:34.10	Inzell	26. 10. 2024
+
+=== 2024-2025 | ss | Ženy 3000 m | Žebříček 2024/2025, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+12.	Prachárová Johana	A1	BZK Praha	2:17.84	Inzell	22. 12. 2024
+13.	Sáblíková Barbora	C1	BK Žďár	2:18.96	Inzell	15. 2. 2025
+14.	Krejčová Adéla	B1	KRS Svratka	2:19.79	Inzell	5. 1. 2025
+15.	Dykastová Veronika	B2	KSBM Praha	2:19.91	Inzell	1. 2. 2025
+16.	Papoušková Marta	C2	KRS Svratka	2:21.70	Erfurt	22. 2. 2025
+17.	Syrotiuková Veronika	C1	KSBM Praha	2:26.85	Erfurt	22. 2. 2025
+18.	Kopečková Sophia	D2	BK Žďár	2:27.44	Inzell	20. 10. 2024
+19.	Krejčí Nela	C1	KSBM Praha	2:27.93	Erfurt	22. 2. 2025
+20.	Geierová Anna	B1	SKP Kometa Brno	2:30.78	Inzell	5. 1. 2025
+21.	Pecová Lucie	A1	SKP Kometa Brno	2:31.45	Inzell	23. 2. 2025
+22.	Sedláčková Martina	D1	SKP Kometa Brno	2:35.32	Inzell	23. 2. 2025
+23.	Lai   Emily	D1	SKP Kometa Brno	2:36.36	Inzell	23. 2. 2025
+24.	Vystrčilová Kateřina	A1	KSB Hodonín	2:39.07	Inzell	20. 10. 2024
+25.	Vrbová Anežka	D2	KSBM Praha	2:41.14	Erfurt	23. 2. 2025
+26.	Khomová Antonie	C1	RK Skuteč	3:12.40	Erfurt	22. 2. 2025
+
+=== 2024-2025 | ss | Ženy 5000 m | Žebříček 2024/2025, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+8.	Antošová Veronika	S	KRS Svratka	4:36.62	Inzell	16. 11. 2024	4:17,75
+9.	Hlušková Sára	B2	BK Náchod	4:38.92	Heerenveen	8. 3. 2025
+10.	Prachárová Monika	A1	BZK Praha	4:46.64	Inzell	15. 2. 2025
+11.	Prachárová Johana	A1	BZK Praha	4:51.39	Inzell	15. 2. 2025
+12.	Macháčková Monika	A1	KRS Svratka	4:51.98	Inzell	1. 3. 2025
+13.	Papoušková Marta	C2	KRS Svratka	4:56.46	Erfurt	23. 2. 2025
+14.	Dykastová Veronika	B2	KSBM Praha	4:56.97	Inzell	7. 12. 2024
+15.	Sáblíková Barbora	C2	BK Žďár	5:00.38	Erfurt	25. 1. 2025
+16.	Syrotiuková Veronika	C2	KSBM Praha	5:16,43	Erfurt	23. 2. 2025
+17.	Krejčová Adéla	B2	KRS Svratka	5:18.46	Erfurt	23. 2. 2025
+18.	Krejčí Nela	C1	KSBM Praha	5:20.79	Erfurt	23. 2. 2025
+19.	Kopečková Sophia	D2	BK Žďár	5:28.80	Erfurt	23. 2. 2025
+20.	Geierová Anna	B2	SKP Kometa Brno	5:30.51	Inzell	15. 2. 2025
+21.	Sedláčková Martina	D1	SKP Kometa Brno	5:34.61	Inzell	15. 2. 2025
+
+=== 2024-2025 | ss | Ženy 10000 m | Žebříček 2024/2025, poř. č. 15
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+3.	Kuršová Zuzana	S	KRS Svratka	7:10.08	Calgary	24. 1. 2025
+4.	Kainová Kateřina	S	KSBM Praha	7:25.40	Calgary	24. 1. 2025
+
+=== 2025-2026 | ss | Ženy 500 m | Žebříček 2025/2026, poř. č. 16
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Zdráhalová Nikola	S	KRS Svratka	38,34	Heerenveen	7. 12. 2025	38,1
+2.	Antošová Veronika	S	KRS Svratka	41,07	SLC	25. 10. 2025	40,84
+3.	Nepokojová Nikol	S	SKR Hlinsko	41,48	Inzell	19. 12. 2025	41,16
+4.	Hlušková Sára	A1	BK Náchod	42,08	Inzell	28. 2. 2026
+5.	Macháčková Kateřina	S	KRS Svratka	42,50	Inzell	24. 10. 2025
+6.	Korvasová Lucie	S	SKR Hlinsko	42,59	Inzell	11. 10. 2025	42,51
+7.	Dykastová Veronika	A1	KSBM Praha	42,85	Milano	30. 11. 2025
+8.	Krejčová Adéla	A1	KRS Svratka	43,24	Inzell	3. 1. 2026
+9.	Forstová Jesika	S	KRS Svratka	43,53	Inzell	11. 10. 2025	43,31
+10.	Sáblíková Barbora	B1	BK Žďár	43,6	Inzell	24. 10. 2025
+11.	Papoušková Marta	B1	KRS Svratka	43,88	Inzell	10. 1. 2025
+12.	Kopečková Sophia	C2	BK Žďár	44,44	Inzell	24. 10. 2025
+13.	Prachárová Monika	A2	BZK Praha	44,56	Erfurt	8. 11. 2025	44,17
+14.	Petrusová Adéla	S	SKR Hlinsko	44,65	Inzell	24. 10. 2025	43,37
+15.	Syrotiuková Veronika	B1	KSBM Praha	44,12	Inzell	19. 12. 2025
+16.	Macháčková  Monika	A2	KRS Svratka	45,89	Inzell	1. 11. 2025	44,25
+17.	Lai Emily	C1	ASK Blansko	46,5	Inzell	6. 12. 2025
+18.	Pecová Lucie	A2	SKP Kometa Brno	47,77	Inzell	8. 11. 2025	47,20
+19.	Geierová Anna	A1	SKP Kometa Brno	47,94	Inzell	6. 12. 2025
+20.	Sedláčková Martina	C1	SKP Kometa Brno	46,91	Inzell	3. 1. 2026
+21.	Vrbová Anežka	D2	KSBM Praha	48,47	Erfurt	9. 11. 2025
+22.	Prachárová Johana	A2	BZK Praha	48,99	Erfurt	8. 11. 2025	46,01
+23.	Peterová Markéta	C1	KSBM Praha	50,66	Erfurt	8. 11. 2025
+24.	Geierová Ema	C1	SKP Kometa Brno	51,26	Inzell	3. 1. 2026
+25.	Procházková Anděla	E2	BOJ Žďár	51,34	Inzell	25. 7. 2025	51,18
+26.	Kaninská Amálie	C2	KSBM Praha	52,11	Erfurt	8. 11. 2025
+27.	Galová Alexandra	B1	SKR Hlinsko	53,18	Erfurt	8. 11. 2025
+28.	Jungová Kristýna	B1	SKR Hlinsko	53,4	Erfuft	8. 11. 2025
+29.	Vašková Lucie	E2	BOJ Žďár	52,32	Inzell	10. 1. 2026
+30.	Dykastová Lucie	C1	KSBM Praha	53,8	Chemnitz	20. 12. 2025
+31.	Hrázská Žilková G.	S	SKP Kometa Brno	53,88	Erfurt	8. 11. 2025
+32.	Porada Sviatoslava	E2	BOJ Žďár	56,01	Inzell	23. 11. 2025
+33.	Žilková Amélie	E1	SKP Kometa Brno	60,94	Erfurt	8. 11. 2025	59,76
+34.	Krupková Stella	JF	KSBM Praha	75,46	Erfurt	18. 10. 2025
+35.	Sáblíková Martina	S	KRS Svratka	39,23		
+36.	Kainová Kateřina	S	KSBM Praha	42,1		
+37.	Kuršová Zuzana	S	KRS Svratka	41,37		
+38.	Horká Stella	S	KRS Svratka	44,45		
+39.	Doležalová Tereza	B2	BK Žďár	44,44		
+40.	Schneiderová Ema	S	KRS Svratka	45,4		
+41.	Ondrušková Celestýna	D2	KSB Hodonín	47,82		
+42.	Krejčí Nela	C2	KSBM Praha	47,98		
+43.	Vystrčilová Kateřina	A2	KSB Hodonín	50,39		
+44.	Dvořáčková Zuzana	C2	SKP Kometa Brno	59,18		
+45.	Doležalová Karolina	E	SKP Kometa Brno	59,75		
+41.	Khomová Antonie	C1	RK Chrudim	60,12		
+42.	Chmelová Klára	D1	BOJ Žďár	60,95		
+43.	Zvolánková Ester	E1	RK Chrudim	81,38		
+
+=== 2025-2026 | ss | Ženy 1000 m | Žebříček 2025/2026, poř. č. 16
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Zdráhalová Nikola	S	KRS Svratka	1:14.70	Calgary	21. 11. 2025	1:13.83
+2.	Antošová Veronika	S	KRS Svratka	1:19.47	Calgary	7. 11. 2025
+3.	Korvasová Lucie	S	SKR Hlinsko	1:21.72	Inzell	18. 10. 2025
+4.	Hluškova Sara	A1	BK Náchod	1:23.16	Inzell	21. 2. 2026
+5.	Dykastová Veronika	A1	KSBM Praha	1:23.21	Inzell	21. 2. 2026
+6.	Forstová Jesika	S	KRS Svratka	1:24.59	Inzell	21. 2. 2026	1:24.10
+7.	Macháčková Kateřina	S	KRS Svratka	1:25.28	Inzell	24. 10. 2025	1:24.98
+8.	Kainová Kateřina	S	KSBM Praha	1:25.38	Inzell	18. 10. 2025	1:22.99
+9.	Nepokojová Nikol	S	SKR Hlinsko	1:25.70	Inzell	9. 11. 2025	1:23.64
+10.	Prachárová Monika	A2	BZK Praha	1:27.57	Erfurt	9. 11. 2025	1:26.83
+11.	Krejčová Adéla	A1	KRS Svratka	1:27.66	Erfurt	9. 11. 2025	1:27.62
+12.	Sáblíková Barbora	B1	BK Žďár	1:27.83	Inzell	24. 10. 2025
+13.	Papoušková Marta	B1	KRS Svratka	1:28.34	Inzell	24. 10. 2025
+14.	Syrotiuková Veronika	B1	KSBM Praha	1:30.10	Erfurt	9. 11. 2025
+15.	Kopečková Sophia	C2	BK Žďár	1:30.16	Inzell	1. 11. 2025
+16.	Macháčková Monika	A2	KRS Svratka	1:31.34	Inzell	1. 11. 2025	1:27.16
+17.	Petrusová Adéla	S	SKR Hlinsko	1:31.48	Inzell	24. 10. 2025	1:26.05
+18.	Prachárová Johana	A2	BZK Praha	1:34.38	Erfurt	9. 11. 2025	1:29.88
+19.	Vystrčilová Kateřina	A2	KSB Hodonín	1:36.52	Inzell	7. 2. 2026
+20.	Pecová Lucie	A2	SKP Kometa Brno	1:37.55	Inzell	6. 12. 2025
+21.	Geierová Anna	A1	SKP Kometa Brno	1:37.81	Erfurt	9. 11. 2025
+22.	Vrbová Anežka	D2	KSBM Praha	1:37.81	Erfurt	9. 11. 2025
+23.	Lai Emily	C1	SKP Kometa Brno	1:38.74	Collalbo	18. 1. 2026
+24.	Sedláčková Martina	C1	SKP Kometa Brno	1:38.87	Inzell	6. 12. 2025
+25.	Peterová Markéta	C1	KSBM Praha	1:39.95	Erfurt	9. 11. 2025
+26.	Kaninská Amálie	C2	KSBM Praha	1:41.77	Erfurt	9. 11. 2025
+27.	Dykastová Lucie	C1	KSBM Praha	1:44.13	Erfurt	9. 11. 2025
+28.	Geierová Ema	C1	SKP Kometa Brno	1:46.26	Inzell	3. 1. 2026
+29.	Vašková Lucie	E2	BOJ Žďár	1:47.19	Inzell	10. 1. 2026
+39.	Procházková Anděla	E2	BOJ Žďár	1:47.87	Inzell	10. 1. 2026
+31.	Gálová Alexandra	B1	SKR Hlinsko	1:47.98	Erfurt	9. 11. 2025
+32.	Jungová Kristýna	B1	SKR Hlinsko	1:49.29	Erfurt	9. 11. 2025
+33.	Hrázská Žilková G.	S	SKP Kometa Brno	1:49.36	Erfurt	9. 11. 2025
+34.	Porada Sviatoslava	E2	BOJ Žďár	2:00.64	Inzell	10. 1. 2026
+35.	Sáblíková Martina	S	KRS Svratka	1:18.09		
+36.	Kuršová Zuzana	S	KRS Svratka	1:20.46		
+37.	Horká Stella	S	KRS Svratka	1:28.12		
+38.	Krejčí Nela	C2	KSBM Praha	1:35.86		
+39.	Žilková Amélie	E1	SKP Kometa Brno	2:05.16		
+40.	Chmelová Klára	D1	BOJ Žďár	2:12.48		
+41.	Doležalová Karolina	D1	BOJ Žďár	3:29.00		
+42.	Schneiderová Ema	S	KRS Svratka	Inzell	2/10/2024	1:34.68
+43.	Ondrušková Celestýna JE	D2	KSB Hodonín	Inzell	2/17/2024	1:41.06
+44.	Samsonová Melissa	A2	SKP Kometa Brno	Inzell	2/17/2024	2:03.00
+
+=== 2025-2026 | ss | Ženy 1500 m | Žebříček 2025/2026, poř. č. 16
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Zdráhalová Nikola	S	KRS Svratka	1:52.86	Calgary	22. 11. 2025
+2.	Sáblíková Martina	S	KRS Svratka	1:54.35	SLC	15. 11. 2025	1:53.44
+3.	Korvasová Lucie	S	SKR Hlinsko	1:59.86	SLC	15. 11. 2025
+4.	Antošová Veronika	S	KRS Svratka	2:03.40	SLC	25. 10. 2025	2:02.57
+5.	Kuršová Zuzana	S	KRS Svratka	2:03.71	Inzell	25. 7. 2025	1:59.80
+6.	Hlušková Sára	A1	BK Náchod	2:07.23	Inzell	22. 2. 2026
+7.	Macháčková Kateřina	S	KRS Svratka	2:08.85	Inzell	22. 2. 2026
+8.	Dykastová Veronika	A1	KSBM Praha	2:08.11	Inzell	28. 2. 2026
+9.	Kainová Kateřina	S	KSBM Praha	2:09.36	Collalbo	7. 12. 2025	2:07.16
+10.	Forstová Jesika	S	KRS Svratka	2:09.74	Inzell	22. 2. 2026	2:08.23
+11.	Macháčková Monika	A1	KRS Svratka	2:12.67	Inzell	1. 11. 2025
+12.	Prachárová Monika	A2	BZK Praha	2:12.71	Collalbo	7. 12. 2025
+13.	Sáblíková Barbora	B1	BK Žďár	2:14.80	Inzell	26. 10. 2025
+14.	Krejčová Adéla	A1	KRS Svratka	2:15.79	Inzell	25. 7. 2025
+15.	Papoušková Marta	B1	KRS Svratka	2:15.94	Inzell	25. 10. 2025
+16.	Kopečková Sophia	C2	BK Žďár	2:20.52	Inzell	26. 10. 2025
+17.	Syrotiuková Veronika	B1	KSBM Praha	2:20.93	Erfurt	8. 11. 2025
+18.	Prachárová Johana	A2	BZK Praha	2:23.45	Inzell	1. 11. 2025	2:17.84
+19.	Pecová Lucie	A2	SKP Kometa Brno	2:28.39	Inzell	3. 1. 2026
+20.	Geierová Anna	A1	SKP Kometa Brno	2:29.53	Inzell	6. 12. 2025
+21.	Vrbová Anežka	D2	KSBM Praha	2:31.46	Chemnitz	1. 11. 2025
+22.	Lai   Emily	C1	SKP Kometa Brno	2:34.99	Inzell	23. 11. 2025	2:36.36
+23.	Peterová Markéta	C1	KSBM Praha	2:35.53	Erfurt	8. 11. 2025
+24.	Sedláčková Martina	C1	SKP Kometa Brno	2:35.79	Inzell	23. 11. 2025	2:35.32
+25.	Geierová Ema	C1	SKP Kometa Brno	2:48.50	Collalbo	18. 1. 2026
+26.	Galová Alexandra	B1	SKR Hlinsko	2:50.04	Erfurt	8. 11. 2025
+27.	Jungová Kristýna	B1	SKR Hlinsko	2:51.52	Erfurt	8. 11. 2025
+28.	Horká Stella	S	KRS Svratka	2:19.72		
+29.	Krejčí Nela	C2	KSBM Praha	2:27.93		
+30.	Vystrčilová Kateřina	A2	KSB Hodonín	2:39.07		
+31.	Khomová Antonie	C2	RK Skuteč	3:12.40		
+
+=== 2025-2026 | ss | Ženy 3000 m | Žebříček 2025/2026, poř. č. 16
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Sáblíková Martina	S	KRS Svratka	3:58.49	SLC	14. 11. 2025	3:52,02
+2.	Zdráhalová Nikola	S	KRS Svratka	4:01,00	Calgary	21. 11. 2025
+3.	Korvasová Lucie	S	SKR Hlinsko	4:11.02	SLC	14. 11. 2025
+4.	Kuršová Zuzana	S	KRS Svratka	4:15.44	Calgary	21. 11. 2025	4:11.98
+5.	Kainová Kateřina	S	KSBM Praha	4:19.94	Inzell	24. 1. 2026
+6.	Hlušková Sára	B2	BK Náchod	4:28.04	Inzell	21. 2. 2026
+7.	Dykastová Veronika	A1	KSBM Praha	4:29.33	Inzell	28. 2. 2026
+8.	Macháčková Kateřina	S	KRS Svratka	4:32.70	Inzell	25. 10. 2025
+9.	Forstová Jesika	S	KRS Svratka	4:35.31	Inzell	25. 10. 2025	4:30.95
+10.	Prachárová Monika	A2	BZK Praha	4:38.86	Erfurt	9. 11. 2025
+11.	Sáblíková Barbora	B1	BK Žďár	4:45.23	Inzell	1. 11. 2025
+12.	Nepokojová Nikol	S	SKR Hlinsko	4:47.31	Milano	29. 11. 2025
+13.	Papoušková Marta	B1	KRS Svratka	4:49.40	Inzell	25. 10. 2025
+14.	Prachárová Johana	A2	BZK Praha	4:51.87	Erfurt	9. 11. 2025	4:51.39
+15.	Petrusová Adéla	S	SKR Hlinsko	4:58,96	Inzell	25. 10. 2025	4:40,49
+16.	Krejčová Adéla	A1	KRS Svratka	5:00.26	Erfurt	9. 11. 2025
+17.	Syrotiuková Veronika	B1	KSBM Praha	5:01,25	Erfurt	18. 10. 2025
+18.	Macháčková Monika	A2	KRS Svratka	5:02.04	Inzell	1. 11. 2025	4:51.98
+19.	Kopečková Sophia	C2	BK Žďár	5:12.90	Erfurt	9. 11. 2025
+20.	Peterová Markéta	C1	KSBM Praha	5:21,29	Erfurt	9. 11. 2025
+21.	Geierová Anna	A1	SKP Kometa Brno	5:26.89	Erfurt	9. 11. 2025
+22.	Sedláčková Martina	C1	SKP Kometa Brno	5:33.10	Erfurt	9. 11. 2025
+23.	Kaninská Amélie	C2	KSBM Praha	5:38,15	Erfurt	9. 11. 2025
+24.	Dykastová Lucie	C1	KSBM Praha	5:40,05	Erfurt	9. 11. 2025
+25.	Geierová Ema	C1	SKP Kometa Brno	5:57,73	Erfurt	9. 11. 2025
+26.	Galová Alexandra	B1	SKR Hlinsko	5:58,73	Erfurt	9. 11. 2025
+27.	Antošová Veronika	S	KRS Svratka	4:17,75		
+28.	Krejčí Nela	B1	KSBM Praha	5:20.79		
+
+=== 2025-2026 | ss | Ženy 5000 m | Žebříček 2025/2026, poř. č. 16
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Sáblíková Martina	S	KRS Svratka	6:49.01	Calgary	24. 1. 2025	6:41,18
+2.	Korvasová Kateřina	S	KRS Svratka	7:16.48	Heerenveen	5. 12. 2025
+3.	Kainová Kateřina	S	KSBM Praha	7:25.40	Calgary	24. 1. 2025	7:25,40
+4.	Kuršová Zuzana	S	KRS Svratka	7:27.74	Calgary	24. 1. 2025	7:10,08
+5.	Zdráhalová Nikola	S	KRS Svratka	Calgary	1/24/2025	7:05,59
+
+=== 2025-2026 | ss | Muži 500 m | Žebříček 2026/2027, poř. č. 1, publikováno na stránce sezóny 2025-2026
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Jílek Metoděj	S	BZK Praha	36,61	Inzell	7. 3. 2026
+2.	Stodola Prokop	S	KSBM Praha	36,99	SLC	25. 10. 2025
+3.	Bohumský  Tomáš	S	SKR Hlinsko	37,1	Inzell	17. 10. 2025	36,75
+4.	Kočí Jakub	S	KRS Svratka	37,89	Inzell	22. 2. 2026	37,87
+5.	Krupka Tobiáš	B2	SKR Hlinsko	38,11	Inzell	28. 2. 2026
+6.	Kovařík Jakub	S	SKR Hlinsko	38,32	Inzell	22. 2. 2026
+7.	Procházka Tadeáš	S	SKR Hlinsko	38,89	Inzell	17. 10. 2025
+8.	Podlipský Jáchym	A1	KSBM Praha	39,26	Collalbo	7. 12. 2025
+9.	Jílek Filip	B1	BZK Praha	39,58	Erfurt	8. 11. 2025
+10.	Chmel Matěj	B1	BOJ Žďár	40,61	Inzell	10. 1. 2026
+11.	Pouzar Karel	B2	BZK Praha	41,79	Erfurt	8. 11. 2025
+12.	Šulce Samuel Oliver	B2	KSB Benátky	41,89	Erfurt	8. 11. 2025
+13.	Brejcha Antonín	A1	KSBM Praha	42,09	Erfurt	8. 11. 2025
+14.	Kurš Marek	A1	KRS Svratka	42,48	Inzell	12. 10. 2025
+15.	Anděl Jakub	B1	BOJ Žďár	43,3	Inzell	10. 1. 2026
+16.	Vrba Vojtěch	B2	KSBM Praha	43,40	Chemnitz	1. 11. 2025
+17.	Sáblík Martin	B1	BK Ždár	43,48	Inzell	6. 12. 2025
+18.	Žilka Maxim	C2	SKP Kometa Brno	43,84	Inzell	23. 11. 2025
+19.	Holubec David	B1	KSBM Praha	44,69	Collalbo	18. 1. 2026
+20.	Chmel Filip	C1	BOJ Žďár	44,97	Inzell	23. 11. 2025
+21.	Krupka Matěj	S	KSBM Praha	48,23	Chemnitz	20. 12. 2025
+22.	Kyncl Michal	A1	KRS Svratka	48,54	Inzell	3. 1. 2026
+23.	Kozák Jakub Matouš	E2	BOJ Žďár	48,92	Erfurt	21. 2. 2026
+24.	Suchý Václav	C1	SKP Kometa Brno	50,25	Inzell	3. 1. 2026	49,58
+25.	Martinec Marek	A1	BK Náchod	56,25	Erfurt	8. 11. 2025
+26.	Meduna Kryštof	D1	SKP Kometa Brno	56,79	Erfurt	9. 11. 2025	55,23
+27.	Ješátko Lukáš	E2	SKP Kometa Brno	72,28	Erfurt	8. 11. 2025
+28.	Briešťanský Sebastien	S	KRS Svratka	38,07		
+29.	Semeniuk Matěj	S	SKP Kometa Brno	39,22		
+30.	Shalamov Maxmilián	C1	BOJ Žďár	48,51		
+31.	Čermák Jakub	S	ASK Blansko	50,01		
+32.	Anděl Marek	D1	BOJ Žďár	54,77		
+
+=== 2025-2026 | ss | Muži 1000 m | Žebříček 2026/2027, poř. č. 1, publikováno na stránce sezóny 2025-2026
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Stodola Prokop	S	KSBM Praha	1:11.20	SLC	12. 11. 2025
+2.	Kočí Jakub	S	KRS Svratka	1:13.69	Inzell	21. 2. 2026
+3.	Bohumský Tomáš	S	SKR Hlinsko	1:14.30	Inzell	18. 10. 2025	1:13.53
+4.	Procházka Tadeáš	S	SKR Hlinsko	1:15.10	Inzell	24. 10. 2025
+5.	Podlipský Jáchym	A1	KSBM Praha	1:15.65	Inzell	28. 2. 2026
+6.	Jílek Filip	B1	BZK Praha	1:16.70	Erfurt	9. 11. 2025
+7.	Krupka Tobiáš	B2	SKR Hlinsko	1:17.54	Collalbo	6. 12. 2025
+8.	Kovařík Jakub	S	SKR Hlinsko	1:18.89	Erfurt	9. 11. 2025
+9.	Šulc Samuel Oliver	B2	KSB Benátky	1:20.01	Erfurt	9. 11. 2025
+10.	Kurš Marek	A1	KRS Svratka	1:21.13	Erfurt	9. 11. 2025
+11.	Pouzar Karel	B2	BZK Praha	1:21.61	Erfurt	9. 11. 2025
+12.	Brejcha Antonín	A1	KSBM Praha	1:22.39	Inzell	20. 12. 2025
+13.	Chmel Matěj	B1	BOJ Žďár	1:23.10	Inzell	10. 1. 2026
+14.	Martinec Marek	A1	BK Náchod	1:27.71	Erfurt	9. 11. 2025
+15.	Holubec David	B1	KSBM Praha	1:28.10	Erfurt	9. 11. 2025
+16.	Žilka Maxim	C2	SKP Kometa Brno	1:28.14	Erfurt	9. 11. 2025
+17.	Vrba Vojtěch	B2	KSBM Praha	1:29.57	Chemnitz	29. 11. 2025
+18.	Sáblík Martin	B1	BK Žďár	1:29.93	Erfurt	9. 11. 2025
+19.	Anděl Jakub	B1	BOJ Žďár	1:31.14	Erfurt	9. 11. 2025
+20.	Chmel Filip	C1	BOJ Žďár	1:31.94	Inzell	23. 11. 2025
+21.	Kyncl Michal	A1	KRS Svratka	1:39.61	Erfurt	9. 11. 2025	1:39.33
+22.	Kozák Jakub Matouš	E2	BOJ Žďár	1:41.49	Erfurt	21. 2. 2026
+23.	Suchý Václav	C1	ASK Blansko	1:44.17	Inzell	3. 1. 2026	1:43.49
+24.	Meduna Kryštof	D1	SKP Kometa Brno	1:59.09	Erfurt	9. 11. 2025
+25.	Jílek Metoděj	S	BZK Praha	1:11.36		
+26.	Briešťanský Sebastien	S	KRS Svratka	1:14.68		
+27.	Semeniuk Matěj	S	SKP Kometa Brno	1:18.48		
+29.	Krupka Matěj	S	KSBM Praha	1:25.46		
+28.	Shalamanov Maxmilián	C1	BOJ Žďár	1:39.57		
+29.	Čermák Jakub	S	ASK Blansko	1:39.45		
+30.	Anděl Marek	D1	BOJ Žďár	1:50.57		
+
+=== 2025-2026 | ss | Muži 1500 m | Žebříček 2026/2027, poř. č. 1, publikováno na stránce sezóny 2025-2026
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Jílek Metoděj	S	BZK Praha	1:43.91	SLC	15. 11. 2025
+2.	Procházka Tadeáš	S	SKR Hlinsko	1:49.92	SLC	7. 11. 2025
+3.	Kočí Jakub	S	KRS Svratka	1:49.99	SLC	12. 11. 2025
+4.	Stodola Prokop	S	KSBM Praha	1:50.23	SLC	25. 10. 2025
+5.	Jílek Filip	B1	BZK Praha	1:53.25	Inzell	28. 2. 2026
+6.	Kovařík Jakub	S	SKR Hlinsko	1:54.82	Inzell	22. 2. 2026
+7.	Podlipský Jáchym	A1	KSBM Praha	1:55.89	Inzell	28. 2. 2026
+8.	Krupka Tobiáš	B2	SKR Hlinsko	1:58.00	Inzell	22. 2. 2026
+9.	Kurš Marek	A1	KRS Svratka	1:59.83	Inzell	22. 2. 2026
+10.	Brejcha Antonín	A1	KSBM Praha	2:05.37	Inzell	21. 12. 2025
+11.	Pouzar Karel	B2	BZK Praha	2:07.55	Erfurt	8. 11. 2025
+12.	Vrba Vojtěch	B2	KSBM Praha	2:09.19	Chemnitz	1. 11. 2025
+13.	Šulc Samuel Oliver	B2	KSB Benátky	2:10.26	Erfurt	11. 8. 2025
+14.	Chmel Matěj	B1	BOJ Žďár	2:12.26	Inzell	25. 7. 2025
+15.	Žilka Maxim	C2	SKP Kometa Brno	2:14.92	Inzell	23. 11. 2025
+16.	Holubec David	B1	KSBM Praha	2:15.91	Erfurt	8. 11. 2025
+17.	Sáblík Martin	B1	BK Ždár	2:16.30	Inzell	1. 11. 2025
+18.	Anděl Jakub	B1	BOJ Žďár	2:16.54	Inzell	10. 1. 2026
+19.	Martinec Marek	A1	BK Náchod	2:17.05	Erfurt	11. 8. 2025
+20.	Chmel Filip	C1	BOJ Žďár	2:22.28	Inzell	23. 11. 2025
+21.	Kyncl Michal	A1	KRS Svratka	2:29.91	Inzell	3. 1. 2026
+22.	Kozák Matouš Jakub	E2	BOJ Žďár	2:50.98	Erfurt	11. 9. 2025
+23.	Meduna Kryštof	D1	SKP Kometa Brno	3:05.65	Erfurt	11. 9. 2025
+24.	Bohumský Tadeáš	S	SKR Hlinsko	1:55.20		
+25.	Briešťanský Sebastien	S	KRS Svratka	1:55.35		
+26.	Semeniuk Matěj	S	SKP Kometa Brno	2:02.56		
+27.	Suchý Václav	C1	ASK Blansko	2:49.37		
+28.	Čermák Jakub	S	ASK Blansko	2:32.25		
+
+=== 2025-2026 | ss | Muži 3000 m | Žebříček 2026/2027, poř. č. 1, publikováno na stránce sezóny 2025-2026
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Jílek Metoděj	S	BZK Praha	3:32.52	SLC	10. 26. 2025
+2.	Jílek Filip	B1	BZK Praha	3:58.95	Inzell	2. 21. 2026
+3.	Stodola Prokop	S	KSBM Praha	4:00.64	SLC	10. 26. 2025
+4.	Podlipský Jáchym	A1	KSBM Praha	4:04.59	Inzell	2. 21. 2026
+5.	Kurš Marek	A1	KRS Svratka	4:13.01	Inzell	2. 21. 2026
+6.	Kovařík Jakub	S	SKR Hlinsko	4:22.20	Erfurt	11. 9. 2025	4:12.84
+7.	Sulc Samuel Oliver	B2	KSB Benátky	4:25.02	Erfurt	9. 11. 2025
+8.	Krupka Tobiáš	B2	SKR Hlinsko	4:28.29	Erfurt	9. 11. 2025
+9.	Vrba Vojtěch	B2	KSBM Praha	4:28.66	Erfurt	11. 9. 2025
+10.	Brejcha Antonín	A1	KSBM Praha	4:32.34	Erfurt	9. 11. 2025
+11.	Žilka Maxim	C2	SKP Kometa Brno	4:39.12	Erfurt	9. 11. 2025
+12.	Holubec David	B1	KSBM Praha	4:41.47	Erfurt	11. 9. 2025	4:00.95
+13.	Pouzar Karel	B1	BZK Praha	4:49.61	Erfurt	11. 9. 2025
+14.	Chmel  Matěj	B1	BOJ Žďár	4:49.99	Erfurt	9.11.225
+15.	Sáblík Martin	B1	BK Žďár	4:54.04	Inzell	11. 1. 2025
+16.	Krupka Matěj	S	KSBM Praha	4:56.17	Chemnitz	12. 20. 2026
+17.	Chmel Filip	C1	BOJ Žďár	5:01.33	Inzell	12. 6. 2025
+18.	Anděl Jakub	B1	BOJ Žďár	5:01.63	Inzell	12. 6. 2025
+19.	Kyncl Michal	A1	KRS Svratka	5:38.54	Erfurt	11. 9. 2025
+20.	Procházka Tadeáš	S	SKR Hlinsko	4:04.47		
+
+=== 2025-2026 | ss | Muži 5000 m | Žebříček 2026/2027, poř. č. 1, publikováno na stránce sezóny 2025-2026
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Jílek Metoděj	S	BZK Praha	6:01.98	Inzell	1. 24. 2026
+2.	Procházka Tadeáš	S	SKR Hlinsko	6:39.78	Inzell	25. 10. 2025
+3.	Jílek Filip	B1	BZK Praha	6:51.18	Inzell	28. 2. 2026
+4.	Kočí Jakub	S	KRS Svratka	6:53.64	Inzell	25. 10. 2025	6:50.12
+5.	Podlipský Jáchym	A1	KSBM Praha	7:03.80	Inzell	28. 2. 2026
+6.	Kovařík Jakub	S	SKR Hlinsko	7:08.68	Inzell	25. 10. 2025
+7.	Stodola Prokop	S	KSBM Praha	6:53.47		
+8.	Bohumský Tomáš	S	SKR Hlinsko	8:00.10		
+9.	Briešťanský Sebastien	S	KRS Svratka	8:11.20		
+
+=== 2025-2026 | ss | Muži 10000 m | Žebříček 2026/2027, poř. č. 1, publikováno na stránce sezóny 2025-2026
+Poř.	Jméno	Kat.	Klub	Čas	Místo	Datum	Osobní rekord
+1.	Jílek Metoděj	S	BZK Praha	12:29.63	Heerenveen	6. 12. 2025

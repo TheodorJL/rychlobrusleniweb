@@ -1,0 +1,36 @@
+# Vložte do: Akce → Hromadné přidání
+# Formát řádku: název|od|do|místo|kategorie (ss = dlouhá dráha, st = krátká)
+#
+# Mezinárodní kalendář ISU pro sezónu 2026/2027, staženo z isu.org.
+# Domácí závody sem dopište stejným způsobem, klidně na další řádky.
+#
+# Vložení jde pustit opakovaně — co v kalendáři už je, se přeskočí.
+
+# ——— Dlouhá dráha (Speed Skating) ———
+ISU Speed Skating World Cup #1|13. 11. 2026|15. 11. 2026|Peking /CHN|ss
+ISU Speed Skating World Cup #2|20. 11. 2026|22. 11. 2026|Obihiro /JPN|ss
+ISU Speed Skating Junior World Cup #1|28. 11. 2026|29. 11. 2026|Québec /CAN|ss
+ISU Speed Skating World Cup #3|4. 12. 2026|6. 12. 2026|Heerenveen /NED|ss
+ISU Speed Skating Junior World Cup #2|5. 12. 2026|6. 12. 2026|Québec /CAN|ss
+ISU Speed Skating World Cup #4|11. 12. 2026|13. 12. 2026|Stavanger /NOR|ss
+ISU Speed Skating European Championships|8. 1. 2027|10. 1. 2027|Heerenveen /NED|ss
+ISU Speed Skating World Cup #5|29. 1. 2027|31. 1. 2027|Salt Lake City /USA|ss
+ISU Speed Skating World Cup #6|5. 2. 2027|7. 2. 2027|Calgary /CAN|ss
+ISU Speed Skating Junior World Cup #3|6. 2. 2027|7. 2. 2027|Baselga di Piné /ITA|ss
+ISU Speed Skating Junior World Championships|12. 2. 2027|14. 2. 2027|Baselga di Piné /ITA|ss
+ISU Speed Skating World Championships|25. 2. 2027|28. 2. 2027|Peking /CHN|ss
+
+# ——— Krátká dráha (Short Track) ———
+ISU Short Track World Tour #1|23. 10. 2026|25. 10. 2026|Vancouver /CAN|st
+ISU Short Track World Tour #2|30. 10. 2026|1. 11. 2026|Montréal /CAN|st
+ISU Short Track Junior World Cup #1|6. 11. 2026|8. 11. 2026|Bormio /ITA|st
+ISU Short Track Junior World Cup #2|12. 11. 2026|14. 11. 2026|Bormio /ITA|st
+ISU Short Track World Tour #3|20. 11. 2026|22. 11. 2026|Soul /KOR|st
+ISU Short Track World Tour #4|27. 11. 2026|29. 11. 2026|Šanghaj /CHN|st
+ISU Short Track World Tour #5|4. 12. 2026|6. 12. 2026|Peking /CHN|st
+ISU Short Track European Championships|15. 1. 2027|17. 1. 2027|Drážďany /GER|st
+ISU Short Track Junior World Cup #3|22. 1. 2027|24. 1. 2027|Astana /KAZ|st
+ISU Short Track Junior World Championships|28. 1. 2027|31. 1. 2027|Astana /KAZ|st
+ISU Short Track World Tour #6|5. 2. 2027|7. 2. 2027|Gdaňsk /POL|st
+ISU Short Track World Tour #7|12. 2. 2027|14. 2. 2027|Tilburg /NED|st
+ISU Short Track World Championships|12. 3. 2027|14. 3. 2027|Soul /KOR|st
