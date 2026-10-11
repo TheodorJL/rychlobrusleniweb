@@ -1144,7 +1144,15 @@ body.csr-locked { overflow: hidden; }
   transition: transform var(--csr-t) var(--csr-ease), opacity var(--csr-t) var(--csr-ease);
 }
 .csr-quick__card:hover .csr-quick__label svg { transform: translateX(4px); opacity: 1; }
-.csr-quick__desc { font-size: var(--csr-fs-xs); color: var(--csr-text-muted); margin-top: .3rem; }
+/* Popisek drží výšku dvou řádků. Obsah dlaždice je zarovnaný ke spodnímu
+   okraji, takže u jednořádkového popisku („Kde u nás bruslit") klesl nadpis
+   níž než u sousedů a nadpisy stály na schodech. */
+.csr-quick__desc {
+  /* Blok, ne řádkový prvek: na span se minimální výška nevztahuje. */
+  display: block;
+  font-size: var(--csr-fs-xs); color: var(--csr-text-muted); margin-top: .3rem;
+  line-height: 1.5; min-height: 3em;
+}
 .csr-quick__card:hover .csr-quick__desc { color: rgba(255, 255, 255, .85); }
 
 /* --------------------------------------------------------------------------
