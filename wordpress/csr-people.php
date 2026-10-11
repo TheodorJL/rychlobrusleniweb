@@ -294,6 +294,7 @@ function csr_parse_person_line( $line ) {
 		'email'   => isset( $parts[5] ) ? $parts[5] : '',
 		'phone'   => isset( $parts[6] ) ? $parts[6] : '',
 		'contact' => isset( $parts[7] ) ? csr_je_ano( $parts[7] ) : false,
+		'prepsat' => isset( $parts[7] ) ? csr_je_ano( $parts[7] ) || csr_je_oprava( $parts[7] ) : false,
 	);
 }
 
@@ -306,6 +307,17 @@ function csr_parse_person_line( $line ) {
 function csr_je_ano( $text ) {
 	$text = strtolower( trim( (string) $text ) );
 	return in_array( $text, array( '1', 'ano', 'x', 'kontakt', 'ano.', 'true' ), true );
+}
+
+/**
+ * Bere „oprava" i „přepsat" jako pokyn přepsat už vyplněné údaje.
+ *
+ * @param string $text Zápis od uživatele.
+ * @return bool
+ */
+function csr_je_oprava( $text ) {
+	$text = strtolower( trim( (string) $text ) );
+	return in_array( $text, array( 'oprava', 'prepsat', 'přepsat', 'zmena', 'změna' ), true );
 }
 
 /**
@@ -497,10 +509,14 @@ function csr_people_import_render() {
 				$done++;
 			}
 
-			// U existujícího člověka doplňujeme jen to, co má prázdné.
+			// U existujícího člověka doplňujeme jen to, co má prázdné —
+			// pokud řádek výslovně neříká „oprava".
 			foreach ( array( 'role', 'club', 'email', 'phone' ) as $key ) {
 				$value = 'email' === $key ? sanitize_email( $person[ $key ] ) : sanitize_text_field( $person[ $key ] );
-				if ( '' !== $value && '' === (string) get_post_meta( $post_id, '_csr_person_' . $key, true ) ) {
+				if ( '' === $value ) {
+					continue;
+				}
+				if ( $person['prepsat'] || '' === (string) get_post_meta( $post_id, '_csr_person_' . $key, true ) ) {
 					update_post_meta( $post_id, '_csr_person_' . $key, $value );
 				}
 			}
@@ -531,7 +547,8 @@ function csr_people_import_render() {
 		<p><code>jméno | orgán | funkce | dráha | klub | e-mail | telefon | kontakt</code></p>
 		<p><strong>Orgán</strong>: <code>predsednictvo</code>, <code>kontrolni-komise</code> nebo <code>predsedove</code>.<br>
 			<strong>Dráha</strong> se vyplňuje jen u předsedů: <code>dlouhá</code> nebo <code>krátká</code>.<br>
-			<strong>Kontakt</strong>: napište <code>ano</code> u toho, kdo se má vypsat na stránce Kontakty pod „Na koho se obrátit". Ostatní pole jsou nepovinná.</p>
+			<strong>Poslední sloupec</strong>: <code>ano</code> u toho, kdo se má vypsat na stránce Kontakty pod „Na koho se obrátit";
+			<code>oprava</code>, když se má přepsat i to, co už je u člověka vyplněné (jinak se jen doplňuje prázdné). Ostatní pole jsou nepovinná.</p>
 
 		<form method="post">
 			<?php wp_nonce_field( 'csr_people_import', 'csr_people_import_nonce' ); ?>
@@ -742,14 +759,15 @@ function csr_people_autofill() {
 add_action( 'admin_init', 'csr_people_autofill' );
 
 /**
- * Srovná údaje kontaktních osob svazu s připravenými daty.
+ * Srovná údaje vybraných lidí s připravenými daty.
  *
  * Hromadné doplnění zásadně nepřepisuje, co už je vyplněné — u kontaktů
  * na svaz to ale nestačí: telefon předsedkyně byl na starém webu na dvou
- * místech dvakrát jinak a rozhoduje jen ten správný. Tahle funkce proto
- * u lidí označených v datech jako kontakt přepíše funkci, e-mail
- * i telefon. Neběží pořád dokola — jen když se ta data změní, takže
- * ruční úprava v administraci vydrží.
+ * místech dvakrát jinak a rozhoduje jen ten správný. Totéž platí, když
+ * někdo přejde na svazovou adresu. Tahle funkce proto u řádků označených
+ * jako kontakt nebo oprava přepíše funkci, e-mail i telefon. Neběží
+ * pořád dokola — jen když se ta data změní, takže ruční úprava
+ * v administraci vydrží.
  */
 function csr_kontakty_oprava() {
 	$data = csr_import_seed( 'lide' );
@@ -757,18 +775,23 @@ function csr_kontakty_oprava() {
 		return;
 	}
 
+	$srovnat  = array();
 	$kontakty = array();
 	foreach ( preg_split( '/\R/', $data ) as $radek ) {
 		$osoba = csr_parse_person_line( $radek );
-		if ( $osoba && $osoba['contact'] ) {
-			$kontakty[] = $osoba;
+		if ( ! $osoba || ! $osoba['prepsat'] ) {
+			continue;
+		}
+		$srovnat[] = $osoba;
+		if ( $osoba['contact'] ) {
+			$kontakty[] = $osoba['name'];
 		}
 	}
-	if ( ! $kontakty ) {
+	if ( ! $srovnat ) {
 		return;
 	}
 
-	$otisk = md5( (string) wp_json_encode( $kontakty ) );
+	$otisk = md5( (string) wp_json_encode( $srovnat ) );
 	if ( get_option( 'csr_kontakty_otisk' ) === $otisk ) {
 		return;
 	}
@@ -776,7 +799,7 @@ function csr_kontakty_oprava() {
 
 	csr_seed_bodies();
 
-	foreach ( $kontakty as $poradi => $osoba ) {
+	foreach ( $srovnat as $osoba ) {
 		$body = csr_body_slug( $osoba['body'] );
 		$id   = csr_find_person( $osoba['name'], $body );
 		if ( ! $id ) {
@@ -807,18 +830,24 @@ function csr_kontakty_oprava() {
 		 * Pořadí na kontaktech drží záporné číslo — lidé se řadí podle
 		 * něj a všichni ostatní mají nulu, takže by kontakty jinak
 		 * skončily až za nimi. Předsedkyně tím zároveň stojí v čele
-		 * předsednictva místo abecedně uprostřed.
+		 * předsednictva místo abecedně uprostřed. Řádky, které jen
+		 * opravují údaj, pořadí nemění.
 		 */
-		wp_update_post(
-			array(
-				'ID'         => $id,
-				'menu_order' => $poradi - count( $kontakty ),
-			)
-		);
+		$poradi = array_search( $osoba['name'], $kontakty, true );
+		if ( false !== $poradi ) {
+			wp_update_post(
+				array(
+					'ID'         => $id,
+					'menu_order' => $poradi - count( $kontakty ),
+				)
+			);
+		}
 		if ( $body ) {
 			wp_set_object_terms( $id, $body, 'csr_body' );
 		}
-		csr_person_set_contact( $id, true );
+		if ( $osoba['contact'] ) {
+			csr_person_set_contact( $id, true );
+		}
 	}
 }
 add_action( 'admin_init', 'csr_kontakty_oprava' );
