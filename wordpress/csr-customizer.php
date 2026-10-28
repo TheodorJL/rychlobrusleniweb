@@ -218,6 +218,7 @@ function csr_settings_registry() {
 			'csr_note',
 			3,
 			array(
+				'icon'    => array( 'type' => 'select', 'label' => '%d. pruh — ikona', 'choices' => csr_icon_choices(), 'default' => 'info' ),
 				'eyebrow' => array( 'type' => 'text', 'label' => '%d. pruh — nadřazený popisek', 'desc' => 'Krátké slovo nad nadpisem, třeba „Právě teď" nebo „Nominace".' ),
 				'title'   => array( 'type' => 'text', 'label' => '%d. pruh — nadpis', 'desc' => 'Prázdné = pruh se nezobrazí.' ),
 				'text'    => array( 'type' => 'text', 'label' => '%d. pruh — doplňující věta' ),
@@ -225,9 +226,9 @@ function csr_settings_registry() {
 				'url'     => array( 'type' => 'url', 'label' => '%d. pruh — odkaz', 'desc' => 'Adresa souboru z knihovny médií, článku nebo stránky. Bez odkazu zůstane pruh jen textem.' ),
 			),
 			array(
-				1 => array( 'eyebrow' => 'Právě teď', 'btn' => 'Otevřít' ),
-				2 => array( 'btn' => 'Otevřít' ),
-				3 => array( 'btn' => 'Otevřít' ),
+				1 => array( 'icon' => 'graf', 'eyebrow' => 'Právě teď', 'btn' => 'Otevřít' ),
+				2 => array( 'icon' => 'info', 'btn' => 'Otevřít' ),
+				3 => array( 'icon' => 'info', 'btn' => 'Otevřít' ),
 			)
 		),
 	);

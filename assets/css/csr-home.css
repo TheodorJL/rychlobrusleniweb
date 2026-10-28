@@ -1122,7 +1122,27 @@ body.csr-locked { overflow: hidden; }
   text-wrap: balance;
 }
 .csr-note__text { font-size: var(--csr-fs-sm); color: var(--csr-text-muted); }
-.csr-note__btn { flex: none; }
+/* Tlačítko má plnou tmavou modrou a bílý text. Zářivý ledový přechod
+   z úvodního bloku je světlý a bílý text na něm nejde přečíst; modrá
+   záře kolem navíc působí jako chyba. Barva textu je zapsaná ve všech
+   stavech — odkazy si jinak barvu bere rodičovská šablona. */
+.csr-note__btn {
+  flex: none;
+  --btn-bg: var(--csr-ice-700);
+  --btn-fg: #fff;
+  background: var(--csr-ice-700);
+  box-shadow: none;
+}
+.csr-note__btn,
+.csr-note__btn:link,
+.csr-note__btn:visited,
+.csr-note__btn:hover,
+.csr-note__btn:focus,
+.csr-note__btn:active { color: #fff; }
+.csr-note__btn:hover {
+  background: var(--csr-ice-600);
+  box-shadow: 0 8px 20px rgba(11, 124, 184, .3);
+}
 /* Šipka v tlačítku má svoji velikost — na celoštítkovém tlačítku na mobilu
    by se jinak roztáhla přes celou šířku. */
 .csr-note__btn svg { width: 18px; height: 18px; flex: none; }

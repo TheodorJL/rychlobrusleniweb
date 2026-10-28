@@ -220,7 +220,7 @@ for ( $csr_i = 1; $csr_i <= 3; $csr_i++ ) {
 			?>
 			<div class="csr-note csr-reveal">
 				<span class="csr-note__ico" aria-hidden="true">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M3 12h3M18 12h3M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3.4"/></svg>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><?php echo csr_icon_paths( csr_opt( "csr_note{$csr_i}_icon" ) ); // phpcs:ignore WordPress.Security.EscapeOutput — pevná knihovna SVG cest ?></svg>
 				</span>
 				<div class="csr-note__body">
 					<?php if ( $csr_note_eye ) : ?>
@@ -232,7 +232,7 @@ for ( $csr_i = 1; $csr_i <= 3; $csr_i++ ) {
 					<?php endif; ?>
 				</div>
 				<?php if ( $csr_note_url ) : ?>
-					<a class="csr-btn csr-btn--primary csr-note__btn" href="<?php echo esc_url( $csr_note_url ); ?>">
+					<a class="csr-btn csr-note__btn" href="<?php echo esc_url( $csr_note_url ); ?>">
 						<?php echo esc_html( $csr_note_btn ? $csr_note_btn : 'Otevřít' ); ?>
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 					</a>
