@@ -196,6 +196,53 @@ if ( $csr_ticker ) :
 	</div>
 <?php endif; ?>
 
+<!-- ══════════ VLASTNÍ PRUHY ══════════ -->
+<?php
+// Volná místa pro to, co je zrovna potřeba ukázat. Vyplňují se v nastavení.
+$csr_notes = array();
+for ( $csr_i = 1; $csr_i <= 3; $csr_i++ ) {
+	$csr_nadpis = trim( (string) csr_opt( "csr_note{$csr_i}_title" ) );
+	if ( $csr_nadpis ) {
+		$csr_notes[] = $csr_i;
+	}
+}
+?>
+<?php if ( $csr_notes ) : ?>
+	<section class="csr-section csr-section--tight">
+		<div class="csr-container csr-notes" data-csr-stagger="60">
+			<?php foreach ( $csr_notes as $csr_i ) : ?>
+			<?php
+			$csr_note_title = trim( (string) csr_opt( "csr_note{$csr_i}_title" ) );
+			$csr_note_url   = csr_link( csr_opt( "csr_note{$csr_i}_url" ) );
+			$csr_note_btn   = trim( (string) csr_opt( "csr_note{$csr_i}_btn" ) );
+			$csr_note_txt   = trim( (string) csr_opt( "csr_note{$csr_i}_text" ) );
+			$csr_note_eye   = trim( (string) csr_opt( "csr_note{$csr_i}_eyebrow" ) );
+			?>
+			<div class="csr-note csr-reveal">
+				<span class="csr-note__ico" aria-hidden="true">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M3 12h3M18 12h3M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3.4"/></svg>
+				</span>
+				<div class="csr-note__body">
+					<?php if ( $csr_note_eye ) : ?>
+						<span class="csr-note__eyebrow"><?php echo esc_html( $csr_note_eye ); ?></span>
+					<?php endif; ?>
+					<span class="csr-note__title"><?php echo esc_html( $csr_note_title ); ?></span>
+					<?php if ( $csr_note_txt ) : ?>
+						<span class="csr-note__text"><?php echo esc_html( $csr_note_txt ); ?></span>
+					<?php endif; ?>
+				</div>
+				<?php if ( $csr_note_url ) : ?>
+					<a class="csr-btn csr-btn--primary csr-note__btn" href="<?php echo esc_url( $csr_note_url ); ?>">
+						<?php echo esc_html( $csr_note_btn ? $csr_note_btn : 'Otevřít' ); ?>
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+					</a>
+				<?php endif; ?>
+			</div>
+			<?php endforeach; ?>
+		</div>
+	</section>
+<?php endif; ?>
+
 <!-- ══════════ RYCHLÉ ODKAZY ══════════ -->
 <section class="csr-section csr-section--tight" id="rychle">
 	<div class="csr-container">

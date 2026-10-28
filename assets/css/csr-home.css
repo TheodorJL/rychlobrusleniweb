@@ -1089,6 +1089,52 @@ body.csr-locked { overflow: hidden; }
 @media (max-width: 640px) { .csr-ticker__label span { display: none; } }
 
 /* --------------------------------------------------------------------------
+   7b. VLASTNÍ PRUHY NA TITULCE
+   Tři volná místa na to, co je zrovna potřeba ukázat — výsledky závodu,
+   nominace, termín přihlášek. Obsah se vyplňuje v nastavení, prázdný
+   nadpis pruh skryje.
+   -------------------------------------------------------------------------- */
+
+.csr-notes { display: grid; gap: .8rem; }
+.csr-note {
+  display: flex; align-items: center; gap: clamp(.9rem, 2vw, 1.5rem);
+  padding: clamp(1rem, 2vw, 1.4rem) clamp(1.1rem, 2.2vw, 1.6rem);
+  border: 1px solid var(--csr-border);
+  border-radius: var(--csr-r-lg);
+  background: var(--csr-surface);
+  box-shadow: var(--csr-shadow-lg);
+}
+.csr-note__ico {
+  display: grid; place-items: center; flex: none;
+  width: 46px; height: 46px; border-radius: var(--csr-r);
+  background: var(--csr-accent-soft); color: var(--csr-accent-text);
+}
+.csr-note__ico svg { width: 24px; height: 24px; }
+.csr-note__body { display: grid; gap: .15rem; min-width: 0; flex: 1; }
+.csr-note__eyebrow {
+  font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--csr-accent-text);
+}
+.csr-note__title {
+  font-family: var(--csr-font-display);
+  font-size: clamp(1.05rem, .9rem + .5vw, 1.35rem); font-weight: 700;
+  line-height: 1.25; color: var(--csr-text);
+  text-wrap: balance;
+}
+.csr-note__text { font-size: var(--csr-fs-sm); color: var(--csr-text-muted); }
+.csr-note__btn { flex: none; }
+/* Šipka v tlačítku má svoji velikost — na celoštítkovém tlačítku na mobilu
+   by se jinak roztáhla přes celou šířku. */
+.csr-note__btn svg { width: 18px; height: 18px; flex: none; }
+
+/* Na mobilu pod sebe, tlačítko přes celou šířku — ať se dá trefit palcem. */
+@media (max-width: 640px) {
+  .csr-note { flex-wrap: wrap; }
+  .csr-note__body { flex-basis: 100%; order: 2; }
+  .csr-note__btn { order: 3; flex-basis: 100%; justify-content: center; }
+}
+
+/* --------------------------------------------------------------------------
    8. RYCHLÉ ODKAZY
    -------------------------------------------------------------------------- */
 

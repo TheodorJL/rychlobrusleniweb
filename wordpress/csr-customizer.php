@@ -210,6 +210,28 @@ function csr_settings_registry() {
 		),
 	);
 
+	/* ---- Vlastní pruhy na titulce ---- */
+	$sections['note'] = array(
+		'title'  => 'Vlastní pruhy na titulce',
+		'desc'   => 'Tři volná místa hned pod běžící lištou na to, co je zrovna potřeba ukázat — výsledky závodu, nominaci, termín přihlášek. Vyplňte nadpis a odkaz; prázdný nadpis pruh skryje, takže se nemusí mazat, stačí nadpis vymazat.',
+		'fields' => csr_repeat_fields(
+			'csr_note',
+			3,
+			array(
+				'eyebrow' => array( 'type' => 'text', 'label' => '%d. pruh — nadřazený popisek', 'desc' => 'Krátké slovo nad nadpisem, třeba „Právě teď" nebo „Nominace".' ),
+				'title'   => array( 'type' => 'text', 'label' => '%d. pruh — nadpis', 'desc' => 'Prázdné = pruh se nezobrazí.' ),
+				'text'    => array( 'type' => 'text', 'label' => '%d. pruh — doplňující věta' ),
+				'btn'     => array( 'type' => 'text', 'label' => '%d. pruh — text tlačítka' ),
+				'url'     => array( 'type' => 'url', 'label' => '%d. pruh — odkaz', 'desc' => 'Adresa souboru z knihovny médií, článku nebo stránky. Bez odkazu zůstane pruh jen textem.' ),
+			),
+			array(
+				1 => array( 'eyebrow' => 'Právě teď', 'btn' => 'Otevřít' ),
+				2 => array( 'btn' => 'Otevřít' ),
+				3 => array( 'btn' => 'Otevřít' ),
+			)
+		),
+	);
+
 	/* ---- Rychlé odkazy ---- */
 	$sections['quick'] = array(
 		'title'  => 'Dlaždice rychlých odkazů',
