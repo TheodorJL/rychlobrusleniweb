@@ -1121,7 +1121,45 @@ body.csr-locked { overflow: hidden; }
   line-height: 1.25; color: var(--csr-text);
   text-wrap: balance;
 }
-.csr-note__text { font-size: var(--csr-fs-sm); color: var(--csr-text-muted); }
+.csr-note__text { font-size: var(--csr-fs-sm); color: var(--csr-text-muted); line-height: 1.6; }
+
+/* S fotkou je z pruhu zpráva: fotka vlevo, text vedle ní, tlačítko pod
+   textem. Ikona ustoupí — vizuálem je fotka. */
+.csr-note--foto {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-items: start;
+  column-gap: clamp(1rem, 2.2vw, 1.6rem);
+  row-gap: 1rem;
+}
+.csr-note--foto .csr-note__ico { display: none; }
+.csr-note--foto .csr-note__foto {
+  grid-column: 1; grid-row: 1 / span 2;
+  display: block; border-radius: var(--csr-r); overflow: hidden;
+  background: var(--csr-bg-sunken);
+}
+.csr-note--foto .csr-note__foto img {
+  width: 100%; height: 100%; display: block;
+  aspect-ratio: 16 / 10; object-fit: cover;
+}
+.csr-note--foto .csr-note__body { grid-column: 2; grid-row: 1; }
+.csr-note--foto .csr-note__btn { grid-column: 2; grid-row: 2; justify-self: start; }
+.csr-note--foto .csr-note__title {
+  font-size: clamp(1.25rem, 1rem + 1.1vw, 1.9rem);
+  line-height: 1.15;
+}
+.csr-note--foto .csr-note__text { color: var(--csr-text); }
+
+@media (max-width: 760px) {
+  .csr-note--foto {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+  }
+  .csr-note--foto .csr-note__foto { grid-column: 1; grid-row: 1; }
+  .csr-note--foto .csr-note__body { grid-column: 1; grid-row: 2; }
+  .csr-note--foto .csr-note__btn { grid-column: 1; grid-row: 3; justify-self: stretch; }
+}
 /* Tlačítko má plnou tmavou modrou a bílý text. Zářivý ledový přechod
    z úvodního bloku je světlý a bílý text na něm nejde přečíst; modrá
    záře kolem navíc působí jako chyba. Barva textu je zapsaná ve všech

@@ -213,7 +213,7 @@ function csr_settings_registry() {
 	/* ---- Vlastní pruhy na titulce ---- */
 	$sections['note'] = array(
 		'title'  => 'Vlastní pruhy na titulce',
-		'desc'   => 'Tři volná místa hned pod běžící lištou na to, co je zrovna potřeba ukázat — výsledky závodu, nominaci, termín přihlášek. Vyplňte nadpis a odkaz; prázdný nadpis pruh skryje, takže se nemusí mazat, stačí nadpis vymazat.',
+		'desc'   => 'Tři volná místa hned pod běžící lištou na to, co je zrovna potřeba ukázat — zprávu s fotkou, výsledky závodu, nominaci, termín přihlášek. Vyplňte nadpis, podle potřeby text, fotku a odkaz; prázdný nadpis pruh skryje, takže se nemusí mazat, stačí nadpis vymazat.',
 		'fields' => csr_repeat_fields(
 			'csr_note',
 			3,
@@ -221,7 +221,8 @@ function csr_settings_registry() {
 				'icon'    => array( 'type' => 'select', 'label' => '%d. pruh — ikona', 'choices' => csr_icon_choices(), 'default' => 'info' ),
 				'eyebrow' => array( 'type' => 'text', 'label' => '%d. pruh — nadřazený popisek', 'desc' => 'Krátké slovo nad nadpisem, třeba „Právě teď" nebo „Nominace".' ),
 				'title'   => array( 'type' => 'text', 'label' => '%d. pruh — nadpis', 'desc' => 'Prázdné = pruh se nezobrazí.' ),
-				'text'    => array( 'type' => 'text', 'label' => '%d. pruh — doplňující věta' ),
+				'text'    => array( 'type' => 'textarea', 'label' => '%d. pruh — text', 'desc' => 'Klidně několik odstavců. Odřádkování se zachová.' ),
+				'image'   => array( 'type' => 'image', 'label' => '%d. pruh — fotka', 'desc' => 'Nepovinné. S fotkou se z pruhu stane zpráva: fotka vlevo, text vedle ní.' ),
 				'btn'     => array( 'type' => 'text', 'label' => '%d. pruh — text tlačítka' ),
 				'url'     => array( 'type' => 'url', 'label' => '%d. pruh — odkaz', 'desc' => 'Adresa souboru z knihovny médií, článku nebo stránky. Bez odkazu zůstane pruh jen textem.' ),
 			),

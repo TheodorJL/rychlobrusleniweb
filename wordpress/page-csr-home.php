@@ -217,8 +217,12 @@ for ( $csr_i = 1; $csr_i <= 3; $csr_i++ ) {
 			$csr_note_btn   = trim( (string) csr_opt( "csr_note{$csr_i}_btn" ) );
 			$csr_note_txt   = trim( (string) csr_opt( "csr_note{$csr_i}_text" ) );
 			$csr_note_eye   = trim( (string) csr_opt( "csr_note{$csr_i}_eyebrow" ) );
+			$csr_note_foto  = csr_opt_image( "csr_note{$csr_i}_image", 'large' );
 			?>
-			<div class="csr-note csr-reveal">
+			<div class="csr-note<?php echo $csr_note_foto ? ' csr-note--foto' : ''; ?> csr-reveal">
+				<?php if ( $csr_note_foto ) : ?>
+					<span class="csr-note__foto"><img src="<?php echo esc_url( $csr_note_foto ); ?>" alt="" loading="lazy" decoding="async"></span>
+				<?php endif; ?>
 				<span class="csr-note__ico" aria-hidden="true">
 					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><?php echo csr_icon_paths( csr_opt( "csr_note{$csr_i}_icon" ) ); // phpcs:ignore WordPress.Security.EscapeOutput — pevná knihovna SVG cest ?></svg>
 				</span>
@@ -228,7 +232,8 @@ for ( $csr_i = 1; $csr_i <= 3; $csr_i++ ) {
 					<?php endif; ?>
 					<span class="csr-note__title"><?php echo esc_html( $csr_note_title ); ?></span>
 					<?php if ( $csr_note_txt ) : ?>
-						<span class="csr-note__text"><?php echo esc_html( $csr_note_txt ); ?></span>
+						<?php // Odřádkování z nastavení se zachová, ať jde text psát po odstavcích. ?>
+						<span class="csr-note__text"><?php echo nl2br( esc_html( $csr_note_txt ) ); ?></span>
 					<?php endif; ?>
 				</div>
 				<?php if ( $csr_note_url ) : ?>
