@@ -203,14 +203,32 @@ $csr_notes = array();
 for ( $csr_i = 1; $csr_i <= 3; $csr_i++ ) {
 	$csr_nadpis = trim( (string) csr_opt( "csr_note{$csr_i}_title" ) );
 	if ( $csr_nadpis ) {
-		$csr_notes[] = $csr_i;
+		$csr_notes[] = array(
+			'cislo'  => $csr_i,
+			'poradi' => (int) csr_opt( "csr_note{$csr_i}_order" ),
+		);
 	}
 }
+
+/*
+ * Řadíme podle zvoleného pořadí, ne podle pořadí polí v nastavení —
+ * jinak by se přehození pruhů muselo dělat přepsáním celého obsahu.
+ * Při shodě rozhoduje pořadí polí, ať je výsledek pokaždé stejný.
+ */
+usort(
+	$csr_notes,
+	static function ( $a, $b ) {
+		$poradi_a = $a['poradi'] ? $a['poradi'] : $a['cislo'];
+		$poradi_b = $b['poradi'] ? $b['poradi'] : $b['cislo'];
+		return $poradi_a === $poradi_b ? $a['cislo'] - $b['cislo'] : $poradi_a - $poradi_b;
+	}
+);
 ?>
 <?php if ( $csr_notes ) : ?>
 	<section class="csr-section csr-section--tight">
 		<div class="csr-container csr-notes" data-csr-stagger="60">
-			<?php foreach ( $csr_notes as $csr_i ) : ?>
+			<?php foreach ( $csr_notes as $csr_pruh ) : ?>
+			<?php $csr_i = $csr_pruh['cislo']; ?>
 			<?php
 			$csr_note_title = trim( (string) csr_opt( "csr_note{$csr_i}_title" ) );
 			$csr_note_url   = csr_link( csr_opt( "csr_note{$csr_i}_url" ) );
@@ -236,9 +254,10 @@ for ( $csr_i = 1; $csr_i <= 3; $csr_i++ ) {
 						<span class="csr-note__text"><?php echo nl2br( esc_html( $csr_note_txt ) ); ?></span>
 					<?php endif; ?>
 				</div>
-				<?php if ( $csr_note_url ) : ?>
+				<?php // Bez textu tlačítka pruh žádné tlačítko nemá — jde tak vypnout. ?>
+				<?php if ( $csr_note_url && $csr_note_btn ) : ?>
 					<a class="csr-btn csr-note__btn" href="<?php echo esc_url( $csr_note_url ); ?>">
-						<?php echo esc_html( $csr_note_btn ? $csr_note_btn : 'Otevřít' ); ?>
+						<?php echo esc_html( $csr_note_btn ); ?>
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 					</a>
 				<?php endif; ?>

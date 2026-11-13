@@ -218,18 +218,19 @@ function csr_settings_registry() {
 			'csr_note',
 			3,
 			array(
+				'order'   => array( 'type' => 'select', 'label' => '%d. pruh — pořadí na stránce', 'desc' => 'Pruhy se seřadí podle tohohle čísla, ne podle pořadí polí. Obsah tak nemusíte přepisovat — stačí přehodit čísla.', 'choices' => array( '1' => '1. shora', '2' => '2. shora', '3' => '3. shora' ) ),
 				'icon'    => array( 'type' => 'select', 'label' => '%d. pruh — ikona', 'choices' => csr_icon_choices(), 'default' => 'info' ),
 				'eyebrow' => array( 'type' => 'text', 'label' => '%d. pruh — nadřazený popisek', 'desc' => 'Krátké slovo nad nadpisem, třeba „Právě teď" nebo „Nominace".' ),
 				'title'   => array( 'type' => 'text', 'label' => '%d. pruh — nadpis', 'desc' => 'Prázdné = pruh se nezobrazí.' ),
 				'text'    => array( 'type' => 'textarea', 'label' => '%d. pruh — text', 'desc' => 'Klidně několik odstavců. Odřádkování se zachová.' ),
 				'image'   => array( 'type' => 'image', 'label' => '%d. pruh — fotka', 'desc' => 'Nepovinné. S fotkou se z pruhu stane zpráva: fotka vlevo, text vedle ní.' ),
-				'btn'     => array( 'type' => 'text', 'label' => '%d. pruh — text tlačítka' ),
+				'btn'     => array( 'type' => 'text', 'label' => '%d. pruh — text tlačítka', 'desc' => 'Prázdné = pruh bude bez tlačítka.' ),
 				'url'     => array( 'type' => 'url', 'label' => '%d. pruh — odkaz', 'desc' => 'Adresa souboru z knihovny médií, článku nebo stránky. Bez odkazu zůstane pruh jen textem.' ),
 			),
 			array(
-				1 => array( 'icon' => 'graf', 'eyebrow' => 'Právě teď', 'btn' => 'Otevřít' ),
-				2 => array( 'icon' => 'info', 'btn' => 'Otevřít' ),
-				3 => array( 'icon' => 'info', 'btn' => 'Otevřít' ),
+				1 => array( 'order' => '1', 'icon' => 'graf', 'eyebrow' => 'Právě teď', 'btn' => 'Otevřít' ),
+				2 => array( 'order' => '2', 'icon' => 'info', 'btn' => 'Otevřít' ),
+				3 => array( 'order' => '3', 'icon' => 'info', 'btn' => 'Otevřít' ),
 			)
 		),
 	);
