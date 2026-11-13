@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Český svaz rychlobruslení">
+  <defs>
+    <linearGradient id="csrIce" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7ed0f7"/>
+      <stop offset="55%" stop-color="#38b6f0"/>
+      <stop offset="100%" stop-color="#0b7cb8"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#0b1728"/>
+  <rect x="1" y="1" width="62" height="62" rx="15" fill="none" stroke="url(#csrIce)" stroke-opacity=".45" stroke-width="1.5"/>
+  <!-- Rychlostní stopy -->
+  <path d="M9 24h22" stroke="url(#csrIce)" stroke-width="3.5" stroke-linecap="round" opacity=".45"/>
+  <path d="M9 32h13" stroke="url(#csrIce)" stroke-width="3.5" stroke-linecap="round" opacity=".28"/>
+  <!-- Nůž brusle -->
+  <path d="M18 44c8 2.5 17 1 24-4.5C48.5 34 52 26 51.5 17.5" fill="none" stroke="url(#csrIce)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M20 49.5h26" stroke="#e01f26" stroke-width="4" stroke-linecap="round"/>
+</svg>

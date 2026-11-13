@@ -1,0 +1,284 @@
+# Vložte do: Reprezentanti → Hromadné přidání
+# Formát: Jméno|rok|klub|role|sezóna|tým|adresa fotky
+#
+# Sezóna i tým jsou na každém řádku, takže se vloží všech 26 soupisek
+# najednou — výběr nad polem nechte na „nezařazovat“.
+#
+# Fotky se hledají v knihovně médií podle adresy. Nic se nestahuje,
+# obrázky ze starého webu tam už jsou. Kde se fotka nenajde, ohlásí to
+# administrace jménem a doplníte ji ručně.
+#
+# --- 2026-2027 · SS – Junioři ---
+Sára Hlušková|2007|BK Náchod||2026-2027|SS – Junioři|http://speedskating.cz/wp-content/uploads/2024/12/IMG_3069-454x600.jpg
+Barbora Sáblíková|2010|BK Žďár||2026-2027|SS – Junioři|http://speedskating.cz/wp-content/uploads/2025/07/Barbora-Sablikova-450x600.jpg
+Filip Jílek|2010|BZK Praha||2026-2027|SS – Junioři|http://speedskating.cz/wp-content/uploads/2025/08/PHOTO-2025-08-06-14-50-10-450x600.jpg
+Adéla Krejčová|2008|KRS Svratka||2026-2027|SS – Junioři|http://speedskating.cz/wp-content/uploads/2024/07/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Tobiáš Krupka|2009|SKR Hlinsko||2026-2027|SS – Junioři|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Marta Papoušková|2009|KRS Svratka||2026-2027|SS – Junioři|http://speedskating.cz/wp-content/uploads/2024/07/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Marek Kurš|2007|KRS Svratka||2026-2027|SS – Junioři|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Veronika Dykastová|2008|KSBM Praha||2026-2027|SS – Junioři|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Jáchym Podlipský|2008|KSBM Praha||2026-2027|SS – Junioři|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Jiří Macháček|||trener|2026-2027|SS – Junioři|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Pavel Kulma|||trener|2026-2027|SS – Junioři|http://speedskating.cz/wp-content/uploads/2022/08/MKR_0106-819x1024.jpg
+
+# --- 2026-2027 · SS – Senioři ---
+Kateřina Kainová|2003|KSBM Praha||2026-2027|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/Kainova_Katerina-768x1024.jpg
+Nikola Zdráhalová|1996|KRS Svratka||2026-2027|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/bb-940x1024.jpeg
+Metoděj Jílek|2006|BZK Praha||2026-2027|SS – Senioři|http://speedskating.cz/wp-content/uploads/2023/02/Jilek-Metodej.png
+Zuzana Kuršová|2003|KRS Svratka||2026-2027|SS – Senioři|http://speedskating.cz/wp-content/uploads/2023/07/Kursova-Zuzana-450x600.jpeg
+Jesika Forstová|2006|KRS Svratka||2026-2027|SS – Senioři|http://speedskating.cz/wp-content/uploads/2024/07/Forstova-J.-450x600.jpg
+Monika Prachárová|2007|BZK Praha||2026-2027|SS – Senioři|http://speedskating.cz/wp-content/uploads/2024/07/Pracharova-M.-450x600.jpg
+Lucie Korvasová|2003|SKR Hlinsko||2026-2027|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/ss-652x1024.jpg
+Kateřina Macháčková|2004|KRS Svratka||2026-2027|SS – Senioři|http://speedskating.cz/wp-content/uploads/2024/07/Machackova-Katerina.jpg
+Prokop Stodola|2002|KSBM Praha||2026-2027|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/Stodola-Prokop-769x1024.jpg
+Jakub Kočí|2004|KRS Svratka||2026-2027|SS – Senioři|http://speedskating.cz/wp-content/uploads/2023/07/Jakub-Koci-467x600.jpeg
+Tadeáš Procházka|2001|SKR Hlinsko||2026-2027|SS – Senioři|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Jakub Kovařík|2006|BZK Praha||2026-2027|SS – Senioři|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Martina Sáblíková|||trener|2026-2027|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/aa.jpg
+Kalon Dobbin|||trener|2026-2027|SS – Senioři|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Petr Novák|||trener|2026-2027|SS – Senioři|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Jiří Tvrdík|||trener|2026-2027|SS – Senioři|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+
+# --- 2026-2027 · ST – Junioři ---
+Filip Jílek|2010|BZK Praha||2026-2027|ST – Junioři|http://speedskating.cz/wp-content/uploads/2025/08/PHOTO-2025-08-06-14-50-10-450x600.jpg
+David Hradský|2010|KSB Benátky||2026-2027|ST – Junioři|http://speedskating.cz/wp-content/uploads/2026/06/PHOTO-2026-06-15-21-21-05-450x600.jpg
+Samuel Oliver Šulc|2008|KSB Benátky||2026-2027|ST – Junioři|http://speedskating.cz/wp-content/uploads/2024/07/5A4024D6-824D-4376-B3B9-29810A7B4E80-450x600.jpeg
+Jan Muchka|2008|KSB Benátky||2026-2027|ST – Junioři|http://speedskating.cz/wp-content/uploads/2025/08/PHOTO-2025-08-06-18-01-31-450x600.jpg
+Anna Pňovská|2008|KSB Benátky||2026-2027|ST – Junioři|http://speedskating.cz/wp-content/uploads/2025/07/Anna-Pnovska.jpeg
+Václav Kamenský|2008|KSB Benátky||2026-2027|ST – Junioři|http://speedskating.cz/wp-content/uploads/2024/07/Kamensky-V.-e1721402008896.jpg
+Laura Nevřelová|2011|KSB Benátky||2026-2027|ST – Junioři|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+František Muchka|2010|KSB Benátky||2026-2027|ST – Junioři|http://speedskating.cz/wp-content/uploads/2026/06/unnamed-1-486x600.jpg
+Jindřich Pařík|||trener|2026-2027|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/04/6545748E-E430-431E-9144-B75C3D4BC3F9-1024x1024.png
+Kateřina Novotná|||trener|2026-2027|ST – Junioři|http://speedskating.cz/wp-content/uploads/2025/08/unnamed-2-400x600.jpg
+Jarmil Hrůza|||trener|2026-2027|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/CZE-Hruza-Jarmil-..jpg
+
+# --- 2026-2027 · ST – Senioři ---
+Radek Fajkus|2001|KSB Benátky||2026-2027|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/Fajkus-Radek.jpg
+Petra Vaňková|1999|BZK Praha||2026-2027|ST – Senioři|http://speedskating.cz/wp-content/uploads/2025/07/Vankova-P-480x600.jpg
+Zdeněk Sejpal|2001|KSB Benátky||2026-2027|ST – Senioři|http://speedskating.cz/wp-content/uploads/2023/07/CZE-Sejpal-Zdenek.jpg
+Barbora Gáková|2006|BZK Praha||2026-2027|ST – Senioři|http://speedskating.cz/wp-content/uploads/2025/07/Gakkova-Barbora-450x600.jpeg
+Michaela Poplová|2006|BZK Praha||2026-2027|ST – Senioři|http://speedskating.cz/wp-content/uploads/2025/07/Poplova-Michaela-465x600.jpg
+Matěj Popl|2006|BZK Praha||2026-2027|ST – Senioři|http://speedskating.cz/wp-content/uploads/2025/09/Popl-Matej-450x600.jpg
+Marek Procházka|2006|BZK Praha||2026-2027|ST – Senioři|http://speedskating.cz/wp-content/uploads/2025/07/Prochazka-Marek-450x600.jpg
+Jarmil Hrůza|||trener|2026-2027|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/CZE-Hruza-Jarmil-..jpg
+Kateřina Novotná|||trener|2026-2027|ST – Senioři|http://speedskating.cz/wp-content/uploads/2025/08/unnamed-2-400x600.jpg
+Jindřich Pařík|||trener|2026-2027|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/04/6545748E-E430-431E-9144-B75C3D4BC3F9-1024x1024.png
+
+# --- 2025-2026 · SS – Junioři ---
+Sára Hlušková|2007|BK Náchod||2025-2026|SS – Junioři|http://speedskating.cz/wp-content/uploads/2024/12/IMG_3069-454x600.jpg
+Monika Prachárová|2007|BZK Praha||2025-2026|SS – Junioři|http://speedskating.cz/wp-content/uploads/2024/07/Pracharova-M.-450x600.jpg
+Filip Jílek|2010|BZK Praha||2025-2026|SS – Junioři|http://speedskating.cz/wp-content/uploads/2025/08/PHOTO-2025-08-06-14-50-10-450x600.jpg
+Adéla Krejčová|2008|KRS Svratka||2025-2026|SS – Junioři|http://speedskating.cz/wp-content/uploads/2024/07/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Barbora Sáblíková|2010|BK Žďár||2025-2026|SS – Junioři|http://speedskating.cz/wp-content/uploads/2025/07/Barbora-Sablikova-450x600.jpg
+Marta Papoušková|2009|KRS Svratka||2025-2026|SS – Junioři|http://speedskating.cz/wp-content/uploads/2024/07/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Johana Prachárová|2007|BZK Praha||2025-2026|SS – Junioři|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Veronika Dykastová|2008|KSBM Praha||2025-2026|SS – Junioři|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Jáchym Podlipský|2008|KSBM Praha||2025-2026|SS – Junioři|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Marek Kurš|2007|KRS Svratka||2025-2026|SS – Junioři|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Pavel Kulma|||trener|2025-2026|SS – Junioři|http://speedskating.cz/wp-content/uploads/2022/08/MKR_0106-819x1024.jpg
+
+# --- 2025-2026 · SS – Senioři ---
+Martina Sáblíková|1987|KRS Svratka||2025-2026|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/aa.jpg
+Nikola Zdráhalová|1996|KRS Svratka||2025-2026|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/bb-940x1024.jpeg
+Metoděj Jílek|2006|BZK Praha||2025-2026|SS – Senioři|http://speedskating.cz/wp-content/uploads/2023/02/Jilek-Metodej.png
+Zuzana Kuršová|2003|KRS Svratka||2025-2026|SS – Senioři|http://speedskating.cz/wp-content/uploads/2023/07/Kursova-Zuzana-450x600.jpeg
+Nikol Nepokojová|2003|SKR Hlinsko||2025-2026|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/Nepokojova-Nikol-787x1024.jpeg
+Kateřina Kainová|2003|KSBM Praha||2025-2026|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/Kainova_Katerina-768x1024.jpg
+Lucie Korvasová|2003|SKR Hlinsko||2025-2026|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/ss-652x1024.jpg
+Kateřina Macháčková|2004|KRS Svratka||2025-2026|SS – Senioři|http://speedskating.cz/wp-content/uploads/2024/07/Machackova-Katerina.jpg
+Prokop Stodola|2002|KSBM Praha||2025-2026|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/Stodola-Prokop-769x1024.jpg
+Jakub Kočí|2004|KRS Svratka||2025-2026|SS – Senioři|http://speedskating.cz/wp-content/uploads/2023/07/Jakub-Koci-467x600.jpeg
+Jesika Forstová|2006|KRS Svratka||2025-2026|SS – Senioři|http://speedskating.cz/wp-content/uploads/2024/07/Forstova-J.-450x600.jpg
+
+# --- 2025-2026 · SS – Sledovaní ---
+Tomáš Bohumský|2002|KSBM Praha||2025-2026|SS – Sledovaní|http://speedskating.cz/wp-content/uploads/2023/07/Bohumsky-Tomas-450x600.jpg
+Tadeáš Procházka|2001|SKR Hlinsko||2025-2026|SS – Sledovaní|http://speedskating.cz/wp-content/uploads/2024/12/IMG_3068-e1733134282186-429x600.jpg
+
+# --- 2025-2026 · ST – Junioři ---
+Eva Bláhová|2008|STC Žďár||2025-2026|ST – Junioři|http://speedskating.cz/wp-content/uploads/2023/07/Eva-Blahova-467x600.jpg
+Marek Procházka|2006|BZK Praha||2025-2026|ST – Junioři|http://speedskating.cz/wp-content/uploads/2025/07/Prochazka-Marek-450x600.jpg
+Samuel Oliver Šulc|2008|KSB Benátky||2025-2026|ST – Junioři|http://speedskating.cz/wp-content/uploads/2024/07/5A4024D6-824D-4376-B3B9-29810A7B4E80-450x600.jpeg
+Jan Muchka|2008|KSB Benátky||2025-2026|ST – Junioři|http://speedskating.cz/wp-content/uploads/2025/08/PHOTO-2025-08-06-18-01-31-450x600.jpg
+Anna Pňovská|2008|KSB Benátky||2025-2026|ST – Junioři|http://speedskating.cz/wp-content/uploads/2025/07/Anna-Pnovska.jpeg
+Václav Kamenský|2008|KSB Benátky||2025-2026|ST – Junioři|http://speedskating.cz/wp-content/uploads/2024/07/Kamensky-V.-e1721402008896.jpg
+Filip Jílek|2010|BZK Praha||2025-2026|ST – Junioři|http://speedskating.cz/wp-content/uploads/2025/08/PHOTO-2025-08-06-14-50-10-450x600.jpg
+Monika Kotrchová|2008|STC Žďár||2025-2026|ST – Junioři|http://speedskating.cz/wp-content/uploads/2025/07/Monika-Kotrchova-450x600.jpeg
+Jindřich Pařík|||trener|2025-2026|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/04/6545748E-E430-431E-9144-B75C3D4BC3F9-1024x1024.png
+Kateřina Novotná|||trener|2025-2026|ST – Junioři|http://speedskating.cz/wp-content/uploads/2025/08/unnamed-2-400x600.jpg
+
+# --- 2025-2026 · ST – Senioři ---
+Radek Fajkus|2001|KSB Benátky||2025-2026|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/Fajkus-Radek.jpg
+Petra Vaňková|1999|BZK Praha||2025-2026|ST – Senioři|http://speedskating.cz/wp-content/uploads/2025/07/Vankova-P-480x600.jpg
+Zdeněk Sejpal|2001|KSB Benátky||2025-2026|ST – Senioři|http://speedskating.cz/wp-content/uploads/2023/07/CZE-Sejpal-Zdenek.jpg
+Barbora Gáková|2006|BZK Praha||2025-2026|ST – Senioři|http://speedskating.cz/wp-content/uploads/2025/07/Gakkova-Barbora-450x600.jpeg
+Michaela Poplová|2006|BZK Praha||2025-2026|ST – Senioři|http://speedskating.cz/wp-content/uploads/2025/07/Poplova-Michaela-465x600.jpg
+Matěj Popl|2006|BZK Praha||2025-2026|ST – Senioři|http://speedskating.cz/wp-content/uploads/2025/09/Popl-Matej-450x600.jpg
+Jarmil Hrůza|||trener|2025-2026|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/CZE-Hruza-Jarmil-..jpg
+Kateřina Novotná|||trener|2025-2026|ST – Senioři|http://speedskating.cz/wp-content/uploads/2025/08/unnamed-2-400x600.jpg
+
+# --- 2025-2026 · ST – Sledovaní ---
+Tadeáš Kraj|2008|KSB Benátky||2025-2026|ST – Sledovaní|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+David Hradský|2010|KSB Benátky||2025-2026|ST – Sledovaní|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Laura Nevřelová|2011|KSB Benátky||2025-2026|ST – Sledovaní|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Julie Pňovská|2011|KSB Benátky||2025-2026|ST – Sledovaní|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+Matěj Kalamár|2012|KSB Benátky||2025-2026|ST – Sledovaní|http://speedskating.cz/wp-content/uploads/2025/06/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1-300x300-1.png
+
+# --- 2024-2025 · SS – Junioři ---
+Sára Hlušková|2007|BK Náchod||2024-2025|SS – Junioři|http://speedskating.cz/wp-content/uploads/2024/12/IMG_3069-454x600.jpg
+Monika Prachárová|2007|BZK Praha||2024-2025|SS – Junioři|http://speedskating.cz/wp-content/uploads/2024/07/Pracharova-M.-450x600.jpg
+Monika Macháčková|2006|KRS Svratka||2024-2025|SS – Junioři|http://speedskating.cz/wp-content/uploads/2024/11/Machackova-Monika-450x600.jpg
+Jesika Forstová|2006|KRS Svratka||2024-2025|SS – Junioři|http://speedskating.cz/wp-content/uploads/2024/07/Forstova-J.-450x600.jpg
+Stella Horká|2006|KSB Hodonín||2024-2025|SS – Junioři|http://speedskating.cz/wp-content/uploads/2022/10/Horka-Stella.jpeg
+Metoděj Jílek|2006|BZK Praha||2024-2025|SS – Junioři|http://speedskating.cz/wp-content/uploads/2023/02/Jilek-Metodej.png
+Pavel Kulma|||trener|2024-2025|SS – Junioři|http://speedskating.cz/wp-content/uploads/2022/08/MKR_0106-819x1024.jpg
+
+# --- 2024-2025 · SS – Senioři ---
+Martina Sáblíková|1987|KRS Svratka||2024-2025|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/aa.jpg
+Nikola Zdráhalová|1996|KRS Svratka||2024-2025|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/bb-940x1024.jpeg
+Veronika Antošová|2000|KRS Svratka||2024-2025|SS – Senioři|http://speedskating.cz/wp-content/uploads/2023/07/Antosova-Veronika-1.jpeg
+Zuzana Kuršová|2003|KRS Svratka||2024-2025|SS – Senioři|http://speedskating.cz/wp-content/uploads/2023/07/Kursova-Zuzana-450x600.jpeg
+Nikol Nepokojová|2003|SKR Hlinsko||2024-2025|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/Nepokojova-Nikol-787x1024.jpeg
+Kateřina Kainová|2003|KSBM Praha||2024-2025|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/Kainova_Katerina-768x1024.jpg
+Lucie Korvasová|2003|SKR Hlinsko||2024-2025|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/ss-652x1024.jpg
+Kateřina Macháčková|2004|KRS Svratka||2024-2025|SS – Senioři|http://speedskating.cz/wp-content/uploads/2024/07/Machackova-Katerina.jpg
+Adéla Petrusová|2003|SKR Hlinsko||2024-2025|SS – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/20210503_175620-768x1024.jpg
+Tomáš Bohumský|2002|KSBM Praha||2024-2025|SS – Senioři|http://speedskating.cz/wp-content/uploads/2023/07/Bohumsky-Tomas-450x600.jpg
+Jakub Kočí|2004|KRS Svratka||2024-2025|SS – Senioři|http://speedskating.cz/wp-content/uploads/2023/07/Jakub-Koci-467x600.jpeg
+Tadeáš Procházka|2001|SKR Hlinsko||2024-2025|SS – Senioři|http://speedskating.cz/wp-content/uploads/2024/12/IMG_3068-e1733134282186-429x600.jpg
+Prokop Stodola|2002|KSBM Praha||2024-2025|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/Stodola-Prokop-769x1024.jpg
+
+# --- 2024-2025 · ST – Junioři ---
+Barbora Gáková|2006|STC Žďár||2024-2025|ST – Junioři|http://speedskating.cz/wp-content/uploads/2023/07/Gakova-Barbora-e1689169472214-543x600.jpeg
+Marek Procházka|2006|BZK Praha||2024-2025|ST – Junioři|http://speedskating.cz/wp-content/uploads/2023/07/Prochazka-Marek.-427x600.jpg
+Samuel Oliver Šulc|2008|KSB Benátky||2024-2025|ST – Junioři|http://speedskating.cz/wp-content/uploads/2024/07/5A4024D6-824D-4376-B3B9-29810A7B4E80-450x600.jpeg
+Michaela Poplová|2006|BZK Praha||2024-2025|ST – Junioři|http://speedskating.cz/wp-content/uploads/2022/08/Poplova-Mi.-766x1024.jpg
+Matěj Popl|2006|BZK Praha||2024-2025|ST – Junioři|http://speedskating.cz/wp-content/uploads/2022/08/Popl-Matej..jpg
+Eva Bláhová|2008|STC Žďár||2024-2025|ST – Junioři|http://speedskating.cz/wp-content/uploads/2023/07/Eva-Blahova-467x600.jpg
+Jan Muchka|2008|KSB Benátky||2024-2025|ST – Junioři|http://speedskating.cz/wp-content/uploads/2023/07/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1.png
+Anna Pňovská|2008|KSB Benátky||2024-2025|ST – Junioři|http://speedskating.cz/wp-content/uploads/2024/07/Novy-projekt-338x600.png
+Václav Kamenský|2008|KSB Benátky||2024-2025|ST – Junioři|http://speedskating.cz/wp-content/uploads/2024/07/Kamensky-V.-e1721402008896.jpg
+Monika Kotrchová|2008|STC Žďár||2024-2025|ST – Junioři|http://speedskating.cz/wp-content/uploads/2023/07/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1.png
+Jindřich Pařík|||trener|2024-2025|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/04/6545748E-E430-431E-9144-B75C3D4BC3F9-1024x1024.png
+
+# --- 2024-2025 · ST – Senioři ---
+Radek Fajkus|2001|KSB Benátky||2024-2025|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/Fajkus-Radek.jpg
+Petra Vaňková|1999|BZK Praha||2024-2025|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/Vankova-Petra.jpg
+Zdeněk Sejpal|2001|KSB Benátky||2024-2025|ST – Senioři|http://speedskating.cz/wp-content/uploads/2023/07/CZE-Sejpal-Zdenek.jpg
+Jarmil Hrůza|||trener|2024-2025|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/CZE-Hruza-Jarmil-..jpg
+
+# --- 2023-2024 · SS – Junioři ---
+Kateřina Macháčková|2004|KRS Svratka||2023-2024|SS – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/Machackova-Katerina.jpg
+Stella Horká|2006|KSB Hodonín||2023-2024|SS – Junioři|http://speedskating.cz/wp-content/uploads/2022/10/Horka-Stella.jpeg
+Metoděj Jílek|2006|BZK Praha||2023-2024|SS – Junioři|http://speedskating.cz/wp-content/uploads/2023/02/Jilek-Metodej.png
+Pavel Kulma|||trener|2023-2024|SS – Junioři|http://speedskating.cz/wp-content/uploads/2022/08/MKR_0106-819x1024.jpg
+
+# --- 2023-2024 · SS – Senioři ---
+Martina Sáblíková|1987|KRS Svratka||2023-2024|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/aa.jpg
+Nikola Zdráhalová|1996|KRS Svratka||2023-2024|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/bb-940x1024.jpeg
+Veronika Antošová|2000|KRS Svratka||2023-2024|SS – Senioři|http://speedskating.cz/wp-content/uploads/2023/07/Antosova-Veronika-1.jpeg
+Zuzana Kuršová|2003|KRS Svratka||2023-2024|SS – Senioři|http://speedskating.cz/wp-content/uploads/2023/07/Kursova-Zuzana-450x600.jpeg
+Nikol Nepokojová|2003|SKR Hlinsko||2023-2024|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/Nepokojova-Nikol-787x1024.jpeg
+Kateřina Kainová|2003|KSBM Praha||2023-2024|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/Kainova_Katerina-768x1024.jpg
+Lucie Korvasová|2003|SKR Hlinsko||2023-2024|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/ss-652x1024.jpg
+Prokop Stodola|2002|KSBM Praha||2023-2024|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/Stodola-Prokop-769x1024.jpg
+Adéla Petrusová|2003|SKR Hlinsko||2023-2024|SS – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/20210503_175620-768x1024.jpg
+Tomáš Bohumský|2002|KSBM Praha||2023-2024|SS – Senioři|http://speedskating.cz/wp-content/uploads/2023/07/Bohumsky-Tomas-450x600.jpg
+Jakub Kočí|2004|KRS Svratka||2023-2024|SS – Senioři|http://speedskating.cz/wp-content/uploads/2023/07/Jakub-Koci-467x600.jpeg
+Tadeáš Procházka|2001|SKR Hlinsko||2023-2024|SS – Senioři|http://speedskating.cz/wp-content/uploads/2023/07/Prochazka-Tadeas.-467x600.jpeg
+
+# --- 2023-2024 · ST – Junioři ---
+Barbora Gáková|2006|STC Žďár||2023-2024|ST – Junioři|http://speedskating.cz/wp-content/uploads/2023/07/Gakova-Barbora-e1689169472214-543x600.jpeg
+Marek Procházka|2006|BZK Praha||2023-2024|ST – Junioři|http://speedskating.cz/wp-content/uploads/2023/07/Prochazka-Marek.-427x600.jpg
+Samuel Šulc|2008|KSB Benátky||2023-2024|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/04/6545748E-E430-431E-9144-B75C3D4BC3F9-1024x1024.png
+Michaela Poplová|2006|BZK Praha||2023-2024|ST – Junioři|http://speedskating.cz/wp-content/uploads/2022/08/Poplova-Mi.-766x1024.jpg
+Matěj Popl|2006|BZK Praha||2023-2024|ST – Junioři|http://speedskating.cz/wp-content/uploads/2022/08/Popl-Matej..jpg
+Eva Bláhová|2008|STC Žďár||2023-2024|ST – Junioři|http://speedskating.cz/wp-content/uploads/2023/07/Eva-Blahova-467x600.jpg
+Jan Muchka|2008|KSB Benátky||2023-2024|ST – Junioři|http://speedskating.cz/wp-content/uploads/2023/07/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1.png
+Anna Pňovská|2008|KSB Benátky||2023-2024|ST – Junioři|http://speedskating.cz/wp-content/uploads/2023/07/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1.png
+Václav Kamenský|2008|KSB Benátky||2023-2024|ST – Junioři|http://speedskating.cz/wp-content/uploads/2023/07/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1.png
+Monika Kotrchová|2008|STC Žďár||2023-2024|ST – Junioři|http://speedskating.cz/wp-content/uploads/2023/07/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1.png
+Filip Jílek|2010|BZK Praha||2023-2024|ST – Junioři|http://speedskating.cz/wp-content/uploads/2023/07/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1.png
+Marta Papoušková|2009|STC Žďár||2023-2024|ST – Junioři|http://speedskating.cz/wp-content/uploads/2023/07/6545748E-E430-431E-9144-B75C3D4BC3F9-300x300-1.png
+Jindřich Pařík|||trener|2023-2024|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/04/6545748E-E430-431E-9144-B75C3D4BC3F9-1024x1024.png
+
+# --- 2023-2024 · ST – Senioři ---
+Radek Fajkus|2001|KSB Benátky||2023-2024|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/Fajkus-Radek.jpg
+Petra Vaňková|1999|BZK Praha||2023-2024|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/Vankova-Petra.jpg
+Zdeněk Sejpal|2001|KSB Benátky||2023-2024|ST – Senioři|http://speedskating.cz/wp-content/uploads/2023/07/CZE-Sejpal-Zdenek.jpg
+Jarmil Hrůza|||trener|2023-2024|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/CZE-Hruza-Jarmil-..jpg
+
+# --- 2022-2023 · SS – Junioři ---
+Matěj Semeniuk|2003|Kometa Brno||2022-2023|SS – Junioři|http://speedskating.cz/wp-content/uploads/2022/08/Semeniuk-693x1024.jpg
+Lukáš Steklý|2003|KSB Hodonín||2022-2023|SS – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/Stekly-L..jpg
+Adéla Petrusová|2003|SKR Hlinsko||2022-2023|SS – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/20210503_175620-768x1024.jpg
+Jakub Kočí|2004|KRS Svratka||2022-2023|SS – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/46213D01-46CD-425F-A3A9-536BC216F413-scaled-e1620048360743-837x1024.jpeg
+Stella Horká|2006|KSB Hodonín||2022-2023|SS – Junioři|http://speedskating.cz/wp-content/uploads/2022/10/Horka-Stella.jpeg
+Metoděj Jílek|2006|BZK Praha||2022-2023|SS – Junioři|http://speedskating.cz/wp-content/uploads/2023/02/Jilek-Metodej.png
+Pavel Kulma|||trener|2022-2023|SS – Junioři|http://speedskating.cz/wp-content/uploads/2022/08/MKR_0106-819x1024.jpg
+
+# --- 2022-2023 · SS – Senioři ---
+Martina Sáblíková|1987|KRS Svratka||2022-2023|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/aa.jpg
+Nikola Zdráhalová|1996|KRS Svratka||2022-2023|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/bb-940x1024.jpeg
+Veronika Antošová|2000|KRS Svratka||2022-2023|SS – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/foto-stranky-1-768x1024.jpeg
+Zuzana Kuršová|2003|KRS Svratka||2022-2023|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/Kursova-Zuzana-768x1024.jpg
+Nikol Nepokojová|2003|SKR Hlinsko||2022-2023|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/Nepokojova-Nikol-787x1024.jpeg
+Kateřina Kainová|2003|KSBM Praha||2022-2023|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/Kainova_Katerina-768x1024.jpg
+Lucie Korvasová|2003|SKR Hlinsko||2022-2023|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/ss-652x1024.jpg
+Prokop Stodola|2002|KSBM Praha||2022-2023|SS – Senioři|http://speedskating.cz/wp-content/uploads/2022/08/Stodola-Prokop-769x1024.jpg
+
+# --- 2022-2023 · ST – Junioři ---
+Barbora Gáková|2006|STC Žďár||2022-2023|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/Bara-1.jpg
+Klára Strnadová|2005|STC Žďár||2022-2023|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/kkk.png
+Karolína Bílková|2004|STC Žďár||2022-2023|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/Kaja-1.jpg
+Michaela Poplová|2006|BZK Praha||2022-2023|ST – Junioři|http://speedskating.cz/wp-content/uploads/2022/08/Poplova-Mi.-766x1024.jpg
+Matěj Popl|2006|BZK Praha||2022-2023|ST – Junioři|http://speedskating.cz/wp-content/uploads/2022/08/Popl-Matej..jpg
+Carine Manychová|2004|BK Náchod||2022-2023|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/unnamed.jpg
+Zbyněk Svítil|||trener|2022-2023|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/04/6545748E-E430-431E-9144-B75C3D4BC3F9-1024x1024.png
+Jindřich Pařík|||trener|2022-2023|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/04/6545748E-E430-431E-9144-B75C3D4BC3F9-1024x1024.png
+
+# --- 2022-2023 · ST – Senioři ---
+Michaela Hrůzová|1998|KSB Benátky||2022-2023|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/Sejpalova-Hruzova-Michaela-768x1024.jpg
+Petra Vaňková|1999|BZK Praha||2022-2023|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/Vankova-Petra.jpg
+Zdeněk Sejpal|2001|KSB Benátky||2022-2023|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/Sejpal-Zdenek.jpg
+Radek Fajkus|2001|KSB Benátky||2022-2023|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/Fajkus-Radek.jpg
+Jarmil Hrůza|||trener|2022-2023|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/CZE-Hruza-Jarmil-..jpg
+
+# --- 2021-2022 · SS – Junioři ---
+Kateřina Macháčková|2004|KRS Svratka||2021-2022|SS – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/Machackova-Katerina.jpg
+Nikol Nepokojová|2003|SKR Hlinsko||2021-2022|SS – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/Nepokojova-Nikol--683x1024.jpg
+Adéla Petrusová|2003|SKR Hlinsko||2021-2022|SS – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/20210503_175620-768x1024.jpg
+Prokop Stodola|2002|KSBM Praha||2021-2022|SS – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/IMG-20210107-WA0003-769x1024.jpg
+Zuzana Kuršová|2003|KSB Hodonín||2021-2022|SS – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/Kursova-Zuzana-768x1024.jpg
+Jakub Kočí|2004|KRS Svratka||2021-2022|SS – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/46213D01-46CD-425F-A3A9-536BC216F413-scaled-e1620048360743-837x1024.jpeg
+Matěj Semeniuk|2003|Kometa Brno||2021-2022|SS – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/Semeniuk-fotka.png
+Lukáš Steklý|2003|KSB Hodonín||2021-2022|SS – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/Stekly-L..jpg
+Pavel Kulma|||trener|2021-2022|SS – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/KULMA-P.jpg
+
+# --- 2021-2022 · SS – Senioři ---
+Martina Sáblíková|1987|KRS Svratka||2021-2022|SS – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/SABLIKOVA-M.jpg
+Nikola Zdráhalová|1996|KRS Svratka||2021-2022|SS – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/ZDRAHALOVA-N..jpg
+Veronika Antošová|2000|KRS Svratka||2021-2022|SS – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/foto-stranky-1-768x1024.jpeg
+Sebastien Briešťanský|1998|KRS Svratka||2021-2022|SS – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/Briestansky-S..jpg
+Petr Novák|||trener|2021-2022|SS – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/Petr-Novak-P.jpg
+
+# --- 2021-2022 · ST – Junioři ---
+Barbora Gáková|2006|STC Žďár||2021-2022|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/Bara-1.jpg
+Klára Strnadová|2005|STC Žďár||2021-2022|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/kkk.png
+Karolína Bílková|2004|STC Žďár||2021-2022|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/Kaja-1.jpg
+Kristýna Kudláčková|2005|STC Žďár||2021-2022|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/Kiki-1.jpg
+Eliška Kudláčková|2007|STC Žďár||2021-2022|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/Eliska-768x1024.jpeg
+Magdalena Hromasová|2005|BZK Praha||2021-2022|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/04/6545748E-E430-431E-9144-B75C3D4BC3F9-1024x1024.png
+Michaela Poplová|2006|BZK Praha||2021-2022|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/04/6545748E-E430-431E-9144-B75C3D4BC3F9-1024x1024.png
+Matěj Popl|2006|BZK Praha||2021-2022|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/04/6545748E-E430-431E-9144-B75C3D4BC3F9-1024x1024.png
+Carine Manychová|2004|BK Náchod||2021-2022|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/05/unnamed.jpg
+Zbyněk Svítil|||trener|2021-2022|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/04/6545748E-E430-431E-9144-B75C3D4BC3F9-1024x1024.png
+Jindřich Pařík|||trener|2021-2022|ST – Junioři|http://speedskating.cz/wp-content/uploads/2021/04/6545748E-E430-431E-9144-B75C3D4BC3F9-1024x1024.png
+
+# --- 2021-2022 · ST – Senioři ---
+Michaela Hrůzová|1998|KSB Benátky||2021-2022|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/Sejpalova-Hruzova-Michaela-768x1024.jpg
+Tereza Pfeiferová|2001|BZK Praha||2021-2022|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/Pfeiferova-Tereza.jpg
+Dominika Simandlová|2002|KSB Benátky||2021-2022|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/Simandlova-Dominika-645x1024.jpg
+Petra Vaňková|1999|BZK Praha||2021-2022|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/Vankova-Petra.jpg
+Zdeněk Sejpal|2001|KSB Benátky||2021-2022|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/Sejpal-Zdenek.jpg
+Radek Fajkus|2001|KSB Benátky||2021-2022|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/Fajkus-Radek.jpg
+Jarmil Hrůza|||trener|2021-2022|ST – Senioři|http://speedskating.cz/wp-content/uploads/2021/05/CZE-Hruza-Jarmil-..jpg
