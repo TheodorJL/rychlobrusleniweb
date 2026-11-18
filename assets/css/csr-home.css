@@ -2307,6 +2307,9 @@ body { margin: 0; background: var(--csr-bg); }
 
 /* Fotky ke zprávě: dvě vedle sebe, na úzkém displeji pod sebou. */
 .csr-feedgal {
+  /* Nad roztaženým odkazem první položky (.csr-feedlink--main::after),
+     jinak by jeho neviditelná vrstva spolkla klepnutí na fotku. */
+  position: relative; z-index: 2;
   display: grid;
   /* Karta InfoFeedu je úzká (~350 px), takže práh musí být nízký,
      jinak by dvě fotky skončily pod sebou a karta by se protáhla. */
