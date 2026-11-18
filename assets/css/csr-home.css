@@ -2319,12 +2319,19 @@ body { margin: 0; background: var(--csr-bg); }
 }
 .csr-feedgal--jedna { grid-template-columns: minmax(0, 1fr); }
 .csr-feedgal__kus { margin: 0; display: grid; gap: .35rem; }
+.csr-feedgal__btn {
+  display: block; width: 100%; padding: 0; border: 0; background: none;
+  cursor: zoom-in; border-radius: var(--csr-r-sm); overflow: hidden;
+}
+.csr-feedgal__btn:focus-visible { outline: 2px solid var(--csr-accent); outline-offset: 2px; }
 .csr-feedgal__kus img {
   width: 100%; display: block;
   aspect-ratio: 4 / 3; object-fit: cover;
   border-radius: var(--csr-r-sm);
   background: var(--csr-bg-sunken);
+  transition: transform var(--csr-t-slow) var(--csr-ease-out);
 }
+.csr-feedgal__btn:hover img { transform: scale(1.04); }
 .csr-feedgal__kus figcaption {
   font-size: var(--csr-fs-xs); line-height: 1.45;
   color: var(--csr-text-muted);

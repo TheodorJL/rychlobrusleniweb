@@ -669,11 +669,6 @@ function csr_render_feed_item( $item ) {
 	$text    = trim( wp_strip_all_tags( $item->post_content ) );
 	$fotky   = csr_feed_fotky( $item->ID );
 
-	// Bez náhledového obrázku zastoupí kartu nahoře první fotka ze zprávy.
-	if ( '' === $thumb && $fotky ) {
-		$thumb = wp_get_attachment_image( $fotky[0]['id'], 'medium_large', false, array( 'alt' => '', 'loading' => 'lazy' ) );
-	}
-
 	$links = array();
 	for ( $i = 1; $i <= 3; $i++ ) {
 		$url = get_post_meta( $item->ID, "_csr_link{$i}_url", true );
@@ -727,17 +722,28 @@ function csr_render_feed_item( $item ) {
 			<?php endif; ?>
 
 			<?php if ( $fotky ) : ?>
-				<div class="csr-feedgal<?php echo 1 === count( $fotky ) ? ' csr-feedgal--jedna' : ''; ?>">
-					<?php foreach ( $fotky as $csr_foto ) : ?>
+				<?php // data-csr-gallery napojí fotky na prohlížeč, který už mají alba. ?>
+				<div class="csr-feedgal<?php echo 1 === count( $fotky ) ? ' csr-feedgal--jedna' : ''; ?>" data-csr-gallery>
+					<?php foreach ( $fotky as $csr_poradi => $csr_foto ) : ?>
+						<?php $csr_plna = wp_get_attachment_image_url( $csr_foto['id'], 'full' ); ?>
 						<figure class="csr-feedgal__kus">
-							<?php
-							echo wp_get_attachment_image(
-								$csr_foto['id'],
-								'large',
-								false,
-								array( 'alt' => $csr_foto['popis'], 'loading' => 'lazy', 'decoding' => 'async' )
-							);
-							?>
+							<button type="button" class="csr-feedgal__btn"
+								data-csr-shot
+								data-csr-full="<?php echo esc_url( (string) $csr_plna ); ?>"
+								data-csr-index="<?php echo (int) $csr_poradi; ?>"
+								<?php if ( $csr_foto['popis'] ) : ?>data-csr-caption="<?php echo esc_attr( $csr_foto['popis'] ); ?>"<?php endif; ?>>
+								<?php
+								echo wp_get_attachment_image(
+									$csr_foto['id'],
+									'large',
+									false,
+									array( 'alt' => $csr_foto['popis'], 'loading' => 'lazy', 'decoding' => 'async' )
+								);
+								?>
+								<span class="screen-reader-text">
+									<?php echo esc_html( $csr_foto['popis'] ? $csr_foto['popis'] : 'Zvětšit fotku ' . ( $csr_poradi + 1 ) ); ?>
+								</span>
+							</button>
 							<?php if ( $csr_foto['popis'] ) : ?>
 								<figcaption><?php echo esc_html( $csr_foto['popis'] ); ?></figcaption>
 							<?php endif; ?>
