@@ -2304,6 +2304,31 @@ body { margin: 0; background: var(--csr-bg); }
   color: #fff;
 }
 .csr-feeditem__top img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--csr-ease-out); }
+
+/* Fotky ke zprávě: dvě vedle sebe, na úzkém displeji pod sebou. */
+.csr-feedgal {
+  display: grid;
+  /* Karta InfoFeedu je úzká (~350 px), takže práh musí být nízký,
+     jinak by dvě fotky skončily pod sebou a karta by se protáhla. */
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: .7rem;
+  margin: .9rem 0 0;
+}
+@media (max-width: 520px) {
+  .csr-feedgal { grid-template-columns: minmax(0, 1fr); }
+}
+.csr-feedgal--jedna { grid-template-columns: minmax(0, 1fr); }
+.csr-feedgal__kus { margin: 0; display: grid; gap: .35rem; }
+.csr-feedgal__kus img {
+  width: 100%; display: block;
+  aspect-ratio: 4 / 3; object-fit: cover;
+  border-radius: var(--csr-r-sm);
+  background: var(--csr-bg-sunken);
+}
+.csr-feedgal__kus figcaption {
+  font-size: var(--csr-fs-xs); line-height: 1.45;
+  color: var(--csr-text-muted);
+}
 .csr-feeditem:hover .csr-feeditem__top img { transform: scale(1.06); }
 .csr-feeditem__ico { width: 38px; height: 38px; opacity: .85; }
 

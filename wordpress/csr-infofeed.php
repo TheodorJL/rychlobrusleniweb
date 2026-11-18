@@ -108,6 +108,124 @@ function csr_feed_metabox() {
 }
 add_action( 'add_meta_boxes', 'csr_feed_metabox' );
 
+/** Kolik fotek unese jedna zpráva. */
+const CSR_FEED_FOTEK = 4;
+
+/**
+ * Box s fotkami ke zprávě.
+ */
+function csr_feed_fotky_metabox() {
+	add_meta_box( 'csr_feed_fotky', 'Fotky a popisky', 'csr_feed_fotky_render', CSR_CPT_FEED, 'normal', 'default' );
+}
+add_action( 'add_meta_boxes', 'csr_feed_fotky_metabox' );
+
+/**
+ * Knihovna médií se v editoru zprávy musí načíst, jinak výběr fotky nejde otevřít.
+ *
+ * @param string $hook Aktuální obrazovka.
+ */
+function csr_feed_admin_assets( $hook ) {
+	global $post_type;
+	if ( CSR_CPT_FEED === $post_type && in_array( $hook, array( 'post.php', 'post-new.php' ), true ) ) {
+		wp_enqueue_media();
+	}
+}
+add_action( 'admin_enqueue_scripts', 'csr_feed_admin_assets' );
+
+/**
+ * Fotky zprávy i s popisky.
+ *
+ * @param int $post_id ID zprávy.
+ * @return array Pole [id, popis] jen pro vyplněné fotky.
+ */
+function csr_feed_fotky( $post_id ) {
+	$out = array();
+	for ( $i = 1; $i <= CSR_FEED_FOTEK; $i++ ) {
+		$id = (int) get_post_meta( $post_id, "_csr_feed_foto{$i}", true );
+		if ( $id ) {
+			$out[] = array(
+				'id'    => $id,
+				'popis' => (string) get_post_meta( $post_id, "_csr_feed_foto{$i}_popis", true ),
+			);
+		}
+	}
+	return $out;
+}
+
+/**
+ * Vykreslí výběr fotek.
+ *
+ * @param WP_Post $post Upravovaná položka.
+ */
+function csr_feed_fotky_render( $post ) {
+	?>
+	<style>
+		.csr-ff__row { display: flex; align-items: flex-start; gap: .8rem; padding: .7rem 0; border-top: 1px solid #f0f0f1; }
+		.csr-ff__row:first-child { border-top: 0; }
+		.csr-ff__nahled { width: 96px; height: 72px; flex: none; display: grid; place-items: center; background: #f0f3f6; border-radius: 4px; overflow: hidden; color: #8c8f94; font-size: 11px; }
+		.csr-ff__nahled img { width: 100%; height: 100%; object-fit: cover; display: block; }
+		.csr-ff__pole { flex: 1; display: grid; gap: .4rem; }
+		.csr-ff__pole input[type="text"] { width: 100%; }
+		.csr-ff__tlacitka { display: flex; gap: .5rem; align-items: center; }
+	</style>
+	<p class="description">Fotky se ukážou pod textem zprávy. Popisek je nepovinný. První fotka se použije i nahoře na kartě, pokud zpráva nemá náhledový obrázek.</p>
+	<div class="csr-ff">
+		<?php for ( $csr_i = 1; $csr_i <= CSR_FEED_FOTEK; $csr_i++ ) : ?>
+			<?php
+			$id    = (int) get_post_meta( $post->ID, "_csr_feed_foto{$csr_i}", true );
+			$popis = (string) get_post_meta( $post->ID, "_csr_feed_foto{$csr_i}_popis", true );
+			$nahled = $id ? wp_get_attachment_image_url( $id, 'thumbnail' ) : '';
+			?>
+			<div class="csr-ff__row" data-csr-foto="<?php echo (int) $csr_i; ?>">
+				<div class="csr-ff__nahled">
+					<?php if ( $nahled ) : ?>
+						<img src="<?php echo esc_url( $nahled ); ?>" alt="">
+					<?php else : ?>
+						<span>bez fotky</span>
+					<?php endif; ?>
+				</div>
+				<div class="csr-ff__pole">
+					<div class="csr-ff__tlacitka">
+						<button type="button" class="button csr-ff__vybrat"><?php echo $id ? 'Vyměnit fotku' : 'Vybrat fotku'; ?></button>
+						<button type="button" class="button-link csr-ff__smazat"<?php echo $id ? '' : ' style="display:none"'; ?>>Odebrat</button>
+					</div>
+					<input type="hidden" name="csr_feed_foto<?php echo (int) $csr_i; ?>" value="<?php echo (int) $id; ?>">
+					<input type="text" name="csr_feed_foto<?php echo (int) $csr_i; ?>_popis" value="<?php echo esc_attr( $popis ); ?>"
+						placeholder="Popisek pod fotkou, třeba „5000 metrů, zleva Procházka Tadeáš, Jílek Metoděj, Kočí Jakub"">
+				</div>
+			</div>
+		<?php endfor; ?>
+	</div>
+
+	<script>
+	jQuery(function ($) {
+		$('.csr-ff').on('click', '.csr-ff__vybrat', function (e) {
+			e.preventDefault();
+			var radek = $(this).closest('.csr-ff__row');
+			var ramec = wp.media({ title: 'Vyberte fotku', button: { text: 'Použít fotku' }, library: { type: 'image' }, multiple: false });
+			ramec.on('select', function () {
+				var foto = ramec.state().get('selection').first().toJSON();
+				var maly = (foto.sizes && foto.sizes.thumbnail) ? foto.sizes.thumbnail.url : foto.url;
+				radek.find('input[type=hidden]').val(foto.id);
+				radek.find('.csr-ff__nahled').html($('<img>', { src: maly, alt: '' }));
+				radek.find('.csr-ff__vybrat').text('Vyměnit fotku');
+				radek.find('.csr-ff__smazat').show();
+			});
+			ramec.open();
+		});
+		$('.csr-ff').on('click', '.csr-ff__smazat', function (e) {
+			e.preventDefault();
+			var radek = $(this).closest('.csr-ff__row');
+			radek.find('input[type=hidden]').val('');
+			radek.find('.csr-ff__nahled').html($('<span>').text('bez fotky'));
+			radek.find('.csr-ff__vybrat').text('Vybrat fotku');
+			$(this).hide();
+		});
+	});
+	</script>
+	<?php
+}
+
 /**
  * Vykreslí pole položky InfoFeedu.
  *
@@ -209,6 +327,21 @@ function csr_feed_save( $post_id ) {
 	foreach ( array( 'csr_link1_label', 'csr_link2_label', 'csr_link3_label' ) as $field ) {
 		$value = isset( $_POST[ $field ] ) ? sanitize_text_field( wp_unslash( $_POST[ $field ] ) ) : '';
 		update_post_meta( $post_id, '_' . $field, $value );
+	}
+
+	for ( $i = 1; $i <= CSR_FEED_FOTEK; $i++ ) {
+		$pole = "csr_feed_foto{$i}";
+		if ( isset( $_POST[ $pole ] ) ) {
+			$foto = absint( $_POST[ $pole ] );
+			if ( $foto ) {
+				update_post_meta( $post_id, '_' . $pole, $foto );
+			} else {
+				delete_post_meta( $post_id, '_' . $pole );
+			}
+		}
+		if ( isset( $_POST[ $pole . '_popis' ] ) ) {
+			update_post_meta( $post_id, '_' . $pole . '_popis', sanitize_text_field( wp_unslash( $_POST[ $pole . '_popis' ] ) ) );
+		}
 	}
 
 	$icon  = isset( $_POST['csr_icon'] ) ? sanitize_key( wp_unslash( $_POST['csr_icon'] ) ) : 'dokument';
@@ -534,6 +667,12 @@ function csr_render_feed_item( $item ) {
 	$slugs   = ( $sources && ! is_wp_error( $sources ) ) ? implode( ' ', wp_list_pluck( $sources, 'slug' ) ) : '';
 	$thumb   = csr_thumb_html( $item->ID, 'medium_large', array( 'alt' => '' ) );
 	$text    = trim( wp_strip_all_tags( $item->post_content ) );
+	$fotky   = csr_feed_fotky( $item->ID );
+
+	// Bez náhledového obrázku zastoupí kartu nahoře první fotka ze zprávy.
+	if ( '' === $thumb && $fotky ) {
+		$thumb = wp_get_attachment_image( $fotky[0]['id'], 'medium_large', false, array( 'alt' => '', 'loading' => 'lazy' ) );
+	}
 
 	$links = array();
 	for ( $i = 1; $i <= 3; $i++ ) {
@@ -585,6 +724,26 @@ function csr_render_feed_item( $item ) {
 
 			<?php if ( $text ) : ?>
 				<p class="csr-feeditem__text"><?php echo esc_html( $text ); ?></p>
+			<?php endif; ?>
+
+			<?php if ( $fotky ) : ?>
+				<div class="csr-feedgal<?php echo 1 === count( $fotky ) ? ' csr-feedgal--jedna' : ''; ?>">
+					<?php foreach ( $fotky as $csr_foto ) : ?>
+						<figure class="csr-feedgal__kus">
+							<?php
+							echo wp_get_attachment_image(
+								$csr_foto['id'],
+								'large',
+								false,
+								array( 'alt' => $csr_foto['popis'], 'loading' => 'lazy', 'decoding' => 'async' )
+							);
+							?>
+							<?php if ( $csr_foto['popis'] ) : ?>
+								<figcaption><?php echo esc_html( $csr_foto['popis'] ); ?></figcaption>
+							<?php endif; ?>
+						</figure>
+					<?php endforeach; ?>
+				</div>
 			<?php endif; ?>
 
 			<?php if ( $links ) : ?>
