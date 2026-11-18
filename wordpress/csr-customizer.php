@@ -385,8 +385,10 @@ function csr_settings_registry() {
 				array(
 					1 => array( 'name' => 'ISU',                        'url' => 'https://www.isu.org/' ),
 					2 => array( 'name' => 'Czech Olympic Team',         'url' => 'https://www.olympijskytym.cz/' ),
-					3 => array( 'name' => 'Olymp Centrum sportu',       'url' => 'https://www.olympcsmv.cz/' ),
-					4 => array( 'name' => 'Národní sportovní agentura', 'url' => 'https://agenturasport.cz/' ),
+					// Olympcsmv.cz i agenturasport.cz dnes přesměrovávají na gov.cz adresy.
+					3 => array( 'name' => 'Olymp Centrum sportu',       'url' => 'https://olymp.gov.cz/' ),
+					4 => array( 'name' => 'Národní sportovní agentura', 'url' => 'https://nsa.gov.cz/' ),
+					5 => array( 'name' => 'Under Armour',               'url' => 'https://www.underarmour.cz/' ),
 				)
 			)
 		),
